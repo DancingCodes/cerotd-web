@@ -76,7 +76,6 @@ const toggleLocale = () => {
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variables' as *;
-@use '@/assets/styles/mixins' as *;
 
 .header {
   position: sticky;
@@ -89,7 +88,11 @@ const toggleLocale = () => {
 
 .nav {
   .nav-container {
-    @include container;
+    width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
     min-height: 74px;
     display: flex;
     align-items: center;
@@ -170,7 +173,11 @@ const toggleLocale = () => {
   }
 
   .nav-mobile {
-    @include container;
+    width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
     display: flex;
     flex-direction: column;
     gap: 4px;

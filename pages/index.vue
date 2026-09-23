@@ -90,14 +90,35 @@
 </template>
 
 <script setup lang="ts">
-const products = useLocaleItems<{ name: string; desc: string }>('home.products.items', ['name', 'desc'])
-const services = useLocaleItems<{ name: string; desc: string }>('home.services.items', ['name', 'desc'])
-const advantages = useLocaleItems<{ name: string; desc: string }>('home.advantages.items', ['name', 'desc'])
+const { t, locale } = useI18n()
+
+const products = computed(() => {
+  locale.value
+  return [1, 2, 3, 4].map((n) => ({
+    name: t(`home.products.items.item${n}.name`),
+    desc: t(`home.products.items.item${n}.desc`)
+  }))
+})
+
+const services = computed(() => {
+  locale.value
+  return [1, 2, 3].map((n) => ({
+    name: t(`home.services.items.item${n}.name`),
+    desc: t(`home.services.items.item${n}.desc`)
+  }))
+})
+
+const advantages = computed(() => {
+  locale.value
+  return [1, 2, 3, 4].map((n) => ({
+    name: t(`home.advantages.items.item${n}.name`),
+    desc: t(`home.advantages.items.item${n}.desc`)
+  }))
+})
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variables' as *;
-@use '@/assets/styles/mixins' as *;
 
 .home-page {
   background: $white;
@@ -128,7 +149,11 @@ const advantages = useLocaleItems<{ name: string; desc: string }>('home.advantag
   .hero-content {
     position: relative;
     z-index: 1;
-    @include container;
+    width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
     max-width: 920px;
     padding-top: 72px;
     padding-bottom: 72px;
@@ -213,7 +238,11 @@ const advantages = useLocaleItems<{ name: string; desc: string }>('home.advantag
 }
 
 .section {
-  @include section-space;
+  padding: 96px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
 }
 
 .section-header {
@@ -270,7 +299,12 @@ const advantages = useLocaleItems<{ name: string; desc: string }>('home.advantag
   background: $white;
   border: 1px solid rgba($gray-200, 0.9);
   box-shadow: $shadow-soft;
-  @include hover-lift;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-strong;
+  }
 
   .product-card-visual {
     aspect-ratio: 1 / 0.85;

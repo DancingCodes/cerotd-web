@@ -66,7 +66,6 @@
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variables' as *;
-@use '@/assets/styles/mixins' as *;
 
 .page-hero {
   padding: 88px 0 72px;
@@ -100,7 +99,11 @@
 }
 
 .section {
-  @include section-space;
+  padding: 96px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
 }
 
 .content {

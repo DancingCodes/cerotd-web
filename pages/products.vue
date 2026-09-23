@@ -54,12 +54,20 @@
 </template>
 
 <script setup lang="ts">
-const categories = useLocaleItems<{ name: string; desc: string; points: string[] }>('products.categories.items', ['name', 'desc', 'points'])
+const { t, locale } = useI18n()
+
+const categories = computed(() => {
+  locale.value
+  return [1, 2, 3, 4].map((n) => ({
+    name: t(`products.categories.items.item${n}.name`),
+    desc: t(`products.categories.items.item${n}.desc`),
+    points: [1, 2, 3].map((p) => t(`products.categories.items.item${n}.points.p${p}`))
+  }))
+})
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variables' as *;
-@use '@/assets/styles/mixins' as *;
 
 .page-hero {
   padding: 88px 0 72px;
@@ -93,7 +101,11 @@ const categories = useLocaleItems<{ name: string; desc: string; points: string[]
 }
 
 .section {
-  @include section-space;
+  padding: 96px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
 }
 
 .section-header {

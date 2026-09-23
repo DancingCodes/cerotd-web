@@ -29,7 +29,7 @@
           <h2 class="section-title">{{ $t('services.process.title') }}</h2>
         </div>
         <div class="process-grid">
-          <article v-for="item in process" :key="item.step" class="process-card">
+          <article v-for="item in processSteps" :key="item.step" class="process-card">
             <div class="process-card-step">{{ item.step }}</div>
             <h3 class="process-card-title">{{ item.name }}</h3>
             <p class="process-card-desc">{{ item.desc }}</p>
@@ -41,13 +41,28 @@
 </template>
 
 <script setup lang="ts">
-const list = useLocaleItems<{ name: string; desc: string }>('services.list.items', ['name', 'desc'])
-const process = useLocaleItems<{ step: string; name: string; desc: string }>('services.process.items', ['step', 'name', 'desc'])
+const { t, locale } = useI18n()
+
+const list = computed(() => {
+  locale.value
+  return [1, 2, 3, 4].map((n) => ({
+    name: t(`services.list.items.item${n}.name`),
+    desc: t(`services.list.items.item${n}.desc`)
+  }))
+})
+
+const processSteps = computed(() => {
+  locale.value
+  return [1, 2, 3, 4].map((n) => ({
+    step: t(`services.process.items.item${n}.step`),
+    name: t(`services.process.items.item${n}.name`),
+    desc: t(`services.process.items.item${n}.desc`)
+  }))
+})
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variables' as *;
-@use '@/assets/styles/mixins' as *;
 
 .page-hero {
   padding: 88px 0 72px;
@@ -81,7 +96,11 @@ const process = useLocaleItems<{ step: string; name: string; desc: string }>('se
 }
 
 .section {
-  @include section-space;
+  padding: 96px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
 }
 
 .section-header {

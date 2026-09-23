@@ -68,7 +68,6 @@ const year = new Date().getFullYear()
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variables' as *;
-@use '@/assets/styles/mixins' as *;
 
 .footer {
   background: $dark-bg;
@@ -76,7 +75,11 @@ const year = new Date().getFullYear()
   padding: 72px 0 36px;
 
   .footer-container {
-    @include container;
+    width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
   }
 
   .footer-grid {

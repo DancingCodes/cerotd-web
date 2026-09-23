@@ -52,13 +52,27 @@
 </template>
 
 <script setup lang="ts">
-const values = useLocaleItems<{ name: string; desc: string }>('about.values.items', ['name', 'desc'])
-const milestones = useLocaleItems<{ year: string; text: string }>('about.milestones.items', ['year', 'text'])
+const { t, locale } = useI18n()
+
+const values = computed(() => {
+  locale.value
+  return [1, 2, 3].map((n) => ({
+    name: t(`about.values.items.item${n}.name`),
+    desc: t(`about.values.items.item${n}.desc`)
+  }))
+})
+
+const milestones = computed(() => {
+  locale.value
+  return [1, 2, 3].map((n) => ({
+    year: t(`about.milestones.items.item${n}.year`),
+    text: t(`about.milestones.items.item${n}.text`)
+  }))
+})
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variables' as *;
-@use '@/assets/styles/mixins' as *;
 
 .page-hero {
   padding: 88px 0 72px;
@@ -93,7 +107,11 @@ const milestones = useLocaleItems<{ year: string; text: string }>('about.milesto
 }
 
 .section {
-  @include section-space;
+  padding: 96px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
 }
 
 .section-header {

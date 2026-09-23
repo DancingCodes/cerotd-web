@@ -40,13 +40,27 @@
 </template>
 
 <script setup lang="ts">
-const pillars = useLocaleItems<{ name: string; desc: string }>('advantages.pillars.items', ['name', 'desc'])
-const compare = useLocaleItems<{ name: string; desc: string }>('advantages.compare.items', ['name', 'desc'])
+const { t, locale } = useI18n()
+
+const pillars = computed(() => {
+  locale.value
+  return [1, 2, 3, 4].map((n) => ({
+    name: t(`advantages.pillars.items.item${n}.name`),
+    desc: t(`advantages.pillars.items.item${n}.desc`)
+  }))
+})
+
+const compare = computed(() => {
+  locale.value
+  return [1, 2, 3].map((n) => ({
+    name: t(`advantages.compare.items.item${n}.name`),
+    desc: t(`advantages.compare.items.item${n}.desc`)
+  }))
+})
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variables' as *;
-@use '@/assets/styles/mixins' as *;
 
 .page-hero {
   padding: 88px 0 72px;
@@ -80,7 +94,11 @@ const compare = useLocaleItems<{ name: string; desc: string }>('advantages.compa
 }
 
 .section {
-  @include section-space;
+  padding: 96px 0;
+
+  @media (min-width: 768px) {
+    padding: 120px 0;
+  }
 }
 
 .section-header {
