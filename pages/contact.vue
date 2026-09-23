@@ -56,7 +56,7 @@
               <textarea class="form-field-textarea" rows="5" :placeholder="$t('contact.form.message')"></textarea>
             </div>
           </div>
-          <div type="submit" class="form-submit">{{ $t('contact.form.submit') }}</div>
+          <div class="form-submit">{{ $t('contact.form.submit') }}</div>
           <div class="form-tip">{{ $t('contact.form.tip') }}</div>
         </div>
       </div>
@@ -222,6 +222,7 @@
       }
 
       .form-submit {
+        width: 100%;
         margin-top: 20px;
         min-height: 52px;
         padding: 0 28px;
@@ -232,6 +233,9 @@
         font-weight: 650;
         transition: all 0.25s ease;
         cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
           transform: translateY(-1px);

@@ -216,8 +216,6 @@ const milestones = computed(() => {
     }
   }
 
-
-
   .milestones {
     background: #ffffff;
 
@@ -253,7 +251,5 @@ const milestones = computed(() => {
       }
     }
   }
-
-
 }
 </style>
