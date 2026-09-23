@@ -1,2 +1,7 @@
 .nuxt
 node_modules
+.wrangler
+.dev.vars
+.output
+dist
+.env

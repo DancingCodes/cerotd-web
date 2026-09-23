@@ -7,7 +7,12 @@
     "start": "nuxt dev",
     "build": "nuxt build",
     "preview": "nuxt preview",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "build:cf": "nuxt build --preset cloudflare_module",
+    "db:migrate:local": "wrangler d1 migrations apply cerotd --local",
+    "db:seed:local": "wrangler d1 execute cerotd --local --file=./database/seed.sql",
+    "db:migrate:remote": "wrangler d1 migrations apply cerotd --remote",
+    "db:seed:remote": "wrangler d1 execute cerotd --remote --file=./database/seed.sql"
   },
   "dependencies": {
     "@nuxtjs/i18n": "^10.6.0",
@@ -17,9 +22,12 @@
     "vue": "^3.5.43"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260923.1",
     "@nuxt/devtools": "^3.4.2",
+    "nitro-cloudflare-dev": "^0.2.2",
     "sass": "^1.105.0",
     "typescript": "^5.9.3",
-    "vue-tsc": "^3.3.11"
+    "vue-tsc": "^3.3.11",
+    "wrangler": "^4.136.3"
   }
 }

@@ -1,0 +1,5 @@
+# Cloudflare local bindings (.dev.vars)
+ADMIN_API_TOKEN=dev-admin-token
+
+# Also create a local .env for Nuxt runtimeConfig:
+# NUXT_ADMIN_API_TOKEN=dev-admin-token

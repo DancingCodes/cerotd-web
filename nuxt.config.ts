@@ -1,6 +1,9 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-09-23',
-  modules: ['@nuxtjs/i18n', '@vueuse/motion/nuxt'],
+  modules: ['@nuxtjs/i18n', '@vueuse/motion/nuxt', 'nitro-cloudflare-dev'],
+  runtimeConfig: {
+    adminApiToken: ''
+  },
   css: ['modern-normalize/modern-normalize.css', '~/assets/styles/main.scss', '~/assets/styles/common.scss'],
   typescript: {
     typeCheck: false,

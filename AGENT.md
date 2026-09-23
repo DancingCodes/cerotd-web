@@ -6,6 +6,8 @@
 
 本项目是企业门户网站，核心产品为机械润滑油。
 
+这是面向 Google 的独立站（非平台店铺），用于海外获客与品牌展示；内容与结构需兼顾搜索可见性，但不要做成关键词堆砌站。
+
 目标不是做成普通企业站模板，而是做出有品牌感、有信任感的工业科技门户。页面整体气质要大气、克制、专业，可参考苹果官网等一线品牌站的表现方式：大留白、强层级、精致动效、少而准的信息密度。
 
 ## 设计方向
@@ -103,3 +105,13 @@
 - 样式优先写固定值，不使用 `clamp()` 这类复杂表达式
 - 能直写就直写，避免为了“更完善”增加理解成本
 
+
+## 数据与接口
+
+- 数据库：Cloudflare D1（binding 名 `DB`）
+- 本地开发通过 `nitro-cloudflare-dev` + `wrangler.toml` 使用本地 D1
+- 商品分类接口：`/api/categories`
+- 写接口（POST/PUT/DELETE）需要请求头 `Authorization: Bearer <ADMIN_API_TOKEN>`
+- 本地可复制 `.dev.vars.example` 为 `.dev.vars`
+- 图片先存 URL 字段（如 `cover_url`），对象存储后续再接
+- 部署 Cloudflare 时使用 `npm run build:cf`，并在控制台创建 D1 后把 `wrangler.toml` 里的 `database_id` 换成真实 ID
