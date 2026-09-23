@@ -1,0 +1,96 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "contact": "Contact",
+    "learnMore": "Learn More"
+  },
+  "home": {
+    "badge": "Advanced Lubrication Technology",
+    "hero": {
+      "title": "Engineering Excellence in Lubrication Solutions",
+      "subtitle": "Professional manufacturer of high-performance lubricating oils and greases, integrating R&D, production, and quality assurance.",
+      "cta_primary": "View Products",
+      "cta_secondary": "Contact Us"
+    },
+    "products": {
+      "title": "Core Product Line",
+      "subtitle": "Comprehensive lubrication solutions for diverse industrial applications",
+      "product1": {
+        "name": "Industrial Lubricants",
+        "desc": "High-performance lubricants for heavy machinery and industrial equipment"
+      },
+      "product2": {
+        "name": "Automotive Oils",
+        "desc": "Premium engine oils and transmission fluids for modern vehicles"
+      },
+      "product3": {
+        "name": "Specialty Greases",
+        "desc": "Advanced grease formulations for extreme conditions"
+      },
+      "product4": {
+        "name": "Metalworking Fluids",
+        "desc": "Precision fluids for cutting, grinding, and forming operations"
+      },
+      "learn_more": "Learn More"
+    },
+    "technology": {
+      "title": "Research & Development Excellence",
+      "subtitle": "Cutting-edge technology and continuous innovation drive our product development",
+      "feature1": {
+        "title": "Advanced Formulation",
+        "desc": "Proprietary additive technology for superior performance and extended service life"
+      },
+      "feature2": {
+        "title": "Quality Assurance",
+        "desc": "ISO-certified testing facilities ensuring consistent product excellence"
+      },
+      "feature3": {
+        "title": "Technical Support",
+        "desc": "Expert engineering team providing customized lubrication solutions"
+      }
+    },
+    "applications": {
+      "title": "Industry Applications",
+      "subtitle": "Trusted by leading companies across multiple sectors",
+      "app1": {
+        "name": "Automotive",
+        "desc": "Engine oils, transmission fluids, and maintenance products"
+      },
+      "app2": {
+        "name": "Manufacturing",
+        "desc": "Metalworking fluids and industrial lubricants"
+      },
+      "app3": {
+        "name": "Energy",
+        "desc": "Specialized lubricants for power generation equipment"
+      },
+      "app4": {
+        "name": "Mining",
+        "desc": "Heavy-duty lubricants for extreme operating conditions"
+      },
+      "app5": {
+        "name": "Marine",
+        "desc": "Marine lubricants for ships and offshore equipment"
+      },
+      "app6": {
+        "name": "Aviation",
+        "desc": "High-performance aviation lubricants and greases"
+      }
+    },
+    "partners": {
+      "title": "Trusted by Industry Leaders"
+    },
+    "cta": {
+      "title": "Ready to Optimize Your Operations?",
+      "subtitle": "Contact our technical team to discuss your lubrication requirements",
+      "button": "Get In Touch"
+    }
+  },
+  "about": {
+    "title": "About Cerotd",
+    "subtitle": "Professional Lubrication Technology Company",
+    "description": "Cerotd (Shandong) Lubrication Technology Co., Ltd. is a modern, comprehensive and professional manufacturer of lubricating oils and greases, integrating R&D, production, and quality assurance."
+  }
+}
