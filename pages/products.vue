@@ -16,11 +16,7 @@
         </div>
 
         <div class="categories-list">
-          <div
-            v-for="(item, index) in categories"
-            :key="item.name"
-            class="category-card"
-          >
+          <div v-for="(item, index) in categories" :key="item.name" class="category-card">
             <div class="category-card-visual">
               <div class="category-card-index">0{{ index + 1 }}</div>
             </div>
@@ -28,11 +24,7 @@
               <div class="category-card-title">{{ item.name }}</div>
               <div class="category-card-desc">{{ item.desc }}</div>
               <div class="category-card-points">
-                <div
-                  v-for="point in item.points"
-                  :key="point"
-                  class="category-card-point"
-                >
+                <div v-for="point in item.points" :key="point" class="category-card-point">
                   {{ point }}
                 </div>
               </div>

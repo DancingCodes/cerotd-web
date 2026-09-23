@@ -7,12 +7,7 @@
         </NuxtLink>
 
         <div class="nav-desktop">
-          <NuxtLink
-            v-for="item in navItems"
-            :key="item.to"
-            :to="item.to"
-            class="nav-link"
-          >
+          <NuxtLink v-for="item in navItems" :key="item.to" :to="item.to" class="nav-link">
             {{ $t(item.label) }}
           </NuxtLink>
 
@@ -21,11 +16,7 @@
           </div>
         </div>
 
-        <div
-          class="nav-mobile-btn"
-          :aria-expanded="mobileMenuOpen"
-          @click="mobileMenuOpen = !mobileMenuOpen"
-        >
+        <div class="nav-mobile-btn" :aria-expanded="mobileMenuOpen" @click="mobileMenuOpen = !mobileMenuOpen">
           <div class="nav-mobile-btn-line"></div>
           <div class="nav-mobile-btn-line"></div>
           <div class="nav-mobile-btn-line"></div>
@@ -33,13 +24,8 @@
       </div>
 
       <div v-if="mobileMenuOpen" class="nav-mobile">
-        <NuxtLink
-          v-for="item in navItems"
-          :key="`mobile-${item.to}`"
-          :to="item.to"
-          class="nav-mobile-link"
-          @click="mobileMenuOpen = false"
-        >
+        <NuxtLink v-for="item in navItems" :key="`mobile-${item.to}`" :to="item.to" class="nav-mobile-link"
+          @click="mobileMenuOpen = false">
           {{ $t(item.label) }}
         </NuxtLink>
         <div class="nav-mobile-lang" @click="toggleLocale">
@@ -86,10 +72,10 @@ const toggleLocale = () => {
 .nav {
   .nav-container {
     width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
     min-height: 74px;
     display: flex;
     align-items: center;
@@ -173,10 +159,10 @@ const toggleLocale = () => {
 
   .nav-mobile {
     width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
     display: flex;
     flex-direction: column;
     gap: 4px;

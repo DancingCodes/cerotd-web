@@ -74,10 +74,10 @@ const year = new Date().getFullYear()
 
   .footer-container {
     width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   .footer-grid {
@@ -132,7 +132,7 @@ const year = new Date().getFullYear()
 
         .footer-link {
           color: #9aa3af;
-      text-decoration: none;
+          text-decoration: none;
           transition: all 0.25s ease;
 
           &:hover {

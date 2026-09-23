@@ -20,11 +20,7 @@
           <div class="section-subtitle">{{ $t('home.products.subtitle') }}</div>
         </div>
         <div class="products-grid">
-          <div
-            v-for="(item, index) in products"
-            :key="item.name"
-            class="product-card"
-          >
+          <div v-for="(item, index) in products" :key="item.name" class="product-card">
             <div class="product-card-visual">
               <div class="product-card-index">0{{ index + 1 }}</div>
             </div>
@@ -45,11 +41,7 @@
           <div class="section-subtitle">{{ $t('home.services.subtitle') }}</div>
         </div>
         <div class="services-grid">
-          <div
-            v-for="(item, index) in services"
-            :key="item.name"
-            class="service-card"
-          >
+          <div v-for="(item, index) in services" :key="item.name" class="service-card">
             <div class="service-card-index">0{{ index + 1 }}</div>
             <div class="service-card-title">{{ item.name }}</div>
             <div class="service-card-desc">{{ item.desc }}</div>
@@ -65,11 +57,7 @@
           <div class="section-subtitle">{{ $t('home.advantages.subtitle') }}</div>
         </div>
         <div class="advantages-grid">
-          <div
-            v-for="item in advantages"
-            :key="item.name"
-            class="advantage-card"
-          >
+          <div v-for="item in advantages" :key="item.name" class="advantage-card">
             <div class="advantage-card-title">{{ item.name }}</div>
             <div class="advantage-card-desc">{{ item.desc }}</div>
           </div>
@@ -148,10 +136,10 @@ const advantages = computed(() => {
     position: relative;
     z-index: 1;
     width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
     max-width: 920px;
     padding-top: 72px;
     padding-bottom: 72px;
