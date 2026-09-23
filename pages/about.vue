@@ -1,5 +1,7 @@
 <template>
   <div class="about-page">
+    <Header />
+
     <div class="about-container">
       <h1 class="about-title">
         {{ $t('about.title') }}
@@ -8,6 +10,8 @@
         {{ $t('about.description') }}
       </p>
     </div>
+
+    <Footer />
   </div>
 </template>
 

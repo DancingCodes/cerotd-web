@@ -1,5 +1,7 @@
 <template>
   <div class="home-page">
+    <Header />
+
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-overlay"></div>
@@ -134,6 +136,8 @@
         </div>
       </div>
     </section>
+
+    <Footer />
   </div>
 </template>
 
