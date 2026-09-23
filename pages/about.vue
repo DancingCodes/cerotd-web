@@ -16,7 +16,7 @@
         <div class="intro-panel">
           <video
             class="intro-panel-video"
-            src="/factory.mp4"
+            src="https://cdn.moonc.love/files/2026-09/0801a9d1-c139-49ca-92b8-16a1ce7514e8.mp4"
             autoplay
             muted
             loop
