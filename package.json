@@ -17,7 +17,7 @@
     "vue": "^3.5.43"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
+    "@nuxt/devtools": "^3.4.2",
     "sass": "^1.105.0",
     "typescript": "^5.9.3",
     "vue-tsc": "^3.3.11"
