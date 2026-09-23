@@ -1,4 +1,4 @@
-export type ProductCategory = 'gasoline' | 'diesel' | 'transmission' | 'gear' | 'antifreeze'
+export type ProductCategory = 'gasoline' | 'diesel' | 'transmission' | 'gear' | 'antifreeze' | 'hydraulic' | 'grease'
 
 export type ProductItem = {
   slug: string
@@ -10,7 +10,9 @@ export const productCategories: ProductCategory[] = [
   'diesel',
   'transmission',
   'gear',
-  'antifreeze'
+  'antifreeze',
+  'hydraulic',
+  'grease'
 ]
 
 export const products: ProductItem[] = [
@@ -23,7 +25,11 @@ export const products: ProductItem[] = [
   { slug: 'gear-85w140', category: 'gear' },
   { slug: 'gear-gl5', category: 'gear' },
   { slug: 'coolant-organic', category: 'antifreeze' },
-  { slug: 'coolant-longlife', category: 'antifreeze' }
+  { slug: 'coolant-longlife', category: 'antifreeze' },
+  { slug: 'hydraulic-aw46', category: 'hydraulic' },
+  { slug: 'hydraulic-aw68', category: 'hydraulic' },
+  { slug: 'grease-lithium', category: 'grease' },
+  { slug: 'grease-ep', category: 'grease' }
 ]
 
 export function getProduct(slug: string) {

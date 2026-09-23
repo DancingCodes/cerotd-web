@@ -52,6 +52,7 @@
 
         <div class="form-panel">
           <div class="form-title">{{ $t('contact.form.title') }}</div>
+          <div class="form-notice">{{ $t('contact.form.notice') }}</div>
           <div class="form-grid">
             <div class="form-field">
               <div class="form-field-label">{{ $t('contact.form.name') }}</div>
@@ -69,6 +70,36 @@
               <div class="form-field-label">{{ $t('contact.form.phone') }}</div>
               <input class="form-field-input" type="tel" :placeholder="$t('contact.form.phone')" />
             </div>
+            <div class="form-field">
+              <div class="form-field-label">{{ $t('contact.form.country') }}</div>
+              <input class="form-field-input" type="text" :placeholder="$t('contact.form.country')" />
+            </div>
+            <div class="form-field">
+              <div class="form-field-label">{{ $t('contact.form.im') }}</div>
+              <input class="form-field-input" type="text" :placeholder="$t('contact.form.im')" />
+            </div>
+            <div class="form-field form-field-full">
+              <div class="form-field-label">{{ $t('contact.form.bulk') }}</div>
+              <div class="form-radio-list">
+                <div class="form-radio-item">
+                  <input type="radio" name="bulk" value="yes" />
+                  <div>{{ $t('contact.form.bulkYes') }}</div>
+                </div>
+                <div class="form-radio-item">
+                  <input type="radio" name="bulk" value="no" />
+                  <div>{{ $t('contact.form.bulkNo') }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-field form-field-full">
+              <div class="form-field-label">{{ $t('contact.form.product') }}</div>
+              <select class="form-field-input">
+                <option value="">{{ $t('contact.form.productPlaceholder') }}</option>
+                <option v-for="category in productCategories" :key="category" :value="category">
+                  {{ $t(`products.categoryNames.${category}`) }}
+                </option>
+              </select>
+            </div>
             <div class="form-field form-field-full">
               <div class="form-field-label">{{ $t('contact.form.message') }}</div>
               <textarea class="form-field-textarea" rows="5" :placeholder="$t('contact.form.message')"></textarea>
@@ -81,6 +112,11 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { productCategories } from '~/data/products'
+</script>
+
 <style lang="scss" scoped>
 .contact-page {
   .page-hero {
@@ -197,10 +233,41 @@
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 
       .form-title {
-        margin-bottom: 24px;
+        margin-bottom: 16px;
         font-size: 28px;
         letter-spacing: -0.02em;
         color: #111827;
+      }
+
+      .form-notice {
+        margin-bottom: 24px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: rgba(#1aa6b8, 0.08);
+        border: 1px solid rgba(#1aa6b8, 0.18);
+        color: #0f4c56;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .form-radio-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .form-radio-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 0 14px;
+        border-radius: 999px;
+        background: #f7f8fa;
+        border: 1px solid #e2e6eb;
+        color: #111827;
+        font-size: 14px;
+        cursor: pointer;
       }
 
       .form-grid {

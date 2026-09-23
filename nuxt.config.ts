@@ -8,10 +8,10 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: '赛罗特 Cerotd',
+      title: 'Cerotd | Shandong Lubrication Technology',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: '赛罗特（山东）润滑科技有限公司' }
+        { name: 'description', content: 'Cerotd (Shandong) Lubrication Technology Co., Ltd. — lubricants and greases manufacturer' }
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/logo.png' }
@@ -20,10 +20,10 @@ export default defineNuxtConfig({
   },
   i18n: {
     locales: [
-      { code: 'zh', language: 'zh-CN', name: '中文', file: 'zh.json' },
-      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
+      { code: 'zh', language: 'zh-CN', name: '中文', file: 'zh.json' }
     ],
-    defaultLocale: 'zh',
+    defaultLocale: 'en',
     langDir: 'locales',
     strategy: 'no_prefix',
     detectBrowserLanguage: false,

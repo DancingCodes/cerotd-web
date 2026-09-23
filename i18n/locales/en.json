@@ -17,7 +17,7 @@
     "language": "Language"
   },
   "footer": {
-    "tagline": "Mechanical lubricants and industrial lubrication solutions",
+    "tagline": "A manufacturer of lubricants and greases integrating R&D, production, sales, service, technical training, and logistics",
     "productsTitle": "Products",
     "companyTitle": "Company",
     "contactTitle": "Contact",
@@ -28,31 +28,32 @@
     "aboutUs": "About Us",
     "ourServices": "Services",
     "ourAdvantages": "Advantages",
-    "location": "Rencheng, Jining, Shandong, China",
-    "email": "info{'@'}cerotd.com",
+    "location": "New Materials Industrial Park, Rencheng, Jining, Shandong, China — 150m south of Cenguang Rd & Lantian Rd",
     "phone": "+86 152 6379 2384",
     "copyright": "Cerotd (Shandong) Lubrication Technology Co., Ltd. All rights reserved.",
     "product5": "Antifreeze",
     "socialTitle": "Follow Us",
     "wechatTitle": "WeChat",
-    "wechatId": "13953717716"
+    "wechatId": "13953717716",
+    "product6": "Anti-wear Hydraulic Oil",
+    "product7": "Grease"
   },
   "home": {
-    "badge": "Mechanical Lubricants · Industrial Solutions",
+    "badge": "Lubricants · Greases · Industrial Solutions",
     "hero": {
-      "title": "Lubrication technology that keeps machines running",
-      "subtitle": "Reliable lubricant products and technical support for industrial and mechanical equipment scenarios.",
+      "title": "Professional lubrication technology for efficient operation",
+      "subtitle": "Cerotd is a modern comprehensive manufacturer of lubricating oils and greases, integrating R&D, production, sales, service, technical training, and logistics for automotive, industrial, and construction equipment.",
       "ctaPrimary": "Browse Products",
       "ctaSecondary": "Talk to Us",
-      "panelTitle": "Industrial Lubrication Matrix",
-      "panelDesc": "Covering powertrain, transmission, and cooling protection for continuous and heavy-duty operations.",
-      "panelTag1": "Wear Protection",
-      "panelTag2": "Long-term Stability",
-      "panelTag3": "Condition Fit"
+      "panelTitle": "Integrated manufacturing capability",
+      "panelDesc": "Automated blending lines, strict quality control, and complete testing systems for stable delivery and application fit.",
+      "panelTag1": "100,000+ tons/year",
+      "panelTag2": "ISO certified",
+      "panelTag3": "Global formula partners"
     },
     "products": {
       "title": "Core Products",
-      "subtitle": "Covering engine, transmission, and cooling protection needs",
+      "subtitle": "Covering industrial oils, automotive oils, special oils, construction machinery oils, and automotive care products",
       "items": {
         "item1": {
           "name": "Gasoline Engine Oil",
@@ -73,53 +74,61 @@
         "item5": {
           "name": "Antifreeze",
           "desc": "Cooling system protection against freezing, boiling, and corrosion."
+        },
+        "item6": {
+          "name": "Anti-wear Hydraulic Oil",
+          "desc": "Wear protection and stable operation for industrial and construction hydraulics."
+        },
+        "item7": {
+          "name": "Grease",
+          "desc": "Adhesion and EP protection for bearings and heavy-duty friction points."
         }
       }
     },
     "services": {
       "title": "Professional Services",
-      "subtitle": "From product selection to application support for a more efficient lubrication system",
+      "subtitle": "From R&D and production to technical training and logistics delivery",
       "items": {
         "item1": {
-          "name": "Selection Consulting",
-          "desc": "Match products to equipment conditions and maintenance goals."
+          "name": "R&D & Selection",
+          "desc": "Match formulation direction and products to real equipment conditions."
         },
         "item2": {
-          "name": "Application Support",
-          "desc": "Help evaluate on-site usage and reduce abnormal wear risks."
+          "name": "Production & QC",
+          "desc": "Automated blending and complete testing equipment for batch stability."
         },
         "item3": {
-          "name": "Quality Assurance",
-          "desc": "Stable formulation and testing for consistent batch quality."
+          "name": "Training & Logistics",
+          "desc": "Technical training support with coordinated logistics delivery."
         }
       }
     },
     "advantages": {
       "title": "Why Cerotd",
-      "subtitle": "Clear capabilities that build long-term trust",
+      "subtitle": "Factory scale, certification systems, and international technical cooperation",
       "items": {
         "item1": {
-          "name": "Formulation Strength",
-          "desc": "Optimization based on real operating conditions, not just datasheets."
+          "name": "Scaled Factory",
+          "desc": "More than 85 mu of factory area, about 10,000㎡ of standardized workshops, and up to 15,000 m³ oil storage."
         },
         "item2": {
-          "name": "Stable Quality Delivery",
-          "desc": "Consistency and traceable quality management across batches."
+          "name": "Certifications & Materials",
+          "desc": "ISO 9001, environmental, and OHSAS 18001 systems; base oils and additives from Fortune Global 500 resources."
         },
         "item3": {
-          "name": "Scenario-based Solutions",
-          "desc": "Product combinations tailored to industries and equipment types."
+          "name": "Automated Capacity",
+          "desc": "Annual capacity exceeds 100,000 tons across industrial, automotive, special, and construction machinery oils."
         },
         "item4": {
-          "name": "Long-term Collaboration",
-          "desc": "More than supply — continuous lubrication system improvement."
+          "name": "Technical Collaboration",
+          "desc": "Cooperation with Lubrizol, Infineum, Rhein Chemie, and research institutes for continuous upgrades."
         }
       }
     },
     "cta": {
-      "title": "Ready to improve lubrication performance?",
-      "subtitle": "Share your operating conditions and goals. We will provide practical product and service recommendations.",
-      "button": "Request a Proposal"
+      "title": "Need full-container or bulk lubricant supply?",
+      "subtitle": "We are a factory direct supplier focused on full-container and large-volume orders. Tell us your market and product needs — our sales team will contact you within 24 hours.",
+      "button": "Get a Proposal"
     },
     "stats": {
       "item1": {
@@ -143,43 +152,43 @@
   "about": {
     "hero": {
       "title": "About Cerotd",
-      "subtitle": "Professional lubrication technology company"
+      "subtitle": "Modern comprehensive manufacturer of lubricating oils and greases"
     },
     "intro": {
-      "title": "Serving industrial efficiency with lubrication technology",
-      "desc": "Cerotd (Shandong) Lubrication Technology Co., Ltd. is dedicated to the development, production, and application support of mechanical lubricants. We believe a strong lubrication solution should be stable, reliable, and maintainable over time. This copy is placeholder content and can be replaced later."
+      "title": "Integrated R&D, production, sales, and service",
+      "desc": "Cerotd (Shandong) Lubrication Technology Co., Ltd. is a modern, comprehensive manufacturer of lubricating oils and greases, integrating R&D, production, sales, service, technical training, and logistics distribution, with considerable industry scale and influence in the domestic market. Located in Jining, Shandong, and rooted in the New Material Industrial Park, the factory is equipped with advanced fully automatic blending production lines and a strict quality management system. We have long focused on automotive lubricant R&D and innovation, delivering high-tech, specialized, and comprehensive lubricant production solutions for diverse equipment needs."
     },
     "values": {
       "title": "What we value",
       "items": {
         "item1": {
-          "name": "Expertise",
-          "desc": "Turn complex operating conditions into actionable product and service plans."
+          "name": "Systemized Quality",
+          "desc": "ISO quality, environmental, and occupational health & safety systems supporting stable delivery."
         },
         "item2": {
-          "name": "Stability",
-          "desc": "Prioritize delivery consistency over short-term specification highlights."
+          "name": "Materials & Formulas",
+          "desc": "Base oils, additives, and technical formulas introduced from Fortune Global 500 enterprise resources."
         },
         "item3": {
-          "name": "Long-term thinking",
-          "desc": "Work with customers to improve equipment life and maintenance cost."
+          "name": "Continuous R&D",
+          "desc": "Cooperation with global partners and research institutes to keep upgrading products and technology."
         }
       }
     },
     "milestones": {
-      "title": "Our rhythm",
+      "title": "Factory Strength",
       "items": {
         "item1": {
-          "year": "Start",
-          "text": "Define product direction around industrial lubrication needs."
+          "year": "Site Scale",
+          "text": "Factory covers more than 85 mu (approx. 56,667㎡), with about 10,000㎡ of standardized workshops and up to 15,000 m³ oil storage."
         },
         "item2": {
-          "year": "Expand",
-          "text": "Grow into multiple lubricant categories and application services."
+          "year": "Capacity",
+          "text": "Annual production capacity exceeds 100,000 tons across industrial, automotive, special, construction machinery, and auto-care products."
         },
         "item3": {
-          "year": "Deepen",
-          "text": "Strengthen R&D, testing, and customer collaboration capabilities."
+          "year": "Testing",
+          "text": "A complete range of testing equipment helps ensure product stability and batch consistency."
         }
       }
     },
@@ -206,11 +215,11 @@
   "products": {
     "hero": {
       "title": "Products",
-      "subtitle": "Clear lubrication options for different mechanical scenarios"
+      "subtitle": "Gasoline engine oil, diesel engine oil, anti-wear hydraulic oil, gear oil, transmission fluid, antifreeze, and grease"
     },
     "categories": {
       "title": "Product Lines",
-      "subtitle": "Category-first structure for now; real SKUs and specs can be added later",
+      "subtitle": "Industrial oils, automotive oils, special oils, construction machinery oils, and automotive care directions",
       "items": {
         "item1": {
           "name": "Gasoline Engine Oil",
@@ -256,15 +265,33 @@
             "p2": "Corrosion resistance",
             "p3": "System compatibility"
           }
+        },
+        "item6": {
+          "name": "Anti-wear Hydraulic Oil",
+          "desc": "Anti-wear and stable operation for industrial and construction hydraulic systems.",
+          "points": {
+            "p1": "Wear protection",
+            "p2": "System cleanliness",
+            "p3": "Stable transmission"
+          }
+        },
+        "item7": {
+          "name": "Grease",
+          "desc": "Adhesion and EP protection for bearings and heavy-duty friction points.",
+          "points": {
+            "p1": "Strong adhesion",
+            "p2": "EP wear protection",
+            "p3": "Water & dust resistance"
+          }
         }
       }
     },
     "note": {
       "title": "Specs & Grades",
-      "desc": "Formal product codes, viscosity grades, certifications, and packaging details will be added later. This page currently validates information architecture and visual hierarchy."
+      "desc": "Coverage includes industrial oils, automotive oils, special oils, construction machinery oils, and automotive care products. Formal grades, approvals, and packaging can be confirmed by inquiry."
     },
     "listTitle": "All Products",
-    "listSubtitle": "Browse by category. Formal SKUs and specs can replace placeholders later.",
+    "listSubtitle": "Browse by category — full-container and bulk order inquiries welcome",
     "detailCta": "Ask about this product",
     "backToList": "Back to products",
     "specsTitle": "Key Information",
@@ -274,7 +301,9 @@
       "diesel": "Diesel Engine Oil",
       "transmission": "Transmission Fluid",
       "gear": "Gear Oil",
-      "antifreeze": "Antifreeze"
+      "antifreeze": "Antifreeze",
+      "hydraulic": "Anti-wear Hydraulic Oil",
+      "grease": "Grease"
     },
     "catalog": {
       "gas-5w30": {
@@ -376,13 +405,53 @@
           "s2": "Use: Cooling systems",
           "s3": "Packaging: TBD"
         }
+      },
+      "hydraulic-aw46": {
+        "name": "Anti-wear Hydraulic Oil AW 46",
+        "summary": "Anti-wear protection and stable performance for hydraulic systems.",
+        "description": "Designed for construction machinery and industrial hydraulic systems, focusing on wear resistance, oxidation control, and clean operation. Specs and packaging can be updated later.",
+        "specs": {
+          "s1": "Viscosity grade: ISO VG 46",
+          "s2": "Use: Hydraulic systems",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "hydraulic-aw68": {
+        "name": "Anti-wear Hydraulic Oil AW 68",
+        "summary": "Higher-viscosity anti-wear hydraulic oil for heavier duty cycles.",
+        "description": "For heavy-load or higher-temperature hydraulic systems where film strength and stability matter. Formal parameters can replace placeholders later.",
+        "specs": {
+          "s1": "Viscosity grade: ISO VG 68",
+          "s2": "Use: Heavy-duty hydraulic systems",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "grease-lithium": {
+        "name": "Lithium Grease",
+        "summary": "General-purpose lithium grease for bearings and friction points.",
+        "description": "Suitable for bearings, pins, and common lubrication points, with attention to adhesion and water resistance. NLGI grade and approvals can be added later.",
+        "specs": {
+          "s1": "Type: Lithium Grease",
+          "s2": "Use: Bearings / friction points",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "grease-ep": {
+        "name": "EP Grease",
+        "summary": "Extreme-pressure grease for heavy-load friction points.",
+        "description": "Built for shock loads and heavy-duty friction scenarios, emphasizing EP protection and lasting adhesion. Formal SKUs can be refined later.",
+        "specs": {
+          "s1": "Type: EP Grease",
+          "s2": "Use: Heavy-duty friction points",
+          "s3": "Packaging: TBD"
+        }
       }
     }
   },
   "services": {
     "hero": {
       "title": "Services",
-      "subtitle": "Helping lubricant products perform in real equipment environments"
+      "subtitle": "Covering R&D, production, sales, technical training, and logistics distribution"
     },
     "list": {
       "title": "What we offer",
@@ -392,16 +461,16 @@
           "desc": "Map equipment type, load, temperature, and maintenance cycle to product recommendations."
         },
         "item2": {
-          "name": "Lubrication Planning",
-          "desc": "Provide practical product combinations and replacement strategies."
+          "name": "Planning & Factory Supply",
+          "desc": "Provide practical product combinations backed by factory production and QC."
         },
         "item3": {
-          "name": "Usage Training Support",
+          "name": "Technical Training Support",
           "desc": "Help teams understand key usage points and reduce misuse."
         },
         "item4": {
-          "name": "Continuous Optimization",
-          "desc": "Adjust recommendations based on operating feedback for long-term stability."
+          "name": "Logistics & Optimization",
+          "desc": "Coordinate delivery and refine recommendations based on operating feedback."
         }
       }
     },
@@ -411,22 +480,22 @@
         "item1": {
           "step": "01",
           "name": "Discovery",
-          "desc": "Clarify equipment, conditions, and goals."
+          "desc": "Clarify market, equipment conditions, target products, and volume needs."
         },
         "item2": {
           "step": "02",
           "name": "Matching",
-          "desc": "Propose products and support options."
+          "desc": "Propose product grades, packaging, and technical support options."
         },
         "item3": {
           "step": "03",
-          "name": "Implementation",
-          "desc": "Assist onboarding and on-site usage."
+          "name": "Factory Delivery",
+          "desc": "Organize production, testing, and shipment for full-container / bulk orders."
         },
         "item4": {
           "step": "04",
           "name": "Optimization",
-          "desc": "Track results and improve continuously."
+          "desc": "Track results and continuously improve formulas and service."
         }
       }
     }
@@ -434,26 +503,26 @@
   "advantages": {
     "hero": {
       "title": "Advantages",
-      "subtitle": "Capabilities that support purchasing and technical decisions"
+      "subtitle": "Factory scale, certifications, automated capacity, and global technical cooperation"
     },
     "pillars": {
       "title": "Capability pillars",
       "items": {
         "item1": {
-          "name": "R&D Oriented",
-          "desc": "Formulation and application research centered on real mechanical lubrication problems."
+          "name": "Factory Scale",
+          "desc": "More than 85 mu of factory land, about 10,000㎡ workshops, and up to 15,000 m³ storage capacity."
         },
         "item2": {
-          "name": "Quality System",
-          "desc": "Process control, verification, and stable delivery."
+          "name": "Lab & Certifications",
+          "desc": "ISO 9001, environmental management, and OHSAS 18001; materials and formulas aligned with Fortune Global 500 resources."
         },
         "item3": {
-          "name": "Industry Understanding",
-          "desc": "Recognize different lubrication needs across industries and equipment."
+          "name": "Automated Production",
+          "desc": "Fully automatic blending lines supporting 100,000+ tons annual capacity across multiple lubricant categories."
         },
         "item4": {
-          "name": "Responsive Collaboration",
-          "desc": "Clear communication across selection, supply, and technical support."
+          "name": "Technical Support",
+          "desc": "Extensive cooperation with Lubrizol, Infineum, Rhein Chemie, and domestic research institutes."
         }
       }
     },
@@ -461,16 +530,16 @@
       "title": "Working with us",
       "items": {
         "item1": {
-          "name": "Clearer product communication",
-          "desc": "Less jargon, more decision-ready information."
+          "name": "Factory Direct",
+          "desc": "We are a factory, not a retail store or trading company, and focus on full-container or large-volume orders."
         },
         "item2": {
-          "name": "Field-relevant recommendations",
-          "desc": "Not only a catalog, but executable usage direction."
+          "name": "Application Fit",
+          "desc": "Product combinations and technical advice based on real equipment needs — not just a catalog quote."
         },
         "item3": {
-          "name": "More sustainable partnership",
-          "desc": "Long-term performance as the measure of success."
+          "name": "Stable Delivery",
+          "desc": "Production, testing, and quality systems built for long-term supply consistency."
         }
       }
     }
@@ -478,14 +547,12 @@
   "contact": {
     "hero": {
       "title": "Contact",
-      "subtitle": "Tell us what you need and we will get back to you"
+      "subtitle": "Factory direct supply for full-container and bulk orders"
     },
     "info": {
       "title": "Contact details",
       "addressLabel": "Address",
       "addressValue": "New Materials Industrial Park, Rencheng District, Jining, Shandong, China. 150m south of the intersection of Cenguang Road and Lantian Road.",
-      "emailLabel": "Email",
-      "emailValue": "info{'@'}cerotd.com",
       "phoneLabel": "Phone",
       "phoneValue": "+86 152 6379 2384",
       "hoursLabel": "Hours",
@@ -507,7 +574,15 @@
       "phone": "Phone",
       "message": "Message",
       "submit": "Submit",
-      "tip": "This is a static placeholder form. Real submission logic can be connected later."
+      "tip": "This is a static placeholder form. Real submission logic can be connected later.",
+      "country": "Country / Region",
+      "im": "WeChat / WhatsApp / Telegram",
+      "bulk": "Do you intend to purchase lubricants in bulk quantity?",
+      "bulkYes": "Yes",
+      "bulkNo": "No",
+      "product": "Product Name",
+      "productPlaceholder": "Select a product",
+      "notice": "Notice: We are a factory, not a retail store or a trading company; we accept only full-container or large-volume orders. Our sales team will contact you within 24 hours; please check for the message and provide a reply."
     },
     "social": {
       "title": "Social & Messaging",
