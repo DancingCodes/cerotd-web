@@ -59,158 +59,162 @@ const categories = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.page-hero {
-  padding: 88px 0 72px;
-  background:
-    radial-gradient(circle at 80% 10%, rgba(#1aa6b8, 0.16), transparent 26%),
-    linear-gradient(180deg, #0b1220 0%, #162033 100%);
-  color: #ffffff;
-
-  .page-hero-kicker {
-    margin-bottom: 18px;
-    color: #5fd0dc;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .page-hero-title {
-    margin-bottom: 18px;
-    font-size: 56px;
-    line-height: 1.08;
-    letter-spacing: -0.03em;
-  }
-
-  .page-hero-subtitle {
-    max-width: 34ch;
-    color: #c8ced6;
-    font-size: 20px;
-    line-height: 1.7;
-  }
-}
-
-.section {
-  padding: 96px 0;
-
-  @media (min-width: 768px) {
-    padding: 120px 0;
-  }
-}
-
-.section-header {
-  max-width: 720px;
-  margin-bottom: 48px;
-
-  .section-title {
-    margin-bottom: 14px;
-    font-size: 36px;
-    letter-spacing: -0.03em;
-    color: #111827;
-  }
-
-  .section-subtitle {
-    color: #4b5563;
-    font-size: 17px;
-    line-height: 1.7;
-  }
-}
-
-.categories {
-  background: #f7f8fa;
-
-  .categories-list {
-    display: grid;
-    gap: 20px;
-  }
-}
-
-.category-card {
-  display: grid;
-  grid-template-columns: 1fr;
-  overflow: hidden;
-  border-radius: 28px;
-  background: #ffffff;
-  border: 1px solid #eef1f4;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-
-  @media (min-width: 900px) {
-    grid-template-columns: 280px 1fr;
-  }
-
-  .category-card-visual {
-    min-height: 220px;
-    display: flex;
-    align-items: flex-end;
-    padding: 24px;
+.products-page {
+  .page-hero {
+    padding: 88px 0 72px;
     background:
-      linear-gradient(160deg, rgba(#1aa6b8, 0.2), transparent 40%),
-      linear-gradient(180deg, #22324d 0%, #101827 100%);
+      radial-gradient(circle at 80% 10%, rgba(#1aa6b8, 0.16), transparent 26%),
+      linear-gradient(180deg, #0b1220 0%, #162033 100%);
+    color: #ffffff;
 
-    .category-card-index {
-      color: rgba(#ffffff, 0.3);
-      font-size: 64px;
+    .page-hero-kicker {
+      margin-bottom: 18px;
+      color: #5fd0dc;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .page-hero-title {
+      margin-bottom: 18px;
+      font-size: 56px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .page-hero-subtitle {
+      max-width: 34ch;
+      color: #c8ced6;
+      font-size: 20px;
+      line-height: 1.7;
     }
   }
 
-  .category-card-content {
-    padding: 28px;
+  .section {
+    padding: 96px 0;
 
-    .category-card-title {
-      margin-bottom: 12px;
-      font-size: 28px;
-      letter-spacing: -0.02em;
+    @media (min-width: 768px) {
+      padding: 120px 0;
+    }
+  }
+
+  .section-header {
+    max-width: 720px;
+    margin-bottom: 48px;
+
+    .section-title {
+      margin-bottom: 14px;
+      font-size: 36px;
+      letter-spacing: -0.03em;
       color: #111827;
     }
 
-    .category-card-desc {
-      margin-bottom: 20px;
+    .section-subtitle {
       color: #4b5563;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.7;
     }
+  }
 
-    .category-card-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+  .categories {
+    background: #f7f8fa;
 
-      .category-card-point {
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: #eef1f4;
-        color: #374151;
-        font-size: 13px;
-        font-weight: 600;
+    .categories-list {
+      display: grid;
+      gap: 20px;
+    }
+
+    .category-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #ffffff;
+      border: 1px solid #eef1f4;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+
+      @media (min-width: 900px) {
+        grid-template-columns: 280px 1fr;
+      }
+
+      .category-card-visual {
+        min-height: 220px;
+        display: flex;
+        align-items: flex-end;
+        padding: 24px;
+        background:
+          linear-gradient(160deg, rgba(#1aa6b8, 0.2), transparent 40%),
+          linear-gradient(180deg, #22324d 0%, #101827 100%);
+
+        .category-card-index {
+          color: rgba(#ffffff, 0.3);
+          font-size: 64px;
+          font-weight: 700;
+          letter-spacing: -0.04em;
+          line-height: 1;
+        }
+      }
+
+      .category-card-content {
+        padding: 28px;
+
+        .category-card-title {
+          margin-bottom: 12px;
+          font-size: 28px;
+          letter-spacing: -0.02em;
+          color: #111827;
+        }
+
+        .category-card-desc {
+          margin-bottom: 20px;
+          color: #4b5563;
+          font-size: 16px;
+          line-height: 1.7;
+        }
+
+        .category-card-points {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+
+          .category-card-point {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: #eef1f4;
+            color: #374151;
+            font-size: 13px;
+            font-weight: 600;
+          }
+        }
       }
     }
   }
-}
 
-.note {
-  background: #ffffff;
-  padding-top: 0;
 
-  .note-panel {
-    padding: 40px 28px;
-    border-radius: 28px;
-    background: #0b1220;
-    color: #ffffff;
 
-    .note-title {
-      margin-bottom: 12px;
-      font-size: 28px;
-      letter-spacing: -0.02em;
-    }
+  .note {
+    background: #ffffff;
+    padding-top: 0;
 
-    .note-desc {
-      max-width: 760px;
-      color: #c8ced6;
-      font-size: 16px;
-      line-height: 1.8;
+    .note-panel {
+      padding: 40px 28px;
+      border-radius: 28px;
+      background: #0b1220;
+      color: #ffffff;
+
+      .note-title {
+        margin-bottom: 12px;
+        font-size: 28px;
+        letter-spacing: -0.02em;
+      }
+
+      .note-desc {
+        max-width: 760px;
+        color: #c8ced6;
+        font-size: 16px;
+        line-height: 1.8;
+      }
     }
   }
 }
