@@ -75,21 +75,19 @@ const toggleLocale = () => {
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/styles/variables' as *;
-
 .header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba($white, 0.88);
+  background: rgba(#ffffff, 0.88);
   backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba($gray-200, 0.95);
+  border-bottom: 1px solid rgba(#e2e6eb, 0.95);
 }
 
 .nav {
   .nav-container {
     width: 100%;
-  max-width: $container-width;
+  max-width: 1180px;
   margin: 0 auto;
   padding-left: 24px;
   padding-right: 24px;
@@ -119,32 +117,32 @@ const toggleLocale = () => {
     }
 
     .nav-link {
-      color: $gray-600;
+      color: #4b5563;
       font-size: 15px;
       font-weight: 500;
-      transition: $transition;
+      transition: all 0.25s ease;
 
       &:hover {
-        color: $gray-900;
+        color: #111827;
       }
     }
 
     .nav-link.router-link-active {
-      color: $primary-dark;
+      color: #0e7f8f;
     }
 
     .nav-lang {
       margin-left: 4px;
       padding: 8px 14px;
       border-radius: 999px;
-      background: $gray-100;
-      color: $gray-700;
+      background: #eef1f4;
+      color: #374151;
       font-size: 13px;
       font-weight: 650;
-      transition: $transition;
+      transition: all 0.25s ease;
 
       &:hover {
-        background: $gray-200;
+        background: #e2e6eb;
       }
     }
   }
@@ -158,7 +156,7 @@ const toggleLocale = () => {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    background: $gray-100;
+    background: #eef1f4;
 
     @media (min-width: 1024px) {
       display: none;
@@ -168,13 +166,13 @@ const toggleLocale = () => {
       width: 18px;
       height: 2px;
       border-radius: 999px;
-      background: $gray-800;
+      background: #1f2937;
     }
   }
 
   .nav-mobile {
     width: 100%;
-  max-width: $container-width;
+  max-width: 1180px;
   margin: 0 auto;
   padding-left: 24px;
   padding-right: 24px;
@@ -189,21 +187,21 @@ const toggleLocale = () => {
 
     .nav-mobile-link {
       padding: 12px 0;
-      color: $gray-700;
+      color: #374151;
       font-weight: 500;
-      border-bottom: 1px solid $gray-100;
+      border-bottom: 1px solid #eef1f4;
     }
 
     .nav-mobile-link.router-link-active {
-      color: $primary-dark;
+      color: #0e7f8f;
     }
 
     .nav-mobile-lang {
       margin-top: 10px;
       padding: 12px 16px;
       border-radius: 12px;
-      background: $gray-100;
-      color: $gray-700;
+      background: #eef1f4;
+      color: #374151;
       font-weight: 650;
       text-align: left;
     }

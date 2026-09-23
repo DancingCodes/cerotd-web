@@ -67,16 +67,14 @@ const year = new Date().getFullYear()
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/styles/variables' as *;
-
 .footer {
-  background: $dark-bg;
-  color: $white;
+  background: #0b1220;
+  color: #ffffff;
   padding: 72px 0 36px;
 
   .footer-container {
     width: 100%;
-  max-width: $container-width;
+  max-width: 1180px;
   margin: 0 auto;
   padding-left: 24px;
   padding-right: 24px;
@@ -109,14 +107,14 @@ const year = new Date().getFullYear()
 
     .footer-desc {
       max-width: 280px;
-      color: $gray-400;
+      color: #9aa3af;
       font-size: 14px;
       line-height: 1.7;
     }
 
     .footer-title {
       margin-bottom: 18px;
-      color: $white;
+      color: #ffffff;
       font-size: 13px;
       font-weight: 650;
       letter-spacing: 0.06em;
@@ -129,15 +127,15 @@ const year = new Date().getFullYear()
       gap: 10px;
 
       .footer-item {
-        color: $gray-400;
+        color: #9aa3af;
         font-size: 14px;
 
         .footer-link {
-          color: $gray-400;
-          transition: $transition;
+          color: #9aa3af;
+          transition: all 0.25s ease;
 
           &:hover {
-            color: $white;
+            color: #ffffff;
           }
         }
       }
@@ -145,11 +143,11 @@ const year = new Date().getFullYear()
   }
 
   .footer-bottom {
-    border-top: 1px solid rgba($white, 0.08);
+    border-top: 1px solid rgba(#ffffff, 0.08);
     padding-top: 24px;
 
     .footer-copyright {
-      color: $gray-500;
+      color: #f7f8fa0;
       font-size: 13px;
       text-align: center;
     }

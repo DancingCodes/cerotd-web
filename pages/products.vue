@@ -67,18 +67,16 @@ const categories = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/styles/variables' as *;
-
 .page-hero {
   padding: 88px 0 72px;
   background:
-    radial-gradient(circle at 80% 10%, rgba($primary-color, 0.16), transparent 26%),
-    linear-gradient(180deg, $dark-bg 0%, $dark-bg-light 100%);
-  color: $white;
+    radial-gradient(circle at 80% 10%, rgba(#1aa6b8, 0.16), transparent 26%),
+    linear-gradient(180deg, #0b1220 0%, #162033 100%);
+  color: #ffffff;
 
   .page-hero-kicker {
     margin-bottom: 18px;
-    color: $primary-light;
+    color: #5fd0dc;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -94,7 +92,7 @@ const categories = computed(() => {
 
   .page-hero-subtitle {
     max-width: 34ch;
-    color: $gray-300;
+    color: #c8ced6;
     font-size: 20px;
     line-height: 1.7;
   }
@@ -116,18 +114,18 @@ const categories = computed(() => {
     margin-bottom: 14px;
     font-size: clamp(28px, 4vw, 40px);
     letter-spacing: -0.03em;
-    color: $gray-900;
+    color: #111827;
   }
 
   .section-subtitle {
-    color: $gray-600;
+    color: #4b5563;
     font-size: 17px;
     line-height: 1.7;
   }
 }
 
 .categories {
-  background: $gray-50;
+  background: #f7f8fa;
 
   .categories-list {
     display: grid;
@@ -140,9 +138,9 @@ const categories = computed(() => {
   grid-template-columns: 1fr;
   overflow: hidden;
   border-radius: 28px;
-  background: $white;
-  border: 1px solid $gray-100;
-  box-shadow: $shadow-soft;
+  background: #ffffff;
+  border: 1px solid #eef1f4;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 
   @media (min-width: 900px) {
     grid-template-columns: 280px 1fr;
@@ -154,11 +152,11 @@ const categories = computed(() => {
     align-items: flex-end;
     padding: 24px;
     background:
-      linear-gradient(160deg, rgba($primary-color, 0.2), transparent 40%),
+      linear-gradient(160deg, rgba(#1aa6b8, 0.2), transparent 40%),
       linear-gradient(180deg, #22324d 0%, #101827 100%);
 
     .category-card-index {
-      color: rgba($white, 0.3);
+      color: rgba(#ffffff, 0.3);
       font-size: 64px;
       font-weight: 700;
       letter-spacing: -0.04em;
@@ -173,12 +171,12 @@ const categories = computed(() => {
       margin-bottom: 12px;
       font-size: 28px;
       letter-spacing: -0.02em;
-      color: $gray-900;
+      color: #111827;
     }
 
     .category-card-desc {
       margin-bottom: 20px;
-      color: $gray-600;
+      color: #4b5563;
       font-size: 16px;
       line-height: 1.7;
     }
@@ -191,8 +189,8 @@ const categories = computed(() => {
       .category-card-point {
         padding: 8px 12px;
         border-radius: 999px;
-        background: $gray-100;
-        color: $gray-700;
+        background: #eef1f4;
+        color: #374151;
         font-size: 13px;
         font-weight: 600;
       }
@@ -201,14 +199,14 @@ const categories = computed(() => {
 }
 
 .note {
-  background: $white;
+  background: #ffffff;
   padding-top: 0;
 
   .note-panel {
     padding: 40px 28px;
     border-radius: 28px;
-    background: $dark-bg;
-    color: $white;
+    background: #0b1220;
+    color: #ffffff;
 
     .note-title {
       margin-bottom: 12px;
@@ -218,7 +216,7 @@ const categories = computed(() => {
 
     .note-desc {
       max-width: 760px;
-      color: $gray-300;
+      color: #c8ced6;
       font-size: 16px;
       line-height: 1.8;
     }

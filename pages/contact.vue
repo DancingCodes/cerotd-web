@@ -65,18 +65,16 @@
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/styles/variables' as *;
-
 .page-hero {
   padding: 88px 0 72px;
   background:
-    radial-gradient(circle at 30% 10%, rgba($primary-light, 0.14), transparent 28%),
-    linear-gradient(180deg, $dark-bg 0%, $dark-bg-light 100%);
-  color: $white;
+    radial-gradient(circle at 30% 10%, rgba(#5fd0dc, 0.14), transparent 28%),
+    linear-gradient(180deg, #0b1220 0%, #162033 100%);
+  color: #ffffff;
 
   .page-hero-kicker {
     margin-bottom: 18px;
-    color: $primary-light;
+    color: #5fd0dc;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -92,7 +90,7 @@
 
   .page-hero-subtitle {
     max-width: 30ch;
-    color: $gray-300;
+    color: #c8ced6;
     font-size: 20px;
     line-height: 1.7;
   }
@@ -107,7 +105,7 @@
 }
 
 .content {
-  background: $gray-50;
+  background: #f7f8fa;
 
   .content-grid {
     display: grid;
@@ -124,8 +122,8 @@
 .info-panel {
   padding: 32px 28px;
   border-radius: 28px;
-  background: $dark-bg;
-  color: $white;
+  background: #0b1220;
+  color: #ffffff;
 
   .info-title {
     margin-bottom: 28px;
@@ -141,7 +139,7 @@
   .info-item {
     .info-item-label {
       margin-bottom: 6px;
-      color: $gray-400;
+      color: #9aa3af;
       font-size: 13px;
       font-weight: 650;
       letter-spacing: 0.04em;
@@ -149,7 +147,7 @@
     }
 
     .info-item-value {
-      color: $white;
+      color: #ffffff;
       font-size: 16px;
       line-height: 1.6;
     }
@@ -159,15 +157,15 @@
 .form-panel {
   padding: 32px 28px;
   border-radius: 28px;
-  background: $white;
-  border: 1px solid $gray-100;
-  box-shadow: $shadow-soft;
+  background: #ffffff;
+  border: 1px solid #eef1f4;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 
   .form-title {
     margin-bottom: 24px;
     font-size: 28px;
     letter-spacing: -0.02em;
-    color: $gray-900;
+    color: #111827;
   }
 
   .form-grid {
@@ -186,7 +184,7 @@
     gap: 8px;
 
     .form-field-label {
-      color: $gray-700;
+      color: #374151;
       font-size: 13px;
       font-weight: 650;
     }
@@ -194,21 +192,21 @@
     .form-field-input,
     .form-field-textarea {
       width: 100%;
-      border: 1px solid $gray-200;
+      border: 1px solid #e2e6eb;
       border-radius: 14px;
-      background: $gray-50;
-      color: $gray-900;
+      background: #f7f8fa;
+      color: #111827;
       font: inherit;
       padding: 14px 16px;
       outline: none;
-      transition: $transition;
+      transition: all 0.25s ease;
     }
 
     .form-field-input:focus,
     .form-field-textarea:focus {
-      border-color: rgba($primary-color, 0.55);
-      background: $white;
-      box-shadow: 0 0 0 4px rgba($primary-color, 0.12);
+      border-color: rgba(#1aa6b8, 0.55);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(#1aa6b8, 0.12);
     }
 
     .form-field-textarea {
@@ -228,21 +226,21 @@
     min-height: 52px;
     padding: 0 28px;
     border-radius: 999px;
-    background: $accent-gradient;
-    color: $white;
+    background: linear-gradient(135deg, #0f9aa8 0%, #3dd6e0 100%);
+    color: #ffffff;
     font-size: 15px;
     font-weight: 650;
-    transition: $transition;
+    transition: all 0.25s ease;
 
     &:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 28px rgba($primary-color, 0.24);
+      box-shadow: 0 12px 28px rgba(#1aa6b8, 0.24);
     }
   }
 
   .form-tip {
     margin-top: 14px;
-    color: $gray-500;
+    color: #f7f8fa0;
     font-size: 13px;
     line-height: 1.6;
   }

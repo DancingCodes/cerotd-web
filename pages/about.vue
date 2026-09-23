@@ -72,18 +72,16 @@ const milestones = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/styles/variables' as *;
-
 .page-hero {
   padding: 88px 0 72px;
   background:
-    radial-gradient(circle at 15% 20%, rgba($primary-light, 0.16), transparent 30%),
-    linear-gradient(180deg, $dark-bg 0%, $dark-bg-light 100%);
-  color: $white;
+    radial-gradient(circle at 15% 20%, rgba(#5fd0dc, 0.16), transparent 30%),
+    linear-gradient(180deg, #0b1220 0%, #162033 100%);
+  color: #ffffff;
 
   .page-hero-kicker {
     margin-bottom: 18px;
-    color: $primary-light;
+    color: #5fd0dc;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -100,7 +98,7 @@ const milestones = computed(() => {
 
   .page-hero-subtitle {
     max-width: 28ch;
-    color: $gray-300;
+    color: #c8ced6;
     font-size: 20px;
     line-height: 1.7;
   }
@@ -120,12 +118,12 @@ const milestones = computed(() => {
   .section-title {
     font-size: clamp(28px, 4vw, 40px);
     letter-spacing: -0.03em;
-    color: $gray-900;
+    color: #111827;
   }
 }
 
 .intro {
-  background: $white;
+  background: #ffffff;
 
   .intro-grid {
     display: grid;
@@ -144,11 +142,11 @@ const milestones = computed(() => {
       margin-bottom: 20px;
       font-size: clamp(28px, 4vw, 40px);
       letter-spacing: -0.03em;
-      color: $gray-900;
+      color: #111827;
     }
 
     .intro-desc {
-      color: $gray-600;
+      color: #4b5563;
       font-size: 18px;
       line-height: 1.8;
     }
@@ -170,13 +168,13 @@ const milestones = computed(() => {
       width: 240px;
       height: 240px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba($primary-color, 0.35), transparent 70%);
+      background: radial-gradient(circle, rgba(#1aa6b8, 0.35), transparent 70%);
     }
 
     .intro-panel-note {
       position: relative;
       z-index: 1;
-      color: $gray-300;
+      color: #c8ced6;
       font-size: 14px;
       line-height: 1.7;
     }
@@ -184,7 +182,7 @@ const milestones = computed(() => {
 }
 
 .values {
-  background: $gray-50;
+  background: #f7f8fa;
 
   .values-grid {
     display: grid;
@@ -199,26 +197,26 @@ const milestones = computed(() => {
 
 .value-card {
   padding: 28px;
-  border-radius: $border-radius-xl;
-  background: $white;
-  border: 1px solid $gray-100;
-  box-shadow: $shadow-soft;
+  border-radius: 28px;
+  background: #ffffff;
+  border: 1px solid #eef1f4;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 
   .value-card-title {
     margin-bottom: 12px;
     font-size: 22px;
-    color: $gray-900;
+    color: #111827;
   }
 
   .value-card-desc {
-    color: $gray-600;
+    color: #4b5563;
     font-size: 15px;
     line-height: 1.7;
   }
 }
 
 .milestones {
-  background: $white;
+  background: #ffffff;
 
   .milestones-list {
     display: grid;
@@ -231,7 +229,7 @@ const milestones = computed(() => {
   grid-template-columns: 100px 1fr;
   gap: 20px;
   padding: 24px 0;
-  border-top: 1px solid $gray-200;
+  border-top: 1px solid #e2e6eb;
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
@@ -239,7 +237,7 @@ const milestones = computed(() => {
   }
 
   .milestone-item-year {
-    color: $primary-dark;
+    color: #0e7f8f;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -247,7 +245,7 @@ const milestones = computed(() => {
   }
 
   .milestone-item-text {
-    color: $gray-700;
+    color: #374151;
     font-size: 17px;
     line-height: 1.7;
   }

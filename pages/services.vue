@@ -62,18 +62,16 @@ const processSteps = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/styles/variables' as *;
-
 .page-hero {
   padding: 88px 0 72px;
   background:
-    radial-gradient(circle at 20% 0%, rgba($primary-light, 0.14), transparent 28%),
-    linear-gradient(180deg, $dark-bg 0%, $dark-bg-light 100%);
-  color: $white;
+    radial-gradient(circle at 20% 0%, rgba(#5fd0dc, 0.14), transparent 28%),
+    linear-gradient(180deg, #0b1220 0%, #162033 100%);
+  color: #ffffff;
 
   .page-hero-kicker {
     margin-bottom: 18px;
-    color: $primary-light;
+    color: #5fd0dc;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -89,7 +87,7 @@ const processSteps = computed(() => {
 
   .page-hero-subtitle {
     max-width: 30ch;
-    color: $gray-300;
+    color: #c8ced6;
     font-size: 20px;
     line-height: 1.7;
   }
@@ -109,18 +107,18 @@ const processSteps = computed(() => {
   .section-title {
     font-size: clamp(28px, 4vw, 40px);
     letter-spacing: -0.03em;
-    color: $gray-900;
+    color: #111827;
   }
 }
 
 .section-header-light {
   .section-title {
-    color: $white;
+    color: #ffffff;
   }
 }
 
 .list {
-  background: $white;
+  background: #ffffff;
 
   .services-grid {
     display: grid;
@@ -136,12 +134,12 @@ const processSteps = computed(() => {
 .service-card {
   padding: 28px;
   border-radius: 24px;
-  background: $gray-50;
-  border: 1px solid $gray-100;
+  background: #f7f8fa;
+  border: 1px solid #eef1f4;
 
   .service-card-index {
     margin-bottom: 24px;
-    color: $primary-dark;
+    color: #0e7f8f;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -150,19 +148,19 @@ const processSteps = computed(() => {
   .service-card-title {
     margin-bottom: 12px;
     font-size: 24px;
-    color: $gray-900;
+    color: #111827;
     letter-spacing: -0.02em;
   }
 
   .service-card-desc {
-    color: $gray-600;
+    color: #4b5563;
     font-size: 15px;
     line-height: 1.7;
   }
 }
 
 .process {
-  background: $dark-bg;
+  background: #0b1220;
 
   .process-grid {
     display: grid;
@@ -178,24 +176,24 @@ const processSteps = computed(() => {
 .process-card {
   padding: 24px;
   border-radius: 20px;
-  background: rgba($white, 0.04);
-  border: 1px solid rgba($white, 0.08);
+  background: rgba(#ffffff, 0.04);
+  border: 1px solid rgba(#ffffff, 0.08);
 
   .process-card-step {
     margin-bottom: 28px;
-    color: $primary-light;
+    color: #5fd0dc;
     font-size: 14px;
     font-weight: 700;
   }
 
   .process-card-title {
     margin-bottom: 10px;
-    color: $white;
+    color: #ffffff;
     font-size: 20px;
   }
 
   .process-card-desc {
-    color: $gray-400;
+    color: #9aa3af;
     font-size: 14px;
     line-height: 1.7;
   }

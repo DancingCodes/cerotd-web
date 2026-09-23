@@ -118,10 +118,8 @@ const advantages = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/styles/variables' as *;
-
 .home-page {
-  background: $white;
+  background: #ffffff;
 }
 
 .hero {
@@ -131,10 +129,10 @@ const advantages = computed(() => {
   display: flex;
   align-items: center;
   background:
-    radial-gradient(circle at 20% 20%, rgba($primary-light, 0.18), transparent 35%),
-    radial-gradient(circle at 80% 10%, rgba($primary-color, 0.12), transparent 28%),
-    linear-gradient(160deg, $dark-bg 0%, $dark-bg-light 48%, $dark-bg 100%);
-  color: $white;
+    radial-gradient(circle at 20% 20%, rgba(#5fd0dc, 0.18), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(#1aa6b8, 0.12), transparent 28%),
+    linear-gradient(160deg, #0b1220 0%, #162033 48%, #0b1220 100%);
+  color: #ffffff;
 
   .hero-glow {
     position: absolute;
@@ -142,7 +140,7 @@ const advantages = computed(() => {
     width: 520px;
     height: 520px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba($primary-color, 0.28), transparent 68%);
+    background: radial-gradient(circle, rgba(#1aa6b8, 0.28), transparent 68%);
     pointer-events: none;
   }
 
@@ -150,7 +148,7 @@ const advantages = computed(() => {
     position: relative;
     z-index: 1;
     width: 100%;
-  max-width: $container-width;
+  max-width: 1180px;
   margin: 0 auto;
   padding-left: 24px;
   padding-right: 24px;
@@ -164,8 +162,8 @@ const advantages = computed(() => {
     margin-bottom: 28px;
     padding: 8px 14px;
     border-radius: 999px;
-    border: 1px solid rgba($primary-light, 0.35);
-    background: rgba($primary-color, 0.12);
+    border: 1px solid rgba(#5fd0dc, 0.35);
+    background: rgba(#1aa6b8, 0.12);
     color: #b7f3f8;
     font-size: 13px;
     font-weight: 600;
@@ -184,7 +182,7 @@ const advantages = computed(() => {
   .hero-subtitle {
     max-width: 34ch;
     margin-bottom: 40px;
-    color: $gray-300;
+    color: #c8ced6;
     font-size: clamp(18px, 2.2vw, 22px);
     line-height: 1.7;
   }
@@ -205,32 +203,32 @@ const advantages = computed(() => {
   border-radius: 999px;
   font-size: 15px;
   font-weight: 650;
-  transition: $transition;
+  transition: all 0.25s ease;
 }
 
 .btn-primary {
-  background: $accent-gradient;
-  color: $white;
+  background: linear-gradient(135deg, #0f9aa8 0%, #3dd6e0 100%);
+  color: #ffffff;
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 12px 30px rgba($primary-color, 0.28);
+    box-shadow: 0 12px 30px rgba(#1aa6b8, 0.28);
   }
 }
 
 .btn-secondary {
-  border: 1px solid rgba($white, 0.18);
-  background: rgba($white, 0.06);
-  color: $white;
+  border: 1px solid rgba(#ffffff, 0.18);
+  background: rgba(#ffffff, 0.06);
+  color: #ffffff;
 
   &:hover {
-    background: rgba($white, 0.12);
+    background: rgba(#ffffff, 0.12);
   }
 }
 
 .btn-light {
-  background: $white;
-  color: $primary-dark;
+  background: #ffffff;
+  color: #0e7f8f;
 
   &:hover {
     transform: translateY(-1px);
@@ -252,14 +250,14 @@ const advantages = computed(() => {
 
   .section-title {
     margin-bottom: 16px;
-    color: $gray-900;
+    color: #111827;
     font-size: clamp(32px, 4vw, 48px);
     line-height: 1.15;
     letter-spacing: -0.03em;
   }
 
   .section-subtitle {
-    color: $gray-600;
+    color: #4b5563;
     font-size: 18px;
     line-height: 1.7;
   }
@@ -267,16 +265,16 @@ const advantages = computed(() => {
 
 .section-header-light {
   .section-title {
-    color: $white;
+    color: #ffffff;
   }
 
   .section-subtitle {
-    color: $gray-300;
+    color: #c8ced6;
   }
 }
 
 .products {
-  background: $gray-50;
+  background: #f7f8fa;
 
   .products-grid {
     display: grid;
@@ -295,15 +293,15 @@ const advantages = computed(() => {
 
 .product-card {
   overflow: hidden;
-  border-radius: $border-radius-xl;
-  background: $white;
-  border: 1px solid rgba($gray-200, 0.9);
-  box-shadow: $shadow-soft;
-  transition: $transition;
+  border-radius: 28px;
+  background: #ffffff;
+  border: 1px solid rgba(#e2e6eb, 0.9);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transition: all 0.25s ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: $shadow-strong;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.16);
   }
 
   .product-card-visual {
@@ -313,11 +311,11 @@ const advantages = computed(() => {
     justify-content: flex-start;
     padding: 24px;
     background:
-      linear-gradient(160deg, rgba($primary-color, 0.18), transparent 42%),
+      linear-gradient(160deg, rgba(#1aa6b8, 0.18), transparent 42%),
       linear-gradient(180deg, #203049 0%, #0f1728 100%);
 
     .product-card-index {
-      color: rgba($white, 0.28);
+      color: rgba(#ffffff, 0.28);
       font-size: 56px;
       font-weight: 700;
       letter-spacing: -0.04em;
@@ -330,21 +328,21 @@ const advantages = computed(() => {
 
     .product-card-title {
       margin-bottom: 10px;
-      color: $gray-900;
+      color: #111827;
       font-size: 20px;
       letter-spacing: -0.02em;
     }
 
     .product-card-desc {
       margin-bottom: 18px;
-      color: $gray-600;
+      color: #4b5563;
       font-size: 15px;
       line-height: 1.7;
       min-height: 76px;
     }
 
     .product-card-link {
-      color: $primary-dark;
+      color: #0e7f8f;
       font-size: 14px;
       font-weight: 650;
     }
@@ -352,7 +350,7 @@ const advantages = computed(() => {
 }
 
 .services {
-  background: $dark-bg;
+  background: #0b1220;
 
   .services-grid {
     display: grid;
@@ -367,13 +365,13 @@ const advantages = computed(() => {
 
 .service-card {
   padding: 28px;
-  border-radius: $border-radius-xl;
-  background: rgba($white, 0.04);
-  border: 1px solid rgba($white, 0.08);
+  border-radius: 28px;
+  background: rgba(#ffffff, 0.04);
+  border: 1px solid rgba(#ffffff, 0.08);
 
   .service-card-index {
     margin-bottom: 28px;
-    color: $primary-light;
+    color: #5fd0dc;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -381,20 +379,20 @@ const advantages = computed(() => {
 
   .service-card-title {
     margin-bottom: 12px;
-    color: $white;
+    color: #ffffff;
     font-size: 24px;
     letter-spacing: -0.02em;
   }
 
   .service-card-desc {
-    color: $gray-400;
+    color: #9aa3af;
     font-size: 15px;
     line-height: 1.7;
   }
 }
 
 .advantages {
-  background: $white;
+  background: #ffffff;
 
   .advantages-grid {
     display: grid;
@@ -409,19 +407,19 @@ const advantages = computed(() => {
 
 .advantage-card {
   padding: 32px;
-  border-radius: $border-radius-xl;
-  background: $gray-50;
-  border: 1px solid $gray-100;
+  border-radius: 28px;
+  background: #f7f8fa;
+  border: 1px solid #eef1f4;
 
   .advantage-card-title {
     margin-bottom: 12px;
-    color: $gray-900;
+    color: #111827;
     font-size: 22px;
     letter-spacing: -0.02em;
   }
 
   .advantage-card-desc {
-    color: $gray-600;
+    color: #4b5563;
     font-size: 15px;
     line-height: 1.7;
   }
@@ -429,14 +427,14 @@ const advantages = computed(() => {
 
 .cta {
   padding: 0 0 96px;
-  background: $white;
+  background: #ffffff;
 
   .cta-panel {
     padding: 64px 28px;
     border-radius: 32px;
     text-align: center;
-    background: $accent-gradient;
-    color: $white;
+    background: linear-gradient(135deg, #0f9aa8 0%, #3dd6e0 100%);
+    color: #ffffff;
 
     .cta-title {
       margin-bottom: 14px;
@@ -447,7 +445,7 @@ const advantages = computed(() => {
     .cta-subtitle {
       max-width: 640px;
       margin: 0 auto 28px;
-      color: rgba($white, 0.92);
+      color: rgba(#ffffff, 0.92);
       font-size: 17px;
       line-height: 1.7;
     }
