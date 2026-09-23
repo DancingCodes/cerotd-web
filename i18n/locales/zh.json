@@ -43,7 +43,12 @@
       "title": "以专业润滑科技，驱动高效运转",
       "subtitle": "面向工业与机械装备场景，提供稳定、可靠、可持续的润滑油产品与技术服务。",
       "ctaPrimary": "浏览产品",
-      "ctaSecondary": "联系顾问"
+      "ctaSecondary": "联系顾问",
+      "panelTitle": "工业润滑能力矩阵",
+      "panelDesc": "覆盖动力、传动与冷却防护，服务连续运转与重载工况。",
+      "panelTag1": "抗磨保护",
+      "panelTag2": "长效稳定",
+      "panelTag3": "工况匹配"
     },
     "products": {
       "title": "核心产品",
@@ -115,6 +120,24 @@
       "title": "准备提升设备润滑表现？",
       "subtitle": "告诉我们你的工况与目标，我们将提供可落地的产品与服务建议。",
       "button": "获取方案"
+    },
+    "stats": {
+      "item1": {
+        "value": "150+",
+        "label": "成功项目"
+      },
+      "item2": {
+        "value": "30+",
+        "label": "专业团队"
+      },
+      "item3": {
+        "value": "15",
+        "label": "年行业经验"
+      },
+      "item4": {
+        "value": "20+",
+        "label": "联合品牌合作"
+      }
     }
   },
   "about": {

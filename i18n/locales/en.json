@@ -43,7 +43,12 @@
       "title": "Lubrication technology that keeps machines running",
       "subtitle": "Reliable lubricant products and technical support for industrial and mechanical equipment scenarios.",
       "ctaPrimary": "Browse Products",
-      "ctaSecondary": "Talk to Us"
+      "ctaSecondary": "Talk to Us",
+      "panelTitle": "Industrial Lubrication Matrix",
+      "panelDesc": "Covering powertrain, transmission, and cooling protection for continuous and heavy-duty operations.",
+      "panelTag1": "Wear Protection",
+      "panelTag2": "Long-term Stability",
+      "panelTag3": "Condition Fit"
     },
     "products": {
       "title": "Core Products",
@@ -115,6 +120,24 @@
       "title": "Ready to improve lubrication performance?",
       "subtitle": "Share your operating conditions and goals. We will provide practical product and service recommendations.",
       "button": "Request a Proposal"
+    },
+    "stats": {
+      "item1": {
+        "value": "150+",
+        "label": "Successful Projects"
+      },
+      "item2": {
+        "value": "30+",
+        "label": "Specialists"
+      },
+      "item3": {
+        "value": "15",
+        "label": "Years Experience"
+      },
+      "item4": {
+        "value": "20+",
+        "label": "Brand Partnerships"
+      }
     }
   },
   "about": {
