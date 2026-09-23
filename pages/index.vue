@@ -38,14 +38,14 @@
         <div class="products-grid">
           <NuxtLink v-for="item in featuredProducts" :key="item.slug" :to="`/products/${item.slug}`" class="product-card">
             <div class="product-card-media">
-              <img v-if="item.images[0]" class="product-card-image" :src="item.images[0]" :alt="$t(`products.catalog.${item.slug}.name`)" />
+              <img v-if="item.coverUrl || item.images[0]" class="product-card-image" :src="item.coverUrl || item.images[0]" :alt="lt(item.name)" />
               <div v-else class="media-blank">
                 <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
               </div>
             </div>
             <div class="product-card-body">
-              <div class="product-card-title">{{ $t(`products.catalog.${item.slug}.name`) }}</div>
-              <div class="product-card-desc">{{ $t(`products.catalog.${item.slug}.summary`) }}</div>
+              <div class="product-card-title">{{ lt(item.name) }}</div>
+              <div class="product-card-desc">{{ lt(item.summary) }}</div>
             </div>
           </NuxtLink>
         </div>
@@ -130,14 +130,42 @@
 
 <script setup lang="ts">
 const { t, locale } = useI18n()
+const lt = useLocalized()
 
-// 临时写死，后续接接口
-const featuredProducts = [
-  {
-    slug: 'antifreeze-g11-green',
-    images: ['/images/products/antifreeze-g11-green.png']
-  }
-]
+usePageSeo({
+  title: t('seo.home.title'),
+  description: t('seo.home.description'),
+  path: '/'
+})
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Cerotd',
+        url: useSiteUrl(),
+        logo: `${useSiteUrl()}/logo.png`
+      })
+    }
+  ]
+})
+
+type Localized = { en: string; zh: string }
+type ProductItem = {
+  slug: string
+  name: Localized
+  summary: Localized
+  coverUrl: string | null
+  images: string[]
+}
+
+const { data: productsData } = await useFetch<{ items: ProductItem[] }>('/api/products', {
+  key: 'home-products'
+})
+const featuredProducts = computed(() => (productsData.value?.items || []).slice(0, 3))
 
 const partnerLogos = [
   '/images/partners/partner-1.png',

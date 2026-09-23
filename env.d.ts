@@ -11,4 +11,10 @@ declare module 'h3' {
   }
 }
 
+declare namespace NodeJS {
+  interface ProcessEnv {
+    NUXT_PUBLIC_SITE_URL?: string
+  }
+}
+
 export {}

@@ -55,7 +55,7 @@
     },
     "products": {
       "title": "Products",
-      "subtitle": "Showing a sample product for now; real catalog comes later.",
+      "subtitle": "Selected grades from our catalog. Full series available on request.",
       "items": {
         "item1": {
           "name": "Gasoline Engine Oil",
@@ -234,7 +234,7 @@
   "products": {
     "hero": {
       "title": "Products",
-      "subtitle": "One sample product for now; will be replaced after API integration"
+      "subtitle": "Explore Cerotd lubricant and care solutions by series and grade."
     },
     "categories": {
       "title": "Product Lines",
@@ -310,7 +310,7 @@
       "desc": "Coverage includes industrial oils, automotive oils, special oils, construction machinery oils, and automotive care products. Formal grades, approvals, and packaging can be confirmed by inquiry."
     },
     "listTitle": "All Products",
-    "listSubtitle": "Hardcoded sample for now. Product list will come from API later.",
+    "listSubtitle": "Browse published products. Specs and packaging can be confirmed by inquiry.",
     "detailCta": "Ask about this product",
     "backToList": "Back to products",
     "specsTitle": "Key Information",
@@ -476,6 +476,105 @@
     "social": {
       "title": "Social & Messaging",
       "wechatTip": "Scan or search the WeChat ID to connect"
+    }
+  },
+  "admin": {
+    "brand": "Cerotd Admin",
+    "nav": {
+      "categories": "Categories",
+      "products": "Products",
+      "viewSite": "View site",
+      "logout": "Logout",
+      "lang": "中文"
+    },
+    "login": {
+      "title": "Admin Login",
+      "desc": "Enter ADMIN_API_TOKEN to manage categories and products.",
+      "placeholder": "ADMIN_API_TOKEN",
+      "enter": "Enter",
+      "tokenRequired": "Token is required",
+      "invalidToken": "Invalid token",
+      "failed": "Login failed"
+    },
+    "common": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "view": "View",
+      "loading": "Loading...",
+      "actions": "Actions",
+      "status": "Status",
+      "sort": "Sort",
+      "slug": "Slug",
+      "name": "Name",
+      "published": "Published",
+      "draft": "Draft",
+      "yes": "Yes",
+      "no": "No",
+      "saveFailed": "Save failed",
+      "deleteFailed": "Delete failed",
+      "nameEn": "Name EN",
+      "nameZh": "Name ZH",
+      "coverUrl": "Cover URL",
+      "autoSlug": "auto from name EN"
+    },
+    "categories": {
+      "title": "Categories",
+      "subtitle": "Create, edit, publish and sort product categories.",
+      "new": "New category",
+      "editTitle": "Edit category",
+      "createTitle": "New category",
+      "empty": "No categories yet.",
+      "descEn": "Desc EN",
+      "descZh": "Desc ZH",
+      "deleteConfirm": "Delete category \"{name}\"?"
+    },
+    "products": {
+      "title": "Products",
+      "subtitle": "Manage product content used by the public product pages.",
+      "new": "New product",
+      "editTitle": "Edit product",
+      "createTitle": "New product",
+      "empty": "No products yet.",
+      "category": "Category",
+      "selectCategory": "Select category",
+      "summaryEn": "Summary EN",
+      "summaryZh": "Summary ZH",
+      "descriptionEn": "Description EN",
+      "descriptionZh": "Description ZH",
+      "images": "Images (one URL per line)",
+      "specsEn": "Specs EN (one per line)",
+      "specsZh": "Specs ZH (one per line)",
+      "deleteConfirm": "Delete product \"{name}\"?"
+    }
+  },
+  "seo": {
+    "siteName": "Cerotd",
+    "titleTemplate": "%s | Cerotd",
+    "home": {
+      "title": "Cerotd | Industrial Lubricants & Greases Manufacturer",
+      "description": "Cerotd (Shandong) Lubrication Technology manufactures industrial oils, automotive oils, greases and antifreeze for global B2B partners."
+    },
+    "about": {
+      "title": "About Cerotd",
+      "description": "Learn about Cerotd's manufacturing capability, quality focus and lubrication technology background."
+    },
+    "products": {
+      "title": "Lubricant Products",
+      "description": "Browse Cerotd lubricant products including engine oils, gear oils, hydraulic oils, greases and antifreeze."
+    },
+    "services": {
+      "title": "Lubrication Services",
+      "description": "OEM cooperation, formulation support and supply services for industrial and automotive lubrication needs."
+    },
+    "advantages": {
+      "title": "Why Cerotd",
+      "description": "Stable capacity, quality control and application-focused lubrication solutions for B2B buyers."
+    },
+    "contact": {
+      "title": "Contact Cerotd",
+      "description": "Contact Cerotd for product specifications, OEM cooperation and bulk lubricant inquiries."
     }
   }
 }

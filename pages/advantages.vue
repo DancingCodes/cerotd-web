@@ -41,6 +41,12 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 
+usePageSeo({
+  title: t('seo.advantages.title'),
+  description: t('seo.advantages.description'),
+  path: '/advantages'
+})
+
 const pillars = computed(() => {
   locale.value
   return [1, 2, 3, 4].map((n) => ({

@@ -14,7 +14,9 @@
           <div class="section-subtitle">{{ $t('products.listSubtitle') }}</div>
         </div>
 
-        <div class="product-grid">
+        <div v-if="pending" class="state-text">Loading...</div>
+        <div v-else-if="!productList.length" class="state-text">No products yet.</div>
+        <div v-else class="product-grid">
           <NuxtLink
             v-for="item in productList"
             :key="item.slug"
@@ -23,18 +25,18 @@
           >
             <div class="product-card-media">
               <img
-                v-if="item.images[0]"
+                v-if="item.coverUrl || item.images[0]"
                 class="product-card-image"
-                :src="item.images[0]"
-                :alt="$t(`products.catalog.${item.slug}.name`)"
+                :src="item.coverUrl || item.images[0]"
+                :alt="t(item.name)"
               />
               <div v-else class="media-blank">
                 <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
               </div>
             </div>
             <div class="product-card-body">
-              <div class="product-card-title">{{ $t(`products.catalog.${item.slug}.name`) }}</div>
-              <div class="product-card-desc">{{ $t(`products.catalog.${item.slug}.summary`) }}</div>
+              <div class="product-card-title">{{ t(item.name) }}</div>
+              <div class="product-card-desc">{{ t(item.summary) }}</div>
               <div class="product-card-link">{{ $t('common.learnMore') }}</div>
             </div>
           </NuxtLink>
@@ -54,16 +56,32 @@
 </template>
 
 <script setup lang="ts">
-// 临时写死，后续接接口
-const productList = [
-  {
-    slug: 'antifreeze-g11-green',
-    images: ['/images/products/antifreeze-g11-green.png']
-  }
-]
+type Localized = { en: string; zh: string }
+
+type ProductItem = {
+  slug: string
+  name: Localized
+  summary: Localized
+  coverUrl: string | null
+  images: string[]
+}
+
+const t = useLocalized()
+const { t: i18nT } = useI18n()
+
+usePageSeo({
+  title: i18nT('seo.products.title'),
+  description: i18nT('seo.products.description'),
+  path: '/products'
+})
+const { data, pending } = await useFetch<{ items: ProductItem[] }>('/api/products', {
+  key: 'products-list'
+})
+const productList = computed(() => data.value?.items || [])
 </script>
 
 <style lang="scss" scoped>
+
 .products-page {
   .page-hero-rise {
     .page-hero-title,
@@ -131,6 +149,11 @@ const productList = [
       font-size: 17px;
       line-height: 1.7;
     }
+  }
+
+  .state-text {
+    color: #6b7280;
+    font-size: 15px;
   }
 
   .catalog {

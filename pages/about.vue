@@ -76,6 +76,12 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 
+usePageSeo({
+  title: t('seo.about.title'),
+  description: t('seo.about.description'),
+  path: '/about'
+})
+
 const values = computed(() => {
   locale.value
   return [1, 2, 3].map((n) => ({

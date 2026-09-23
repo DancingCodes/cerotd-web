@@ -95,8 +95,8 @@
               <div class="form-field-label">{{ $t('contact.form.product') }}</div>
               <select class="form-field-input">
                 <option value="">{{ $t('contact.form.productPlaceholder') }}</option>
-                <option v-for="category in productOptions" :key="category" :value="category">
-                  {{ $t(`products.categoryNames.${category}`) }}
+                <option v-for="category in productOptions" :key="category.slug" :value="category.slug">
+                  {{ t(category.name) }}
                 </option>
               </select>
             </div>
@@ -114,16 +114,21 @@
 </template>
 
 <script setup lang="ts">
-// 临时写死，后续接接口
-const productOptions = [
-  'antifreeze',
-  'diesel',
-  'transmission',
-  'gasoline',
-  'gear',
-  'hydraulic',
-  'grease'
-]
+type Localized = { en: string; zh: string }
+type CategoryItem = { slug: string; name: Localized }
+
+const t = useLocalized()
+const { t: i18nT } = useI18n()
+
+usePageSeo({
+  title: i18nT('seo.contact.title'),
+  description: i18nT('seo.contact.description'),
+  path: '/contact'
+})
+const { data } = await useFetch<{ items: CategoryItem[] }>('/api/categories', {
+  key: 'contact-categories'
+})
+const productOptions = computed(() => data.value?.items || [])
 </script>
 
 <style lang="scss" scoped>

@@ -67,7 +67,7 @@
 - 优势
 - 联系
 
-产品列表现阶段在页面内临时写死，文案在 `i18n/locales/*/products.catalog`；后续改为接口数据。
+产品列表与详情已接 `/api/products`；分类与产品可通过 `/admin` 管理。
 
 ## 品牌与素材
 
@@ -110,8 +110,12 @@
 
 - 数据库：Cloudflare D1（binding 名 `DB`）
 - 本地开发通过 `nitro-cloudflare-dev` + `wrangler.toml` 使用本地 D1
-- 商品分类接口：`/api/categories`
+- 分类接口：`/api/categories`
+- 产品接口：`/api/products`
+- 管理后台：`/admin`（登录后管理分类与产品，支持中英文切换）
 - 写接口（POST/PUT/DELETE）需要请求头 `Authorization: Bearer <ADMIN_API_TOKEN>`
 - 本地可复制 `.dev.vars.example` 为 `.dev.vars`
-- 图片先存 URL 字段（如 `cover_url`），对象存储后续再接
+- 图片先存 URL 字段（如 `cover_url` / `images`），对象存储后续再接
 - 部署 Cloudflare Workers：`npm run build` 后 `npm run deploy`（D1 binding 为 `DB`）
+- SEO 基础：`/robots.txt`、`/sitemap.xml`、页面 title/description；后台 `/admin` 为 noindex
+- 正式域名接入后，可设置 `NUXT_PUBLIC_SITE_URL`（当前会按请求域名自动生成）

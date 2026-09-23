@@ -3,8 +3,8 @@
     <div class="page-hero page-hero-rise">
       <div class="container">
         <NuxtLink to="/products" class="page-hero-back">{{ $t('products.backToList') }}</NuxtLink>
-        <div class="page-hero-title">{{ $t(`products.catalog.${product.slug}.name`) }}</div>
-        <div class="page-hero-subtitle">{{ $t(`products.catalog.${product.slug}.summary`) }}</div>
+        <div class="page-hero-title">{{ t(product.name) }}</div>
+        <div class="page-hero-subtitle">{{ t(product.summary) }}</div>
       </div>
     </div>
 
@@ -17,8 +17,9 @@
                 v-if="product.images[activeIndex]"
                 class="gallery-main-image"
                 :src="product.images[activeIndex]"
-                :alt="$t(`products.catalog.${product.slug}.name`)"
+                :alt="t(product.name)"
               />
+              <div v-else class="gallery-blank">{{ $t('common.mediaBlank') }}</div>
             </div>
             <div v-if="product.images.length > 1" class="gallery-thumbs">
               <div
@@ -28,19 +29,20 @@
                 :class="{ 'gallery-thumb-active': index === activeIndex }"
                 @click="activeIndex = index"
               >
-                <img class="gallery-thumb-image" :src="img" :alt="$t(`products.catalog.${product.slug}.name`)" />
+                <img class="gallery-thumb-image" :src="img" :alt="t(product.name)" />
               </div>
             </div>
           </div>
-          <div class="detail-desc">{{ $t(`products.catalog.${product.slug}.description`) }}</div>
+          <div class="detail-desc">{{ t(product.description) }}</div>
         </div>
 
         <div class="detail-side">
           <div class="specs-panel">
             <div class="specs-panel-title">{{ $t('products.specsTitle') }}</div>
             <div class="specs-list">
-              <div v-for="n in 3" :key="n" class="specs-item">
-                {{ $t(`products.catalog.${product.slug}.specs.s${n}`) }}
+              <div v-if="product.category" class="specs-item">{{ t(product.category.name) }}</div>
+              <div v-for="(spec, index) in localizedSpecs" :key="`${spec}-${index}`" class="specs-item">
+                {{ spec }}
               </div>
             </div>
             <NuxtLink to="/contact" class="specs-cta">{{ $t('products.detailCta') }}</NuxtLink>
@@ -49,11 +51,28 @@
       </div>
     </div>
 
+    <div v-if="relatedProducts.length" v-motion-slide-visible-once-bottom class="section related">
+      <div class="container">
+        <div class="related-title">{{ $t('products.relatedTitle') }}</div>
+        <div class="related-grid">
+          <NuxtLink
+            v-for="item in relatedProducts"
+            :key="item.slug"
+            :to="`/products/${item.slug}`"
+            class="related-card"
+          >
+            <div class="related-card-title">{{ t(item.name) }}</div>
+            <div class="related-card-desc">{{ t(item.summary) }}</div>
+          </NuxtLink>
+        </div>
+      </div>
+    </div>
+
     <div v-if="previewOpen" class="preview" @click.self="closePreview">
       <div class="preview-inner">
         <div class="preview-close" @click="closePreview">×</div>
         <div v-if="product.images.length > 1" class="preview-nav preview-nav-prev" @click="prevImage">‹</div>
-        <img class="preview-image" :src="product.images[previewIndex]" :alt="$t(`products.catalog.${product.slug}.name`)" />
+        <img class="preview-image" :src="product.images[previewIndex]" :alt="t(product.name)" />
         <div v-if="product.images.length > 1" class="preview-nav preview-nav-next" @click="nextImage">›</div>
       </div>
     </div>
@@ -61,27 +80,53 @@
 </template>
 
 <script setup lang="ts">
+type Localized = { en: string; zh: string }
+
+type ProductItem = {
+  slug: string
+  category: { slug: string; name: Localized } | null
+  name: Localized
+  summary: Localized
+  description: Localized
+  images: string[]
+  specs: { en: string[]; zh: string[] }
+}
+
 const route = useRoute()
+const t = useLocalized()
+const { locale } = useI18n()
+const slug = computed(() => String(route.params.slug || ''))
 
-// 临时写死，后续接接口
-const productMap = {
-  'antifreeze-g11-green': {
-    slug: 'antifreeze-g11-green',
-    images: ['/images/products/antifreeze-g11-green.png']
-  }
-} as const
-
-type ProductSlug = keyof typeof productMap
-
-const product = computed(() => {
-  const slug = String(route.params.slug || '')
-  return productMap[slug as ProductSlug] || null
+const { data: product, error } = await useFetch<ProductItem>(() => `/api/products/${slug.value}`, {
+  key: () => `product-${slug.value}`
 })
 
-watchEffect(() => {
-  if (!product.value) {
-    throw createError({ statusCode: 404, statusMessage: 'Product not found' })
-  }
+if (error.value || !product.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Product not found' })
+}
+
+usePageSeo({
+  title: computed(() => `${t(product.value!.name)} | Cerotd`),
+  description: computed(() => t(product.value!.summary) || t(product.value!.description)),
+  path: `/products/${slug.value}`,
+  image: computed(() => product.value?.images?.[0] || null)
+})
+
+const { data: listData } = await useFetch<{ items: ProductItem[] }>('/api/products', {
+  key: 'products-list-related'
+})
+
+const relatedProducts = computed(() => {
+  const categorySlug = product.value?.category?.slug
+  if (!categorySlug) return []
+  return (listData.value?.items || [])
+    .filter((item) => item.slug !== product.value?.slug && item.category?.slug === categorySlug)
+    .slice(0, 3)
+})
+
+const localizedSpecs = computed(() => {
+  if (!product.value) return []
+  return locale.value === 'zh' ? product.value.specs.zh : product.value.specs.en
 })
 
 const activeIndex = ref(0)
@@ -117,6 +162,7 @@ function nextImage() {
 </script>
 
 <style lang="scss" scoped>
+
 .product-detail-page {
   .page-hero-rise {
     .page-hero-back,
@@ -359,5 +405,67 @@ function nextImage() {
       }
     }
   }
+
+  .gallery-blank {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8edf2;
+    color: #98a2b3;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .related {
+    background: #f7f8fa;
+    padding: 96px 0;
+
+    @media (min-width: 768px) {
+      padding: 120px 0;
+    }
+
+    .related-title {
+      margin-bottom: 24px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+      color: #111827;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .related-card {
+      padding: 22px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid #e8edf2;
+      text-decoration: none;
+
+      .related-card-title {
+        margin-bottom: 8px;
+        color: #111827;
+        font-size: 18px;
+        font-weight: 650;
+      }
+
+      .related-card-desc {
+        color: #4b5563;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    }
+  }
+
 }
 </style>
