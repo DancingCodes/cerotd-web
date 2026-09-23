@@ -6,7 +6,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM node:24-alpine
+FROM node:24.13.1-alpine
 WORKDIR /app
 ENV NODE_ENV=production
 ENV NUXT_TELEMETRY_DISABLED=1
