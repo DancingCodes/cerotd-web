@@ -11,7 +11,9 @@
     "viewProducts": "View Products",
     "contactUs": "Contact Us",
     "getInTouch": "Get In Touch",
-    "placeholderNote": "Placeholder content for later replacement"
+    "placeholderNote": "Placeholder content for later replacement",
+    "mediaBlank": "Image",
+    "logoBlank": "Logo"
   },
   "nav": {
     "language": "Language"
@@ -41,10 +43,10 @@
   "home": {
     "badge": "Lubricants · Greases · Industrial Solutions",
     "hero": {
-      "title": "Professional lubrication technology for efficient operation",
-      "subtitle": "Cerotd is a modern comprehensive manufacturer of lubricating oils and greases, integrating R&D, production, sales, service, technical training, and logistics for automotive, industrial, and construction equipment.",
-      "ctaPrimary": "Browse Products",
-      "ctaSecondary": "Talk to Us",
+      "title": "Industrial lubrication, built for real operating conditions",
+      "subtitle": "Factory-direct lubricants and greases for automotive, industrial, and construction equipment — with stable supply for full-container and bulk orders.",
+      "ctaPrimary": "View Products",
+      "ctaSecondary": "Contact Sales",
       "panelTitle": "Integrated manufacturing capability",
       "panelDesc": "Automated blending lines, strict quality control, and complete testing systems for stable delivery and application fit.",
       "panelTag1": "100,000+ tons/year",
@@ -52,8 +54,8 @@
       "panelTag3": "Global formula partners"
     },
     "products": {
-      "title": "Core Products",
-      "subtitle": "Covering industrial oils, automotive oils, special oils, construction machinery oils, and automotive care products",
+      "title": "Products",
+      "subtitle": "A focused range for equipment protection and stable supply.",
       "items": {
         "item1": {
           "name": "Gasoline Engine Oil",
@@ -86,8 +88,8 @@
       }
     },
     "services": {
-      "title": "Professional Services",
-      "subtitle": "From R&D and production to technical training and logistics delivery",
+      "title": "How we work",
+      "subtitle": "Selection, production, and delivery without the usual template padding.",
       "items": {
         "item1": {
           "name": "R&D & Selection",
@@ -104,8 +106,8 @@
       }
     },
     "advantages": {
-      "title": "Why Cerotd",
-      "subtitle": "Factory scale, certification systems, and international technical cooperation",
+      "title": "What we can prove",
+      "subtitle": "Add photos, certificates, and plant details into the blank frames.",
       "items": {
         "item1": {
           "name": "Scaled Factory",
@@ -126,8 +128,8 @@
       }
     },
     "cta": {
-      "title": "Need full-container or bulk lubricant supply?",
-      "subtitle": "We are a factory direct supplier focused on full-container and large-volume orders. Tell us your market and product needs — our sales team will contact you within 24 hours.",
+      "title": "Need bulk lubricant supply?",
+      "subtitle": "Tell us the market, product type, and volume. Our sales team will reply within 24 hours.",
       "button": "Get a Proposal"
     },
     "stats": {
@@ -147,6 +149,17 @@
         "value": "20+",
         "label": "Brand Partnerships"
       }
+    },
+    "factory": {
+      "title": "Manufacturing capability",
+      "subtitle": "Leave factory photos or production stills here. Keep this section evidence-led, not slogan-led.",
+      "point1": "Automated blending lines for batch consistency",
+      "point2": "In-house testing support before shipment",
+      "point3": "Capacity for industrial, automotive, and specialty oils"
+    },
+    "partners": {
+      "title": "Partners & certifications",
+      "subtitle": "Replace these blanks with real partner marks and certificate scans."
     }
   },
   "about": {

@@ -40,8 +40,8 @@
             :to="`/products/${item.slug}`"
             class="product-card"
           >
-            <div class="product-card-visual">
-              <div class="product-card-category">{{ $t(`products.categoryNames.${item.category}`) }}</div>
+            <div class="media-blank">
+              <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
             </div>
             <div class="product-card-body">
               <div class="product-card-title">{{ $t(`products.catalog.${item.slug}.name`) }}</div>
@@ -195,31 +195,29 @@ const filteredProducts = computed(() => {
 
     .product-card {
       overflow: hidden;
-      border-radius: 28px;
+      border-radius: 20px;
       background: #ffffff;
-      border: 1px solid #eef1f4;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e8edf2;
+      box-shadow: none;
       text-decoration: none;
-      transition: all 0.25s ease;
+      transition: border-color 0.25s ease;
 
       &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14);
+        transform: none;
+        border-color: #cfd8e3;
+        box-shadow: none;
       }
 
-      .product-card-visual {
-        min-height: 180px;
+      .media-blank {
+        aspect-ratio: 4 / 3;
         display: flex;
-        align-items: flex-end;
-        padding: 24px;
-        background:
-          linear-gradient(160deg, rgba(#1aa6b8, 0.2), transparent 40%),
-          linear-gradient(180deg, #22324d 0%, #101827 100%);
+        align-items: center;
+        justify-content: center;
+        background: #e8edf2;
 
-        .product-card-category {
-          color: #5fd0dc;
-          font-size: 13px;
-          font-weight: 700;
+        .media-blank-label {
+          color: #98a2b3;
+          font-size: 12px;
           letter-spacing: 0.06em;
           text-transform: uppercase;
         }

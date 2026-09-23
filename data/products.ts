@@ -3,6 +3,7 @@ export type ProductCategory = 'gasoline' | 'diesel' | 'transmission' | 'gear' | 
 export type ProductItem = {
   slug: string
   category: ProductCategory
+  image?: string
 }
 
 export const productCategories: ProductCategory[] = [
@@ -16,20 +17,16 @@ export const productCategories: ProductCategory[] = [
 ]
 
 export const products: ProductItem[] = [
-  { slug: 'gas-5w30', category: 'gasoline' },
-  { slug: 'gas-10w40', category: 'gasoline' },
-  { slug: 'diesel-15w40', category: 'diesel' },
-  { slug: 'diesel-ci4', category: 'diesel' },
-  { slug: 'atf-vi', category: 'transmission' },
-  { slug: 'cvt-fluid', category: 'transmission' },
-  { slug: 'gear-85w140', category: 'gear' },
-  { slug: 'gear-gl5', category: 'gear' },
-  { slug: 'coolant-organic', category: 'antifreeze' },
-  { slug: 'coolant-longlife', category: 'antifreeze' },
-  { slug: 'hydraulic-aw46', category: 'hydraulic' },
-  { slug: 'hydraulic-aw68', category: 'hydraulic' },
-  { slug: 'grease-lithium', category: 'grease' },
-  { slug: 'grease-ep', category: 'grease' }
+  { slug: 'cf4-15w40', category: 'diesel', image: '/images/products/cf4-15w40.jpg' },
+  { slug: 'cf4-20w50', category: 'diesel', image: '/images/products/cf4-20w50.jpg' },
+  { slug: 'ch4-15w40', category: 'diesel', image: '/images/products/ch4-15w40.jpg' },
+  { slug: 'ch4-20w50', category: 'diesel', image: '/images/products/ch4-20w50.jpg' },
+  { slug: 'ci4-15w40', category: 'diesel', image: '/images/products/ci4-15w40.jpg' },
+  { slug: 'atf6', category: 'transmission', image: '/images/products/atf6.jpg' },
+  { slug: 'atf9', category: 'transmission', image: '/images/products/atf9.jpg' },
+  { slug: 'atf10', category: 'transmission', image: '/images/products/atf10.jpg' },
+  { slug: 'antifreeze-g11-green', category: 'antifreeze', image: '/images/products/antifreeze-g11-green.png' },
+  { slug: 'antifreeze-g11-red', category: 'antifreeze', image: '/images/products/antifreeze-g11-red.png' }
 ]
 
 export function getProduct(slug: string) {
