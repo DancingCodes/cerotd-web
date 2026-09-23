@@ -90,11 +90,9 @@
 </template>
 
 <script setup lang="ts">
-const { tm } = useI18n()
-
-const products = computed(() => tm('home.products.items') || [])
-const services = computed(() => tm('home.services.items') || [])
-const advantages = computed(() => tm('home.advantages.items') || [])
+const products = useLocaleItems<{ name: string; desc: string }>('home.products.items', ['name', 'desc'])
+const services = useLocaleItems<{ name: string; desc: string }>('home.services.items', ['name', 'desc'])
+const advantages = useLocaleItems<{ name: string; desc: string }>('home.advantages.items', ['name', 'desc'])
 </script>
 
 <style lang="scss" scoped>

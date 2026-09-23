@@ -29,7 +29,7 @@
     "ourServices": "Services",
     "ourAdvantages": "Advantages",
     "location": "Shandong, China",
-    "email": "info@cerotd.com",
+    "email": "info{'@'}cerotd.com",
     "phone": "+86 xxx xxxx xxxx",
     "copyright": "Cerotd (Shandong) Lubrication Technology Co., Ltd. All rights reserved."
   },
@@ -44,64 +44,64 @@
     "products": {
       "title": "Core Products",
       "subtitle": "Covering industrial, automotive, specialty, and metalworking lubrication needs",
-      "items": [
-        {
+      "items": {
+        "item1": {
           "name": "Industrial Lubricants",
           "desc": "Built for heavy-duty equipment and continuous operation with wear protection and stability."
         },
-        {
+        "item2": {
           "name": "Automotive Oils",
           "desc": "Engine and transmission focused oils balancing protection and operating adaptability."
         },
-        {
+        "item3": {
           "name": "Specialty Greases",
           "desc": "Formulated for high temperature, humidity, and heavy-load conditions."
         },
-        {
+        "item4": {
           "name": "Metalworking Fluids",
           "desc": "Cooling and lubrication support for cutting, grinding, and forming processes."
         }
-      ]
+      }
     },
     "services": {
       "title": "Professional Services",
       "subtitle": "From product selection to application support for a more efficient lubrication system",
-      "items": [
-        {
+      "items": {
+        "item1": {
           "name": "Selection Consulting",
           "desc": "Match products to equipment conditions and maintenance goals."
         },
-        {
+        "item2": {
           "name": "Application Support",
           "desc": "Help evaluate on-site usage and reduce abnormal wear risks."
         },
-        {
+        "item3": {
           "name": "Quality Assurance",
           "desc": "Stable formulation and testing for consistent batch quality."
         }
-      ]
+      }
     },
     "advantages": {
       "title": "Why Cerotd",
       "subtitle": "Clear capabilities that build long-term trust",
-      "items": [
-        {
+      "items": {
+        "item1": {
           "name": "Formulation Strength",
           "desc": "Optimization based on real operating conditions, not just datasheets."
         },
-        {
+        "item2": {
           "name": "Stable Quality Delivery",
           "desc": "Consistency and traceable quality management across batches."
         },
-        {
+        "item3": {
           "name": "Scenario-based Solutions",
           "desc": "Product combinations tailored to industries and equipment types."
         },
-        {
+        "item4": {
           "name": "Long-term Collaboration",
           "desc": "More than supply — continuous lubrication system improvement."
         }
-      ]
+      }
     },
     "cta": {
       "title": "Ready to improve lubrication performance?",
@@ -120,37 +120,37 @@
     },
     "values": {
       "title": "What we value",
-      "items": [
-        {
+      "items": {
+        "item1": {
           "name": "Expertise",
           "desc": "Turn complex operating conditions into actionable product and service plans."
         },
-        {
+        "item2": {
           "name": "Stability",
           "desc": "Prioritize delivery consistency over short-term specification highlights."
         },
-        {
+        "item3": {
           "name": "Long-term thinking",
           "desc": "Work with customers to improve equipment life and maintenance cost."
         }
-      ]
+      }
     },
     "milestones": {
       "title": "Our rhythm",
-      "items": [
-        {
+      "items": {
+        "item1": {
           "year": "Start",
           "text": "Define product direction around industrial lubrication needs."
         },
-        {
+        "item2": {
           "year": "Expand",
           "text": "Grow into multiple lubricant categories and application services."
         },
-        {
+        "item3": {
           "year": "Deepen",
           "text": "Strengthen R&D, testing, and customer collaboration capabilities."
         }
-      ]
+      }
     }
   },
   "products": {
@@ -161,44 +161,44 @@
     "categories": {
       "title": "Product Lines",
       "subtitle": "Category-first structure for now; real SKUs and specs can be added later",
-      "items": [
-        {
+      "items": {
+        "item1": {
           "name": "Industrial Lubricants",
           "desc": "Hydraulic oils, gear oils, compressor oils, and related industrial essentials.",
-          "points": [
-            "Wear protection",
-            "Thermal stability",
-            "Long duty cycles"
-          ]
+          "points": {
+            "p1": "Wear protection",
+            "p2": "Thermal stability",
+            "p3": "Long duty cycles"
+          }
         },
-        {
+        "item2": {
           "name": "Automotive Oils",
           "desc": "Engine and drivetrain lubricants focused on cleanliness and protection.",
-          "points": [
-            "Engine protection",
-            "Cold start",
-            "Durability"
-          ]
+          "points": {
+            "p1": "Engine protection",
+            "p2": "Cold start",
+            "p3": "Durability"
+          }
         },
-        {
+        "item3": {
           "name": "Specialty Greases",
           "desc": "For bearings, high-temperature points, and higher sealing requirements.",
-          "points": [
-            "Strong adhesion",
-            "Heat resistance",
-            "Water and dust resistance"
-          ]
+          "points": {
+            "p1": "Strong adhesion",
+            "p2": "Heat resistance",
+            "p3": "Water and dust resistance"
+          }
         },
-        {
+        "item4": {
           "name": "Metalworking Fluids",
           "desc": "Cooling and lubrication for machining quality and tool life.",
-          "points": [
-            "Cooling efficiency",
-            "Machining precision",
-            "Tool life"
-          ]
+          "points": {
+            "p1": "Cooling efficiency",
+            "p2": "Machining precision",
+            "p3": "Tool life"
+          }
         }
-      ]
+      }
     },
     "note": {
       "title": "Specs & Grades",
@@ -212,49 +212,49 @@
     },
     "list": {
       "title": "What we offer",
-      "items": [
-        {
+      "items": {
+        "item1": {
           "name": "Condition Review & Selection",
           "desc": "Map equipment type, load, temperature, and maintenance cycle to product recommendations."
         },
-        {
+        "item2": {
           "name": "Lubrication Planning",
           "desc": "Provide practical product combinations and replacement strategies."
         },
-        {
+        "item3": {
           "name": "Usage Training Support",
           "desc": "Help teams understand key usage points and reduce misuse."
         },
-        {
+        "item4": {
           "name": "Continuous Optimization",
           "desc": "Adjust recommendations based on operating feedback for long-term stability."
         }
-      ]
+      }
     },
     "process": {
       "title": "How we collaborate",
-      "items": [
-        {
+      "items": {
+        "item1": {
           "step": "01",
           "name": "Discovery",
           "desc": "Clarify equipment, conditions, and goals."
         },
-        {
+        "item2": {
           "step": "02",
           "name": "Matching",
           "desc": "Propose products and support options."
         },
-        {
+        "item3": {
           "step": "03",
           "name": "Implementation",
           "desc": "Assist onboarding and on-site usage."
         },
-        {
+        "item4": {
           "step": "04",
           "name": "Optimization",
           "desc": "Track results and improve continuously."
         }
-      ]
+      }
     }
   },
   "advantages": {
@@ -264,41 +264,41 @@
     },
     "pillars": {
       "title": "Capability pillars",
-      "items": [
-        {
+      "items": {
+        "item1": {
           "name": "R&D Oriented",
           "desc": "Formulation and application research centered on real mechanical lubrication problems."
         },
-        {
+        "item2": {
           "name": "Quality System",
           "desc": "Process control, verification, and stable delivery."
         },
-        {
+        "item3": {
           "name": "Industry Understanding",
           "desc": "Recognize different lubrication needs across industries and equipment."
         },
-        {
+        "item4": {
           "name": "Responsive Collaboration",
           "desc": "Clear communication across selection, supply, and technical support."
         }
-      ]
+      }
     },
     "compare": {
       "title": "Working with us",
-      "items": [
-        {
+      "items": {
+        "item1": {
           "name": "Clearer product communication",
           "desc": "Less jargon, more decision-ready information."
         },
-        {
+        "item2": {
           "name": "Field-relevant recommendations",
           "desc": "Not only a catalog, but executable usage direction."
         },
-        {
+        "item3": {
           "name": "More sustainable partnership",
           "desc": "Long-term performance as the measure of success."
         }
-      ]
+      }
     }
   },
   "contact": {
@@ -311,7 +311,7 @@
       "addressLabel": "Address",
       "addressValue": "Shandong, China (placeholder)",
       "emailLabel": "Email",
-      "emailValue": "info@cerotd.com",
+      "emailValue": "info{'@'}cerotd.com",
       "phoneLabel": "Phone",
       "phoneValue": "+86 xxx xxxx xxxx",
       "hoursLabel": "Hours",

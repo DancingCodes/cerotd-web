@@ -52,9 +52,8 @@
 </template>
 
 <script setup lang="ts">
-const { tm } = useI18n()
-const values = computed(() => tm('about.values.items') || [])
-const milestones = computed(() => tm('about.milestones.items') || [])
+const values = useLocaleItems<{ name: string; desc: string }>('about.values.items', ['name', 'desc'])
+const milestones = useLocaleItems<{ year: string; text: string }>('about.milestones.items', ['year', 'text'])
 </script>
 
 <style lang="scss" scoped>

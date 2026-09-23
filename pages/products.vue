@@ -54,8 +54,7 @@
 </template>
 
 <script setup lang="ts">
-const { tm } = useI18n()
-const categories = computed(() => tm('products.categories.items') || [])
+const categories = useLocaleItems<{ name: string; desc: string; points: string[] }>('products.categories.items', ['name', 'desc', 'points'])
 </script>
 
 <style lang="scss" scoped>

@@ -41,9 +41,8 @@
 </template>
 
 <script setup lang="ts">
-const { tm } = useI18n()
-const list = computed(() => tm('services.list.items') || [])
-const process = computed(() => tm('services.process.items') || [])
+const list = useLocaleItems<{ name: string; desc: string }>('services.list.items', ['name', 'desc'])
+const process = useLocaleItems<{ step: string; name: string; desc: string }>('services.process.items', ['step', 'name', 'desc'])
 </script>
 
 <style lang="scss" scoped>

@@ -40,9 +40,8 @@
 </template>
 
 <script setup lang="ts">
-const { tm } = useI18n()
-const pillars = computed(() => tm('advantages.pillars.items') || [])
-const compare = computed(() => tm('advantages.compare.items') || [])
+const pillars = useLocaleItems<{ name: string; desc: string }>('advantages.pillars.items', ['name', 'desc'])
+const compare = useLocaleItems<{ name: string; desc: string }>('advantages.compare.items', ['name', 'desc'])
 </script>
 
 <style lang="scss" scoped>
