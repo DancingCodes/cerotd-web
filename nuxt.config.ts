@@ -8,10 +8,10 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Cerotd',
+      title: '赛罗特 Cerotd',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Cerotd mechanical lubrication solutions' }
+        { name: 'description', content: '赛罗特（山东）润滑科技有限公司' }
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/logo.png' }

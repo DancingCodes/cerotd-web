@@ -7,6 +7,11 @@
             <img src="/logo.png" alt="Cerotd" class="footer-brand-image" />
           </div>
           <div class="footer-desc">{{ $t('footer.tagline') }}</div>
+          <div class="footer-social">
+            <NuxtLink class="footer-social-link" to="https://www.facebook.com/people/Cerotd-Lubricating-Oil/61575320303094/?sk=reels_tab" target="_blank" external>Facebook</NuxtLink>
+            <NuxtLink class="footer-social-link" to="https://api.whatsapp.com/send/?phone=8615263792384&text&type=phone_number&app_absent=0" target="_blank" external>WhatsApp</NuxtLink>
+            <NuxtLink class="footer-social-link" to="https://t.me/cerotdshand" target="_blank" external>Telegram</NuxtLink>
+          </div>
         </div>
 
         <div class="footer-col">
@@ -52,14 +57,18 @@
           <div class="footer-title">{{ $t('footer.contactTitle') }}</div>
           <div class="footer-list">
             <div class="footer-item">{{ $t('footer.location') }}</div>
-            <div class="footer-item">{{ $t('footer.email') }}</div>
             <div class="footer-item">{{ $t('footer.phone') }}</div>
+            <div class="footer-item">{{ $t('footer.wechatTitle') }}: {{ $t('footer.wechatId') }}</div>
+          </div>
+          <div class="footer-wechat">
+            <img src="/wechat.png" :alt="$t('footer.wechatTitle')" class="footer-wechat-image" />
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div class="footer-copyright">&copy; {{ year }} {{ $t('footer.copyright') }}</div>
+        <NuxtLink class="footer-beian" to="https://beian.miit.gov.cn/" target="_blank" external>鲁ICP备2026051999号-1</NuxtLink>
       </div>
     </div>
   </div>
@@ -115,6 +124,28 @@ const year = new Date().getFullYear()
       line-height: 1.7;
     }
 
+    .footer-social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+
+      .footer-social-link {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(#ffffff, 0.06);
+        color: #c8ced6;
+        font-size: 13px;
+        text-decoration: none;
+        transition: all 0.25s ease;
+
+        &:hover {
+          color: #ffffff;
+          background: rgba(#ffffff, 0.12);
+        }
+      }
+    }
+
     .footer-title {
       margin-bottom: 18px;
       color: #ffffff;
@@ -144,6 +175,18 @@ const year = new Date().getFullYear()
         }
       }
     }
+
+    .footer-wechat {
+      margin-top: 16px;
+
+      .footer-wechat-image {
+        width: 96px;
+        height: 96px;
+        object-fit: cover;
+        border-radius: 12px;
+        background: #ffffff;
+      }
+    }
   }
 
   .footer-bottom {
@@ -154,6 +197,19 @@ const year = new Date().getFullYear()
       color: #6b7280;
       font-size: 13px;
       text-align: center;
+    }
+
+    .footer-beian {
+      display: block;
+      margin-top: 8px;
+      color: #6b7280;
+      font-size: 13px;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+        color: #ffffff;
+      }
     }
   }
 }

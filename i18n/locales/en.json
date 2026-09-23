@@ -28,11 +28,14 @@
     "aboutUs": "About Us",
     "ourServices": "Services",
     "ourAdvantages": "Advantages",
-    "location": "Shandong, China",
+    "location": "Rencheng, Jining, Shandong, China",
     "email": "info{'@'}cerotd.com",
-    "phone": "+86 xxx xxxx xxxx",
+    "phone": "+86 152 6379 2384",
     "copyright": "Cerotd (Shandong) Lubrication Technology Co., Ltd. All rights reserved.",
-    "product5": "Antifreeze"
+    "product5": "Antifreeze",
+    "socialTitle": "Follow Us",
+    "wechatTitle": "WeChat",
+    "wechatId": "13953717716"
   },
   "home": {
     "badge": "Mechanical Lubricants · Industrial Solutions",
@@ -117,11 +120,11 @@
   "about": {
     "hero": {
       "title": "About Cerotd",
-      "subtitle": "A company focused on mechanical lubricants"
+      "subtitle": "Professional lubrication technology company"
     },
     "intro": {
       "title": "Serving industrial efficiency with lubrication technology",
-      "desc": "Cerotd is dedicated to the development, production, and application support of mechanical lubricants. We believe a strong lubrication solution should be stable, reliable, and maintainable over time. This copy is placeholder content and can be replaced later."
+      "desc": "Cerotd (Shandong) Lubrication Technology Co., Ltd. is dedicated to the development, production, and application support of mechanical lubricants. We believe a strong lubrication solution should be stable, reliable, and maintainable over time. This copy is placeholder content and can be replaced later."
     },
     "values": {
       "title": "What we value",
@@ -236,6 +239,121 @@
     "note": {
       "title": "Specs & Grades",
       "desc": "Formal product codes, viscosity grades, certifications, and packaging details will be added later. This page currently validates information architecture and visual hierarchy."
+    },
+    "listTitle": "All Products",
+    "listSubtitle": "Browse by category. Formal SKUs and specs can replace placeholders later.",
+    "detailCta": "Ask about this product",
+    "backToList": "Back to products",
+    "specsTitle": "Key Information",
+    "relatedTitle": "Related Products",
+    "categoryNames": {
+      "gasoline": "Gasoline Engine Oil",
+      "diesel": "Diesel Engine Oil",
+      "transmission": "Transmission Fluid",
+      "gear": "Gear Oil",
+      "antifreeze": "Antifreeze"
+    },
+    "catalog": {
+      "gas-5w30": {
+        "name": "Gasoline Engine Oil 5W-30",
+        "summary": "General gasoline engine oil focused on cold start and daily protection.",
+        "description": "Suitable for most gasoline engine daily conditions. Placeholder content for specs, certifications, and packaging.",
+        "specs": {
+          "s1": "Viscosity: 5W-30",
+          "s2": "Use: Gasoline engines",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "gas-10w40": {
+        "name": "Gasoline Engine Oil 10W-40",
+        "summary": "Gasoline engine oil for a wider temperature range.",
+        "description": "For gasoline engines needing stable film strength and continuous protection. Formal data coming later.",
+        "specs": {
+          "s1": "Viscosity: 10W-40",
+          "s2": "Use: Gasoline engines",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "diesel-15w40": {
+        "name": "Diesel Engine Oil 15W-40",
+        "summary": "Common diesel viscosity option focused on wear resistance and durability.",
+        "description": "A baseline diesel engine oil model for heavy-duty oriented presentation.",
+        "specs": {
+          "s1": "Viscosity: 15W-40",
+          "s2": "Use: Diesel engines",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "diesel-ci4": {
+        "name": "Diesel Engine Oil CI-4",
+        "summary": "Oriented to protection under heavier diesel loads.",
+        "description": "Placeholder for heavy-duty diesel lubrication direction. Standards and approvals can be replaced later.",
+        "specs": {
+          "s1": "Performance: CI-4",
+          "s2": "Use: Heavy-duty diesel",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "atf-vi": {
+        "name": "Automatic Transmission Fluid",
+        "summary": "ATF focused on smooth shifting performance.",
+        "description": "Placeholder for automatic transmission lubrication and friction control.",
+        "specs": {
+          "s1": "Type: ATF",
+          "s2": "Use: Automatic transmissions",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "cvt-fluid": {
+        "name": "CVT Fluid",
+        "summary": "Fluid direction for CVT transmission systems.",
+        "description": "Placeholder for CVT lubrication solutions. Compatibility lists can be added later.",
+        "specs": {
+          "s1": "Type: CVT Fluid",
+          "s2": "Use: CVT transmissions",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "gear-85w140": {
+        "name": "Gear Oil 85W-140",
+        "summary": "Higher-viscosity gear oil focused on film strength.",
+        "description": "Placeholder for heavy gear transmission scenarios.",
+        "specs": {
+          "s1": "Viscosity: 85W-140",
+          "s2": "Use: Gear drives",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "gear-gl5": {
+        "name": "Gear Oil GL-5",
+        "summary": "EP gear oil direction for wear and load carrying.",
+        "description": "Placeholder for extreme-pressure gear lubrication capability.",
+        "specs": {
+          "s1": "Performance: GL-5",
+          "s2": "Use: Axles / gearboxes",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "coolant-organic": {
+        "name": "Organic Antifreeze",
+        "summary": "Cooling system protection against freeze, boil, and corrosion.",
+        "description": "Placeholder for organic coolant direction. Color, mix ratio, and standards TBD.",
+        "specs": {
+          "s1": "Type: Organic Coolant",
+          "s2": "Use: Cooling systems",
+          "s3": "Packaging: TBD"
+        }
+      },
+      "coolant-longlife": {
+        "name": "Long-life Antifreeze",
+        "summary": "Coolant option oriented to longer protection cycles.",
+        "description": "Placeholder for long-life cooling protection. Service interval and formula details TBD.",
+        "specs": {
+          "s1": "Type: Long Life Coolant",
+          "s2": "Use: Cooling systems",
+          "s3": "Packaging: TBD"
+        }
+      }
     }
   },
   "services": {
@@ -342,13 +460,21 @@
     "info": {
       "title": "Contact details",
       "addressLabel": "Address",
-      "addressValue": "Shandong, China (placeholder)",
+      "addressValue": "New Materials Industrial Park, Rencheng District, Jining, Shandong, China. 150m south of the intersection of Cenguang Road and Lantian Road.",
       "emailLabel": "Email",
       "emailValue": "info{'@'}cerotd.com",
       "phoneLabel": "Phone",
-      "phoneValue": "+86 xxx xxxx xxxx",
+      "phoneValue": "+86 152 6379 2384",
       "hoursLabel": "Hours",
-      "hoursValue": "Mon - Fri 09:00 - 18:00"
+      "hoursValue": "Mon - Fri 09:00 - 18:00",
+      "whatsappLabel": "WhatsApp",
+      "whatsappValue": "+86 152 6379 2384",
+      "telegramLabel": "Telegram",
+      "telegramValue": "{'@'}cerotdshand",
+      "wechatLabel": "WeChat",
+      "wechatValue": "13953717716",
+      "facebookLabel": "Facebook",
+      "facebookValue": "Cerotd Lubricating Oil"
     },
     "form": {
       "title": "Send a message",
@@ -359,6 +485,14 @@
       "message": "Message",
       "submit": "Submit",
       "tip": "This is a static placeholder form. Real submission logic can be connected later."
+    },
+    "social": {
+      "title": "Social & Messaging",
+      "wechatTip": "Scan or search the WeChat ID to connect"
+    },
+    "map": {
+      "title": "Location",
+      "openMap": "Open in Maps"
     }
   }
 }

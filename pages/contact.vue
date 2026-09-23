@@ -18,17 +18,36 @@
               <div class="info-item-value">{{ $t('contact.info.addressValue') }}</div>
             </div>
             <div class="info-item">
-              <div class="info-item-label">{{ $t('contact.info.emailLabel') }}</div>
-              <div class="info-item-value">{{ $t('contact.info.emailValue') }}</div>
-            </div>
-            <div class="info-item">
               <div class="info-item-label">{{ $t('contact.info.phoneLabel') }}</div>
               <div class="info-item-value">{{ $t('contact.info.phoneValue') }}</div>
             </div>
             <div class="info-item">
-              <div class="info-item-label">{{ $t('contact.info.hoursLabel') }}</div>
-              <div class="info-item-value">{{ $t('contact.info.hoursValue') }}</div>
+              <div class="info-item-label">{{ $t('contact.info.whatsappLabel') }}</div>
+              <NuxtLink class="info-item-link" to="https://api.whatsapp.com/send/?phone=8615263792384&text&type=phone_number&app_absent=0" target="_blank" external>
+                {{ $t('contact.info.whatsappValue') }}
+              </NuxtLink>
             </div>
+            <div class="info-item">
+              <div class="info-item-label">{{ $t('contact.info.telegramLabel') }}</div>
+              <NuxtLink class="info-item-link" to="https://t.me/cerotdshand" target="_blank" external>
+                {{ $t('contact.info.telegramValue') }}
+              </NuxtLink>
+            </div>
+            <div class="info-item">
+              <div class="info-item-label">{{ $t('contact.info.facebookLabel') }}</div>
+              <NuxtLink class="info-item-link" to="https://www.facebook.com/people/Cerotd-Lubricating-Oil/61575320303094/?sk=reels_tab" target="_blank" external>
+                {{ $t('contact.info.facebookValue') }}
+              </NuxtLink>
+            </div>
+            <div class="info-item">
+              <div class="info-item-label">{{ $t('contact.info.wechatLabel') }}</div>
+              <div class="info-item-value">{{ $t('contact.info.wechatValue') }}</div>
+            </div>
+          </div>
+
+          <div class="wechat-box">
+            <div class="wechat-box-title">{{ $t('contact.social.wechatTip') }}</div>
+            <img src="/wechat.png" :alt="$t('contact.info.wechatLabel')" class="wechat-box-image" />
           </div>
         </div>
 
@@ -58,6 +77,27 @@
           </div>
           <div class="form-submit">{{ $t('contact.form.submit') }}</div>
           <div class="form-tip">{{ $t('contact.form.tip') }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section map">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title">{{ $t('contact.map.title') }}</div>
+        </div>
+        <div class="map-panel">
+          <iframe
+            class="map-panel-frame"
+            :src="mapSrc"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="map-actions">
+          <NuxtLink class="map-actions-link" :to="mapLink" target="_blank" external>
+            {{ $t('contact.map.openMap') }}
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -255,5 +295,36 @@
 
 
 
+
+  .map {
+    background: #ffffff;
+    padding-top: 0;
+
+    .map-panel {
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid #eef1f4;
+      background: #f7f8fa;
+      aspect-ratio: 16 / 9;
+
+      .map-panel-frame {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+    }
+
+    .map-actions {
+      margin-top: 16px;
+
+      .map-actions-link {
+        color: #0e7f8f;
+        font-size: 14px;
+        font-weight: 650;
+        text-decoration: none;
+      }
+    }
+  }
 }
 </style>
