@@ -8,9 +8,9 @@
           </div>
           <div class="footer-desc">{{ $t('footer.tagline') }}</div>
           <div class="footer-social">
-            <NuxtLink class="footer-social-link" to="https://www.facebook.com/people/Cerotd-Lubricating-Oil/61575320303094/?sk=reels_tab" target="_blank" external>Facebook</NuxtLink>
-            <NuxtLink class="footer-social-link" to="https://api.whatsapp.com/send/?phone=8615263792384&text&type=phone_number&app_absent=0" target="_blank" external>WhatsApp</NuxtLink>
-            <NuxtLink class="footer-social-link" to="https://t.me/cerotdshand" target="_blank" external>Telegram</NuxtLink>
+            <a class="footer-social-link" href="https://www.facebook.com/people/Cerotd-Lubricating-Oil/61575320303094/?sk=reels_tab" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="footer-social-link" href="https://api.whatsapp.com/send/?phone=8615263792384&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="footer-social-link" href="https://t.me/cerotdshand" target="_blank" rel="noopener noreferrer">Telegram</a>
           </div>
         </div>
 
@@ -74,7 +74,7 @@
 
       <div class="footer-bottom">
         <div class="footer-copyright">&copy; {{ year }} {{ $t('footer.copyright') }}</div>
-        <NuxtLink class="footer-beian" to="https://beian.miit.gov.cn/" target="_blank" external>鲁ICP备2026051999号-1</NuxtLink>
+        <a class="footer-beian" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鲁ICP备2026051999号-1</a>
       </div>
     </div>
   </div>

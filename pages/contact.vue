@@ -22,21 +22,21 @@
             </div>
             <div class="info-item">
               <div class="info-item-label">{{ $t('contact.info.whatsappLabel') }}</div>
-              <NuxtLink class="info-item-link" to="https://api.whatsapp.com/send/?phone=8615263792384&text&type=phone_number&app_absent=0" target="_blank" external>
+              <a class="info-item-link" href="https://api.whatsapp.com/send/?phone=8615263792384&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
                 {{ $t('contact.info.whatsappValue') }}
-              </NuxtLink>
+              </a>
             </div>
             <div class="info-item">
               <div class="info-item-label">{{ $t('contact.info.telegramLabel') }}</div>
-              <NuxtLink class="info-item-link" to="https://t.me/cerotdshand" target="_blank" external>
+              <a class="info-item-link" href="https://t.me/cerotdshand" target="_blank" rel="noopener noreferrer">
                 {{ $t('contact.info.telegramValue') }}
-              </NuxtLink>
+              </a>
             </div>
             <div class="info-item">
               <div class="info-item-label">{{ $t('contact.info.facebookLabel') }}</div>
-              <NuxtLink class="info-item-link" to="https://www.facebook.com/people/Cerotd-Lubricating-Oil/61575320303094/?sk=reels_tab" target="_blank" external>
+              <a class="info-item-link" href="https://www.facebook.com/people/Cerotd-Lubricating-Oil/61575320303094/?sk=reels_tab" target="_blank" rel="noopener noreferrer">
                 {{ $t('contact.info.facebookValue') }}
-              </NuxtLink>
+              </a>
             </div>
             <div class="info-item">
               <div class="info-item-label">{{ $t('contact.info.wechatLabel') }}</div>
