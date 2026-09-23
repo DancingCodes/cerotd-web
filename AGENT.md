@@ -86,9 +86,10 @@
 
 ## 动效策略
 
-- 先做静态大气版
-- 滚动动效、入场动画等后续再补
-- 当前阶段优先保证版式、层级、留白与信息节奏
+- 动效要克制、干净，参考苹果官网节奏，避免花哨弹跳
+- 滚动显现使用 `@vueuse/motion`（如 `v-motion-slide-visible-once-bottom`）
+- 页面切换用轻量 fade/slide
+- 尊重 `prefers-reduced-motion`
 
 ## 模板规范
 

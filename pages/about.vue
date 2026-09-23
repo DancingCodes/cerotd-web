@@ -1,13 +1,13 @@
 <template>
   <div class="about-page">
-    <div class="page-hero">
+    <div class="page-hero page-hero-rise">
       <div class="container">
         <div class="page-hero-title">{{ $t('about.hero.title') }}</div>
         <div class="page-hero-subtitle">{{ $t('about.hero.subtitle') }}</div>
       </div>
     </div>
 
-    <div class="section intro">
+    <div v-motion-slide-visible-once-bottom class="section intro">
       <div class="container intro-grid">
         <div class="intro-copy">
           <div class="intro-title">{{ $t('about.intro.title') }}</div>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="section stats">
+    <div v-motion-slide-visible-once-bottom class="section stats">
       <div class="container">
         <div class="section-header">
           <div class="section-title">{{ $t('about.stats.title') }}</div>
@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div class="section values">
+    <div v-motion-slide-visible-once-bottom class="section values">
       <div class="container">
         <div class="section-header">
           <div class="section-title">{{ $t('about.values.title') }}</div>
@@ -55,7 +55,7 @@
       </div>
     </div>
 
-    <div class="section milestones">
+    <div v-motion-slide-visible-once-bottom class="section milestones">
       <div class="container">
         <div class="section-header">
           <div class="section-title">{{ $t('about.milestones.title') }}</div>
@@ -93,6 +93,26 @@ const milestones = computed(() => {
 
 <style lang="scss" scoped>
 .about-page {
+  .page-hero-rise {
+    .page-hero-title,
+    .page-hero-subtitle {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: page-hero-rise 0.7s ease forwards;
+    }
+
+    .page-hero-subtitle {
+      animation-delay: 0.1s;
+    }
+  }
+
+  @keyframes page-hero-rise {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .page-hero {
     padding: 88px 0 72px;
     background:
@@ -142,7 +162,7 @@ const milestones = computed(() => {
       display: grid;
       grid-template-columns: 1fr;
       gap: 32px;
-      align-items: stretch;
+      align-items: start;
 
       @media (min-width: 960px) {
         grid-template-columns: 1.1fr 0.9fr;
@@ -166,14 +186,14 @@ const milestones = computed(() => {
     }
 
     .intro-panel {
+      min-width: 0;
       overflow: hidden;
       border-radius: 28px;
       background: #0d1524;
-      aspect-ratio: 16 / 9;
 
       .intro-panel-video {
         width: 100%;
-        height: 100%;
+        aspect-ratio: 16 / 9;
         object-fit: cover;
         display: block;
       }
@@ -204,6 +224,12 @@ const milestones = computed(() => {
       border-radius: 24px;
       background: rgba(#ffffff, 0.04);
       border: 1px solid rgba(#ffffff, 0.08);
+      transition: transform 0.25s ease, background 0.25s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        background: rgba(#ffffff, 0.07);
+      }
 
       .stats-item-value {
         margin-bottom: 10px;
@@ -241,6 +267,12 @@ const milestones = computed(() => {
       background: #ffffff;
       border: 1px solid #eef1f4;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+      }
 
       .value-card-title {
         margin-bottom: 12px;

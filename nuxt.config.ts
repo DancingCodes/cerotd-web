@@ -1,12 +1,13 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
-  modules: ['@nuxtjs/i18n'],
-  css: ['modern-normalize/modern-normalize.css', '~/assets/styles/main.scss', '~/assets/styles/common.scss'],
+  modules: ['@nuxtjs/i18n', '@vueuse/motion/nuxt'],
+  css: ['modern-normalize/modern-normalize.css', '~/assets/styles/main.scss', '~/assets/styles/common.scss', '~/assets/styles/motion.scss'],
   typescript: {
     typeCheck: false,
     strict: true
   },
   app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       title: 'Cerotd | Shandong Lubrication Technology',
       meta: [

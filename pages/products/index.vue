@@ -1,13 +1,13 @@
 <template>
   <div class="products-page">
-    <div class="page-hero">
+    <div class="page-hero page-hero-rise">
       <div class="container">
         <div class="page-hero-title">{{ $t('products.hero.title') }}</div>
         <div class="page-hero-subtitle">{{ $t('products.hero.subtitle') }}</div>
       </div>
     </div>
 
-    <div class="section catalog">
+    <div v-motion-slide-visible-once-bottom class="section catalog">
       <div class="container">
         <div class="section-header">
           <div class="section-title">{{ $t('products.listTitle') }}</div>
@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div class="section note">
+    <div v-motion-slide-visible-once-bottom class="section note">
       <div class="container">
         <div class="note-panel">
           <div class="note-title">{{ $t('products.note.title') }}</div>
@@ -77,6 +77,26 @@ const filteredProducts = computed(() => {
 
 <style lang="scss" scoped>
 .products-page {
+  .page-hero-rise {
+    .page-hero-title,
+    .page-hero-subtitle {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: page-hero-rise 0.7s ease forwards;
+    }
+
+    .page-hero-subtitle {
+      animation-delay: 0.1s;
+    }
+  }
+
+  @keyframes page-hero-rise {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .page-hero {
     padding: 88px 0 72px;
     background:

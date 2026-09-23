@@ -1,13 +1,13 @@
 <template>
   <div class="contact-page">
-    <div class="page-hero">
+    <div class="page-hero page-hero-rise">
       <div class="container">
         <div class="page-hero-title">{{ $t('contact.hero.title') }}</div>
         <div class="page-hero-subtitle">{{ $t('contact.hero.subtitle') }}</div>
       </div>
     </div>
 
-    <div class="section content">
+    <div v-motion-slide-visible-once-bottom class="section content">
       <div class="container content-grid">
         <div class="info-panel">
           <div class="info-title">{{ $t('contact.info.title') }}</div>
@@ -119,6 +119,26 @@ import { productCategories } from '~/data/products'
 
 <style lang="scss" scoped>
 .contact-page {
+  .page-hero-rise {
+    .page-hero-title,
+    .page-hero-subtitle {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: page-hero-rise 0.7s ease forwards;
+    }
+
+    .page-hero-subtitle {
+      animation-delay: 0.1s;
+    }
+  }
+
+  @keyframes page-hero-rise {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .page-hero {
     padding: 88px 0 72px;
     background:
@@ -169,6 +189,7 @@ import { productCategories } from '~/data/products'
       border-radius: 28px;
       background: #0b1220;
       color: #ffffff;
+      transition: transform 0.25s ease;
 
       .info-title {
         margin-bottom: 28px;
@@ -231,6 +252,7 @@ import { productCategories } from '~/data/products'
       background: #ffffff;
       border: 1px solid #eef1f4;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
 
       .form-title {
         margin-bottom: 16px;

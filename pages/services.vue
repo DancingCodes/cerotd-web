@@ -1,13 +1,13 @@
 <template>
   <div class="services-page">
-    <div class="page-hero">
+    <div class="page-hero page-hero-rise">
       <div class="container">
         <div class="page-hero-title">{{ $t('services.hero.title') }}</div>
         <div class="page-hero-subtitle">{{ $t('services.hero.subtitle') }}</div>
       </div>
     </div>
 
-    <div class="section list">
+    <div v-motion-slide-visible-once-bottom class="section list">
       <div class="container">
         <div class="section-header">
           <div class="section-title">{{ $t('services.list.title') }}</div>
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="section process">
+    <div v-motion-slide-visible-once-bottom class="section process">
       <div class="container">
         <div class="section-header section-header-light">
           <div class="section-title">{{ $t('services.process.title') }}</div>
@@ -62,6 +62,26 @@ const processSteps = computed(() => {
 
 <style lang="scss" scoped>
 .services-page {
+  .page-hero-rise {
+    .page-hero-title,
+    .page-hero-subtitle {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: page-hero-rise 0.7s ease forwards;
+    }
+
+    .page-hero-subtitle {
+      animation-delay: 0.1s;
+    }
+  }
+
+  @keyframes page-hero-rise {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .page-hero {
     padding: 88px 0 72px;
     background:
@@ -127,6 +147,12 @@ const processSteps = computed(() => {
       border-radius: 24px;
       background: #f7f8fa;
       border: 1px solid #eef1f4;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+      }
 
       .service-card-index {
         margin-bottom: 24px;
@@ -171,6 +197,12 @@ const processSteps = computed(() => {
       border-radius: 20px;
       background: rgba(#ffffff, 0.04);
       border: 1px solid rgba(#ffffff, 0.08);
+      transition: transform 0.25s ease, background 0.25s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        background: rgba(#ffffff, 0.07);
+      }
 
       .process-card-step {
         margin-bottom: 28px;

@@ -2,7 +2,7 @@
   <div class="home-page">
     <div class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy hero-rise">
           <div class="hero-badge">{{ $t('home.badge') }}</div>
           <div class="hero-title">{{ $t('home.hero.title') }}</div>
           <div class="hero-subtitle">{{ $t('home.hero.subtitle') }}</div>
@@ -18,7 +18,7 @@
           </div>
         </div>
 
-        <div class="hero-panel">
+        <div class="hero-panel hero-rise hero-rise-delay">
           <div class="hero-panel-glow"></div>
           <div class="hero-panel-card">
             <div class="hero-panel-title">{{ $t('home.hero.panelTitle') }}</div>
@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="section products">
+    <div v-motion-slide-visible-once-bottom class="section products">
       <div class="container">
         <div class="section-header">
           <div class="section-title">{{ $t('home.products.title') }}</div>
@@ -60,7 +60,7 @@
       </div>
     </div>
 
-    <div class="section services">
+    <div v-motion-slide-visible-once-bottom class="section services">
       <div class="container">
         <div class="section-header section-header-light">
           <div class="section-title">{{ $t('home.services.title') }}</div>
@@ -76,7 +76,7 @@
       </div>
     </div>
 
-    <div class="section advantages">
+    <div v-motion-slide-visible-once-bottom class="section advantages">
       <div class="container">
         <div class="section-header">
           <div class="section-title">{{ $t('home.advantages.title') }}</div>
@@ -91,7 +91,7 @@
       </div>
     </div>
 
-    <div class="cta">
+    <div v-motion-slide-visible-once-bottom class="cta">
       <div class="container">
         <div class="cta-panel">
           <div class="cta-title">{{ $t('home.cta.title') }}</div>
@@ -491,6 +491,13 @@ const advantages = computed(() => {
       border-radius: 28px;
       background: rgba(#ffffff, 0.04);
       border: 1px solid rgba(#ffffff, 0.08);
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        background: rgba(#ffffff, 0.06);
+        border-color: rgba(#ffffff, 0.14);
+      }
 
       .service-card-index {
         margin-bottom: 28px;
@@ -533,6 +540,12 @@ const advantages = computed(() => {
       border-radius: 28px;
       background: #f7f8fa;
       border: 1px solid #eef1f4;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+      }
 
       .advantage-card-title {
         margin-bottom: 12px;

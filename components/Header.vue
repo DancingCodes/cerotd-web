@@ -111,15 +111,17 @@ const toggleLocale = () => {
         font-size: 15px;
         font-weight: 500;
         text-decoration: none;
-        transition: color 0.25s ease;
+        transition: color 0.25s ease, opacity 0.25s ease;
 
         &:hover {
           color: #111827;
+          opacity: 0.86;
         }
       }
 
       .nav-link.router-link-active {
         color: #0e7f8f;
+        opacity: 1;
       }
 
       .nav-lang {

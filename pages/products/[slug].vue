@@ -1,6 +1,6 @@
 <template>
   <div v-if="product" class="product-detail-page">
-    <div class="page-hero">
+    <div class="page-hero page-hero-rise">
       <div class="container">
         <NuxtLink to="/products" class="page-hero-back">{{ $t('products.backToList') }}</NuxtLink>
         <div class="page-hero-title">{{ $t(`products.catalog.${product.slug}.name`) }}</div>
@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <div class="section content">
+    <div v-motion-slide-visible-once-bottom class="section content">
       <div class="container content-grid">
         <div class="detail-main">
           <div class="detail-visual"></div>
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class="section related">
+    <div v-motion-slide-visible-once-bottom class="section related">
       <div class="container">
         <div class="section-header">
           <div class="section-title">{{ $t('products.relatedTitle') }}</div>
@@ -71,6 +71,31 @@ const relatedProducts = computed(() => {
 </script>
 <style lang="scss" scoped>
 .product-detail-page {
+  .page-hero-rise {
+    .page-hero-back,
+    .page-hero-title,
+    .page-hero-subtitle {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: page-hero-rise 0.7s ease forwards;
+    }
+
+    .page-hero-title {
+      animation-delay: 0.08s;
+    }
+
+    .page-hero-subtitle {
+      animation-delay: 0.16s;
+    }
+  }
+
+  @keyframes page-hero-rise {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .page-hero {
     padding: 88px 0 72px;
     background:

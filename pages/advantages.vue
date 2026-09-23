@@ -1,13 +1,13 @@
 <template>
   <div class="advantages-page">
-    <div class="page-hero">
+    <div class="page-hero page-hero-rise">
       <div class="container">
         <div class="page-hero-title">{{ $t('advantages.hero.title') }}</div>
         <div class="page-hero-subtitle">{{ $t('advantages.hero.subtitle') }}</div>
       </div>
     </div>
 
-    <div class="section pillars">
+    <div v-motion-slide-visible-once-bottom class="section pillars">
       <div class="container">
         <div class="section-header">
           <div class="section-title">{{ $t('advantages.pillars.title') }}</div>
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="section compare">
+    <div v-motion-slide-visible-once-bottom class="section compare">
       <div class="container">
         <div class="section-header">
           <div class="section-title">{{ $t('advantages.compare.title') }}</div>
@@ -60,6 +60,26 @@ const compare = computed(() => {
 
 <style lang="scss" scoped>
 .advantages-page {
+  .page-hero-rise {
+    .page-hero-title,
+    .page-hero-subtitle {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: page-hero-rise 0.7s ease forwards;
+    }
+
+    .page-hero-subtitle {
+      animation-delay: 0.1s;
+    }
+  }
+
+  @keyframes page-hero-rise {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .page-hero {
     padding: 88px 0 72px;
     background:
@@ -120,6 +140,12 @@ const compare = computed(() => {
       background: #ffffff;
       border: 1px solid #eef1f4;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+      }
 
       .pillar-card-index {
         margin-bottom: 24px;
