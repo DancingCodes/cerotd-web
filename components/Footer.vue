@@ -1,65 +1,65 @@
 <template>
-  <footer class="footer">
+  <div class="footer">
     <div class="footer-container">
       <div class="footer-grid">
         <div class="footer-col">
           <div class="footer-brand">
             <img src="/logo.png" alt="Cerotd" class="footer-brand-image" />
           </div>
-          <p class="footer-desc">{{ $t('footer.tagline') }}</p>
+          <div class="footer-desc">{{ $t('footer.tagline') }}</div>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">{{ $t('footer.productsTitle') }}</h4>
-          <ul class="footer-list">
-            <li class="footer-item">
+          <div class="footer-title">{{ $t('footer.productsTitle') }}</div>
+          <div class="footer-list">
+            <div class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product1') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
+            </div>
+            <div class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product2') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
+            </div>
+            <div class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product3') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
+            </div>
+            <div class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product4') }}</NuxtLink>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">{{ $t('footer.companyTitle') }}</h4>
-          <ul class="footer-list">
-            <li class="footer-item">
+          <div class="footer-title">{{ $t('footer.companyTitle') }}</div>
+          <div class="footer-list">
+            <div class="footer-item">
               <NuxtLink to="/about" class="footer-link">{{ $t('footer.aboutUs') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
+            </div>
+            <div class="footer-item">
               <NuxtLink to="/services" class="footer-link">{{ $t('footer.ourServices') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
+            </div>
+            <div class="footer-item">
               <NuxtLink to="/advantages" class="footer-link">{{ $t('footer.ourAdvantages') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
+            </div>
+            <div class="footer-item">
               <NuxtLink to="/contact" class="footer-link">{{ $t('common.contact') }}</NuxtLink>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">{{ $t('footer.contactTitle') }}</h4>
-          <ul class="footer-list">
-            <li class="footer-item">{{ $t('footer.location') }}</li>
-            <li class="footer-item">{{ $t('footer.email') }}</li>
-            <li class="footer-item">{{ $t('footer.phone') }}</li>
-          </ul>
+          <div class="footer-title">{{ $t('footer.contactTitle') }}</div>
+          <div class="footer-list">
+            <div class="footer-item">{{ $t('footer.location') }}</div>
+            <div class="footer-item">{{ $t('footer.email') }}</div>
+            <div class="footer-item">{{ $t('footer.phone') }}</div>
+          </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copyright">&copy; {{ year }} {{ $t('footer.copyright') }}</p>
+        <div class="footer-copyright">&copy; {{ year }} {{ $t('footer.copyright') }}</div>
       </div>
     </div>
-  </footer>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -132,6 +132,7 @@ const year = new Date().getFullYear()
 
         .footer-link {
           color: #9aa3af;
+      text-decoration: none;
           transition: all 0.25s ease;
 
           &:hover {
@@ -147,7 +148,7 @@ const year = new Date().getFullYear()
     padding-top: 24px;
 
     .footer-copyright {
-      color: #f7f8fa0;
+      color: #6b7280;
       font-size: 13px;
       text-align: center;
     }

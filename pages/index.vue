@@ -1,91 +1,91 @@
 <template>
   <div class="home-page">
-    <section class="hero">
+    <div class="hero">
       <div class="hero-glow"></div>
       <div class="hero-content">
         <div class="hero-badge">{{ $t('home.badge') }}</div>
-        <h1 class="hero-title">{{ $t('home.hero.title') }}</h1>
-        <p class="hero-subtitle">{{ $t('home.hero.subtitle') }}</p>
+        <div class="hero-title">{{ $t('home.hero.title') }}</div>
+        <div class="hero-subtitle">{{ $t('home.hero.subtitle') }}</div>
         <div class="hero-actions">
           <NuxtLink to="/products" class="btn btn-primary">{{ $t('home.hero.ctaPrimary') }}</NuxtLink>
           <NuxtLink to="/contact" class="btn btn-secondary">{{ $t('home.hero.ctaSecondary') }}</NuxtLink>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section products">
+    <div class="section products">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">{{ $t('home.products.title') }}</h2>
-          <p class="section-subtitle">{{ $t('home.products.subtitle') }}</p>
+          <div class="section-title">{{ $t('home.products.title') }}</div>
+          <div class="section-subtitle">{{ $t('home.products.subtitle') }}</div>
         </div>
         <div class="products-grid">
-          <article
+          <div
             v-for="(item, index) in products"
             :key="item.name"
             class="product-card"
           >
             <div class="product-card-visual">
-              <span class="product-card-index">0{{ index + 1 }}</span>
+              <div class="product-card-index">0{{ index + 1 }}</div>
             </div>
             <div class="product-card-body">
-              <h3 class="product-card-title">{{ item.name }}</h3>
-              <p class="product-card-desc">{{ item.desc }}</p>
+              <div class="product-card-title">{{ item.name }}</div>
+              <div class="product-card-desc">{{ item.desc }}</div>
               <NuxtLink to="/products" class="product-card-link">{{ $t('common.learnMore') }}</NuxtLink>
             </div>
-          </article>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section services">
+    <div class="section services">
       <div class="container">
         <div class="section-header section-header-light">
-          <h2 class="section-title">{{ $t('home.services.title') }}</h2>
-          <p class="section-subtitle">{{ $t('home.services.subtitle') }}</p>
+          <div class="section-title">{{ $t('home.services.title') }}</div>
+          <div class="section-subtitle">{{ $t('home.services.subtitle') }}</div>
         </div>
         <div class="services-grid">
-          <article
+          <div
             v-for="(item, index) in services"
             :key="item.name"
             class="service-card"
           >
             <div class="service-card-index">0{{ index + 1 }}</div>
-            <h3 class="service-card-title">{{ item.name }}</h3>
-            <p class="service-card-desc">{{ item.desc }}</p>
-          </article>
+            <div class="service-card-title">{{ item.name }}</div>
+            <div class="service-card-desc">{{ item.desc }}</div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section advantages">
+    <div class="section advantages">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">{{ $t('home.advantages.title') }}</h2>
-          <p class="section-subtitle">{{ $t('home.advantages.subtitle') }}</p>
+          <div class="section-title">{{ $t('home.advantages.title') }}</div>
+          <div class="section-subtitle">{{ $t('home.advantages.subtitle') }}</div>
         </div>
         <div class="advantages-grid">
-          <article
+          <div
             v-for="item in advantages"
             :key="item.name"
             class="advantage-card"
           >
-            <h3 class="advantage-card-title">{{ item.name }}</h3>
-            <p class="advantage-card-desc">{{ item.desc }}</p>
-          </article>
+            <div class="advantage-card-title">{{ item.name }}</div>
+            <div class="advantage-card-desc">{{ item.desc }}</div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="cta">
+    <div class="cta">
       <div class="container">
         <div class="cta-panel">
-          <h2 class="cta-title">{{ $t('home.cta.title') }}</h2>
-          <p class="cta-subtitle">{{ $t('home.cta.subtitle') }}</p>
+          <div class="cta-title">{{ $t('home.cta.title') }}</div>
+          <div class="cta-subtitle">{{ $t('home.cta.subtitle') }}</div>
           <NuxtLink to="/contact" class="btn btn-light">{{ $t('home.cta.button') }}</NuxtLink>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 

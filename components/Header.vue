@@ -1,6 +1,6 @@
 <template>
-  <header class="header">
-    <nav class="nav">
+  <div class="header">
+    <div class="nav">
       <div class="nav-container">
         <NuxtLink to="/" class="nav-logo">
           <img src="/logo.png" alt="Cerotd" class="nav-logo-image" />
@@ -16,21 +16,20 @@
             {{ $t(item.label) }}
           </NuxtLink>
 
-          <button type="button" class="nav-lang" @click="toggleLocale">
+          <div class="nav-lang" @click="toggleLocale">
             {{ locale === 'en' ? '中文' : 'EN' }}
-          </button>
+          </div>
         </div>
 
-        <button
-          type="button"
+        <div
           class="nav-mobile-btn"
           :aria-expanded="mobileMenuOpen"
           @click="mobileMenuOpen = !mobileMenuOpen"
         >
-          <span class="nav-mobile-btn-line"></span>
-          <span class="nav-mobile-btn-line"></span>
-          <span class="nav-mobile-btn-line"></span>
-        </button>
+          <div class="nav-mobile-btn-line"></div>
+          <div class="nav-mobile-btn-line"></div>
+          <div class="nav-mobile-btn-line"></div>
+        </div>
       </div>
 
       <div v-if="mobileMenuOpen" class="nav-mobile">
@@ -43,12 +42,12 @@
         >
           {{ $t(item.label) }}
         </NuxtLink>
-        <button type="button" class="nav-mobile-lang" @click="toggleLocale">
+        <div class="nav-mobile-lang" @click="toggleLocale">
           {{ locale === 'en' ? '中文' : 'EN' }}
-        </button>
+        </div>
       </div>
-    </nav>
-  </header>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -120,6 +119,7 @@ const toggleLocale = () => {
       color: #4b5563;
       font-size: 15px;
       font-weight: 500;
+      text-decoration: none;
       transition: all 0.25s ease;
 
       &:hover {
@@ -140,6 +140,7 @@ const toggleLocale = () => {
       font-size: 13px;
       font-weight: 650;
       transition: all 0.25s ease;
+      cursor: pointer;
 
       &:hover {
         background: #e2e6eb;
@@ -204,6 +205,7 @@ const toggleLocale = () => {
       color: #374151;
       font-weight: 650;
       text-align: left;
+      cursor: pointer;
     }
   }
 }

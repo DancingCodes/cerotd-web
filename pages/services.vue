@@ -1,42 +1,42 @@
 <template>
   <div class="services-page">
-    <section class="page-hero">
+    <div class="page-hero">
       <div class="container">
-        <p class="page-hero-kicker">{{ $t('common.services') }}</p>
-        <h1 class="page-hero-title">{{ $t('services.hero.title') }}</h1>
-        <p class="page-hero-subtitle">{{ $t('services.hero.subtitle') }}</p>
+        <div class="page-hero-kicker">{{ $t('common.services') }}</div>
+        <div class="page-hero-title">{{ $t('services.hero.title') }}</div>
+        <div class="page-hero-subtitle">{{ $t('services.hero.subtitle') }}</div>
       </div>
-    </section>
+    </div>
 
-    <section class="section list">
+    <div class="section list">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">{{ $t('services.list.title') }}</h2>
+          <div class="section-title">{{ $t('services.list.title') }}</div>
         </div>
         <div class="services-grid">
-          <article v-for="(item, index) in list" :key="item.name" class="service-card">
+          <div v-for="(item, index) in list" :key="item.name" class="service-card">
             <div class="service-card-index">0{{ index + 1 }}</div>
-            <h3 class="service-card-title">{{ item.name }}</h3>
-            <p class="service-card-desc">{{ item.desc }}</p>
-          </article>
+            <div class="service-card-title">{{ item.name }}</div>
+            <div class="service-card-desc">{{ item.desc }}</div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section process">
+    <div class="section process">
       <div class="container">
         <div class="section-header section-header-light">
-          <h2 class="section-title">{{ $t('services.process.title') }}</h2>
+          <div class="section-title">{{ $t('services.process.title') }}</div>
         </div>
         <div class="process-grid">
-          <article v-for="item in processSteps" :key="item.step" class="process-card">
+          <div v-for="item in processSteps" :key="item.step" class="process-card">
             <div class="process-card-step">{{ item.step }}</div>
-            <h3 class="process-card-title">{{ item.name }}</h3>
-            <p class="process-card-desc">{{ item.desc }}</p>
-          </article>
+            <div class="process-card-title">{{ item.name }}</div>
+            <div class="process-card-desc">{{ item.desc }}</div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 

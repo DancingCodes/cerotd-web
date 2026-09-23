@@ -1,41 +1,41 @@
 <template>
   <div class="advantages-page">
-    <section class="page-hero">
+    <div class="page-hero">
       <div class="container">
-        <p class="page-hero-kicker">{{ $t('common.advantages') }}</p>
-        <h1 class="page-hero-title">{{ $t('advantages.hero.title') }}</h1>
-        <p class="page-hero-subtitle">{{ $t('advantages.hero.subtitle') }}</p>
+        <div class="page-hero-kicker">{{ $t('common.advantages') }}</div>
+        <div class="page-hero-title">{{ $t('advantages.hero.title') }}</div>
+        <div class="page-hero-subtitle">{{ $t('advantages.hero.subtitle') }}</div>
       </div>
-    </section>
+    </div>
 
-    <section class="section pillars">
+    <div class="section pillars">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">{{ $t('advantages.pillars.title') }}</h2>
+          <div class="section-title">{{ $t('advantages.pillars.title') }}</div>
         </div>
         <div class="pillars-grid">
-          <article v-for="(item, index) in pillars" :key="item.name" class="pillar-card">
+          <div v-for="(item, index) in pillars" :key="item.name" class="pillar-card">
             <div class="pillar-card-index">0{{ index + 1 }}</div>
-            <h3 class="pillar-card-title">{{ item.name }}</h3>
-            <p class="pillar-card-desc">{{ item.desc }}</p>
-          </article>
+            <div class="pillar-card-title">{{ item.name }}</div>
+            <div class="pillar-card-desc">{{ item.desc }}</div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section compare">
+    <div class="section compare">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">{{ $t('advantages.compare.title') }}</h2>
+          <div class="section-title">{{ $t('advantages.compare.title') }}</div>
         </div>
         <div class="compare-list">
-          <article v-for="item in compare" :key="item.name" class="compare-item">
-            <h3 class="compare-item-title">{{ item.name }}</h3>
-            <p class="compare-item-desc">{{ item.desc }}</p>
-          </article>
+          <div v-for="item in compare" :key="item.name" class="compare-item">
+            <div class="compare-item-title">{{ item.name }}</div>
+            <div class="compare-item-desc">{{ item.desc }}</div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 

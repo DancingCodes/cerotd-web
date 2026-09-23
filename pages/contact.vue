@@ -1,17 +1,17 @@
 <template>
   <div class="contact-page">
-    <section class="page-hero">
+    <div class="page-hero">
       <div class="container">
-        <p class="page-hero-kicker">{{ $t('common.contact') }}</p>
-        <h1 class="page-hero-title">{{ $t('contact.hero.title') }}</h1>
-        <p class="page-hero-subtitle">{{ $t('contact.hero.subtitle') }}</p>
+        <div class="page-hero-kicker">{{ $t('common.contact') }}</div>
+        <div class="page-hero-title">{{ $t('contact.hero.title') }}</div>
+        <div class="page-hero-subtitle">{{ $t('contact.hero.subtitle') }}</div>
       </div>
-    </section>
+    </div>
 
-    <section class="section content">
+    <div class="section content">
       <div class="container content-grid">
         <div class="info-panel">
-          <h2 class="info-title">{{ $t('contact.info.title') }}</h2>
+          <div class="info-title">{{ $t('contact.info.title') }}</div>
           <div class="info-list">
             <div class="info-item">
               <div class="info-item-label">{{ $t('contact.info.addressLabel') }}</div>
@@ -32,35 +32,35 @@
           </div>
         </div>
 
-        <form class="form-panel" @submit.prevent>
-          <h2 class="form-title">{{ $t('contact.form.title') }}</h2>
+        <div class="form-panel" @submit.prevent>
+          <div class="form-title">{{ $t('contact.form.title') }}</div>
           <div class="form-grid">
-            <label class="form-field">
-              <span class="form-field-label">{{ $t('contact.form.name') }}</span>
+            <div class="form-field">
+              <div class="form-field-label">{{ $t('contact.form.name') }}</div>
               <input class="form-field-input" type="text" :placeholder="$t('contact.form.name')" />
-            </label>
-            <label class="form-field">
-              <span class="form-field-label">{{ $t('contact.form.company') }}</span>
+            </div>
+            <div class="form-field">
+              <div class="form-field-label">{{ $t('contact.form.company') }}</div>
               <input class="form-field-input" type="text" :placeholder="$t('contact.form.company')" />
-            </label>
-            <label class="form-field">
-              <span class="form-field-label">{{ $t('contact.form.email') }}</span>
+            </div>
+            <div class="form-field">
+              <div class="form-field-label">{{ $t('contact.form.email') }}</div>
               <input class="form-field-input" type="email" :placeholder="$t('contact.form.email')" />
-            </label>
-            <label class="form-field">
-              <span class="form-field-label">{{ $t('contact.form.phone') }}</span>
+            </div>
+            <div class="form-field">
+              <div class="form-field-label">{{ $t('contact.form.phone') }}</div>
               <input class="form-field-input" type="tel" :placeholder="$t('contact.form.phone')" />
-            </label>
-            <label class="form-field form-field-full">
-              <span class="form-field-label">{{ $t('contact.form.message') }}</span>
+            </div>
+            <div class="form-field form-field-full">
+              <div class="form-field-label">{{ $t('contact.form.message') }}</div>
               <textarea class="form-field-textarea" rows="5" :placeholder="$t('contact.form.message')"></textarea>
-            </label>
+            </div>
           </div>
-          <button type="submit" class="form-submit">{{ $t('contact.form.submit') }}</button>
-          <p class="form-tip">{{ $t('contact.form.tip') }}</p>
-        </form>
+          <div type="submit" class="form-submit">{{ $t('contact.form.submit') }}</div>
+          <div class="form-tip">{{ $t('contact.form.tip') }}</div>
+        </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
@@ -231,6 +231,7 @@
     font-size: 15px;
     font-weight: 650;
     transition: all 0.25s ease;
+    cursor: pointer;
 
     &:hover {
       transform: translateY(-1px);
@@ -240,7 +241,7 @@
 
   .form-tip {
     margin-top: 14px;
-    color: #f7f8fa0;
+    color: #6b7280;
     font-size: 13px;
     line-height: 1.6;
   }

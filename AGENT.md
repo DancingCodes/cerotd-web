@@ -87,3 +87,9 @@
 - 滚动动效、入场动画等后续再补
 - 当前阶段优先保证版式、层级、留白与信息节奏
 
+## 模板规范
+
+- 除 Nuxt 组件（如 `NuxtLink` / `NuxtPage` / `NuxtLayout`）外，页面结构统一使用 `div`
+- 不要使用 `section` / `h1` / `p` / `ul` / `li` / `header` / `footer` / `nav` / `button` 等语义标签
+- `img` / `input` / `textarea` 等必要功能标签可保留
+

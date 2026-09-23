@@ -1,55 +1,55 @@
 <template>
   <div class="products-page">
-    <section class="page-hero">
+    <div class="page-hero">
       <div class="container">
-        <p class="page-hero-kicker">{{ $t('common.products') }}</p>
-        <h1 class="page-hero-title">{{ $t('products.hero.title') }}</h1>
-        <p class="page-hero-subtitle">{{ $t('products.hero.subtitle') }}</p>
+        <div class="page-hero-kicker">{{ $t('common.products') }}</div>
+        <div class="page-hero-title">{{ $t('products.hero.title') }}</div>
+        <div class="page-hero-subtitle">{{ $t('products.hero.subtitle') }}</div>
       </div>
-    </section>
+    </div>
 
-    <section class="section categories">
+    <div class="section categories">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">{{ $t('products.categories.title') }}</h2>
-          <p class="section-subtitle">{{ $t('products.categories.subtitle') }}</p>
+          <div class="section-title">{{ $t('products.categories.title') }}</div>
+          <div class="section-subtitle">{{ $t('products.categories.subtitle') }}</div>
         </div>
 
         <div class="categories-list">
-          <article
+          <div
             v-for="(item, index) in categories"
             :key="item.name"
             class="category-card"
           >
             <div class="category-card-visual">
-              <span class="category-card-index">0{{ index + 1 }}</span>
+              <div class="category-card-index">0{{ index + 1 }}</div>
             </div>
             <div class="category-card-content">
-              <h3 class="category-card-title">{{ item.name }}</h3>
-              <p class="category-card-desc">{{ item.desc }}</p>
-              <ul class="category-card-points">
-                <li
+              <div class="category-card-title">{{ item.name }}</div>
+              <div class="category-card-desc">{{ item.desc }}</div>
+              <div class="category-card-points">
+                <div
                   v-for="point in item.points"
                   :key="point"
                   class="category-card-point"
                 >
                   {{ point }}
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
-          </article>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section note">
+    <div class="section note">
       <div class="container">
         <div class="note-panel">
-          <h2 class="note-title">{{ $t('products.note.title') }}</h2>
-          <p class="note-desc">{{ $t('products.note.desc') }}</p>
+          <div class="note-title">{{ $t('products.note.title') }}</div>
+          <div class="note-desc">{{ $t('products.note.desc') }}</div>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 

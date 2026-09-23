@@ -1,53 +1,53 @@
 <template>
   <div class="about-page">
-    <section class="page-hero">
+    <div class="page-hero">
       <div class="container">
-        <p class="page-hero-kicker">{{ $t('common.about') }}</p>
-        <h1 class="page-hero-title">{{ $t('about.hero.title') }}</h1>
-        <p class="page-hero-subtitle">{{ $t('about.hero.subtitle') }}</p>
+        <div class="page-hero-kicker">{{ $t('common.about') }}</div>
+        <div class="page-hero-title">{{ $t('about.hero.title') }}</div>
+        <div class="page-hero-subtitle">{{ $t('about.hero.subtitle') }}</div>
       </div>
-    </section>
+    </div>
 
-    <section class="section intro">
+    <div class="section intro">
       <div class="container intro-grid">
         <div class="intro-copy">
-          <h2 class="intro-title">{{ $t('about.intro.title') }}</h2>
-          <p class="intro-desc">{{ $t('about.intro.desc') }}</p>
+          <div class="intro-title">{{ $t('about.intro.title') }}</div>
+          <div class="intro-desc">{{ $t('about.intro.desc') }}</div>
         </div>
         <div class="intro-panel">
           <div class="intro-panel-glow"></div>
-          <p class="intro-panel-note">{{ $t('common.placeholderNote') }}</p>
+          <div class="intro-panel-note">{{ $t('common.placeholderNote') }}</div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section values">
+    <div class="section values">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">{{ $t('about.values.title') }}</h2>
+          <div class="section-title">{{ $t('about.values.title') }}</div>
         </div>
         <div class="values-grid">
-          <article v-for="item in values" :key="item.name" class="value-card">
-            <h3 class="value-card-title">{{ item.name }}</h3>
-            <p class="value-card-desc">{{ item.desc }}</p>
-          </article>
+          <div v-for="item in values" :key="item.name" class="value-card">
+            <div class="value-card-title">{{ item.name }}</div>
+            <div class="value-card-desc">{{ item.desc }}</div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="section milestones">
+    <div class="section milestones">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">{{ $t('about.milestones.title') }}</h2>
+          <div class="section-title">{{ $t('about.milestones.title') }}</div>
         </div>
         <div class="milestones-list">
-          <article v-for="item in milestones" :key="item.year" class="milestone-item">
+          <div v-for="item in milestones" :key="item.year" class="milestone-item">
             <div class="milestone-item-year">{{ item.year }}</div>
-            <p class="milestone-item-text">{{ item.text }}</p>
-          </article>
+            <div class="milestone-item-text">{{ item.text }}</div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
