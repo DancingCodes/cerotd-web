@@ -114,4 +114,4 @@
 - 写接口（POST/PUT/DELETE）需要请求头 `Authorization: Bearer <ADMIN_API_TOKEN>`
 - 本地可复制 `.dev.vars.example` 为 `.dev.vars`
 - 图片先存 URL 字段（如 `cover_url`），对象存储后续再接
-- 部署 Cloudflare 时使用 `npm run build:cf`，并在控制台创建 D1 后把 `wrangler.toml` 里的 `database_id` 换成真实 ID
+- 部署 Cloudflare Workers：`npm run build` 后 `npm run deploy`（D1 binding 为 `DB`）

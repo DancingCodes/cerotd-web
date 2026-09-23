@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "start": "nuxt dev",
-    "build": "nuxt build",
-    "preview": "nuxt preview",
+    "build": "nuxt build --preset cloudflare_module",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev",
     "typecheck": "nuxt typecheck",
-    "build:cf": "nuxt build --preset cloudflare_module",
     "db:migrate:local": "wrangler d1 migrations apply cerotd --local",
     "db:seed:local": "wrangler d1 execute cerotd --local --file=./database/seed.sql",
     "db:migrate:remote": "wrangler d1 migrations apply cerotd --remote",
@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260923.1",
-    "@nuxt/devtools": "^3.4.2",
     "nitro-cloudflare-dev": "^0.2.2",
     "sass": "^1.105.0",
     "typescript": "^5.9.3",
