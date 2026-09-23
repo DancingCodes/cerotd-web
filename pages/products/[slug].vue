@@ -11,8 +11,26 @@
     <div v-motion-slide-visible-once-bottom class="section content">
       <div class="container content-grid">
         <div class="detail-main">
-          <div class="detail-visual">
-            <img v-if="product.image" class="detail-visual-image" :src="product.image" :alt="$t(`products.catalog.${product.slug}.name`)" />
+          <div class="gallery">
+            <div class="gallery-main" @click="openPreview(activeIndex)">
+              <img
+                v-if="product.images[activeIndex]"
+                class="gallery-main-image"
+                :src="product.images[activeIndex]"
+                :alt="$t(`products.catalog.${product.slug}.name`)"
+              />
+            </div>
+            <div v-if="product.images.length > 1" class="gallery-thumbs">
+              <div
+                v-for="(img, index) in product.images"
+                :key="img"
+                class="gallery-thumb"
+                :class="{ 'gallery-thumb-active': index === activeIndex }"
+                @click="activeIndex = index"
+              >
+                <img class="gallery-thumb-image" :src="img" :alt="$t(`products.catalog.${product.slug}.name`)" />
+              </div>
+            </div>
           </div>
           <div class="detail-desc">{{ $t(`products.catalog.${product.slug}.description`) }}</div>
         </div>
@@ -31,32 +49,34 @@
       </div>
     </div>
 
-    <div v-motion-slide-visible-once-bottom class="section related">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-title">{{ $t('products.relatedTitle') }}</div>
-        </div>
-        <div class="related-grid">
-          <NuxtLink
-            v-for="item in relatedProducts"
-            :key="item.slug"
-            :to="`/products/${item.slug}`"
-            class="related-card"
-          >
-            <div class="related-card-title">{{ $t(`products.catalog.${item.slug}.name`) }}</div>
-            <div class="related-card-desc">{{ $t(`products.catalog.${item.slug}.summary`) }}</div>
-          </NuxtLink>
-        </div>
+    <div v-if="previewOpen" class="preview" @click.self="closePreview">
+      <div class="preview-inner">
+        <div class="preview-close" @click="closePreview">×</div>
+        <div v-if="product.images.length > 1" class="preview-nav preview-nav-prev" @click="prevImage">‹</div>
+        <img class="preview-image" :src="product.images[previewIndex]" :alt="$t(`products.catalog.${product.slug}.name`)" />
+        <div v-if="product.images.length > 1" class="preview-nav preview-nav-next" @click="nextImage">›</div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { getProduct, getProductsByCategory } from '~/data/products'
-
 const route = useRoute()
-const product = computed(() => getProduct(String(route.params.slug || '')))
+
+// 临时写死，后续接接口
+const productMap = {
+  'antifreeze-g11-green': {
+    slug: 'antifreeze-g11-green',
+    images: ['/images/products/antifreeze-g11-green.png']
+  }
+} as const
+
+type ProductSlug = keyof typeof productMap
+
+const product = computed(() => {
+  const slug = String(route.params.slug || '')
+  return productMap[slug as ProductSlug] || null
+})
 
 watchEffect(() => {
   if (!product.value) {
@@ -64,13 +84,38 @@ watchEffect(() => {
   }
 })
 
-const relatedProducts = computed(() => {
-  if (!product.value) return []
-  return getProductsByCategory(product.value.category)
-    .filter((item) => item.slug !== product.value!.slug)
-    .slice(0, 3)
-})
+const activeIndex = ref(0)
+const previewOpen = ref(false)
+const previewIndex = ref(0)
+
+watch(
+  () => product.value?.slug,
+  () => {
+    activeIndex.value = 0
+    closePreview()
+  }
+)
+
+function openPreview(index: number) {
+  previewIndex.value = index
+  previewOpen.value = true
+}
+
+function closePreview() {
+  previewOpen.value = false
+}
+
+function prevImage() {
+  if (!product.value) return
+  previewIndex.value = (previewIndex.value - 1 + product.value.images.length) % product.value.images.length
+}
+
+function nextImage() {
+  if (!product.value) return
+  previewIndex.value = (previewIndex.value + 1) % product.value.images.length
+}
 </script>
+
 <style lang="scss" scoped>
 .product-detail-page {
   .page-hero-rise {
@@ -137,16 +182,6 @@ const relatedProducts = computed(() => {
     }
   }
 
-  .section-header {
-    margin-bottom: 36px;
-
-    .section-title {
-      font-size: 32px;
-      letter-spacing: -0.03em;
-      color: #111827;
-    }
-  }
-
   .content {
     background: #ffffff;
 
@@ -162,21 +197,52 @@ const relatedProducts = computed(() => {
     }
 
     .detail-main {
-      .detail-visual {
-        overflow: hidden;
-        border-radius: 20px;
-        background: #f3f5f7;
-        min-height: 320px;
+      .gallery {
         margin-bottom: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
-        .detail-visual-image {
-          width: 100%;
-          max-height: 420px;
-          object-fit: contain;
-          display: block;
+        .gallery-main {
+          overflow: hidden;
+          border-radius: 20px;
+          background: #f3f5f7;
+          min-height: 320px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: zoom-in;
+
+          .gallery-main-image {
+            width: 100%;
+            max-height: 420px;
+            object-fit: contain;
+            display: block;
+          }
+        }
+
+        .gallery-thumbs {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 10px;
+          margin-top: 12px;
+
+          .gallery-thumb {
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid #e8edf2;
+            background: #f3f5f7;
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+
+            .gallery-thumb-image {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              display: block;
+            }
+          }
+
+          .gallery-thumb.gallery-thumb-active {
+            border-color: #0e7f8f;
+          }
         }
       }
 
@@ -232,41 +298,64 @@ const relatedProducts = computed(() => {
     }
   }
 
-  .related {
-    background: #f7f8fa;
+  .preview {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(#0b1220, 0.84);
 
-    .related-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
+    .preview-inner {
+      position: relative;
+      width: min(960px, 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      @media (min-width: 900px) {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .related-card {
-      padding: 24px;
-      border-radius: 20px;
-      background: #ffffff;
-      border: 1px solid #eef1f4;
-      text-decoration: none;
-      transition: border-color 0.25s ease;
-
-      &:hover {
-        border-color: #cfd8e3;
-      }
-
-      .related-card-title {
-        margin-bottom: 10px;
-        color: #111827;
-        font-size: 18px;
+      .preview-image {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 12px;
+        background: #ffffff;
       }
 
-      .related-card-desc {
-        color: #4b5563;
-        font-size: 14px;
-        line-height: 1.7;
+      .preview-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: #ffffff;
+        font-size: 32px;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .preview-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        background: rgba(#ffffff, 0.16);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .preview-nav.preview-nav-prev {
+        left: -8px;
+      }
+
+      .preview-nav.preview-nav-next {
+        right: -8px;
       }
     }
   }

@@ -95,7 +95,7 @@
               <div class="form-field-label">{{ $t('contact.form.product') }}</div>
               <select class="form-field-input">
                 <option value="">{{ $t('contact.form.productPlaceholder') }}</option>
-                <option v-for="category in productCategories" :key="category" :value="category">
+                <option v-for="category in productOptions" :key="category" :value="category">
                   {{ $t(`products.categoryNames.${category}`) }}
                 </option>
               </select>
@@ -114,7 +114,16 @@
 </template>
 
 <script setup lang="ts">
-import { productCategories } from '~/data/products'
+// 临时写死，后续接接口
+const productOptions = [
+  'antifreeze',
+  'diesel',
+  'transmission',
+  'gasoline',
+  'gear',
+  'hydraulic',
+  'grease'
+]
 </script>
 
 <style lang="scss" scoped>

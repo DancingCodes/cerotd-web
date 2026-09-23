@@ -55,7 +55,7 @@
     },
     "products": {
       "title": "Products",
-      "subtitle": "Current diesel oils, transmission fluids and antifreeze grades from the previous site.",
+      "subtitle": "Showing a sample product for now; real catalog comes later.",
       "items": {
         "item1": {
           "name": "Gasoline Engine Oil",
@@ -234,7 +234,7 @@
   "products": {
     "hero": {
       "title": "Products",
-      "subtitle": "Current factory grades across diesel oils, transmission fluids and antifreeze"
+      "subtitle": "One sample product for now; will be replaced after API integration"
     },
     "categories": {
       "title": "Product Lines",
@@ -310,7 +310,7 @@
       "desc": "Coverage includes industrial oils, automotive oils, special oils, construction machinery oils, and automotive care products. Formal grades, approvals, and packaging can be confirmed by inquiry."
     },
     "listTitle": "All Products",
-    "listSubtitle": "Real SKUs already listed on the previous site. Additional grades are available on request.",
+    "listSubtitle": "Hardcoded sample for now. Product list will come from API later.",
     "detailCta": "Ask about this product",
     "backToList": "Back to products",
     "specsTitle": "Key Information",
@@ -325,102 +325,12 @@
       "grease": "Grease"
     },
     "catalog": {
-      "cf4-15w40": {
-        "name": "CF-4 15W-40",
-        "summary": "Diesel engine oil focused on anti-wear and durability.",
-        "description": "Designed for common diesel engine operating conditions, with attention to oil-film strength, wear protection and stable running. Formal approvals and detailed specs can be provided on request.",
-        "specs": {
-          "s1": "Grade: CF-4",
-          "s2": "Viscosity: 15W-40",
-          "s3": "Use: Diesel engines"
-        }
-      },
-      "cf4-20w50": {
-        "name": "CF-4 20W-50",
-        "summary": "Higher-viscosity CF-4 diesel engine oil.",
-        "description": "For diesel engines that need stronger oil-film support under hot or heavy-duty conditions.",
-        "specs": {
-          "s1": "Grade: CF-4",
-          "s2": "Viscosity: 20W-50",
-          "s3": "Use: Diesel engines"
-        }
-      },
-      "ch4-15w40": {
-        "name": "CH-4 15W-40",
-        "summary": "CH-4 diesel engine oil with stronger heavy-duty protection.",
-        "description": "Suitable for heavy-duty diesel lubrication needs, focusing on detergency/dispersancy and anti-wear durability.",
-        "specs": {
-          "s1": "Grade: CH-4",
-          "s2": "Viscosity: 15W-40",
-          "s3": "Use: Heavy-duty diesel engines"
-        }
-      },
-      "ch4-20w50": {
-        "name": "CH-4 20W-50",
-        "summary": "High-viscosity CH-4 diesel engine oil.",
-        "description": "For heavy-duty and high-temperature diesel conditions requiring stronger film and load-carrying protection.",
-        "specs": {
-          "s1": "Grade: CH-4",
-          "s2": "Viscosity: 20W-50",
-          "s3": "Use: Heavy-duty diesel engines"
-        }
-      },
-      "ci4-15w40": {
-        "name": "CI-4 15W-40",
-        "summary": "CI-4 diesel engine oil for higher-performance diesel duty.",
-        "description": "For diesel engines with higher performance requirements, emphasizing cleanliness, anti-wear and thermal stability.",
-        "specs": {
-          "s1": "Grade: CI-4",
-          "s2": "Viscosity: 15W-40",
-          "s3": "Use: Higher-performance diesel engines"
-        }
-      },
-      "atf6": {
-        "name": "ATF6",
-        "summary": "Automatic transmission fluid for smooth shifting and stable friction.",
-        "description": "Used for automatic transmission lubrication and friction control. Vehicle fitment and formal specifications can be confirmed on request.",
-        "specs": {
-          "s1": "Type: ATF6",
-          "s2": "Use: Automatic transmissions",
-          "s3": "Packaging: on request"
-        }
-      },
-      "atf9": {
-        "name": "ATF9",
-        "summary": "ATF9 automatic transmission fluid.",
-        "description": "For automatic transmission lubrication needs, focusing on shift smoothness and system protection.",
-        "specs": {
-          "s1": "Type: ATF9",
-          "s2": "Use: Automatic transmissions",
-          "s3": "Packaging: on request"
-        }
-      },
-      "atf10": {
-        "name": "ATF10",
-        "summary": "ATF10 automatic transmission fluid.",
-        "description": "Automatic transmission lubrication grade. Formal fitment and parameters can be completed later as needed.",
-        "specs": {
-          "s1": "Type: ATF10",
-          "s2": "Use: Automatic transmissions",
-          "s3": "Packaging: on request"
-        }
-      },
       "antifreeze-g11-green": {
         "name": "Antifreeze G-11 Green",
         "summary": "Green ethylene glycol multi-effect engine coolant (antifreeze).",
         "description": "Ethylene glycol (EG) based. IAT / HOAT corrosion inhibitor technology. Standard bright green, clear and transparent, with no suspended solids or stratification. Suitable for cooling systems of older cast-iron engine cars, light trucks, construction machinery, agricultural machinery, 2-stroke / 4-stroke motor boats and generator sets. Packaging: 1kg / 4kg / 5kg / 9kg / 10kg / 20kg / 200kg.",
         "specs": {
           "s1": "Type: G-11 Green",
-          "s2": "Base: Ethylene Glycol",
-          "s3": "Packaging: 1-200kg"
-        }
-      },
-      "antifreeze-g11-red": {
-        "name": "Antifreeze G-11 Red",
-        "summary": "Red ethylene glycol multi-effect engine coolant (antifreeze).",
-        "description": "Red G-11 coolant for freeze protection, boil-over protection and metal protection in engine cooling systems. Packaging options match the green grade and can be confirmed by order.",
-        "specs": {
-          "s1": "Type: G-11 Red",
           "s2": "Base: Ethylene Glycol",
           "s3": "Packaging: 1-200kg"
         }

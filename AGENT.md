@@ -65,7 +65,7 @@
 - 优势
 - 联系
 
-产品数据在 `data/products.ts`，文案在 `i18n/locales/*/products.catalog`。
+产品列表现阶段在页面内临时写死，文案在 `i18n/locales/*/products.catalog`；后续改为接口数据。
 
 ## 品牌与素材
 

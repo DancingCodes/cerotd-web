@@ -14,34 +14,20 @@
           <div class="section-subtitle">{{ $t('products.listSubtitle') }}</div>
         </div>
 
-        <div class="filter-list">
-          <div
-            class="filter-item"
-            :class="{ 'filter-item-active': activeCategory === 'all' }"
-            @click="activeCategory = 'all'"
-          >
-            {{ $t('products.listTitle') }}
-          </div>
-          <div
-            v-for="category in availableCategories"
-            :key="category"
-            class="filter-item"
-            :class="{ 'filter-item-active': activeCategory === category }"
-            @click="activeCategory = category"
-          >
-            {{ $t(`products.categoryNames.${category}`) }}
-          </div>
-        </div>
-
         <div class="product-grid">
           <NuxtLink
-            v-for="item in filteredProducts"
+            v-for="item in productList"
             :key="item.slug"
             :to="`/products/${item.slug}`"
             class="product-card"
           >
             <div class="product-card-media">
-              <img v-if="item.image" class="product-card-image" :src="item.image" :alt="$t(`products.catalog.${item.slug}.name`)" />
+              <img
+                v-if="item.images[0]"
+                class="product-card-image"
+                :src="item.images[0]"
+                :alt="$t(`products.catalog.${item.slug}.name`)"
+              />
               <div v-else class="media-blank">
                 <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
               </div>
@@ -68,18 +54,13 @@
 </template>
 
 <script setup lang="ts">
-import { productCategories, products, type ProductCategory } from '~/data/products'
-
-const activeCategory = ref<'all' | ProductCategory>('all')
-
-const availableCategories = computed(() =>
-  productCategories.filter((category) => products.some((item) => item.category === category))
-)
-
-const filteredProducts = computed(() => {
-  if (activeCategory.value === 'all') return products
-  return products.filter((item) => item.category === activeCategory.value)
-})
+// 临时写死，后续接接口
+const productList = [
+  {
+    slug: 'antifreeze-g11-green',
+    images: ['/images/products/antifreeze-g11-green.png']
+  }
+]
 </script>
 
 <style lang="scss" scoped>
@@ -110,7 +91,6 @@ const filteredProducts = computed(() => {
       radial-gradient(circle at 80% 10%, rgba(#1aa6b8, 0.16), transparent 26%),
       linear-gradient(180deg, #0b1220 0%, #162033 100%);
     color: #ffffff;
-
 
     .page-hero-title {
       margin-bottom: 18px;
@@ -156,36 +136,6 @@ const filteredProducts = computed(() => {
   .catalog {
     background: #f7f8fa;
 
-    .filter-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 28px;
-
-      .filter-item {
-        padding: 10px 16px;
-        border-radius: 999px;
-        background: #ffffff;
-        border: 1px solid #e2e6eb;
-        color: #4b5563;
-        font-size: 14px;
-        font-weight: 650;
-        cursor: pointer;
-        transition: all 0.25s ease;
-
-        &:hover {
-          color: #111827;
-          border-color: #cfd6de;
-        }
-      }
-
-      .filter-item.filter-item-active {
-        background: #0b1220;
-        border-color: #0b1220;
-        color: #ffffff;
-      }
-    }
-
     .product-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -205,14 +155,11 @@ const filteredProducts = computed(() => {
       border-radius: 20px;
       background: #ffffff;
       border: 1px solid #e8edf2;
-      box-shadow: none;
       text-decoration: none;
       transition: border-color 0.25s ease;
 
       &:hover {
-        transform: none;
         border-color: #cfd8e3;
-        box-shadow: none;
       }
 
       .product-card-media {
@@ -250,17 +197,15 @@ const filteredProducts = computed(() => {
 
         .product-card-title {
           margin-bottom: 10px;
-          font-size: 22px;
-          letter-spacing: -0.02em;
           color: #111827;
+          font-size: 20px;
         }
 
         .product-card-desc {
-          margin-bottom: 18px;
+          margin-bottom: 16px;
           color: #4b5563;
-          font-size: 15px;
+          font-size: 14px;
           line-height: 1.7;
-          min-height: 52px;
         }
 
         .product-card-link {
@@ -274,25 +219,23 @@ const filteredProducts = computed(() => {
 
   .note {
     background: #ffffff;
-    padding-top: 0;
 
     .note-panel {
-      padding: 40px 28px;
-      border-radius: 28px;
-      background: #0b1220;
-      color: #ffffff;
+      padding: 28px;
+      border-radius: 20px;
+      background: #f7f8fa;
+      border: 1px solid #eef1f4;
 
       .note-title {
-        margin-bottom: 12px;
-        font-size: 28px;
-        letter-spacing: -0.02em;
+        margin-bottom: 10px;
+        color: #111827;
+        font-size: 20px;
       }
 
       .note-desc {
-        max-width: 760px;
-        color: #c8ced6;
-        font-size: 16px;
-        line-height: 1.8;
+        color: #4b5563;
+        font-size: 15px;
+        line-height: 1.7;
       }
     }
   }

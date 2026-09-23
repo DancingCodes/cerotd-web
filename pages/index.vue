@@ -38,7 +38,7 @@
         <div class="products-grid">
           <NuxtLink v-for="item in featuredProducts" :key="item.slug" :to="`/products/${item.slug}`" class="product-card">
             <div class="product-card-media">
-              <img v-if="item.image" class="product-card-image" :src="item.image" :alt="$t(`products.catalog.${item.slug}.name`)" />
+              <img v-if="item.images[0]" class="product-card-image" :src="item.images[0]" :alt="$t(`products.catalog.${item.slug}.name`)" />
               <div v-else class="media-blank">
                 <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
               </div>
@@ -129,11 +129,15 @@
 </template>
 
 <script setup lang="ts">
-import { products } from '~/data/products'
-
 const { t, locale } = useI18n()
 
-const featuredProducts = computed(() => products.slice(0, 6))
+// 临时写死，后续接接口
+const featuredProducts = [
+  {
+    slug: 'antifreeze-g11-green',
+    images: ['/images/products/antifreeze-g11-green.png']
+  }
+]
 
 const partnerLogos = [
   '/images/partners/partner-1.png',
