@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   modules: ['@nuxtjs/i18n'],
-  css: ['~/assets/styles/main.scss'],
+  css: ['modern-normalize/modern-normalize.css', '~/assets/styles/main.scss', '~/assets/styles/common.scss'],
   typescript: {
     typeCheck: false,
     strict: true
