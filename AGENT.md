@@ -95,9 +95,13 @@
 
 ## 模板规范
 
-- 除 Nuxt 组件（如 `NuxtLink` / `NuxtPage` / `NuxtLayout`）外，页面结构统一使用 `div`
-- 不要使用 `section` / `h1` / `p` / `ul` / `li` / `header` / `footer` / `nav` / `button` 等语义标签
-- `img` / `input` / `textarea` 等必要功能标签可保留
+- 前台页面优先使用语义化 HTML，兼顾 SEO 与可访问性
+- 布局骨架可用 `header` / `main` / `footer` / `nav` / `section`
+- 每页保留一个主标题 `h1`；区块标题用 `h2`；卡片/子项标题用 `h3`
+- 正文用 `p`；列表用 `ul` / `ol` / `li`；可点击操作优先用 `button` 或链接
+- 表单用 `form` / `label` / `input` / `textarea` / `select` / `button`
+- 视觉仍由 class 控制；不要依赖标签默认样式
+- 后台 `/admin` 可相对宽松，但仍建议关键交互用 `button`
 
 ## 代码风格
 

@@ -1,59 +1,60 @@
 <template>
   <div v-if="product" class="product-detail-page">
-    <div class="page-hero page-hero-rise">
+    <section class="page-hero page-hero-rise">
       <div class="container">
         <NuxtLink to="/products" class="page-hero-back">{{ $t('products.backToList') }}</NuxtLink>
-        <div class="page-hero-title">{{ t(product.name) }}</div>
-        <div class="page-hero-subtitle">{{ t(product.summary) }}</div>
+        <h1 class="page-hero-title">{{ t(product.name) }}</h1>
+        <p class="page-hero-subtitle">{{ t(product.summary) }}</p>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section content">
+    <section v-motion-slide-visible-once-bottom class="section content">
       <div class="container content-grid">
         <div class="detail-main">
           <div class="gallery">
-            <div class="gallery-main" @click="openPreview(activeIndex)">
+            <button type="button" class="gallery-main" @click="openPreview(activeIndex)">
               <img
                 v-if="product.images[activeIndex]"
                 class="gallery-main-image"
                 :src="product.images[activeIndex]"
                 :alt="t(product.name)"
               />
-              <div v-else class="gallery-blank">{{ $t('common.mediaBlank') }}</div>
-            </div>
+              <span v-else class="gallery-blank">{{ $t('common.mediaBlank') }}</span>
+            </button>
             <div v-if="product.images.length > 1" class="gallery-thumbs">
-              <div
+              <button
                 v-for="(img, index) in product.images"
                 :key="img"
+                type="button"
                 class="gallery-thumb"
                 :class="{ 'gallery-thumb-active': index === activeIndex }"
                 @click="activeIndex = index"
               >
                 <img class="gallery-thumb-image" :src="img" :alt="t(product.name)" />
-              </div>
+              </button>
             </div>
           </div>
-          <div class="detail-desc">{{ t(product.description) }}</div>
+          <p class="detail-desc">{{ t(product.description) }}</p>
         </div>
 
-        <div class="detail-side">
+        <aside class="detail-side">
           <div class="specs-panel">
-            <div class="specs-panel-title">{{ $t('products.specsTitle') }}</div>
-            <div class="specs-list">
-              <div v-if="product.category" class="specs-item">{{ t(product.category.name) }}</div>
-              <div v-for="(spec, index) in localizedSpecs" :key="`${spec}-${index}`" class="specs-item">
+            <h2 class="specs-panel-title">{{ $t('products.specsTitle') }}</h2>
+            <ul class="specs-list">
+              <li v-if="product.category" class="specs-item">{{ t(product.category.name) }}</li>
+              <li v-for="(spec, index) in localizedSpecs" :key="`${spec}-${index}`" class="specs-item">
                 {{ spec }}
-              </div>
-            </div>
+              </li>
+            </ul>
             <NuxtLink to="/contact" class="specs-cta">{{ $t('products.detailCta') }}</NuxtLink>
           </div>
-        </div>
+        </aside>
       </div>
-    </div>
+    </section>
 
-    <div v-if="relatedProducts.length" v-motion-slide-visible-once-bottom class="section related">
+    <section v-if="relatedProducts.length" v-motion-slide-visible-once-bottom class="section related">
       <div class="container">
-        <div class="related-title">{{ $t('products.relatedTitle') }}</div>
+        <h2 class="related-title">{{ $t('products.relatedTitle') }}</h2>
         <div class="related-grid">
           <NuxtLink
             v-for="item in relatedProducts"
@@ -61,23 +62,40 @@
             :to="`/products/${item.slug}`"
             class="related-card"
           >
-            <div class="related-card-title">{{ t(item.name) }}</div>
-            <div class="related-card-desc">{{ t(item.summary) }}</div>
+            <h3 class="related-card-title">{{ t(item.name) }}</h3>
+            <p class="related-card-desc">{{ t(item.summary) }}</p>
           </NuxtLink>
         </div>
       </div>
-    </div>
+    </section>
 
     <div v-if="previewOpen" class="preview" @click.self="closePreview">
       <div class="preview-inner">
-        <div class="preview-close" @click="closePreview">×</div>
-        <div v-if="product.images.length > 1" class="preview-nav preview-nav-prev" @click="prevImage">‹</div>
+        <button type="button" class="preview-close" aria-label="Close preview" @click="closePreview">×</button>
+        <button
+          v-if="product.images.length > 1"
+          type="button"
+          class="preview-nav preview-nav-prev"
+          aria-label="Previous image"
+          @click="prevImage"
+        >
+          ‹
+        </button>
         <img class="preview-image" :src="product.images[previewIndex]" :alt="t(product.name)" />
-        <div v-if="product.images.length > 1" class="preview-nav preview-nav-next" @click="nextImage">›</div>
+        <button
+          v-if="product.images.length > 1"
+          type="button"
+          class="preview-nav preview-nav-next"
+          aria-label="Next image"
+          @click="nextImage"
+        >
+          ›
+        </button>
       </div>
     </div>
   </div>
 </template>
+
 
 <script setup lang="ts">
 type Localized = { en: string; zh: string }
@@ -247,6 +265,7 @@ function nextImage() {
         margin-bottom: 24px;
 
         .gallery-main {
+          width: 100%;
           overflow: hidden;
           border-radius: 20px;
           background: #f3f5f7;
@@ -271,7 +290,8 @@ function nextImage() {
           margin-top: 12px;
 
           .gallery-thumb {
-            overflow: hidden;
+          padding: 0;
+          overflow: hidden;
             border-radius: 12px;
             border: 1px solid #e8edf2;
             background: #f3f5f7;

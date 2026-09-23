@@ -1,6 +1,6 @@
 <template>
-  <div class="header">
-    <div class="nav">
+  <header class="header">
+    <nav class="nav" aria-label="Primary">
       <div class="nav-container">
         <NuxtLink to="/" class="nav-logo">
           <img src="/logo.png" alt="Cerotd" class="nav-logo-image" />
@@ -11,16 +11,22 @@
             {{ $t(item.label) }}
           </NuxtLink>
 
-          <div class="nav-lang" @click="toggleLocale">
+          <button type="button" class="nav-lang" @click="toggleLocale">
             {{ locale === 'en' ? '中文' : 'EN' }}
-          </div>
+          </button>
         </div>
 
-        <div class="nav-mobile-btn" :aria-expanded="mobileMenuOpen" @click="mobileMenuOpen = !mobileMenuOpen">
-          <div class="nav-mobile-btn-line"></div>
-          <div class="nav-mobile-btn-line"></div>
-          <div class="nav-mobile-btn-line"></div>
-        </div>
+        <button
+          type="button"
+          class="nav-mobile-btn"
+          :aria-expanded="mobileMenuOpen"
+          aria-label="Toggle menu"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+        >
+          <span class="nav-mobile-btn-line"></span>
+          <span class="nav-mobile-btn-line"></span>
+          <span class="nav-mobile-btn-line"></span>
+        </button>
       </div>
 
       <div v-if="mobileMenuOpen" class="nav-mobile">
@@ -33,12 +39,12 @@
         >
           {{ $t(item.label) }}
         </NuxtLink>
-        <div class="nav-mobile-lang" @click="toggleLocale">
+        <button type="button" class="nav-mobile-lang" @click="toggleLocale">
           {{ locale === 'en' ? '中文' : 'EN' }}
-        </div>
+        </button>
       </div>
-    </div>
-  </div>
+    </nav>
+  </header>
 </template>
 
 <script setup lang="ts">

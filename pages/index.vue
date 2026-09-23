@@ -1,11 +1,11 @@
 <template>
   <div class="home-page">
-    <div class="hero">
+    <section class="hero">
       <div class="container hero-grid hero-rise">
         <div class="hero-copy">
-          <div class="hero-badge">{{ $t('home.badge') }}</div>
-          <div class="hero-title">{{ $t('home.hero.title') }}</div>
-          <div class="hero-subtitle">{{ $t('home.hero.subtitle') }}</div>
+          <p class="hero-badge">{{ $t('home.badge') }}</p>
+          <h1 class="hero-title">{{ $t('home.hero.title') }}</h1>
+          <p class="hero-subtitle">{{ $t('home.hero.subtitle') }}</p>
           <div class="hero-actions">
             <NuxtLink to="/products" class="btn btn-primary">{{ $t('home.hero.ctaPrimary') }}</NuxtLink>
             <NuxtLink to="/contact" class="btn btn-secondary">{{ $t('home.hero.ctaSecondary') }}</NuxtLink>
@@ -15,23 +15,23 @@
           <img class="hero-visual-image" src="/images/factory/tank-farm.png" alt="Cerotd tank farm" />
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="proof">
+    <section class="proof" aria-label="Company stats">
       <div class="container proof-grid">
         <div v-for="n in 4" :key="n" class="proof-item">
-          <div class="proof-value">{{ $t(`home.stats.item${n}.value`) }}</div>
-          <div class="proof-label">{{ $t(`home.stats.item${n}.label`) }}</div>
+          <p class="proof-value">{{ $t(`home.stats.item${n}.value`) }}</p>
+          <p class="proof-label">{{ $t(`home.stats.item${n}.label`) }}</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section products">
+    <section v-motion-slide-visible-once-bottom class="section products">
       <div class="container">
         <div class="section-top">
           <div class="section-copy">
-            <div class="section-title">{{ $t('home.products.title') }}</div>
-            <div class="section-subtitle">{{ $t('home.products.subtitle') }}</div>
+            <h2 class="section-title">{{ $t('home.products.title') }}</h2>
+            <p class="section-subtitle">{{ $t('home.products.subtitle') }}</p>
           </div>
           <NuxtLink to="/products" class="section-link">{{ $t('common.viewProducts') }}</NuxtLink>
         </div>
@@ -40,71 +40,71 @@
             <div class="product-card-media">
               <img v-if="item.coverUrl || item.images[0]" class="product-card-image" :src="item.coverUrl || item.images[0]" :alt="lt(item.name)" />
               <div v-else class="media-blank">
-                <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
+                <span class="media-blank-label">{{ $t('common.mediaBlank') }}</span>
               </div>
             </div>
             <div class="product-card-body">
-              <div class="product-card-title">{{ lt(item.name) }}</div>
-              <div class="product-card-desc">{{ lt(item.summary) }}</div>
+              <h3 class="product-card-title">{{ lt(item.name) }}</h3>
+              <p class="product-card-desc">{{ lt(item.summary) }}</p>
             </div>
           </NuxtLink>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section factory">
+    <section v-motion-slide-visible-once-bottom class="section factory">
       <div class="container factory-grid">
         <div class="factory-media">
           <img class="factory-media-image" src="/images/factory/plant.png" alt="Cerotd plant" />
         </div>
         <div class="factory-copy">
-          <div class="section-title">{{ $t('home.factory.title') }}</div>
-          <div class="section-subtitle">{{ $t('home.factory.subtitle') }}</div>
-          <div class="factory-points">
-            <div v-for="n in 3" :key="n" class="factory-point">{{ $t(`home.factory.point${n}`) }}</div>
-          </div>
+          <h2 class="section-title">{{ $t('home.factory.title') }}</h2>
+          <p class="section-subtitle">{{ $t('home.factory.subtitle') }}</p>
+          <ul class="factory-points">
+            <li v-for="n in 3" :key="n" class="factory-point">{{ $t(`home.factory.point${n}`) }}</li>
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section services">
+    <section v-motion-slide-visible-once-bottom class="section services">
       <div class="container">
         <div class="section-copy section-copy-light">
-          <div class="section-title">{{ $t('home.services.title') }}</div>
-          <div class="section-subtitle">{{ $t('home.services.subtitle') }}</div>
+          <h2 class="section-title">{{ $t('home.services.title') }}</h2>
+          <p class="section-subtitle">{{ $t('home.services.subtitle') }}</p>
         </div>
         <div class="services-list">
-          <div v-for="item in services" :key="item.name" class="service-row">
-            <div class="service-row-title">{{ item.name }}</div>
-            <div class="service-row-desc">{{ item.desc }}</div>
-          </div>
+          <article v-for="item in services" :key="item.name" class="service-row">
+            <h3 class="service-row-title">{{ item.name }}</h3>
+            <p class="service-row-desc">{{ item.desc }}</p>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section advantages">
+    <section v-motion-slide-visible-once-bottom class="section advantages">
       <div class="container">
         <div class="section-copy">
-          <div class="section-title">{{ $t('home.advantages.title') }}</div>
-          <div class="section-subtitle">{{ $t('home.advantages.subtitle') }}</div>
+          <h2 class="section-title">{{ $t('home.advantages.title') }}</h2>
+          <p class="section-subtitle">{{ $t('home.advantages.subtitle') }}</p>
         </div>
         <div class="advantages-grid">
-          <div v-for="item in advantages" :key="item.name" class="advantage-card">
+          <article v-for="item in advantages" :key="item.name" class="advantage-card">
             <div class="media-blank advantage-media">
-              <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
+              <span class="media-blank-label">{{ $t('common.mediaBlank') }}</span>
             </div>
-            <div class="advantage-card-title">{{ item.name }}</div>
-            <div class="advantage-card-desc">{{ item.desc }}</div>
-          </div>
+            <h3 class="advantage-card-title">{{ item.name }}</h3>
+            <p class="advantage-card-desc">{{ item.desc }}</p>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section partners">
+    <section v-motion-slide-visible-once-bottom class="section partners">
       <div class="container">
         <div class="section-copy">
-          <div class="section-title">{{ $t('home.partners.title') }}</div>
-          <div class="section-subtitle">{{ $t('home.partners.subtitle') }}</div>
+          <h2 class="section-title">{{ $t('home.partners.title') }}</h2>
+          <p class="section-subtitle">{{ $t('home.partners.subtitle') }}</p>
         </div>
         <div class="partners-grid">
           <div v-for="logo in partnerLogos" :key="logo" class="partner-slot">
@@ -112,21 +112,22 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="cta">
+    <section v-motion-slide-visible-once-bottom class="cta">
       <div class="container">
         <div class="cta-panel">
           <div class="cta-copy">
-            <div class="cta-title">{{ $t('home.cta.title') }}</div>
-            <div class="cta-subtitle">{{ $t('home.cta.subtitle') }}</div>
+            <h2 class="cta-title">{{ $t('home.cta.title') }}</h2>
+            <p class="cta-subtitle">{{ $t('home.cta.subtitle') }}</p>
           </div>
           <NuxtLink to="/contact" class="btn btn-light">{{ $t('home.cta.button') }}</NuxtLink>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
+
 
 <script setup lang="ts">
 const { t, locale } = useI18n()

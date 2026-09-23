@@ -1,43 +1,44 @@
 <template>
   <div class="services-page">
-    <div class="page-hero page-hero-rise">
+    <section class="page-hero page-hero-rise">
       <div class="container">
-        <div class="page-hero-title">{{ $t('services.hero.title') }}</div>
-        <div class="page-hero-subtitle">{{ $t('services.hero.subtitle') }}</div>
+        <h1 class="page-hero-title">{{ $t('services.hero.title') }}</h1>
+        <p class="page-hero-subtitle">{{ $t('services.hero.subtitle') }}</p>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section list">
+    <section v-motion-slide-visible-once-bottom class="section list">
       <div class="container">
         <div class="section-header">
-          <div class="section-title">{{ $t('services.list.title') }}</div>
+          <h2 class="section-title">{{ $t('services.list.title') }}</h2>
         </div>
         <div class="services-grid">
-          <div v-for="(item, index) in list" :key="item.name" class="service-card">
-            <div class="service-card-index">0{{ index + 1 }}</div>
-            <div class="service-card-title">{{ item.name }}</div>
-            <div class="service-card-desc">{{ item.desc }}</div>
-          </div>
+          <article v-for="(item, index) in list" :key="item.name" class="service-card">
+            <p class="service-card-index">0{{ index + 1 }}</p>
+            <h3 class="service-card-title">{{ item.name }}</h3>
+            <p class="service-card-desc">{{ item.desc }}</p>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section process">
+    <section v-motion-slide-visible-once-bottom class="section process">
       <div class="container">
         <div class="section-header section-header-light">
-          <div class="section-title">{{ $t('services.process.title') }}</div>
+          <h2 class="section-title">{{ $t('services.process.title') }}</h2>
         </div>
-        <div class="process-grid">
-          <div v-for="item in processSteps" :key="item.step" class="process-card">
-            <div class="process-card-step">{{ item.step }}</div>
-            <div class="process-card-title">{{ item.name }}</div>
-            <div class="process-card-desc">{{ item.desc }}</div>
-          </div>
-        </div>
+        <ol class="process-grid">
+          <li v-for="item in processSteps" :key="item.step" class="process-card">
+            <p class="process-card-step">{{ item.step }}</p>
+            <h3 class="process-card-title">{{ item.name }}</h3>
+            <p class="process-card-desc">{{ item.desc }}</p>
+          </li>
+        </ol>
       </div>
-    </div>
+    </section>
   </div>
 </template>
+
 
 <script setup lang="ts">
 const { t, locale } = useI18n()

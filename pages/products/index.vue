@@ -1,21 +1,21 @@
 <template>
   <div class="products-page">
-    <div class="page-hero page-hero-rise">
+    <section class="page-hero page-hero-rise">
       <div class="container">
-        <div class="page-hero-title">{{ $t('products.hero.title') }}</div>
-        <div class="page-hero-subtitle">{{ $t('products.hero.subtitle') }}</div>
+        <h1 class="page-hero-title">{{ $t('products.hero.title') }}</h1>
+        <p class="page-hero-subtitle">{{ $t('products.hero.subtitle') }}</p>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section catalog">
+    <section v-motion-slide-visible-once-bottom class="section catalog">
       <div class="container">
         <div class="section-header">
-          <div class="section-title">{{ $t('products.listTitle') }}</div>
-          <div class="section-subtitle">{{ $t('products.listSubtitle') }}</div>
+          <h2 class="section-title">{{ $t('products.listTitle') }}</h2>
+          <p class="section-subtitle">{{ $t('products.listSubtitle') }}</p>
         </div>
 
-        <div v-if="pending" class="state-text">Loading...</div>
-        <div v-else-if="!productList.length" class="state-text">No products yet.</div>
+        <p v-if="pending" class="state-text">Loading...</p>
+        <p v-else-if="!productList.length" class="state-text">No products yet.</p>
         <div v-else class="product-grid">
           <NuxtLink
             v-for="item in productList"
@@ -31,29 +31,30 @@
                 :alt="t(item.name)"
               />
               <div v-else class="media-blank">
-                <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
+                <span class="media-blank-label">{{ $t('common.mediaBlank') }}</span>
               </div>
             </div>
             <div class="product-card-body">
-              <div class="product-card-title">{{ t(item.name) }}</div>
-              <div class="product-card-desc">{{ t(item.summary) }}</div>
-              <div class="product-card-link">{{ $t('common.learnMore') }}</div>
+              <h3 class="product-card-title">{{ t(item.name) }}</h3>
+              <p class="product-card-desc">{{ t(item.summary) }}</p>
+              <span class="product-card-link">{{ $t('common.learnMore') }}</span>
             </div>
           </NuxtLink>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section note">
+    <section v-motion-slide-visible-once-bottom class="section note">
       <div class="container">
         <div class="note-panel">
-          <div class="note-title">{{ $t('products.note.title') }}</div>
-          <div class="note-desc">{{ $t('products.note.desc') }}</div>
+          <h2 class="note-title">{{ $t('products.note.title') }}</h2>
+          <p class="note-desc">{{ $t('products.note.desc') }}</p>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
+
 
 <script setup lang="ts">
 type Localized = { en: string; zh: string }

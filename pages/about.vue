@@ -1,19 +1,19 @@
 <template>
   <div class="about-page">
-    <div class="page-hero page-hero-rise">
+    <section class="page-hero page-hero-rise">
       <div class="container">
-        <div class="page-hero-title">{{ $t('about.hero.title') }}</div>
-        <div class="page-hero-subtitle">{{ $t('about.hero.subtitle') }}</div>
+        <h1 class="page-hero-title">{{ $t('about.hero.title') }}</h1>
+        <p class="page-hero-subtitle">{{ $t('about.hero.subtitle') }}</p>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section intro">
+    <section v-motion-slide-visible-once-bottom class="section intro">
       <div class="container intro-grid">
         <div class="intro-copy">
-          <div class="intro-title">{{ $t('about.intro.title') }}</div>
-          <div class="intro-desc">{{ $t('about.intro.p1') }}</div>
-          <div class="intro-desc">{{ $t('about.intro.p2') }}</div>
-          <div class="intro-desc">{{ $t('about.intro.p3') }}</div>
+          <h2 class="intro-title">{{ $t('about.intro.title') }}</h2>
+          <p class="intro-desc">{{ $t('about.intro.p1') }}</p>
+          <p class="intro-desc">{{ $t('about.intro.p2') }}</p>
+          <p class="intro-desc">{{ $t('about.intro.p3') }}</p>
         </div>
         <div class="intro-panel">
           <video
@@ -27,51 +27,52 @@
           ></video>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section stats">
+    <section v-motion-slide-visible-once-bottom class="section stats">
       <div class="container">
         <div class="section-header">
-          <div class="section-title">{{ $t('about.stats.title') }}</div>
+          <h2 class="section-title">{{ $t('about.stats.title') }}</h2>
         </div>
         <div class="stats-grid">
           <div v-for="n in 4" :key="n" class="stats-item">
-            <div class="stats-item-value">{{ $t(`about.stats.item${n}.value`) }}</div>
-            <div class="stats-item-label">{{ $t(`about.stats.item${n}.label`) }}</div>
+            <p class="stats-item-value">{{ $t(`about.stats.item${n}.value`) }}</p>
+            <p class="stats-item-label">{{ $t(`about.stats.item${n}.label`) }}</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section values">
+    <section v-motion-slide-visible-once-bottom class="section values">
       <div class="container">
         <div class="section-header">
-          <div class="section-title">{{ $t('about.values.title') }}</div>
+          <h2 class="section-title">{{ $t('about.values.title') }}</h2>
         </div>
         <div class="values-grid">
-          <div v-for="item in values" :key="item.name" class="value-card">
-            <div class="value-card-title">{{ item.name }}</div>
-            <div class="value-card-desc">{{ item.desc }}</div>
-          </div>
+          <article v-for="item in values" :key="item.name" class="value-card">
+            <h3 class="value-card-title">{{ item.name }}</h3>
+            <p class="value-card-desc">{{ item.desc }}</p>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section milestones">
+    <section v-motion-slide-visible-once-bottom class="section milestones">
       <div class="container">
         <div class="section-header">
-          <div class="section-title">{{ $t('about.milestones.title') }}</div>
+          <h2 class="section-title">{{ $t('about.milestones.title') }}</h2>
         </div>
-        <div class="milestones-list">
-          <div v-for="item in milestones" :key="item.year" class="milestone-item">
-            <div class="milestone-item-year">{{ item.year }}</div>
-            <div class="milestone-item-text">{{ item.text }}</div>
-          </div>
-        </div>
+        <ol class="milestones-list">
+          <li v-for="item in milestones" :key="item.year" class="milestone-item">
+            <p class="milestone-item-year">{{ item.year }}</p>
+            <p class="milestone-item-text">{{ item.text }}</p>
+          </li>
+        </ol>
       </div>
-    </div>
+    </section>
   </div>
 </template>
+
 
 <script setup lang="ts">
 const { t, locale } = useI18n()

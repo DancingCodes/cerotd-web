@@ -1,12 +1,12 @@
 <template>
-  <div class="footer">
+  <footer class="footer">
     <div class="footer-container">
       <div class="footer-grid">
         <div class="footer-col">
           <div class="footer-brand">
             <img src="/logo.png" alt="Cerotd" class="footer-brand-image" />
           </div>
-          <div class="footer-desc">{{ $t('footer.tagline') }}</div>
+          <p class="footer-desc">{{ $t('footer.tagline') }}</p>
           <div class="footer-social">
             <a class="footer-social-link" href="https://www.facebook.com/people/Cerotd-Lubricating-Oil/61575320303094/?sk=reels_tab" target="_blank" rel="noopener noreferrer">Facebook</a>
             <a class="footer-social-link" href="https://api.whatsapp.com/send/?phone=8615263792384&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -15,57 +15,57 @@
         </div>
 
         <div class="footer-col">
-          <div class="footer-title">{{ $t('footer.productsTitle') }}</div>
-          <div class="footer-list">
-            <div class="footer-item">
+          <h2 class="footer-title">{{ $t('footer.productsTitle') }}</h2>
+          <ul class="footer-list">
+            <li class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product1') }}</NuxtLink>
-            </div>
-            <div class="footer-item">
+            </li>
+            <li class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product2') }}</NuxtLink>
-            </div>
-            <div class="footer-item">
+            </li>
+            <li class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product3') }}</NuxtLink>
-            </div>
-            <div class="footer-item">
+            </li>
+            <li class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product4') }}</NuxtLink>
-            </div>
-            <div class="footer-item">
+            </li>
+            <li class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product5') }}</NuxtLink>
-            </div>
-            <div class="footer-item">
+            </li>
+            <li class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product6') }}</NuxtLink>
-            </div>
-            <div class="footer-item">
+            </li>
+            <li class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product7') }}</NuxtLink>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
 
         <div class="footer-col">
-          <div class="footer-title">{{ $t('footer.companyTitle') }}</div>
-          <div class="footer-list">
-            <div class="footer-item">
+          <h2 class="footer-title">{{ $t('footer.companyTitle') }}</h2>
+          <ul class="footer-list">
+            <li class="footer-item">
               <NuxtLink to="/about" class="footer-link">{{ $t('footer.aboutUs') }}</NuxtLink>
-            </div>
-            <div class="footer-item">
+            </li>
+            <li class="footer-item">
               <NuxtLink to="/services" class="footer-link">{{ $t('footer.ourServices') }}</NuxtLink>
-            </div>
-            <div class="footer-item">
+            </li>
+            <li class="footer-item">
               <NuxtLink to="/advantages" class="footer-link">{{ $t('footer.ourAdvantages') }}</NuxtLink>
-            </div>
-            <div class="footer-item">
+            </li>
+            <li class="footer-item">
               <NuxtLink to="/contact" class="footer-link">{{ $t('common.contact') }}</NuxtLink>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
 
         <div class="footer-col">
-          <div class="footer-title">{{ $t('footer.contactTitle') }}</div>
-          <div class="footer-list">
-            <div class="footer-item">{{ $t('footer.location') }}</div>
-            <div class="footer-item">{{ $t('footer.phone') }}</div>
-            <div class="footer-item">{{ $t('footer.wechatTitle') }}: {{ $t('footer.wechatId') }}</div>
-          </div>
+          <h2 class="footer-title">{{ $t('footer.contactTitle') }}</h2>
+          <ul class="footer-list">
+            <li class="footer-item">{{ $t('footer.location') }}</li>
+            <li class="footer-item">{{ $t('footer.phone') }}</li>
+            <li class="footer-item">{{ $t('footer.wechatTitle') }}: {{ $t('footer.wechatId') }}</li>
+          </ul>
           <div class="footer-wechat">
             <img src="/wechat.png" :alt="$t('footer.wechatTitle')" class="footer-wechat-image" />
           </div>
@@ -73,11 +73,11 @@
       </div>
 
       <div class="footer-bottom">
-        <div class="footer-copyright">&copy; {{ year }} {{ $t('footer.copyright') }}</div>
+        <p class="footer-copyright">&copy; {{ year }} {{ $t('footer.copyright') }}</p>
         <a class="footer-beian" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鲁ICP备2026051999号-1</a>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script setup lang="ts">

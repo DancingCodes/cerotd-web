@@ -1,117 +1,118 @@
 <template>
   <div class="contact-page">
-    <div class="page-hero page-hero-rise">
+    <section class="page-hero page-hero-rise">
       <div class="container">
-        <div class="page-hero-title">{{ $t('contact.hero.title') }}</div>
-        <div class="page-hero-subtitle">{{ $t('contact.hero.subtitle') }}</div>
+        <h1 class="page-hero-title">{{ $t('contact.hero.title') }}</h1>
+        <p class="page-hero-subtitle">{{ $t('contact.hero.subtitle') }}</p>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section content">
+    <section v-motion-slide-visible-once-bottom class="section content">
       <div class="container content-grid">
-        <div class="info-panel">
-          <div class="info-title">{{ $t('contact.info.title') }}</div>
-          <div class="info-list">
-            <div class="info-item">
-              <div class="info-item-label">{{ $t('contact.info.addressLabel') }}</div>
-              <div class="info-item-value">{{ $t('contact.info.addressValue') }}</div>
-            </div>
-            <div class="info-item">
-              <div class="info-item-label">{{ $t('contact.info.phoneLabel') }}</div>
-              <div class="info-item-value">{{ $t('contact.info.phoneValue') }}</div>
-            </div>
-            <div class="info-item">
-              <div class="info-item-label">{{ $t('contact.info.whatsappLabel') }}</div>
+        <aside class="info-panel">
+          <h2 class="info-title">{{ $t('contact.info.title') }}</h2>
+          <ul class="info-list">
+            <li class="info-item">
+              <p class="info-item-label">{{ $t('contact.info.addressLabel') }}</p>
+              <p class="info-item-value">{{ $t('contact.info.addressValue') }}</p>
+            </li>
+            <li class="info-item">
+              <p class="info-item-label">{{ $t('contact.info.phoneLabel') }}</p>
+              <p class="info-item-value">{{ $t('contact.info.phoneValue') }}</p>
+            </li>
+            <li class="info-item">
+              <p class="info-item-label">{{ $t('contact.info.whatsappLabel') }}</p>
               <a class="info-item-link" href="https://api.whatsapp.com/send/?phone=8615263792384&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
                 {{ $t('contact.info.whatsappValue') }}
               </a>
-            </div>
-            <div class="info-item">
-              <div class="info-item-label">{{ $t('contact.info.telegramLabel') }}</div>
+            </li>
+            <li class="info-item">
+              <p class="info-item-label">{{ $t('contact.info.telegramLabel') }}</p>
               <a class="info-item-link" href="https://t.me/cerotdshand" target="_blank" rel="noopener noreferrer">
                 {{ $t('contact.info.telegramValue') }}
               </a>
-            </div>
-            <div class="info-item">
-              <div class="info-item-label">{{ $t('contact.info.facebookLabel') }}</div>
+            </li>
+            <li class="info-item">
+              <p class="info-item-label">{{ $t('contact.info.facebookLabel') }}</p>
               <a class="info-item-link" href="https://www.facebook.com/people/Cerotd-Lubricating-Oil/61575320303094/?sk=reels_tab" target="_blank" rel="noopener noreferrer">
                 {{ $t('contact.info.facebookValue') }}
               </a>
-            </div>
-            <div class="info-item">
-              <div class="info-item-label">{{ $t('contact.info.wechatLabel') }}</div>
-              <div class="info-item-value">{{ $t('contact.info.wechatValue') }}</div>
-            </div>
-          </div>
+            </li>
+            <li class="info-item">
+              <p class="info-item-label">{{ $t('contact.info.wechatLabel') }}</p>
+              <p class="info-item-value">{{ $t('contact.info.wechatValue') }}</p>
+            </li>
+          </ul>
 
           <div class="wechat-box">
-            <div class="wechat-box-title">{{ $t('contact.social.wechatTip') }}</div>
+            <p class="wechat-box-title">{{ $t('contact.social.wechatTip') }}</p>
             <img src="/wechat.png" :alt="$t('contact.info.wechatLabel')" class="wechat-box-image" />
           </div>
-        </div>
+        </aside>
 
         <div class="form-panel">
-          <div class="form-title">{{ $t('contact.form.title') }}</div>
-          <div class="form-notice">{{ $t('contact.form.notice') }}</div>
-          <div class="form-grid">
-            <div class="form-field">
-              <div class="form-field-label">{{ $t('contact.form.name') }}</div>
+          <h2 class="form-title">{{ $t('contact.form.title') }}</h2>
+          <p class="form-notice">{{ $t('contact.form.notice') }}</p>
+          <form class="form-grid" @submit.prevent>
+            <label class="form-field">
+              <span class="form-field-label">{{ $t('contact.form.name') }}</span>
               <input class="form-field-input" type="text" :placeholder="$t('contact.form.name')" />
-            </div>
-            <div class="form-field">
-              <div class="form-field-label">{{ $t('contact.form.company') }}</div>
+            </label>
+            <label class="form-field">
+              <span class="form-field-label">{{ $t('contact.form.company') }}</span>
               <input class="form-field-input" type="text" :placeholder="$t('contact.form.company')" />
-            </div>
-            <div class="form-field">
-              <div class="form-field-label">{{ $t('contact.form.email') }}</div>
+            </label>
+            <label class="form-field">
+              <span class="form-field-label">{{ $t('contact.form.email') }}</span>
               <input class="form-field-input" type="email" :placeholder="$t('contact.form.email')" />
-            </div>
-            <div class="form-field">
-              <div class="form-field-label">{{ $t('contact.form.phone') }}</div>
+            </label>
+            <label class="form-field">
+              <span class="form-field-label">{{ $t('contact.form.phone') }}</span>
               <input class="form-field-input" type="tel" :placeholder="$t('contact.form.phone')" />
-            </div>
-            <div class="form-field">
-              <div class="form-field-label">{{ $t('contact.form.country') }}</div>
+            </label>
+            <label class="form-field">
+              <span class="form-field-label">{{ $t('contact.form.country') }}</span>
               <input class="form-field-input" type="text" :placeholder="$t('contact.form.country')" />
-            </div>
-            <div class="form-field">
-              <div class="form-field-label">{{ $t('contact.form.im') }}</div>
+            </label>
+            <label class="form-field">
+              <span class="form-field-label">{{ $t('contact.form.im') }}</span>
               <input class="form-field-input" type="text" :placeholder="$t('contact.form.im')" />
-            </div>
-            <div class="form-field form-field-full">
-              <div class="form-field-label">{{ $t('contact.form.bulk') }}</div>
+            </label>
+            <fieldset class="form-field form-field-full">
+              <legend class="form-field-label">{{ $t('contact.form.bulk') }}</legend>
               <div class="form-radio-list">
-                <div class="form-radio-item">
+                <label class="form-radio-item">
                   <input type="radio" name="bulk" value="yes" />
-                  <div>{{ $t('contact.form.bulkYes') }}</div>
-                </div>
-                <div class="form-radio-item">
+                  <span>{{ $t('contact.form.bulkYes') }}</span>
+                </label>
+                <label class="form-radio-item">
                   <input type="radio" name="bulk" value="no" />
-                  <div>{{ $t('contact.form.bulkNo') }}</div>
-                </div>
+                  <span>{{ $t('contact.form.bulkNo') }}</span>
+                </label>
               </div>
-            </div>
-            <div class="form-field form-field-full">
-              <div class="form-field-label">{{ $t('contact.form.product') }}</div>
+            </fieldset>
+            <label class="form-field form-field-full">
+              <span class="form-field-label">{{ $t('contact.form.product') }}</span>
               <select class="form-field-input">
                 <option value="">{{ $t('contact.form.productPlaceholder') }}</option>
                 <option v-for="category in productOptions" :key="category.slug" :value="category.slug">
                   {{ t(category.name) }}
                 </option>
               </select>
-            </div>
-            <div class="form-field form-field-full">
-              <div class="form-field-label">{{ $t('contact.form.message') }}</div>
+            </label>
+            <label class="form-field form-field-full">
+              <span class="form-field-label">{{ $t('contact.form.message') }}</span>
               <textarea class="form-field-textarea" rows="5" :placeholder="$t('contact.form.message')"></textarea>
-            </div>
-          </div>
-          <div class="form-submit">{{ $t('contact.form.submit') }}</div>
-          <div class="form-tip">{{ $t('contact.form.tip') }}</div>
+            </label>
+            <button type="submit" class="form-submit">{{ $t('contact.form.submit') }}</button>
+          </form>
+          <p class="form-tip">{{ $t('contact.form.tip') }}</p>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
+
 
 <script setup lang="ts">
 type Localized = { en: string; zh: string }
@@ -292,7 +293,7 @@ const productOptions = computed(() => data.value?.items || [])
         gap: 12px;
       }
 
-      .form-radio-item {
+      label.form-radio-item {
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -320,11 +321,16 @@ const productOptions = computed(() => data.value?.items || [])
         display: flex;
         flex-direction: column;
         gap: 8px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        min-width: 0;
 
         .form-field-label {
           color: #374151;
           font-size: 13px;
           font-weight: 650;
+          padding: 0;
         }
 
         .form-field-input,
@@ -359,9 +365,17 @@ const productOptions = computed(() => data.value?.items || [])
         }
       }
 
+      fieldset.form-field {
+        .form-field-label {
+          float: left;
+          width: 100%;
+        }
+      }
+
       .form-submit {
+        grid-column: 1 / -1;
         width: 100%;
-        margin-top: 20px;
+        margin-top: 4px;
         min-height: 52px;
         padding: 0 28px;
         border-radius: 999px;

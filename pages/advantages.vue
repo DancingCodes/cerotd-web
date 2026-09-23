@@ -1,42 +1,43 @@
 <template>
   <div class="advantages-page">
-    <div class="page-hero page-hero-rise">
+    <section class="page-hero page-hero-rise">
       <div class="container">
-        <div class="page-hero-title">{{ $t('advantages.hero.title') }}</div>
-        <div class="page-hero-subtitle">{{ $t('advantages.hero.subtitle') }}</div>
+        <h1 class="page-hero-title">{{ $t('advantages.hero.title') }}</h1>
+        <p class="page-hero-subtitle">{{ $t('advantages.hero.subtitle') }}</p>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section pillars">
+    <section v-motion-slide-visible-once-bottom class="section pillars">
       <div class="container">
         <div class="section-header">
-          <div class="section-title">{{ $t('advantages.pillars.title') }}</div>
+          <h2 class="section-title">{{ $t('advantages.pillars.title') }}</h2>
         </div>
         <div class="pillars-grid">
-          <div v-for="(item, index) in pillars" :key="item.name" class="pillar-card">
-            <div class="pillar-card-index">0{{ index + 1 }}</div>
-            <div class="pillar-card-title">{{ item.name }}</div>
-            <div class="pillar-card-desc">{{ item.desc }}</div>
-          </div>
+          <article v-for="(item, index) in pillars" :key="item.name" class="pillar-card">
+            <p class="pillar-card-index">0{{ index + 1 }}</p>
+            <h3 class="pillar-card-title">{{ item.name }}</h3>
+            <p class="pillar-card-desc">{{ item.desc }}</p>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div v-motion-slide-visible-once-bottom class="section compare">
+    <section v-motion-slide-visible-once-bottom class="section compare">
       <div class="container">
         <div class="section-header">
-          <div class="section-title">{{ $t('advantages.compare.title') }}</div>
+          <h2 class="section-title">{{ $t('advantages.compare.title') }}</h2>
         </div>
         <div class="compare-list">
-          <div v-for="item in compare" :key="item.name" class="compare-item">
-            <div class="compare-item-title">{{ item.name }}</div>
-            <div class="compare-item-desc">{{ item.desc }}</div>
-          </div>
+          <article v-for="item in compare" :key="item.name" class="compare-item">
+            <h3 class="compare-item-title">{{ item.name }}</h3>
+            <p class="compare-item-desc">{{ item.desc }}</p>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
+
 
 <script setup lang="ts">
 const { t, locale } = useI18n()
