@@ -15,8 +15,29 @@
           <div class="intro-desc">{{ $t('about.intro.desc') }}</div>
         </div>
         <div class="intro-panel">
-          <div class="intro-panel-glow"></div>
-          <div class="intro-panel-note">{{ $t('common.placeholderNote') }}</div>
+          <video
+            class="intro-panel-video"
+            src="/factory.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            controls
+          ></video>
+        </div>
+      </div>
+    </div>
+
+    <div class="section stats">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title">{{ $t('about.stats.title') }}</div>
+        </div>
+        <div class="stats-grid">
+          <div v-for="n in 4" :key="n" class="stats-item">
+            <div class="stats-item-value">{{ $t(`about.stats.item${n}.value`) }}</div>
+            <div class="stats-item-label">{{ $t(`about.stats.item${n}.label`) }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -154,30 +175,58 @@ const milestones = computed(() => {
     }
 
     .intro-panel {
-      position: relative;
       overflow: hidden;
-      min-height: 280px;
       border-radius: 28px;
-      background: linear-gradient(160deg, #1b2a44 0%, #0d1524 100%);
-      display: flex;
-      align-items: flex-end;
-      padding: 28px;
+      background: #0d1524;
+      aspect-ratio: 16 / 9;
 
-      .intro-panel-glow {
-        position: absolute;
-        inset: -20% auto auto 20%;
-        width: 240px;
-        height: 240px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(#1aa6b8, 0.35), transparent 70%);
+      .intro-panel-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  }
+
+  .stats {
+    background: #0b1220;
+
+    .section-header {
+      .section-title {
+        color: #ffffff;
+      }
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+
+      @media (min-width: 900px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .stats-item {
+      padding: 28px 24px;
+      border-radius: 24px;
+      background: rgba(#ffffff, 0.04);
+      border: 1px solid rgba(#ffffff, 0.08);
+
+      .stats-item-value {
+        margin-bottom: 10px;
+        color: #5fd0dc;
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1;
       }
 
-      .intro-panel-note {
-        position: relative;
-        z-index: 1;
+      .stats-item-label {
         color: #c8ced6;
-        font-size: 14px;
-        line-height: 1.7;
+        font-size: 15px;
+        line-height: 1.5;
       }
     }
   }

@@ -24,6 +24,9 @@
             <div class="footer-item">
               <NuxtLink to="/products" class="footer-link">{{ $t('footer.product4') }}</NuxtLink>
             </div>
+            <div class="footer-item">
+              <NuxtLink to="/products" class="footer-link">{{ $t('footer.product5') }}</NuxtLink>
+            </div>
           </div>
         </div>
 

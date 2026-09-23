@@ -1,7 +1,6 @@
 <template>
   <div class="home-page">
     <div class="hero">
-      <div class="hero-glow"></div>
       <div class="hero-content">
         <div class="hero-badge">{{ $t('home.badge') }}</div>
         <div class="hero-title">{{ $t('home.hero.title') }}</div>
@@ -82,7 +81,7 @@ const { t, locale } = useI18n()
 
 const products = computed(() => {
   locale.value
-  return [1, 2, 3, 4].map((n) => ({
+  return [1, 2, 3, 4, 5].map((n) => ({
     name: t(`home.products.items.item${n}.name`),
     desc: t(`home.products.items.item${n}.desc`)
   }))
@@ -121,27 +120,13 @@ const advantages = computed(() => {
       linear-gradient(160deg, #0b1220 0%, #162033 48%, #0b1220 100%);
     color: #ffffff;
 
-    .hero-glow {
-      position: absolute;
-      inset: auto -10% -20% auto;
-      width: 520px;
-      height: 520px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(#1aa6b8, 0.28), transparent 68%);
-      pointer-events: none;
-    }
-
     .hero-content {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding-left: 24px;
-      padding-right: 24px;
       max-width: 920px;
-      padding-top: 72px;
-      padding-bottom: 72px;
+      margin: 0 auto;
+      padding: 72px 24px;
     }
 
     .hero-badge {
@@ -273,7 +258,7 @@ const advantages = computed(() => {
       }
 
       @media (min-width: 1100px) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
       }
     }
 

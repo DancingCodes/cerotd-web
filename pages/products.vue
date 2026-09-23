@@ -50,7 +50,7 @@ const { t, locale } = useI18n()
 
 const categories = computed(() => {
   locale.value
-  return [1, 2, 3, 4].map((n) => ({
+  return [1, 2, 3, 4, 5].map((n) => ({
     name: t(`products.categories.items.item${n}.name`),
     desc: t(`products.categories.items.item${n}.desc`),
     points: [1, 2, 3].map((p) => t(`products.categories.items.item${n}.points.p${p}`))

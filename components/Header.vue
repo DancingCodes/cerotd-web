@@ -24,8 +24,13 @@
       </div>
 
       <div v-if="mobileMenuOpen" class="nav-mobile">
-        <NuxtLink v-for="item in navItems" :key="`mobile-${item.to}`" :to="item.to" class="nav-mobile-link"
-          @click="mobileMenuOpen = false">
+        <NuxtLink
+          v-for="item in navItems"
+          :key="`mobile-${item.to}`"
+          :to="item.to"
+          class="nav-mobile-link"
+          @click="mobileMenuOpen = false"
+        >
           {{ $t(item.label) }}
         </NuxtLink>
         <div class="nav-mobile-lang" @click="toggleLocale">

@@ -21,17 +21,18 @@
     "productsTitle": "Products",
     "companyTitle": "Company",
     "contactTitle": "Contact",
-    "product1": "Industrial Lubricants",
-    "product2": "Automotive Oils",
-    "product3": "Specialty Greases",
-    "product4": "Metalworking Fluids",
+    "product1": "Gasoline Engine Oil",
+    "product2": "Diesel Engine Oil",
+    "product3": "Transmission Fluid",
+    "product4": "Gear Oil",
     "aboutUs": "About Us",
     "ourServices": "Services",
     "ourAdvantages": "Advantages",
     "location": "Shandong, China",
     "email": "info{'@'}cerotd.com",
     "phone": "+86 xxx xxxx xxxx",
-    "copyright": "Cerotd (Shandong) Lubrication Technology Co., Ltd. All rights reserved."
+    "copyright": "Cerotd (Shandong) Lubrication Technology Co., Ltd. All rights reserved.",
+    "product5": "Antifreeze"
   },
   "home": {
     "badge": "Mechanical Lubricants · Industrial Solutions",
@@ -43,23 +44,27 @@
     },
     "products": {
       "title": "Core Products",
-      "subtitle": "Covering industrial, automotive, specialty, and metalworking lubrication needs",
+      "subtitle": "Covering engine, transmission, and cooling protection needs",
       "items": {
         "item1": {
-          "name": "Industrial Lubricants",
-          "desc": "Built for heavy-duty equipment and continuous operation with wear protection and stability."
+          "name": "Gasoline Engine Oil",
+          "desc": "Built for gasoline engines with cleaning protection and stable lubrication."
         },
         "item2": {
-          "name": "Automotive Oils",
-          "desc": "Engine and transmission focused oils balancing protection and operating adaptability."
+          "name": "Diesel Engine Oil",
+          "desc": "Matched to diesel engine loads with wear resistance and durability."
         },
         "item3": {
-          "name": "Specialty Greases",
-          "desc": "Formulated for high temperature, humidity, and heavy-load conditions."
+          "name": "Transmission Fluid",
+          "desc": "Supports smooth shifting and efficient power transfer."
         },
         "item4": {
-          "name": "Metalworking Fluids",
-          "desc": "Cooling and lubrication support for cutting, grinding, and forming processes."
+          "name": "Gear Oil",
+          "desc": "For gear transmission scenarios with extreme-pressure protection."
+        },
+        "item5": {
+          "name": "Antifreeze",
+          "desc": "Cooling system protection against freezing, boiling, and corrosion."
         }
       }
     },
@@ -151,6 +156,25 @@
           "text": "Strengthen R&D, testing, and customer collaboration capabilities."
         }
       }
+    },
+    "stats": {
+      "title": "Results that matter",
+      "item1": {
+        "value": "150+",
+        "label": "Successful Projects"
+      },
+      "item2": {
+        "value": "30+",
+        "label": "Professional Team"
+      },
+      "item3": {
+        "value": "15",
+        "label": "Years of Experience"
+      },
+      "item4": {
+        "value": "20+",
+        "label": "Brand Collaborations"
+      }
     }
   },
   "products": {
@@ -163,39 +187,48 @@
       "subtitle": "Category-first structure for now; real SKUs and specs can be added later",
       "items": {
         "item1": {
-          "name": "Industrial Lubricants",
-          "desc": "Hydraulic oils, gear oils, compressor oils, and related industrial essentials.",
+          "name": "Gasoline Engine Oil",
+          "desc": "Lubrication and protection line for gasoline engines.",
           "points": {
-            "p1": "Wear protection",
+            "p1": "Cleaning protection",
+            "p2": "Wear stability",
+            "p3": "Condition fit"
+          }
+        },
+        "item2": {
+          "name": "Diesel Engine Oil",
+          "desc": "Built for diesel engine load and durability needs.",
+          "points": {
+            "p1": "Heavy-duty wear resistance",
             "p2": "Thermal stability",
             "p3": "Long duty cycles"
           }
         },
-        "item2": {
-          "name": "Automotive Oils",
-          "desc": "Engine and drivetrain lubricants focused on cleanliness and protection.",
-          "points": {
-            "p1": "Engine protection",
-            "p2": "Cold start",
-            "p3": "Durability"
-          }
-        },
         "item3": {
-          "name": "Specialty Greases",
-          "desc": "For bearings, high-temperature points, and higher sealing requirements.",
+          "name": "Transmission Fluid",
+          "desc": "Focused on smooth shifting and transmission efficiency.",
           "points": {
-            "p1": "Strong adhesion",
-            "p2": "Heat resistance",
-            "p3": "Water and dust resistance"
+            "p1": "Smooth shifting",
+            "p2": "Friction stability",
+            "p3": "Efficient transfer"
           }
         },
         "item4": {
-          "name": "Metalworking Fluids",
-          "desc": "Cooling and lubrication for machining quality and tool life.",
+          "name": "Gear Oil",
+          "desc": "Extreme-pressure lubrication for gearboxes and gear sets.",
           "points": {
-            "p1": "Cooling efficiency",
-            "p2": "Machining precision",
-            "p3": "Tool life"
+            "p1": "EP wear protection",
+            "p2": "Film strength",
+            "p3": "Noise control"
+          }
+        },
+        "item5": {
+          "name": "Antifreeze",
+          "desc": "Cooling system protection against freeze, boil, and corrosion.",
+          "points": {
+            "p1": "Freeze & boil protection",
+            "p2": "Corrosion resistance",
+            "p3": "System compatibility"
           }
         }
       }
