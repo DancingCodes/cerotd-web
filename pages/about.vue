@@ -11,7 +11,9 @@
       <div class="container intro-grid">
         <div class="intro-copy">
           <div class="intro-title">{{ $t('about.intro.title') }}</div>
-          <div class="intro-desc">{{ $t('about.intro.desc') }}</div>
+          <div class="intro-desc">{{ $t('about.intro.p1') }}</div>
+          <div class="intro-desc">{{ $t('about.intro.p2') }}</div>
+          <div class="intro-desc">{{ $t('about.intro.p3') }}</div>
         </div>
         <div class="intro-panel">
           <video
@@ -84,7 +86,7 @@ const values = computed(() => {
 
 const milestones = computed(() => {
   locale.value
-  return [1, 2, 3].map((n) => ({
+  return [1, 2, 3, 4].map((n) => ({
     year: t(`about.milestones.items.item${n}.year`),
     text: t(`about.milestones.items.item${n}.text`)
   }))
@@ -182,6 +184,10 @@ const milestones = computed(() => {
         color: #4b5563;
         font-size: 18px;
         line-height: 1.8;
+
+        & + .intro-desc {
+          margin-top: 16px;
+        }
       }
     }
 

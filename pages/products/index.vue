@@ -23,7 +23,7 @@
             {{ $t('products.listTitle') }}
           </div>
           <div
-            v-for="category in productCategories"
+            v-for="category in availableCategories"
             :key="category"
             class="filter-item"
             :class="{ 'filter-item-active': activeCategory === category }"
@@ -40,8 +40,11 @@
             :to="`/products/${item.slug}`"
             class="product-card"
           >
-            <div class="media-blank">
-              <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
+            <div class="product-card-media">
+              <img v-if="item.image" class="product-card-image" :src="item.image" :alt="$t(`products.catalog.${item.slug}.name`)" />
+              <div v-else class="media-blank">
+                <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
+              </div>
             </div>
             <div class="product-card-body">
               <div class="product-card-title">{{ $t(`products.catalog.${item.slug}.name`) }}</div>
@@ -68,6 +71,10 @@
 import { productCategories, products, type ProductCategory } from '~/data/products'
 
 const activeCategory = ref<'all' | ProductCategory>('all')
+
+const availableCategories = computed(() =>
+  productCategories.filter((category) => products.some((item) => item.category === category))
+)
 
 const filteredProducts = computed(() => {
   if (activeCategory.value === 'all') return products
@@ -208,18 +215,33 @@ const filteredProducts = computed(() => {
         box-shadow: none;
       }
 
-      .media-blank {
+      .product-card-media {
         aspect-ratio: 4 / 3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #e8edf2;
+        background: #f3f5f7;
+        overflow: hidden;
 
-        .media-blank-label {
-          color: #98a2b3;
-          font-size: 12px;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
+        .product-card-image {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+          background: #f3f5f7;
+        }
+
+        .media-blank {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #e8edf2;
+
+          .media-blank-label {
+            color: #98a2b3;
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+          }
         }
       }
 

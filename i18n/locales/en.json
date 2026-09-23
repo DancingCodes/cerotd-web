@@ -55,7 +55,7 @@
     },
     "products": {
       "title": "Products",
-      "subtitle": "A focused range for equipment protection and stable supply.",
+      "subtitle": "Current diesel oils, transmission fluids and antifreeze grades from the previous site.",
       "items": {
         "item1": {
           "name": "Gasoline Engine Oil",
@@ -110,20 +110,20 @@
       "subtitle": "Add photos, certificates, and plant details into the blank frames.",
       "items": {
         "item1": {
-          "name": "Scaled Factory",
-          "desc": "More than 85 mu of factory area, about 10,000㎡ of standardized workshops, and up to 15,000 m³ oil storage."
+          "name": "Company Strength",
+          "desc": "The factory covers more than 85 mu (approx. 56,667㎡), with 10,000㎡ standardized workshops and up to 15,000 m³ oil storage."
         },
         "item2": {
-          "name": "Certifications & Materials",
-          "desc": "ISO 9001, environmental, and OHSAS 18001 systems; base oils and additives from Fortune Global 500 resources."
+          "name": "Laboratory Testing",
+          "desc": "Certified for ISO 9001, ISO Environmental Management and OHSAS 18001. Base oils, additives and formulas are introduced from Fortune Global 500 enterprises."
         },
         "item3": {
-          "name": "Automated Capacity",
-          "desc": "Annual capacity exceeds 100,000 tons across industrial, automotive, special, and construction machinery oils."
+          "name": "Automated Production",
+          "desc": "Annual capacity exceeds 100,000 tons across industrial oils, automotive oils, special oils, construction machinery oils and automotive care products."
         },
         "item4": {
-          "name": "Technical Collaboration",
-          "desc": "Cooperation with Lubrizol, Infineum, Rhein Chemie, and research institutes for continuous upgrades."
+          "name": "Technical Support",
+          "desc": "Extensive cooperation with Lubrizol, Infineum, Rhein Chemie and domestic institutes keeps R&D competitive, with complete testing equipment for product stability."
         }
       }
     },
@@ -134,32 +134,32 @@
     },
     "stats": {
       "item1": {
-        "value": "150+",
-        "label": "Successful Projects"
+        "value": "85+",
+        "label": "Mu factory area"
       },
       "item2": {
-        "value": "30+",
-        "label": "Specialists"
+        "value": "10,000㎡",
+        "label": "Standard workshops"
       },
       "item3": {
-        "value": "15",
-        "label": "Years Experience"
+        "value": "15,000m³",
+        "label": "Oil storage"
       },
       "item4": {
-        "value": "20+",
-        "label": "Brand Partnerships"
+        "value": "100,000+",
+        "label": "Tons / year"
       }
     },
     "factory": {
-      "title": "Manufacturing capability",
-      "subtitle": "Leave factory photos or production stills here. Keep this section evidence-led, not slogan-led.",
-      "point1": "Automated blending lines for batch consistency",
-      "point2": "In-house testing support before shipment",
-      "point3": "Capacity for industrial, automotive, and specialty oils"
+      "title": "Manufacturing Capability",
+      "subtitle": "Fully automatic blending lines, strict quality control, and complete testing support stable delivery.",
+      "point1": "More than 85 mu factory land, about 10,000㎡ workshops, up to 15,000 m³ storage",
+      "point2": "Annual capacity exceeds 100,000 tons across industrial, automotive and specialty oils",
+      "point3": "Technical cooperation with Lubrizol, Infineum, Rhein Chemie and research institutes"
     },
     "partners": {
       "title": "Partners & certifications",
-      "subtitle": "Replace these blanks with real partner marks and certificate scans."
+      "subtitle": "International material and technology partners, supported by management system certifications."
     }
   },
   "about": {
@@ -168,8 +168,10 @@
       "subtitle": "Modern comprehensive manufacturer of lubricating oils and greases"
     },
     "intro": {
-      "title": "Integrated R&D, production, sales, and service",
-      "desc": "Cerotd (Shandong) Lubrication Technology Co., Ltd. is a modern, comprehensive manufacturer of lubricating oils and greases, integrating R&D, production, sales, service, technical training, and logistics distribution, with considerable industry scale and influence in the domestic market. Located in Jining, Shandong, and rooted in the New Material Industrial Park, the factory is equipped with advanced fully automatic blending production lines and a strict quality management system. We have long focused on automotive lubricant R&D and innovation, delivering high-tech, specialized, and comprehensive lubricant production solutions for diverse equipment needs."
+      "title": "Modern comprehensive manufacturer of lubricating oils and greases",
+      "p1": "Cerotd (Shandong) Lubrication Technology Co., Ltd. is a modern, comprehensive and professional manufacturer of lubricating oils and greases, integrating R&D, production, sales, service, technical training and logistics distribution, and boasts a considerable industry scale and influence in the domestic market.",
+      "p2": "The company is located in Jining City, Shandong Province, known as the Hometown of Confucius and Mencius, the Land of Propriety and Righteousness. Rooted in Jibei Ershilipu New Material Industrial Park, it stands as a vibrant and promising rising star with strong growth momentum in the park. Our factory is equipped with advanced fully automatic blending production lines, and has established a strict and comprehensive quality management system.",
+      "p3": "We have long been deeply engaged in the R&D and innovation of automotive lubricants. With solid professional technical strength, we deliver high-tech, specialized and comprehensive lubricant production solutions to fully meet the lubrication needs of various types of equipment."
     },
     "values": {
       "title": "What we value",
@@ -189,46 +191,50 @@
       }
     },
     "milestones": {
-      "title": "Factory Strength",
+      "title": "Company Strength",
       "items": {
         "item1": {
-          "year": "Site Scale",
-          "text": "Factory covers more than 85 mu (approx. 56,667㎡), with about 10,000㎡ of standardized workshops and up to 15,000 m³ oil storage."
+          "year": "Company Strength",
+          "text": "The factory covers an area of more than 85 mu (approx. 56,667 square meters), with 10,000 square meters of standardized workshops and a maximum oil storage capacity of 15,000 cubic meters."
         },
         "item2": {
-          "year": "Capacity",
-          "text": "Annual production capacity exceeds 100,000 tons across industrial, automotive, special, construction machinery, and auto-care products."
+          "year": "Laboratory Testing",
+          "text": "The company has passed certifications including ISO 9001 Quality Management System, ISO Environmental Management System and OHSAS 18001 Occupational Health and Safety Management System. Base oils, additives and technical formulas are fully introduced from Fortune Global 500 enterprises."
         },
         "item3": {
-          "year": "Testing",
-          "text": "A complete range of testing equipment helps ensure product stability and batch consistency."
+          "year": "Automated Production",
+          "text": "Annual production capacity exceeds 100,000 tons. Products cover industrial oils, automotive oils, special oils, construction machinery oils, automotive care products and more."
+        },
+        "item4": {
+          "year": "Technical Support",
+          "text": "We cooperate extensively with internationally renowned enterprises such as Lubrizol, Infineum and Rhein Chemie, as well as domestic research institutes and universities. A complete range of testing equipment helps ensure product stability."
         }
       }
     },
     "stats": {
-      "title": "Results that matter",
+      "title": "Factory metrics",
       "item1": {
-        "value": "150+",
-        "label": "Successful Projects"
+        "value": "85+",
+        "label": "Mu factory area"
       },
       "item2": {
-        "value": "30+",
-        "label": "Professional Team"
+        "value": "10,000㎡",
+        "label": "Standard workshops"
       },
       "item3": {
-        "value": "15",
-        "label": "Years of Experience"
+        "value": "15,000m³",
+        "label": "Max oil storage"
       },
       "item4": {
-        "value": "20+",
-        "label": "Brand Collaborations"
+        "value": "100,000+",
+        "label": "Tons annual capacity"
       }
     }
   },
   "products": {
     "hero": {
       "title": "Products",
-      "subtitle": "Gasoline engine oil, diesel engine oil, anti-wear hydraulic oil, gear oil, transmission fluid, antifreeze, and grease"
+      "subtitle": "Current factory grades across diesel oils, transmission fluids and antifreeze"
     },
     "categories": {
       "title": "Product Lines",
@@ -304,7 +310,7 @@
       "desc": "Coverage includes industrial oils, automotive oils, special oils, construction machinery oils, and automotive care products. Formal grades, approvals, and packaging can be confirmed by inquiry."
     },
     "listTitle": "All Products",
-    "listSubtitle": "Browse by category — full-container and bulk order inquiries welcome",
+    "listSubtitle": "Real SKUs already listed on the previous site. Additional grades are available on request.",
     "detailCta": "Ask about this product",
     "backToList": "Back to products",
     "specsTitle": "Key Information",
@@ -319,144 +325,104 @@
       "grease": "Grease"
     },
     "catalog": {
-      "gas-5w30": {
-        "name": "Gasoline Engine Oil 5W-30",
-        "summary": "General gasoline engine oil focused on cold start and daily protection.",
-        "description": "Suitable for most gasoline engine daily conditions. Placeholder content for specs, certifications, and packaging.",
+      "cf4-15w40": {
+        "name": "CF-4 15W-40",
+        "summary": "Diesel engine oil focused on anti-wear and durability.",
+        "description": "Designed for common diesel engine operating conditions, with attention to oil-film strength, wear protection and stable running. Formal approvals and detailed specs can be provided on request.",
         "specs": {
-          "s1": "Viscosity: 5W-30",
-          "s2": "Use: Gasoline engines",
-          "s3": "Packaging: TBD"
+          "s1": "Grade: CF-4",
+          "s2": "Viscosity: 15W-40",
+          "s3": "Use: Diesel engines"
         }
       },
-      "gas-10w40": {
-        "name": "Gasoline Engine Oil 10W-40",
-        "summary": "Gasoline engine oil for a wider temperature range.",
-        "description": "For gasoline engines needing stable film strength and continuous protection. Formal data coming later.",
+      "cf4-20w50": {
+        "name": "CF-4 20W-50",
+        "summary": "Higher-viscosity CF-4 diesel engine oil.",
+        "description": "For diesel engines that need stronger oil-film support under hot or heavy-duty conditions.",
         "specs": {
-          "s1": "Viscosity: 10W-40",
-          "s2": "Use: Gasoline engines",
-          "s3": "Packaging: TBD"
+          "s1": "Grade: CF-4",
+          "s2": "Viscosity: 20W-50",
+          "s3": "Use: Diesel engines"
         }
       },
-      "diesel-15w40": {
-        "name": "Diesel Engine Oil 15W-40",
-        "summary": "Common diesel viscosity option focused on wear resistance and durability.",
-        "description": "A baseline diesel engine oil model for heavy-duty oriented presentation.",
+      "ch4-15w40": {
+        "name": "CH-4 15W-40",
+        "summary": "CH-4 diesel engine oil with stronger heavy-duty protection.",
+        "description": "Suitable for heavy-duty diesel lubrication needs, focusing on detergency/dispersancy and anti-wear durability.",
         "specs": {
-          "s1": "Viscosity: 15W-40",
-          "s2": "Use: Diesel engines",
-          "s3": "Packaging: TBD"
+          "s1": "Grade: CH-4",
+          "s2": "Viscosity: 15W-40",
+          "s3": "Use: Heavy-duty diesel engines"
         }
       },
-      "diesel-ci4": {
-        "name": "Diesel Engine Oil CI-4",
-        "summary": "Oriented to protection under heavier diesel loads.",
-        "description": "Placeholder for heavy-duty diesel lubrication direction. Standards and approvals can be replaced later.",
+      "ch4-20w50": {
+        "name": "CH-4 20W-50",
+        "summary": "High-viscosity CH-4 diesel engine oil.",
+        "description": "For heavy-duty and high-temperature diesel conditions requiring stronger film and load-carrying protection.",
         "specs": {
-          "s1": "Performance: CI-4",
-          "s2": "Use: Heavy-duty diesel",
-          "s3": "Packaging: TBD"
+          "s1": "Grade: CH-4",
+          "s2": "Viscosity: 20W-50",
+          "s3": "Use: Heavy-duty diesel engines"
         }
       },
-      "atf-vi": {
-        "name": "Automatic Transmission Fluid",
-        "summary": "ATF focused on smooth shifting performance.",
-        "description": "Placeholder for automatic transmission lubrication and friction control.",
+      "ci4-15w40": {
+        "name": "CI-4 15W-40",
+        "summary": "CI-4 diesel engine oil for higher-performance diesel duty.",
+        "description": "For diesel engines with higher performance requirements, emphasizing cleanliness, anti-wear and thermal stability.",
         "specs": {
-          "s1": "Type: ATF",
+          "s1": "Grade: CI-4",
+          "s2": "Viscosity: 15W-40",
+          "s3": "Use: Higher-performance diesel engines"
+        }
+      },
+      "atf6": {
+        "name": "ATF6",
+        "summary": "Automatic transmission fluid for smooth shifting and stable friction.",
+        "description": "Used for automatic transmission lubrication and friction control. Vehicle fitment and formal specifications can be confirmed on request.",
+        "specs": {
+          "s1": "Type: ATF6",
           "s2": "Use: Automatic transmissions",
-          "s3": "Packaging: TBD"
+          "s3": "Packaging: on request"
         }
       },
-      "cvt-fluid": {
-        "name": "CVT Fluid",
-        "summary": "Fluid direction for CVT transmission systems.",
-        "description": "Placeholder for CVT lubrication solutions. Compatibility lists can be added later.",
+      "atf9": {
+        "name": "ATF9",
+        "summary": "ATF9 automatic transmission fluid.",
+        "description": "For automatic transmission lubrication needs, focusing on shift smoothness and system protection.",
         "specs": {
-          "s1": "Type: CVT Fluid",
-          "s2": "Use: CVT transmissions",
-          "s3": "Packaging: TBD"
+          "s1": "Type: ATF9",
+          "s2": "Use: Automatic transmissions",
+          "s3": "Packaging: on request"
         }
       },
-      "gear-85w140": {
-        "name": "Gear Oil 85W-140",
-        "summary": "Higher-viscosity gear oil focused on film strength.",
-        "description": "Placeholder for heavy gear transmission scenarios.",
+      "atf10": {
+        "name": "ATF10",
+        "summary": "ATF10 automatic transmission fluid.",
+        "description": "Automatic transmission lubrication grade. Formal fitment and parameters can be completed later as needed.",
         "specs": {
-          "s1": "Viscosity: 85W-140",
-          "s2": "Use: Gear drives",
-          "s3": "Packaging: TBD"
+          "s1": "Type: ATF10",
+          "s2": "Use: Automatic transmissions",
+          "s3": "Packaging: on request"
         }
       },
-      "gear-gl5": {
-        "name": "Gear Oil GL-5",
-        "summary": "EP gear oil direction for wear and load carrying.",
-        "description": "Placeholder for extreme-pressure gear lubrication capability.",
+      "antifreeze-g11-green": {
+        "name": "Antifreeze G-11 Green",
+        "summary": "Green ethylene glycol multi-effect engine coolant (antifreeze).",
+        "description": "Ethylene glycol (EG) based. IAT / HOAT corrosion inhibitor technology. Standard bright green, clear and transparent, with no suspended solids or stratification. Suitable for cooling systems of older cast-iron engine cars, light trucks, construction machinery, agricultural machinery, 2-stroke / 4-stroke motor boats and generator sets. Packaging: 1kg / 4kg / 5kg / 9kg / 10kg / 20kg / 200kg.",
         "specs": {
-          "s1": "Performance: GL-5",
-          "s2": "Use: Axles / gearboxes",
-          "s3": "Packaging: TBD"
+          "s1": "Type: G-11 Green",
+          "s2": "Base: Ethylene Glycol",
+          "s3": "Packaging: 1-200kg"
         }
       },
-      "coolant-organic": {
-        "name": "Organic Antifreeze",
-        "summary": "Cooling system protection against freeze, boil, and corrosion.",
-        "description": "Placeholder for organic coolant direction. Color, mix ratio, and standards TBD.",
+      "antifreeze-g11-red": {
+        "name": "Antifreeze G-11 Red",
+        "summary": "Red ethylene glycol multi-effect engine coolant (antifreeze).",
+        "description": "Red G-11 coolant for freeze protection, boil-over protection and metal protection in engine cooling systems. Packaging options match the green grade and can be confirmed by order.",
         "specs": {
-          "s1": "Type: Organic Coolant",
-          "s2": "Use: Cooling systems",
-          "s3": "Packaging: TBD"
-        }
-      },
-      "coolant-longlife": {
-        "name": "Long-life Antifreeze",
-        "summary": "Coolant option oriented to longer protection cycles.",
-        "description": "Placeholder for long-life cooling protection. Service interval and formula details TBD.",
-        "specs": {
-          "s1": "Type: Long Life Coolant",
-          "s2": "Use: Cooling systems",
-          "s3": "Packaging: TBD"
-        }
-      },
-      "hydraulic-aw46": {
-        "name": "Anti-wear Hydraulic Oil AW 46",
-        "summary": "Anti-wear protection and stable performance for hydraulic systems.",
-        "description": "Designed for construction machinery and industrial hydraulic systems, focusing on wear resistance, oxidation control, and clean operation. Specs and packaging can be updated later.",
-        "specs": {
-          "s1": "Viscosity grade: ISO VG 46",
-          "s2": "Use: Hydraulic systems",
-          "s3": "Packaging: TBD"
-        }
-      },
-      "hydraulic-aw68": {
-        "name": "Anti-wear Hydraulic Oil AW 68",
-        "summary": "Higher-viscosity anti-wear hydraulic oil for heavier duty cycles.",
-        "description": "For heavy-load or higher-temperature hydraulic systems where film strength and stability matter. Formal parameters can replace placeholders later.",
-        "specs": {
-          "s1": "Viscosity grade: ISO VG 68",
-          "s2": "Use: Heavy-duty hydraulic systems",
-          "s3": "Packaging: TBD"
-        }
-      },
-      "grease-lithium": {
-        "name": "Lithium Grease",
-        "summary": "General-purpose lithium grease for bearings and friction points.",
-        "description": "Suitable for bearings, pins, and common lubrication points, with attention to adhesion and water resistance. NLGI grade and approvals can be added later.",
-        "specs": {
-          "s1": "Type: Lithium Grease",
-          "s2": "Use: Bearings / friction points",
-          "s3": "Packaging: TBD"
-        }
-      },
-      "grease-ep": {
-        "name": "EP Grease",
-        "summary": "Extreme-pressure grease for heavy-load friction points.",
-        "description": "Built for shock loads and heavy-duty friction scenarios, emphasizing EP protection and lasting adhesion. Formal SKUs can be refined later.",
-        "specs": {
-          "s1": "Type: EP Grease",
-          "s2": "Use: Heavy-duty friction points",
-          "s3": "Packaging: TBD"
+          "s1": "Type: G-11 Red",
+          "s2": "Base: Ethylene Glycol",
+          "s3": "Packaging: 1-200kg"
         }
       }
     }
@@ -522,20 +488,20 @@
       "title": "Capability pillars",
       "items": {
         "item1": {
-          "name": "Factory Scale",
-          "desc": "More than 85 mu of factory land, about 10,000㎡ workshops, and up to 15,000 m³ storage capacity."
+          "name": "Company Strength",
+          "desc": "The factory covers an area of more than 85 mu (approx. 56,667 square meters), with 10,000 square meters of standardized workshops and a maximum oil storage capacity of 15,000 cubic meters."
         },
         "item2": {
-          "name": "Lab & Certifications",
-          "desc": "ISO 9001, environmental management, and OHSAS 18001; materials and formulas aligned with Fortune Global 500 resources."
+          "name": "Laboratory Testing",
+          "desc": "Certified for ISO 9001 Quality Management System, ISO Environmental Management System and OHSAS 18001. Base oils, additives and technical formulas are fully introduced from Fortune Global 500 enterprises."
         },
         "item3": {
           "name": "Automated Production",
-          "desc": "Fully automatic blending lines supporting 100,000+ tons annual capacity across multiple lubricant categories."
+          "desc": "Annual production capacity exceeds 100,000 tons. Products cover industrial oils, automotive oils, special oils, construction machinery oils, automotive care products and more."
         },
         "item4": {
           "name": "Technical Support",
-          "desc": "Extensive cooperation with Lubrizol, Infineum, Rhein Chemie, and domestic research institutes."
+          "desc": "Extensive cooperation with Lubrizol, Infineum, Rhein Chemie and domestic research institutes and universities. Complete testing equipment helps ensure product stability."
         }
       }
     },

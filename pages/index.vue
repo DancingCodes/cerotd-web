@@ -11,8 +11,8 @@
             <NuxtLink to="/contact" class="btn btn-secondary">{{ $t('home.hero.ctaSecondary') }}</NuxtLink>
           </div>
         </div>
-        <div class="media-blank hero-visual">
-          <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
+        <div class="hero-visual">
+          <img class="hero-visual-image" src="/images/factory/tank-farm.png" alt="Cerotd tank farm" />
         </div>
       </div>
     </div>
@@ -36,13 +36,16 @@
           <NuxtLink to="/products" class="section-link">{{ $t('common.viewProducts') }}</NuxtLink>
         </div>
         <div class="products-grid">
-          <NuxtLink v-for="item in products" :key="item.name" :to="item.to" class="product-card">
-            <div class="media-blank">
-              <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
+          <NuxtLink v-for="item in featuredProducts" :key="item.slug" :to="`/products/${item.slug}`" class="product-card">
+            <div class="product-card-media">
+              <img v-if="item.image" class="product-card-image" :src="item.image" :alt="$t(`products.catalog.${item.slug}.name`)" />
+              <div v-else class="media-blank">
+                <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
+              </div>
             </div>
             <div class="product-card-body">
-              <div class="product-card-title">{{ item.name }}</div>
-              <div class="product-card-desc">{{ item.desc }}</div>
+              <div class="product-card-title">{{ $t(`products.catalog.${item.slug}.name`) }}</div>
+              <div class="product-card-desc">{{ $t(`products.catalog.${item.slug}.summary`) }}</div>
             </div>
           </NuxtLink>
         </div>
@@ -51,8 +54,8 @@
 
     <div v-motion-slide-visible-once-bottom class="section factory">
       <div class="container factory-grid">
-        <div class="media-blank factory-media">
-          <div class="media-blank-label">{{ $t('common.mediaBlank') }}</div>
+        <div class="factory-media">
+          <img class="factory-media-image" src="/images/factory/plant.png" alt="Cerotd plant" />
         </div>
         <div class="factory-copy">
           <div class="section-title">{{ $t('home.factory.title') }}</div>
@@ -104,8 +107,8 @@
           <div class="section-subtitle">{{ $t('home.partners.subtitle') }}</div>
         </div>
         <div class="partners-grid">
-          <div v-for="n in 6" :key="n" class="media-blank partner-slot">
-            <div class="media-blank-label">{{ $t('common.logoBlank') }}</div>
+          <div v-for="logo in partnerLogos" :key="logo" class="partner-slot">
+            <img class="partner-logo" :src="logo" alt="Partner logo" />
           </div>
         </div>
       </div>
@@ -126,18 +129,18 @@
 </template>
 
 <script setup lang="ts">
+import { products } from '~/data/products'
+
 const { t, locale } = useI18n()
 
-const productLinks = ['gas-5w30', 'diesel-15w40', 'atf-vi', 'gear-85w140', 'coolant-organic', 'hydraulic-aw46', 'grease-lithium']
+const featuredProducts = computed(() => products.slice(0, 6))
 
-const products = computed(() => {
-  locale.value
-  return [1, 2, 3, 4, 5, 6, 7].map((n) => ({
-    name: t(`home.products.items.item${n}.name`),
-    desc: t(`home.products.items.item${n}.desc`),
-    to: `/products/${productLinks[n - 1]}`
-  }))
-})
+const partnerLogos = [
+  '/images/partners/partner-1.png',
+  '/images/partners/partner-2.png',
+  '/images/partners/partner-3.png',
+  '/images/partners/partner-4.png'
+]
 
 const services = computed(() => {
   locale.value
@@ -179,8 +182,15 @@ const advantages = computed(() => {
       min-height: 320px;
       aspect-ratio: 4 / 3;
       border-radius: 20px;
+      overflow: hidden;
       background: #162033;
-      color: #7f8b9c;
+
+      .hero-visual-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
     }
 
     .hero-badge {
@@ -396,10 +406,25 @@ const advantages = computed(() => {
 
       &:hover { border-color: #cfd8e3; }
 
-      .media-blank {
+      .product-card-media {
         aspect-ratio: 4 / 3;
-        border: 0;
+        background: #f3f5f7;
         border-bottom: 1px solid #eef1f4;
+        overflow: hidden;
+
+        .product-card-image {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+          background: #f3f5f7;
+        }
+
+        .media-blank {
+          width: 100%;
+          height: 100%;
+          border: 0;
+        }
       }
 
       .product-card-body {
@@ -437,9 +462,18 @@ const advantages = computed(() => {
     }
 
     .factory-media {
-      min-height: 360px;
-      aspect-ratio: 16 / 10;
+      overflow: hidden;
       border-radius: 20px;
+      background: #e8edf2;
+      min-height: 280px;
+
+      .factory-media-image {
+        width: 100%;
+        height: 100%;
+        min-height: 280px;
+        object-fit: cover;
+        display: block;
+      }
     }
 
     .factory-points {
@@ -545,9 +579,21 @@ const advantages = computed(() => {
     }
 
     .partner-slot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       min-height: 88px;
-      border-radius: 16px;
+      padding: 16px;
+      border-radius: 20px;
       background: #ffffff;
+      border: 1px solid #e8edf2;
+
+      .partner-logo {
+        max-width: 120px;
+        max-height: 48px;
+        object-fit: contain;
+        display: block;
+      }
     }
   }
 

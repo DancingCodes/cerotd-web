@@ -11,7 +11,9 @@
     <div v-motion-slide-visible-once-bottom class="section content">
       <div class="container content-grid">
         <div class="detail-main">
-          <div class="detail-visual"></div>
+          <div class="detail-visual">
+            <img v-if="product.image" class="detail-visual-image" :src="product.image" :alt="$t(`products.catalog.${product.slug}.name`)" />
+          </div>
           <div class="detail-desc">{{ $t(`products.catalog.${product.slug}.description`) }}</div>
         </div>
 
@@ -112,7 +114,6 @@ const relatedProducts = computed(() => {
       text-decoration: none;
     }
 
-
     .page-hero-title {
       margin-bottom: 18px;
       font-size: 48px;
@@ -162,12 +163,21 @@ const relatedProducts = computed(() => {
 
     .detail-main {
       .detail-visual {
+        overflow: hidden;
+        border-radius: 20px;
+        background: #f3f5f7;
         min-height: 320px;
-        margin-bottom: 28px;
-        border-radius: 28px;
-        background:
-          linear-gradient(160deg, rgba(#1aa6b8, 0.22), transparent 42%),
-          linear-gradient(180deg, #22324d 0%, #101827 100%);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .detail-visual-image {
+          width: 100%;
+          max-height: 420px;
+          object-fit: contain;
+          display: block;
+        }
       }
 
       .detail-desc {
@@ -180,7 +190,7 @@ const relatedProducts = computed(() => {
     .detail-side {
       .specs-panel {
         padding: 28px;
-        border-radius: 28px;
+        border-radius: 20px;
         background: #0b1220;
         color: #ffffff;
 
@@ -237,15 +247,14 @@ const relatedProducts = computed(() => {
 
     .related-card {
       padding: 24px;
-      border-radius: 24px;
+      border-radius: 20px;
       background: #ffffff;
       border: 1px solid #eef1f4;
       text-decoration: none;
-      transition: all 0.25s ease;
+      transition: border-color 0.25s ease;
 
       &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+        border-color: #cfd8e3;
       }
 
       .related-card-title {
