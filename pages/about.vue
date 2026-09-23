@@ -2,7 +2,6 @@
   <div class="about-page">
     <div class="page-hero">
       <div class="container">
-        <div class="page-hero-kicker">{{ $t('common.about') }}</div>
         <div class="page-hero-title">{{ $t('about.hero.title') }}</div>
         <div class="page-hero-subtitle">{{ $t('about.hero.subtitle') }}</div>
       </div>
@@ -101,14 +100,6 @@ const milestones = computed(() => {
       linear-gradient(180deg, #0b1220 0%, #162033 100%);
     color: #ffffff;
 
-    .page-hero-kicker {
-      margin-bottom: 18px;
-      color: #5fd0dc;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
 
     .page-hero-title {
       max-width: 12ch;

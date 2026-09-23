@@ -59,10 +59,13 @@
 
 - 首页
 - 关于
-- 产品
+- 产品列表 `/products`
+- 产品详情 `/products/[slug]`
 - 服务
 - 优势
 - 联系
+
+产品数据在 `data/products.ts`，文案在 `i18n/locales/*/products.catalog`。
 
 ## 品牌与素材
 

@@ -489,10 +489,6 @@
     "social": {
       "title": "Social & Messaging",
       "wechatTip": "Scan or search the WeChat ID to connect"
-    },
-    "map": {
-      "title": "Location",
-      "openMap": "Open in Maps"
     }
   }
 }

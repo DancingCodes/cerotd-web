@@ -26,7 +26,7 @@
             <div class="product-card-body">
               <div class="product-card-title">{{ item.name }}</div>
               <div class="product-card-desc">{{ item.desc }}</div>
-              <NuxtLink to="/products" class="product-card-link">{{ $t('common.learnMore') }}</NuxtLink>
+              <NuxtLink :to="item.to" class="product-card-link">{{ $t('common.learnMore') }}</NuxtLink>
             </div>
           </div>
         </div>
@@ -79,11 +79,14 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 
+const productLinks = ['gas-5w30', 'diesel-15w40', 'atf-vi', 'gear-85w140', 'coolant-organic']
+
 const products = computed(() => {
   locale.value
   return [1, 2, 3, 4, 5].map((n) => ({
     name: t(`home.products.items.item${n}.name`),
-    desc: t(`home.products.items.item${n}.desc`)
+    desc: t(`home.products.items.item${n}.desc`),
+    to: `/products/${productLinks[n - 1]}`
   }))
 })
 

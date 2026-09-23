@@ -2,7 +2,6 @@
   <div class="services-page">
     <div class="page-hero">
       <div class="container">
-        <div class="page-hero-kicker">{{ $t('common.services') }}</div>
         <div class="page-hero-title">{{ $t('services.hero.title') }}</div>
         <div class="page-hero-subtitle">{{ $t('services.hero.subtitle') }}</div>
       </div>
@@ -70,14 +69,6 @@ const processSteps = computed(() => {
       linear-gradient(180deg, #0b1220 0%, #162033 100%);
     color: #ffffff;
 
-    .page-hero-kicker {
-      margin-bottom: 18px;
-      color: #5fd0dc;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
 
     .page-hero-title {
       margin-bottom: 18px;

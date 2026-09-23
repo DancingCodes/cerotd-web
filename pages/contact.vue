@@ -2,7 +2,6 @@
   <div class="contact-page">
     <div class="page-hero">
       <div class="container">
-        <div class="page-hero-kicker">{{ $t('common.contact') }}</div>
         <div class="page-hero-title">{{ $t('contact.hero.title') }}</div>
         <div class="page-hero-subtitle">{{ $t('contact.hero.subtitle') }}</div>
       </div>
@@ -51,7 +50,7 @@
           </div>
         </div>
 
-        <div class="form-panel" @submit.prevent>
+        <div class="form-panel">
           <div class="form-title">{{ $t('contact.form.title') }}</div>
           <div class="form-grid">
             <div class="form-field">
@@ -80,30 +79,8 @@
         </div>
       </div>
     </div>
-
-    <div class="section map">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-title">{{ $t('contact.map.title') }}</div>
-        </div>
-        <div class="map-panel">
-          <iframe
-            class="map-panel-frame"
-            :src="mapSrc"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-        <div class="map-actions">
-          <NuxtLink class="map-actions-link" :to="mapLink" target="_blank" external>
-            {{ $t('contact.map.openMap') }}
-          </NuxtLink>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
-
 <style lang="scss" scoped>
 .contact-page {
   .page-hero {
@@ -113,14 +90,6 @@
       linear-gradient(180deg, #0b1220 0%, #162033 100%);
     color: #ffffff;
 
-    .page-hero-kicker {
-      margin-bottom: 18px;
-      color: #5fd0dc;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
 
     .page-hero-title {
       margin-bottom: 18px;
@@ -186,10 +155,36 @@
           text-transform: uppercase;
         }
 
-        .info-item-value {
+        .info-item-value,
+        .info-item-link {
           color: #ffffff;
           font-size: 16px;
           line-height: 1.6;
+          text-decoration: none;
+        }
+
+        .info-item-link:hover {
+          color: #5fd0dc;
+        }
+      }
+
+      .wechat-box {
+        margin-top: 28px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(#ffffff, 0.08);
+
+        .wechat-box-title {
+          margin-bottom: 14px;
+          color: #9aa3af;
+          font-size: 13px;
+        }
+
+        .wechat-box-image {
+          width: 120px;
+          height: 120px;
+          object-fit: cover;
+          border-radius: 14px;
+          background: #ffffff;
         }
       }
     }
@@ -288,41 +283,6 @@
         color: #6b7280;
         font-size: 13px;
         line-height: 1.6;
-      }
-    }
-  }
-
-
-
-
-
-  .map {
-    background: #ffffff;
-    padding-top: 0;
-
-    .map-panel {
-      overflow: hidden;
-      border-radius: 28px;
-      border: 1px solid #eef1f4;
-      background: #f7f8fa;
-      aspect-ratio: 16 / 9;
-
-      .map-panel-frame {
-        width: 100%;
-        height: 100%;
-        border: 0;
-        display: block;
-      }
-    }
-
-    .map-actions {
-      margin-top: 16px;
-
-      .map-actions-link {
-        color: #0e7f8f;
-        font-size: 14px;
-        font-weight: 650;
-        text-decoration: none;
       }
     }
   }
