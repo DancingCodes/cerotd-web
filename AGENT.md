@@ -122,4 +122,4 @@
 - 图片先存 URL 字段（如 `cover_url` / `images`），对象存储后续再接
 - 部署 Cloudflare Workers：`npm run build` 后 `npm run deploy`（D1 binding 为 `DB`）
 - SEO 基础：`/robots.txt`、`/sitemap.xml`、页面 title/description；后台 `/admin` 为 noindex
-- 正式域名接入后，可设置 `NUXT_PUBLIC_SITE_URL`（当前会按请求域名自动生成）
+- 正式域名：`https://moonc.love`（`www.moonc.love` 已绑）；`NUXT_PUBLIC_SITE_URL` 已在 `wrangler.toml` 配置
