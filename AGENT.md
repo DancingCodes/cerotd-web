@@ -15,7 +15,11 @@
 - 视觉大气、干净，强调品牌与产品专业感
 - 参考苹果官网的页面节奏：大标题、清晰分区、滚动叙事、重点内容突出
 - 避免廉价模板感、信息堆叠、过度花哨装饰
-- 面向 B2B 客户，传达技术实力、品质稳定性与行业可信度
+- 面向海外 B2B 客户，传达技术实力、品质稳定性与行业可信度
+- 气质定位：高端工业站，不是 SaaS 模板风
+- 字体：Inter；色板：深墨海军 + 石墨灰 + 克制金属感，品牌青只作弱强调
+- 英文默认时弱化微信 / 备案露出；强调认证、检测、出口供货能力
+- 图片统一偏冷工业影调；避免空白占位框
 
 ## 技术栈
 
@@ -112,14 +116,33 @@
 
 ## 数据与接口
 
-- 数据库：Cloudflare D1（binding 名 `DB`）
+- 数据库：Cloudflare D1
+  - binding：`DB`
+  - database_name：`cerotd`
+  - database_id：`f1c1d1b6-4952-401e-a005-49cad234dfa6`
+  - migrations：`database/migrations`
 - 本地开发通过 `nitro-cloudflare-dev` + `wrangler.toml` 使用本地 D1
 - 分类接口：`/api/categories`
 - 产品接口：`/api/products`
 - 管理后台：`/admin`（登录后管理分类与产品，支持中英文切换）
 - 写接口（POST/PUT/DELETE）需要请求头 `Authorization: Bearer <ADMIN_API_TOKEN>`
+- `ADMIN_API_TOKEN` 是 Cloudflare Worker Secret（生产环境在控制台配置），本地写在 `.dev.vars`；不要把真实 token 提交进仓库
 - 本地可复制 `.dev.vars.example` 为 `.dev.vars`
-- 图片先存 URL 字段（如 `cover_url` / `images`），对象存储后续再接
-- 部署 Cloudflare Workers：`npm run build` 后 `npm run deploy`（D1 binding 为 `DB`）
-- SEO 基础：`/robots.txt`、`/sitemap.xml`、页面 title/description；后台 `/admin` 为 noindex
-- 正式域名：`https://moonc.love`（`www.moonc.love` 已绑）；`NUXT_PUBLIC_SITE_URL` 已在 `wrangler.toml` 配置
+- 图片先存 URL 字段（如 `cover_url` / `images`），对象存储（R2）后续再接，暂不做上传
+
+## 部署与域名
+
+- 部署目标：Cloudflare Workers（不是 Pages）
+- Worker 名：`cerotd-web`
+- 构建：`npm run build`
+- 部署：`npx wrangler deploy`（或 `npm run deploy`）
+- 正式域名：
+  - `https://moonc.love`（主站）
+  - `https://www.moonc.love`（已绑定）
+  - 当前不做 www → apex 的 301
+- `NUXT_PUBLIC_SITE_URL = "https://moonc.love"`（写在 `wrangler.toml` `[vars]`）
+- 对外只走自定义域；保持关闭：
+  - `workers_dev = false`
+  - `preview_urls = false`
+- SEO 基础：`/robots.txt`、`/sitemap.xml`、页面 title/description/canonical；后台 `/admin` 为 noindex
+- 后续可做：Google Search Console 验证 + 提交 sitemap；产品结构化数据；R2 图片存储

@@ -64,9 +64,9 @@
           <ul class="footer-list">
             <li class="footer-item">{{ $t('footer.location') }}</li>
             <li class="footer-item">{{ $t('footer.phone') }}</li>
-            <li class="footer-item">{{ $t('footer.wechatTitle') }}: {{ $t('footer.wechatId') }}</li>
+            <li v-if="locale === 'zh'" class="footer-item">{{ $t('footer.wechatTitle') }}: {{ $t('footer.wechatId') }}</li>
           </ul>
-          <div class="footer-wechat">
+          <div v-if="locale === 'zh'" class="footer-wechat">
             <img src="/wechat.png" :alt="$t('footer.wechatTitle')" class="footer-wechat-image" />
           </div>
         </div>
@@ -74,19 +74,20 @@
 
       <div class="footer-bottom">
         <p class="footer-copyright">&copy; {{ year }} {{ $t('footer.copyright') }}</p>
-        <a class="footer-beian" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鲁ICP备2026051999号-1</a>
+        <a v-if="locale === 'zh'" class="footer-beian" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">鲁ICP备2026051999号-1</a>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n()
 const year = new Date().getFullYear()
 </script>
 
 <style lang="scss" scoped>
 .footer {
-  background: #0b1220;
+  background: var(--color-ink);
   color: #ffffff;
   padding: 72px 0 36px;
 
@@ -125,7 +126,7 @@ const year = new Date().getFullYear()
 
     .footer-desc {
       max-width: 280px;
-      color: #9aa3af;
+      color: rgba(#ffffff, 0.58);
       font-size: 14px;
       line-height: 1.7;
     }
@@ -140,7 +141,7 @@ const year = new Date().getFullYear()
         padding: 8px 12px;
         border-radius: 999px;
         background: rgba(#ffffff, 0.06);
-        color: #c8ced6;
+        color: rgba(#ffffff, 0.72);
         font-size: 13px;
         text-decoration: none;
         transition: all 0.25s ease;
@@ -167,11 +168,11 @@ const year = new Date().getFullYear()
       gap: 10px;
 
       .footer-item {
-        color: #9aa3af;
+        color: rgba(#ffffff, 0.58);
         font-size: 14px;
 
         .footer-link {
-          color: #9aa3af;
+          color: rgba(#ffffff, 0.58);
           text-decoration: none;
           transition: all 0.25s ease;
 
@@ -214,7 +215,7 @@ const year = new Date().getFullYear()
       text-decoration: none;
 
       &:hover {
-        color: #ffffff;
+        color: rgba(#ffffff, 0.38);
       }
     }
   }

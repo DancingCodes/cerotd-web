@@ -93,7 +93,7 @@ const processSteps = computed(() => {
     padding: 88px 0 72px;
     background:
       radial-gradient(circle at 20% 0%, rgba(#5fd0dc, 0.14), transparent 28%),
-      linear-gradient(180deg, #0b1220 0%, #162033 100%);
+      linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-soft) 100%);
     color: #ffffff;
 
 
@@ -152,8 +152,8 @@ const processSteps = computed(() => {
     .service-card {
       padding: 28px;
       border-radius: 24px;
-      background: #f7f8fa;
-      border: 1px solid #eef1f4;
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
 
       &:hover {
@@ -163,7 +163,7 @@ const processSteps = computed(() => {
 
       .service-card-index {
         margin-bottom: 24px;
-        color: #0e7f8f;
+        color: var(--color-accent);
         font-size: 13px;
         font-weight: 700;
         letter-spacing: 0.08em;
@@ -187,7 +187,7 @@ const processSteps = computed(() => {
 
 
   .process {
-    background: #0b1220;
+    background: var(--color-ink);
 
     .process-grid {
       display: grid;

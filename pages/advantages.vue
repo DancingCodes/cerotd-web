@@ -90,8 +90,8 @@ const compare = computed(() => {
   .page-hero {
     padding: 88px 0 72px;
     background:
-      radial-gradient(circle at 70% 20%, rgba(#1aa6b8, 0.16), transparent 28%),
-      linear-gradient(180deg, #0b1220 0%, #162033 100%);
+      radial-gradient(circle at 70% 20%, rgba(#8b9aab, 0.14), transparent 28%),
+      linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-soft) 100%);
     color: #ffffff;
 
 
@@ -129,7 +129,7 @@ const compare = computed(() => {
   }
 
   .pillars {
-    background: #f7f8fa;
+    background: var(--color-surface);
 
     .pillars-grid {
       display: grid;
@@ -145,7 +145,7 @@ const compare = computed(() => {
       padding: 28px;
       border-radius: 24px;
       background: #ffffff;
-      border: 1px solid #eef1f4;
+      border: 1px solid var(--color-line);
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
 
@@ -156,7 +156,7 @@ const compare = computed(() => {
 
       .pillar-card-index {
         margin-bottom: 24px;
-        color: #0e7f8f;
+        color: var(--color-accent);
         font-size: 13px;
         font-weight: 700;
         letter-spacing: 0.08em;

@@ -126,7 +126,7 @@ const milestones = computed(() => {
     padding: 88px 0 72px;
     background:
       radial-gradient(circle at 15% 20%, rgba(#5fd0dc, 0.16), transparent 30%),
-      linear-gradient(180deg, #0b1220 0%, #162033 100%);
+      linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-soft) 100%);
     color: #ffffff;
 
 
@@ -214,7 +214,7 @@ const milestones = computed(() => {
   }
 
   .stats {
-    background: #0b1220;
+    background: var(--color-ink);
 
     .section-header {
       .section-title {
@@ -262,7 +262,7 @@ const milestones = computed(() => {
   }
 
   .values {
-    background: #f7f8fa;
+    background: var(--color-surface);
 
     .values-grid {
       display: grid;
@@ -278,7 +278,7 @@ const milestones = computed(() => {
       padding: 28px;
       border-radius: 28px;
       background: #ffffff;
-      border: 1px solid #eef1f4;
+      border: 1px solid var(--color-line);
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
 
@@ -322,7 +322,7 @@ const milestones = computed(() => {
       }
 
       .milestone-item-year {
-        color: #0e7f8f;
+        color: var(--color-accent);
         font-size: 14px;
         font-weight: 700;
         letter-spacing: 0.06em;

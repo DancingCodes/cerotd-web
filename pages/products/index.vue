@@ -25,14 +25,11 @@
           >
             <div class="product-card-media">
               <img
-                v-if="item.coverUrl || item.images[0]"
                 class="product-card-image"
-                :src="item.coverUrl || item.images[0]"
+                :class="{ 'product-card-image-cover': !(item.coverUrl || item.images[0]) }"
+                :src="item.coverUrl || item.images[0] || '/images/factory/plant.png'"
                 :alt="t(item.name)"
               />
-              <div v-else class="media-blank">
-                <span class="media-blank-label">{{ $t('common.mediaBlank') }}</span>
-              </div>
             </div>
             <div class="product-card-body">
               <h3 class="product-card-title">{{ t(item.name) }}</h3>
@@ -107,8 +104,8 @@ const productList = computed(() => data.value?.items || [])
   .page-hero {
     padding: 88px 0 72px;
     background:
-      radial-gradient(circle at 80% 10%, rgba(#1aa6b8, 0.16), transparent 26%),
-      linear-gradient(180deg, #0b1220 0%, #162033 100%);
+      radial-gradient(circle at 80% 10%, rgba(#8b9aab, 0.14), transparent 26%),
+      linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-soft) 100%);
     color: #ffffff;
 
     .page-hero-title {
@@ -158,7 +155,7 @@ const productList = computed(() => data.value?.items || [])
   }
 
   .catalog {
-    background: #f7f8fa;
+    background: var(--color-surface);
 
     .product-grid {
       display: grid;
@@ -199,6 +196,11 @@ const productList = computed(() => data.value?.items || [])
           background: #f3f5f7;
         }
 
+        .product-card-image.product-card-image-cover {
+          object-fit: cover;
+          filter: saturate(0.8) contrast(1.05);
+        }
+
         .media-blank {
           width: 100%;
           height: 100%;
@@ -233,7 +235,7 @@ const productList = computed(() => data.value?.items || [])
         }
 
         .product-card-link {
-          color: #0e7f8f;
+          color: var(--color-accent);
           font-size: 14px;
           font-weight: 650;
         }
@@ -247,8 +249,8 @@ const productList = computed(() => data.value?.items || [])
     .note-panel {
       padding: 28px;
       border-radius: 20px;
-      background: #f7f8fa;
-      border: 1px solid #eef1f4;
+      background: var(--color-surface);
+      border: 1px solid var(--color-line);
 
       .note-title {
         margin-bottom: 10px;

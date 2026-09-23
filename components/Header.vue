@@ -75,9 +75,9 @@ const toggleLocale = () => {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(#ffffff, 0.88);
+  background: rgba(#ffffff, 0.9);
   backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(#e2e6eb, 0.95);
+  border-bottom: 1px solid rgba(#d9dde3, 0.95);
 
   .nav {
     .nav-container {
@@ -113,20 +113,21 @@ const toggleLocale = () => {
       }
 
       .nav-link {
-        color: #4b5563;
+        color: #5b6572;
         font-size: 15px;
         font-weight: 500;
+        letter-spacing: 0.01em;
         text-decoration: none;
         transition: color 0.25s ease, opacity 0.25s ease;
 
         &:hover {
-          color: #111827;
+          color: var(--color-text);
           opacity: 0.86;
         }
       }
 
       .nav-link.router-link-active {
-        color: #0e7f8f;
+        color: var(--color-accent);
         opacity: 1;
       }
 
@@ -134,8 +135,8 @@ const toggleLocale = () => {
         margin-left: 4px;
         padding: 8px 14px;
         border-radius: 999px;
-        background: #eef1f4;
-        color: #374151;
+        background: var(--color-surface);
+        color: #3d4654;
         font-size: 13px;
         font-weight: 650;
         transition: background-color 0.25s ease;
@@ -156,7 +157,7 @@ const toggleLocale = () => {
       align-items: center;
       justify-content: center;
       gap: 5px;
-      background: #eef1f4;
+      background: var(--color-surface);
       cursor: pointer;
 
       @media (min-width: 1024px) {
@@ -188,22 +189,22 @@ const toggleLocale = () => {
 
       .nav-mobile-link {
         padding: 12px 0;
-        color: #374151;
+        color: #3d4654;
         font-weight: 500;
         text-decoration: none;
-        border-bottom: 1px solid #eef1f4;
+        border-bottom: 1px solid var(--color-line);
       }
 
       .nav-mobile-link.router-link-active {
-        color: #0e7f8f;
+        color: var(--color-accent);
       }
 
       .nav-mobile-lang {
         margin-top: 10px;
         padding: 12px 16px;
         border-radius: 12px;
-        background: #eef1f4;
-        color: #374151;
+        background: var(--color-surface);
+        color: #3d4654;
         font-weight: 650;
         text-align: left;
         cursor: pointer;

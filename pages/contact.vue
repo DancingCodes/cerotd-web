@@ -158,7 +158,7 @@ const productOptions = computed(() => data.value?.items || [])
     padding: 88px 0 72px;
     background:
       radial-gradient(circle at 30% 10%, rgba(#5fd0dc, 0.14), transparent 28%),
-      linear-gradient(180deg, #0b1220 0%, #162033 100%);
+      linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-soft) 100%);
     color: #ffffff;
 
 
@@ -186,7 +186,7 @@ const productOptions = computed(() => data.value?.items || [])
   }
 
   .content {
-    background: #f7f8fa;
+    background: var(--color-surface);
 
     .content-grid {
       display: grid;
@@ -202,7 +202,7 @@ const productOptions = computed(() => data.value?.items || [])
     .info-panel {
       padding: 32px 28px;
       border-radius: 28px;
-      background: #0b1220;
+      background: var(--color-ink);
       color: #ffffff;
       transition: transform 0.25s ease;
 
@@ -265,7 +265,7 @@ const productOptions = computed(() => data.value?.items || [])
       padding: 32px 28px;
       border-radius: 28px;
       background: #ffffff;
-      border: 1px solid #eef1f4;
+      border: 1px solid var(--color-line);
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
 
@@ -300,7 +300,7 @@ const productOptions = computed(() => data.value?.items || [])
         min-height: 44px;
         padding: 0 14px;
         border-radius: 999px;
-        background: #f7f8fa;
+        background: var(--color-surface);
         border: 1px solid #e2e6eb;
         color: #111827;
         font-size: 14px;
@@ -338,7 +338,7 @@ const productOptions = computed(() => data.value?.items || [])
           width: 100%;
           border: 1px solid #e2e6eb;
           border-radius: 14px;
-          background: #f7f8fa;
+          background: var(--color-surface);
           color: #111827;
           font: inherit;
           padding: 14px 16px;

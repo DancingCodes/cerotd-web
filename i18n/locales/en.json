@@ -19,7 +19,7 @@
     "language": "Language"
   },
   "footer": {
-    "tagline": "A manufacturer of lubricants and greases integrating R&D, production, sales, service, technical training, and logistics",
+    "tagline": "Manufacturer of industrial lubricants and greases — R&D, production, QC, and export supply.",
     "productsTitle": "Products",
     "companyTitle": "Company",
     "contactTitle": "Contact",
@@ -38,24 +38,28 @@
     "wechatTitle": "WeChat",
     "wechatId": "13953717716",
     "product6": "Anti-wear Hydraulic Oil",
-    "product7": "Grease"
+    "product7": "Grease",
+    "beian": "ICP Filing"
   },
   "home": {
-    "badge": "Lubricants · Greases · Industrial Solutions",
+    "badge": "Industrial Lubricants",
     "hero": {
-      "title": "Industrial lubrication, built for real operating conditions",
-      "subtitle": "Factory-direct lubricants and greases for automotive, industrial, and construction equipment — with stable supply for full-container and bulk orders.",
+      "title": "Built for real operating conditions",
+      "subtitle": "Factory-direct oils and greases for automotive, industrial, and construction fleets.",
       "ctaPrimary": "View Products",
-      "ctaSecondary": "Contact Sales",
+      "ctaSecondary": "Talk to Sales",
       "panelTitle": "Integrated manufacturing capability",
       "panelDesc": "Automated blending lines, strict quality control, and complete testing systems for stable delivery and application fit.",
       "panelTag1": "100,000+ tons/year",
       "panelTag2": "ISO certified",
-      "panelTag3": "Global formula partners"
+      "panelTag3": "Global formula partners",
+      "trust1": "ISO 9001",
+      "trust2": "In-house testing",
+      "trust3": "Export-ready supply"
     },
     "products": {
-      "title": "Products",
-      "subtitle": "Selected grades from our catalog. Full series available on request.",
+      "title": "Selected products",
+      "subtitle": "A focused range for fleet and industrial duty. Full grades available on request.",
       "items": {
         "item1": {
           "name": "Gasoline Engine Oil",
@@ -88,8 +92,8 @@
       }
     },
     "services": {
-      "title": "How we work",
-      "subtitle": "Selection, production, and delivery without the usual template padding.",
+      "title": "How we support buyers",
+      "subtitle": "From grade selection to shipment coordination.",
       "items": {
         "item1": {
           "name": "R&D & Selection",
@@ -106,40 +110,40 @@
       }
     },
     "advantages": {
-      "title": "What we can prove",
-      "subtitle": "Add photos, certificates, and plant details into the blank frames.",
+      "title": "Proven capability",
+      "subtitle": "Capacity, certification, and technical depth you can verify.",
       "items": {
         "item1": {
-          "name": "Company Strength",
+          "name": "Manufacturing scale",
           "desc": "The factory covers more than 85 mu (approx. 56,667㎡), with 10,000㎡ standardized workshops and up to 15,000 m³ oil storage."
         },
         "item2": {
-          "name": "Laboratory Testing",
+          "name": "Certified quality systems",
           "desc": "Certified for ISO 9001, ISO Environmental Management and OHSAS 18001. Base oils, additives and formulas are introduced from Fortune Global 500 enterprises."
         },
         "item3": {
-          "name": "Automated Production",
+          "name": "Automated production",
           "desc": "Annual capacity exceeds 100,000 tons across industrial oils, automotive oils, special oils, construction machinery oils and automotive care products."
         },
         "item4": {
-          "name": "Technical Support",
+          "name": "Technical partnership",
           "desc": "Extensive cooperation with Lubrizol, Infineum, Rhein Chemie and domestic institutes keeps R&D competitive, with complete testing equipment for product stability."
         }
       }
     },
     "cta": {
-      "title": "Need bulk lubricant supply?",
-      "subtitle": "Tell us the market, product type, and volume. Our sales team will reply within 24 hours.",
+      "title": "Planning a bulk order?",
+      "subtitle": "Share the market, grade, and volume. Our team responds within 24 hours.",
       "button": "Get a Proposal"
     },
     "stats": {
       "item1": {
-        "value": "85+",
-        "label": "Mu factory area"
+        "value": "56,000+㎡",
+        "label": "Factory area"
       },
       "item2": {
         "value": "10,000㎡",
-        "label": "Standard workshops"
+        "label": "Workshops"
       },
       "item3": {
         "value": "15,000m³",
@@ -151,15 +155,15 @@
       }
     },
     "factory": {
-      "title": "Manufacturing Capability",
-      "subtitle": "Fully automatic blending lines, strict quality control, and complete testing support stable delivery.",
+      "title": "Plant and process",
+      "subtitle": "Automated blending, disciplined QC, and complete testing for stable batch supply.",
       "point1": "More than 85 mu factory land, about 10,000㎡ workshops, up to 15,000 m³ storage",
       "point2": "Annual capacity exceeds 100,000 tons across industrial, automotive and specialty oils",
       "point3": "Technical cooperation with Lubrizol, Infineum, Rhein Chemie and research institutes"
     },
     "partners": {
-      "title": "Partners & certifications",
-      "subtitle": "International material and technology partners, supported by management system certifications."
+      "title": "Partners and systems",
+      "subtitle": "Global additive partners with certified management systems behind every batch."
     }
   },
   "about": {
