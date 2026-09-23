@@ -1,585 +1,423 @@
 <template>
   <div class="home-page">
-    <Header />
-
-    <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-overlay"></div>
-
+      <div class="hero-glow"></div>
       <div class="hero-content">
-        <div class="hero-badge">
-          <span>{{ $t('home.badge') }}</span>
-        </div>
-
-        <h1 class="hero-title">
-          {{ $t('home.hero.title') }}
-        </h1>
-
-        <p class="hero-subtitle">
-          {{ $t('home.hero.subtitle') }}
-        </p>
-
+        <div class="hero-badge">{{ $t('home.badge') }}</div>
+        <h1 class="hero-title">{{ $t('home.hero.title') }}</h1>
+        <p class="hero-subtitle">{{ $t('home.hero.subtitle') }}</p>
         <div class="hero-actions">
-          <button class="btn btn-primary">
-            {{ $t('home.hero.cta_primary') }}
-          </button>
-          <button class="btn btn-secondary">
-            {{ $t('home.hero.cta_secondary') }}
-          </button>
+          <NuxtLink to="/products" class="btn btn-primary">{{ $t('home.hero.ctaPrimary') }}</NuxtLink>
+          <NuxtLink to="/contact" class="btn btn-secondary">{{ $t('home.hero.ctaSecondary') }}</NuxtLink>
         </div>
-      </div>
-
-      <div class="hero-scroll">
-        <svg class="hero-scroll-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
       </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products">
+    <section class="section products">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">{{ $t('home.products.title') }}</h2>
           <p class="section-subtitle">{{ $t('home.products.subtitle') }}</p>
         </div>
-
         <div class="products-grid">
-          <div v-for="i in 4" :key="i" class="product-card">
-            <div class="product-image">
-              <span class="product-number">0{{ i }}</span>
+          <article
+            v-for="(item, index) in products"
+            :key="item.name"
+            class="product-card"
+          >
+            <div class="product-card-visual">
+              <span class="product-card-index">0{{ index + 1 }}</span>
             </div>
-            <div class="product-content">
-              <h3 class="product-title">{{ $t(`home.products.product${i}.name`) }}</h3>
-              <p class="product-desc">{{ $t(`home.products.product${i}.desc`) }}</p>
-              <a href="#" class="product-link">
-                <span>{{ $t('home.products.learn_more') }}</span>
-                <svg class="product-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </a>
+            <div class="product-card-body">
+              <h3 class="product-card-title">{{ item.name }}</h3>
+              <p class="product-card-desc">{{ item.desc }}</p>
+              <NuxtLink to="/products" class="product-card-link">{{ $t('common.learnMore') }}</NuxtLink>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Technology Section -->
-    <section class="technology">
+    <section class="section services">
       <div class="container">
-        <div class="technology-grid">
-          <div class="technology-content">
-            <h2 class="technology-title">{{ $t('home.technology.title') }}</h2>
-            <p class="technology-subtitle">{{ $t('home.technology.subtitle') }}</p>
-
-            <div class="technology-features">
-              <div v-for="i in 3" :key="i" class="tech-feature">
-                <div class="tech-feature-number">0{{ i }}</div>
-                <div class="tech-feature-content">
-                  <h4 class="tech-feature-title">{{ $t(`home.technology.feature${i}.title`) }}</h4>
-                  <p class="tech-feature-desc">{{ $t(`home.technology.feature${i}.desc`) }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="technology-visual">
-            <div class="technology-visual-box"></div>
-          </div>
+        <div class="section-header section-header-light">
+          <h2 class="section-title">{{ $t('home.services.title') }}</h2>
+          <p class="section-subtitle">{{ $t('home.services.subtitle') }}</p>
+        </div>
+        <div class="services-grid">
+          <article
+            v-for="(item, index) in services"
+            :key="item.name"
+            class="service-card"
+          >
+            <div class="service-card-index">0{{ index + 1 }}</div>
+            <h3 class="service-card-title">{{ item.name }}</h3>
+            <p class="service-card-desc">{{ item.desc }}</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Applications Section -->
-    <section class="applications">
+    <section class="section advantages">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">{{ $t('home.applications.title') }}</h2>
-          <p class="section-subtitle">{{ $t('home.applications.subtitle') }}</p>
+          <h2 class="section-title">{{ $t('home.advantages.title') }}</h2>
+          <p class="section-subtitle">{{ $t('home.advantages.subtitle') }}</p>
         </div>
-
-        <div class="applications-grid">
-          <div v-for="i in 6" :key="i" class="app-card">
-            <div class="app-icon">
-              <svg class="app-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <h3 class="app-title">{{ $t(`home.applications.app${i}.name`) }}</h3>
-            <p class="app-desc">{{ $t(`home.applications.app${i}.desc`) }}</p>
-          </div>
+        <div class="advantages-grid">
+          <article
+            v-for="item in advantages"
+            :key="item.name"
+            class="advantage-card"
+          >
+            <h3 class="advantage-card-title">{{ item.name }}</h3>
+            <p class="advantage-card-desc">{{ item.desc }}</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Partners Section -->
-    <section class="partners">
-      <div class="container">
-        <h2 class="partners-title">{{ $t('home.partners.title') }}</h2>
-        <div class="partners-grid">
-          <div v-for="i in 6" :key="i" class="partner-logo">
-            <span>LOGO</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
     <section class="cta">
       <div class="container">
-        <div class="cta-content">
+        <div class="cta-panel">
           <h2 class="cta-title">{{ $t('home.cta.title') }}</h2>
           <p class="cta-subtitle">{{ $t('home.cta.subtitle') }}</p>
-          <button class="btn btn-white">
-            {{ $t('home.cta.button') }}
-          </button>
+          <NuxtLink to="/contact" class="btn btn-light">{{ $t('home.cta.button') }}</NuxtLink>
         </div>
       </div>
     </section>
-
-    <Footer />
   </div>
 </template>
+
+<script setup lang="ts">
+const { tm } = useI18n()
+
+const products = computed(() => tm('home.products.items') || [])
+const services = computed(() => tm('home.services.items') || [])
+const advantages = computed(() => tm('home.advantages.items') || [])
+</script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/variables' as *;
 @use '@/assets/styles/mixins' as *;
 
 .home-page {
-  min-height: 100vh;
-  background: $gray-50;
+  background: $white;
 }
 
-// Hero Section
 .hero {
   position: relative;
-  height: 100vh;
-  background: linear-gradient(135deg, $dark-bg 0%, $dark-bg-light 50%, $dark-bg 100%);
-  color: $white;
   overflow: hidden;
-  @include flex-center;
+  min-height: calc(100vh - 74px);
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba($primary-light, 0.18), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba($primary-color, 0.12), transparent 28%),
+    linear-gradient(160deg, $dark-bg 0%, $dark-bg-light 48%, $dark-bg 100%);
+  color: $white;
 
-  .hero-overlay {
+  .hero-glow {
     position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
+    inset: auto -10% -20% auto;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($primary-color, 0.28), transparent 68%);
+    pointer-events: none;
   }
 
   .hero-content {
     position: relative;
+    z-index: 1;
     @include container;
-    max-width: 48rem;
-    z-index: 10;
+    max-width: 920px;
+    padding-top: 72px;
+    padding-bottom: 72px;
   }
 
   .hero-badge {
-    display: inline-block;
-    background: rgba($primary-color, 0.2);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba($primary-color, 0.3);
-    border-radius: 32px;
-    padding: 8px 16px;
-    margin-bottom: 24px;
-
-    span {
-      font-size: 14px;
-      font-weight: 500;
-      color: #93c5fd;
-    }
+    display: inline-flex;
+    margin-bottom: 28px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba($primary-light, 0.35);
+    background: rgba($primary-color, 0.12);
+    color: #b7f3f8;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
   }
 
   .hero-title {
-    font-size: 60px;
-    font-weight: 700;
-    line-height: 1.1;
+    max-width: 16ch;
     margin-bottom: 24px;
-
-    @media (min-width: 768px) {
-      font-size: 72px;
-    }
+    font-size: clamp(40px, 7vw, 72px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -0.03em;
   }
 
   .hero-subtitle {
-    font-size: 20px;
-    line-height: 1.75;
-    color: $gray-300;
+    max-width: 34ch;
     margin-bottom: 40px;
-
-    @media (min-width: 768px) {
-      font-size: 24px;
-    }
+    color: $gray-300;
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.7;
   }
 
   .hero-actions {
     display: flex;
-    gap: 16px;
     flex-wrap: wrap;
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
-
-    .hero-scroll-icon {
-      width: 24px;
-      height: 24px;
-      color: rgba($white, 0.6);
-    }
+    gap: 14px;
   }
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(-10px);
-  }
-}
-
-// Buttons
 .btn {
-  padding: 16px 32px;
-  border-radius: $border-radius-lg;
-  font-weight: 600;
-  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 650;
   transition: $transition;
+}
 
-  &.btn-primary {
-    background: $primary-color;
-    color: $white;
+.btn-primary {
+  background: $accent-gradient;
+  color: $white;
 
-    &:hover {
-      background: $primary-dark;
-      transform: scale(1.05);
-    }
-  }
-
-  &.btn-secondary {
-    background: rgba($white, 0.1);
-    backdrop-filter: blur(8px);
-    color: $white;
-    border: 1px solid rgba($white, 0.2);
-
-    &:hover {
-      background: rgba($white, 0.2);
-    }
-  }
-
-  &.btn-white {
-    background: $white;
-    color: $primary-color;
-    font-size: 18px;
-    padding: 16px 40px;
-
-    &:hover {
-      background: $gray-100;
-      transform: scale(1.05);
-    }
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba($primary-color, 0.28);
   }
 }
 
-// Section Header
+.btn-secondary {
+  border: 1px solid rgba($white, 0.18);
+  background: rgba($white, 0.06);
+  color: $white;
+
+  &:hover {
+    background: rgba($white, 0.12);
+  }
+}
+
+.btn-light {
+  background: $white;
+  color: $primary-dark;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.section {
+  @include section-space;
+}
+
 .section-header {
+  max-width: 720px;
+  margin: 0 auto 64px;
   text-align: center;
-  margin-bottom: 64px;
 
   .section-title {
-    font-size: 40px;
-    color: $gray-900;
     margin-bottom: 16px;
-
-    @media (min-width: 768px) {
-      font-size: 48px;
-    }
+    color: $gray-900;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
   }
 
   .section-subtitle {
-    font-size: 20px;
     color: $gray-600;
-    max-width: 672px;
-    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.7;
   }
 }
 
-// Products Section
+.section-header-light {
+  .section-title {
+    color: $white;
+  }
+
+  .section-subtitle {
+    color: $gray-300;
+  }
+}
+
 .products {
-  padding: 96px 0;
-  background: $white;
+  background: $gray-50;
 
   .products-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1100px) {
       grid-template-columns: repeat(4, 1fr);
     }
   }
 }
 
 .product-card {
-  background: $gray-50;
-  border-radius: $border-radius-lg;
   overflow: hidden;
+  border-radius: $border-radius-xl;
+  background: $white;
+  border: 1px solid rgba($gray-200, 0.9);
+  box-shadow: $shadow-soft;
   @include hover-lift;
 
-  .product-image {
-    aspect-ratio: 1 / 1;
-    background: linear-gradient(135deg, #334155 0%, $dark-bg 100%);
-    @include flex-center;
+  .product-card-visual {
+    aspect-ratio: 1 / 0.85;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 24px;
+    background:
+      linear-gradient(160deg, rgba($primary-color, 0.18), transparent 42%),
+      linear-gradient(180deg, #203049 0%, #0f1728 100%);
 
-    .product-number {
-      font-size: 64px;
+    .product-card-index {
+      color: rgba($white, 0.28);
+      font-size: 56px;
       font-weight: 700;
-      color: rgba($white, 0.2);
+      letter-spacing: -0.04em;
+      line-height: 1;
     }
   }
 
-  .product-content {
+  .product-card-body {
     padding: 24px;
 
-    .product-title {
-      font-size: 20px;
+    .product-card-title {
+      margin-bottom: 10px;
       color: $gray-900;
-      margin-bottom: 8px;
-    }
-
-    .product-desc {
-      color: $gray-600;
-      margin-bottom: 16px;
-      line-height: 1.6;
-    }
-
-    .product-link {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: $primary-color;
-      font-weight: 600;
-      transition: gap 0.3s ease;
-
-      &:hover {
-        gap: 12px;
-      }
-
-      .product-link-icon {
-        width: 16px;
-        height: 16px;
-      }
-    }
-  }
-}
-
-// Technology Section
-.technology {
-  padding: 96px 0;
-  background: $dark-bg;
-  color: $white;
-
-  .technology-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 64px;
-    align-items: center;
-
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .technology-content {
-    .technology-title {
-      font-size: 40px;
-      margin-bottom: 24px;
-
-      @media (min-width: 768px) {
-        font-size: 48px;
-      }
-    }
-
-    .technology-subtitle {
       font-size: 20px;
-      color: $gray-300;
-      margin-bottom: 32px;
+      letter-spacing: -0.02em;
     }
 
-    .technology-features {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+    .product-card-desc {
+      margin-bottom: 18px;
+      color: $gray-600;
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 76px;
     }
-  }
 
-  .technology-visual {
-    .technology-visual-box {
-      aspect-ratio: 1 / 1;
-      background: linear-gradient(135deg, rgba($primary-color, 0.5) 0%, rgba($dark-bg, 0.5) 100%);
-      border-radius: $border-radius-lg;
-      border: 1px solid rgba($primary-color, 0.2);
+    .product-card-link {
+      color: $primary-dark;
+      font-size: 14px;
+      font-weight: 650;
     }
   }
 }
 
-.tech-feature {
-  display: flex;
-  gap: 16px;
+.services {
+  background: $dark-bg;
 
-  .tech-feature-number {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    background: $primary-color;
-    border-radius: $border-radius-lg;
-    @include flex-center;
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  .tech-feature-content {
-    .tech-feature-title {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .tech-feature-desc {
-      color: $gray-400;
-      line-height: 1.6;
-    }
-  }
-}
-
-// Applications Section
-.applications {
-  padding: 96px 0;
-  background: $gray-50;
-
-  .applications-grid {
+  .services-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 18px;
 
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (min-width: 1024px) {
+    @media (min-width: 900px) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 }
 
-.app-card {
-  background: $white;
-  border-radius: $border-radius-lg;
-  padding: 32px;
-  transition: $transition;
+.service-card {
+  padding: 28px;
+  border-radius: $border-radius-xl;
+  background: rgba($white, 0.04);
+  border: 1px solid rgba($white, 0.08);
 
-  &:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  .service-card-index {
+    margin-bottom: 28px;
+    color: $primary-light;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
   }
 
-  .app-icon {
-    width: 64px;
-    height: 64px;
-    background: #dbeafe;
-    border-radius: $border-radius-lg;
-    @include flex-center;
-    margin-bottom: 16px;
-
-    .app-icon-svg {
-      width: 32px;
-      height: 32px;
-      color: $primary-color;
-    }
+  .service-card-title {
+    margin-bottom: 12px;
+    color: $white;
+    font-size: 24px;
+    letter-spacing: -0.02em;
   }
 
-  .app-title {
-    font-size: 20px;
-    color: $gray-900;
-    margin-bottom: 8px;
-  }
-
-  .app-desc {
-    color: $gray-600;
-    line-height: 1.6;
+  .service-card-desc {
+    color: $gray-400;
+    font-size: 15px;
+    line-height: 1.7;
   }
 }
 
-// Partners Section
-.partners {
-  padding: 96px 0;
+.advantages {
   background: $white;
-  text-align: center;
 
-  .partners-title {
-    font-size: 30px;
-    font-weight: 700;
-    color: $gray-900;
-    margin-bottom: 48px;
-  }
-
-  .partners-grid {
+  .advantages-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 18px;
 
     @media (min-width: 768px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
 
-.partner-logo {
-  height: 64px;
-  background: $gray-200;
-  border-radius: $border-radius-lg;
-  @include flex-center;
-  opacity: 0.6;
+.advantage-card {
+  padding: 32px;
+  border-radius: $border-radius-xl;
+  background: $gray-50;
+  border: 1px solid $gray-100;
 
-  span {
-    color: $gray-400;
-    font-weight: 600;
+  .advantage-card-title {
+    margin-bottom: 12px;
+    color: $gray-900;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+  }
+
+  .advantage-card-desc {
+    color: $gray-600;
+    font-size: 15px;
+    line-height: 1.7;
   }
 }
 
-// CTA Section
 .cta {
-  padding: 96px 0;
-  background: $primary-color;
-  color: $white;
+  padding: 0 0 96px;
+  background: $white;
 
-  .cta-content {
+  .cta-panel {
+    padding: 64px 28px;
+    border-radius: 32px;
     text-align: center;
+    background: $accent-gradient;
+    color: $white;
 
     .cta-title {
-      font-size: 40px;
-      margin-bottom: 24px;
-
-      @media (min-width: 768px) {
-        font-size: 48px;
-      }
+      margin-bottom: 14px;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.03em;
     }
 
     .cta-subtitle {
-      font-size: 20px;
-      margin-bottom: 40px;
-      max-width: 672px;
-      margin-left: auto;
-      margin-right: auto;
-      opacity: 0.9;
+      max-width: 640px;
+      margin: 0 auto 28px;
+      color: rgba($white, 0.92);
+      font-size: 17px;
+      line-height: 1.7;
     }
   }
 }

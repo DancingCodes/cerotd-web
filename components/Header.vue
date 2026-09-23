@@ -3,65 +3,47 @@
     <nav class="nav">
       <div class="nav-container">
         <NuxtLink to="/" class="nav-logo">
-          <div class="nav-logo-icon">
-            <span>C</span>
-          </div>
-          <span class="nav-logo-text">Cerotd</span>
+          <img src="/logo.png" alt="Cerotd" class="nav-logo-image" />
         </NuxtLink>
 
         <div class="nav-desktop">
-          <NuxtLink to="/" class="nav-link">
-            {{ $t('common.home') }}
-          </NuxtLink>
-          <NuxtLink to="/products" class="nav-link">
-            {{ $t('common.products') }}
-          </NuxtLink>
-          <NuxtLink to="/about" class="nav-link">
-            {{ $t('common.about') }}
-          </NuxtLink>
-          <NuxtLink to="/contact" class="nav-link">
-            {{ $t('common.contact') }}
+          <NuxtLink
+            v-for="item in navItems"
+            :key="item.to"
+            :to="item.to"
+            class="nav-link"
+          >
+            {{ $t(item.label) }}
           </NuxtLink>
 
-          <button @click="toggleLocale" class="nav-lang">
+          <button type="button" class="nav-lang" @click="toggleLocale">
             {{ locale === 'en' ? '中文' : 'EN' }}
           </button>
         </div>
 
-        <button @click="mobileMenuOpen = !mobileMenuOpen" class="nav-mobile-btn">
-          <svg class="nav-mobile-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              v-if="!mobileMenuOpen"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-            <path
-              v-else
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            ></path>
-          </svg>
+        <button
+          type="button"
+          class="nav-mobile-btn"
+          :aria-expanded="mobileMenuOpen"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+        >
+          <span class="nav-mobile-btn-line"></span>
+          <span class="nav-mobile-btn-line"></span>
+          <span class="nav-mobile-btn-line"></span>
         </button>
       </div>
 
       <div v-if="mobileMenuOpen" class="nav-mobile">
-        <NuxtLink to="/" class="nav-mobile-link" @click="mobileMenuOpen = false">
-          {{ $t('common.home') }}
+        <NuxtLink
+          v-for="item in navItems"
+          :key="`mobile-${item.to}`"
+          :to="item.to"
+          class="nav-mobile-link"
+          @click="mobileMenuOpen = false"
+        >
+          {{ $t(item.label) }}
         </NuxtLink>
-        <NuxtLink to="/products" class="nav-mobile-link" @click="mobileMenuOpen = false">
-          {{ $t('common.products') }}
-        </NuxtLink>
-        <NuxtLink to="/about" class="nav-mobile-link" @click="mobileMenuOpen = false">
-          {{ $t('common.about') }}
-        </NuxtLink>
-        <NuxtLink to="/contact" class="nav-mobile-link" @click="mobileMenuOpen = false">
-          {{ $t('common.contact') }}
-        </NuxtLink>
-        <button @click="toggleLocale" class="nav-mobile-lang">
+        <button type="button" class="nav-mobile-lang" @click="toggleLocale">
           {{ locale === 'en' ? '中文' : 'EN' }}
         </button>
       </div>
@@ -69,9 +51,23 @@
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
+type NavItem = {
+  to: string
+  label: string
+}
+
 const { locale, setLocale } = useI18n()
 const mobileMenuOpen = ref(false)
+
+const navItems: NavItem[] = [
+  { to: '/', label: 'common.home' },
+  { to: '/about', label: 'common.about' },
+  { to: '/products', label: 'common.products' },
+  { to: '/services', label: 'common.services' },
+  { to: '/advantages', label: 'common.advantages' },
+  { to: '/contact', label: 'common.contact' }
+]
 
 const toggleLocale = () => {
   setLocale(locale.value === 'en' ? 'zh' : 'en')
@@ -86,78 +82,62 @@ const toggleLocale = () => {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba($white, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid $gray-200;
+  background: rgba($white, 0.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba($gray-200, 0.95);
 }
 
 .nav {
   .nav-container {
     @include container;
+    min-height: 74px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 16px;
-    padding-bottom: 16px;
   }
 
   .nav-logo {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    text-decoration: none;
 
-    .nav-logo-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, $primary-color 0%, $primary-dark 100%);
-      border-radius: $border-radius-lg;
-      @include flex-center;
-
-      span {
-        color: $white;
-        font-weight: 700;
-        font-size: 20px;
-      }
-    }
-
-    .nav-logo-text {
-      font-size: 20px;
-      font-weight: 700;
-      color: $gray-900;
+    .nav-logo-image {
+      height: 36px;
+      width: auto;
     }
   }
 
   .nav-desktop {
     display: none;
     align-items: center;
-    gap: 32px;
+    gap: 26px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       display: flex;
     }
 
     .nav-link {
-      color: $gray-700;
+      color: $gray-600;
+      font-size: 15px;
       font-weight: 500;
       transition: $transition;
-      text-decoration: none;
 
       &:hover {
-        color: $primary-color;
-      }
-
-      &.router-link-active {
-        color: $primary-color;
+        color: $gray-900;
       }
     }
 
+    .nav-link.router-link-active {
+      color: $primary-dark;
+    }
+
     .nav-lang {
-      padding: 8px 16px;
-      border-radius: $border-radius-lg;
+      margin-left: 4px;
+      padding: 8px 14px;
+      border-radius: 999px;
       background: $gray-100;
       color: $gray-700;
-      font-weight: 500;
+      font-size: 13px;
+      font-weight: 650;
       transition: $transition;
 
       &:hover {
@@ -167,17 +147,25 @@ const toggleLocale = () => {
   }
 
   .nav-mobile-btn {
-    display: block;
-    padding: 8px;
-    color: $gray-700;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: $gray-100;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       display: none;
     }
 
-    .nav-mobile-icon {
-      width: 24px;
-      height: 24px;
+    .nav-mobile-btn-line {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: $gray-800;
     }
   }
 
@@ -185,42 +173,32 @@ const toggleLocale = () => {
     @include container;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-top: 16px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    border-top: 1px solid $gray-200;
+    gap: 4px;
+    padding-bottom: 18px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       display: none;
     }
 
     .nav-mobile-link {
+      padding: 12px 0;
       color: $gray-700;
       font-weight: 500;
-      text-decoration: none;
+      border-bottom: 1px solid $gray-100;
+    }
 
-      &:hover {
-        color: $primary-color;
-      }
-
-      &.router-link-active {
-        color: $primary-color;
-      }
+    .nav-mobile-link.router-link-active {
+      color: $primary-dark;
     }
 
     .nav-mobile-lang {
-      width: 100%;
-      text-align: left;
-      padding: 8px 16px;
-      border-radius: $border-radius-lg;
+      margin-top: 10px;
+      padding: 12px 16px;
+      border-radius: 12px;
       background: $gray-100;
       color: $gray-700;
-      font-weight: 500;
-
-      &:hover {
-        background: $gray-200;
-      }
+      font-weight: 650;
+      text-align: left;
     }
   }
 }

@@ -1,96 +1,331 @@
 {
   "common": {
+    "brand": "Cerotd",
     "home": "Home",
     "about": "About",
     "products": "Products",
+    "services": "Services",
+    "advantages": "Advantages",
     "contact": "Contact",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "viewProducts": "View Products",
+    "contactUs": "Contact Us",
+    "getInTouch": "Get In Touch",
+    "placeholderNote": "Placeholder content for later replacement"
+  },
+  "nav": {
+    "language": "Language"
+  },
+  "footer": {
+    "tagline": "Mechanical lubricants and industrial lubrication solutions",
+    "productsTitle": "Products",
+    "companyTitle": "Company",
+    "contactTitle": "Contact",
+    "product1": "Industrial Lubricants",
+    "product2": "Automotive Oils",
+    "product3": "Specialty Greases",
+    "product4": "Metalworking Fluids",
+    "aboutUs": "About Us",
+    "ourServices": "Services",
+    "ourAdvantages": "Advantages",
+    "location": "Shandong, China",
+    "email": "info@cerotd.com",
+    "phone": "+86 xxx xxxx xxxx",
+    "copyright": "Cerotd (Shandong) Lubrication Technology Co., Ltd. All rights reserved."
   },
   "home": {
-    "badge": "Advanced Lubrication Technology",
+    "badge": "Mechanical Lubricants · Industrial Solutions",
     "hero": {
-      "title": "Engineering Excellence in Lubrication Solutions",
-      "subtitle": "Professional manufacturer of high-performance lubricating oils and greases, integrating R&D, production, and quality assurance.",
-      "cta_primary": "View Products",
-      "cta_secondary": "Contact Us"
+      "title": "Lubrication technology that keeps machines running",
+      "subtitle": "Reliable lubricant products and technical support for industrial and mechanical equipment scenarios.",
+      "ctaPrimary": "Browse Products",
+      "ctaSecondary": "Talk to Us"
     },
     "products": {
-      "title": "Core Product Line",
-      "subtitle": "Comprehensive lubrication solutions for diverse industrial applications",
-      "product1": {
-        "name": "Industrial Lubricants",
-        "desc": "High-performance lubricants for heavy machinery and industrial equipment"
-      },
-      "product2": {
-        "name": "Automotive Oils",
-        "desc": "Premium engine oils and transmission fluids for modern vehicles"
-      },
-      "product3": {
-        "name": "Specialty Greases",
-        "desc": "Advanced grease formulations for extreme conditions"
-      },
-      "product4": {
-        "name": "Metalworking Fluids",
-        "desc": "Precision fluids for cutting, grinding, and forming operations"
-      },
-      "learn_more": "Learn More"
+      "title": "Core Products",
+      "subtitle": "Covering industrial, automotive, specialty, and metalworking lubrication needs",
+      "items": [
+        {
+          "name": "Industrial Lubricants",
+          "desc": "Built for heavy-duty equipment and continuous operation with wear protection and stability."
+        },
+        {
+          "name": "Automotive Oils",
+          "desc": "Engine and transmission focused oils balancing protection and operating adaptability."
+        },
+        {
+          "name": "Specialty Greases",
+          "desc": "Formulated for high temperature, humidity, and heavy-load conditions."
+        },
+        {
+          "name": "Metalworking Fluids",
+          "desc": "Cooling and lubrication support for cutting, grinding, and forming processes."
+        }
+      ]
     },
-    "technology": {
-      "title": "Research & Development Excellence",
-      "subtitle": "Cutting-edge technology and continuous innovation drive our product development",
-      "feature1": {
-        "title": "Advanced Formulation",
-        "desc": "Proprietary additive technology for superior performance and extended service life"
-      },
-      "feature2": {
-        "title": "Quality Assurance",
-        "desc": "ISO-certified testing facilities ensuring consistent product excellence"
-      },
-      "feature3": {
-        "title": "Technical Support",
-        "desc": "Expert engineering team providing customized lubrication solutions"
-      }
+    "services": {
+      "title": "Professional Services",
+      "subtitle": "From product selection to application support for a more efficient lubrication system",
+      "items": [
+        {
+          "name": "Selection Consulting",
+          "desc": "Match products to equipment conditions and maintenance goals."
+        },
+        {
+          "name": "Application Support",
+          "desc": "Help evaluate on-site usage and reduce abnormal wear risks."
+        },
+        {
+          "name": "Quality Assurance",
+          "desc": "Stable formulation and testing for consistent batch quality."
+        }
+      ]
     },
-    "applications": {
-      "title": "Industry Applications",
-      "subtitle": "Trusted by leading companies across multiple sectors",
-      "app1": {
-        "name": "Automotive",
-        "desc": "Engine oils, transmission fluids, and maintenance products"
-      },
-      "app2": {
-        "name": "Manufacturing",
-        "desc": "Metalworking fluids and industrial lubricants"
-      },
-      "app3": {
-        "name": "Energy",
-        "desc": "Specialized lubricants for power generation equipment"
-      },
-      "app4": {
-        "name": "Mining",
-        "desc": "Heavy-duty lubricants for extreme operating conditions"
-      },
-      "app5": {
-        "name": "Marine",
-        "desc": "Marine lubricants for ships and offshore equipment"
-      },
-      "app6": {
-        "name": "Aviation",
-        "desc": "High-performance aviation lubricants and greases"
-      }
-    },
-    "partners": {
-      "title": "Trusted by Industry Leaders"
+    "advantages": {
+      "title": "Why Cerotd",
+      "subtitle": "Clear capabilities that build long-term trust",
+      "items": [
+        {
+          "name": "Formulation Strength",
+          "desc": "Optimization based on real operating conditions, not just datasheets."
+        },
+        {
+          "name": "Stable Quality Delivery",
+          "desc": "Consistency and traceable quality management across batches."
+        },
+        {
+          "name": "Scenario-based Solutions",
+          "desc": "Product combinations tailored to industries and equipment types."
+        },
+        {
+          "name": "Long-term Collaboration",
+          "desc": "More than supply — continuous lubrication system improvement."
+        }
+      ]
     },
     "cta": {
-      "title": "Ready to Optimize Your Operations?",
-      "subtitle": "Contact our technical team to discuss your lubrication requirements",
-      "button": "Get In Touch"
+      "title": "Ready to improve lubrication performance?",
+      "subtitle": "Share your operating conditions and goals. We will provide practical product and service recommendations.",
+      "button": "Request a Proposal"
     }
   },
   "about": {
-    "title": "About Cerotd",
-    "subtitle": "Professional Lubrication Technology Company",
-    "description": "Cerotd (Shandong) Lubrication Technology Co., Ltd. is a modern, comprehensive and professional manufacturer of lubricating oils and greases, integrating R&D, production, and quality assurance."
+    "hero": {
+      "title": "About Cerotd",
+      "subtitle": "A company focused on mechanical lubricants"
+    },
+    "intro": {
+      "title": "Serving industrial efficiency with lubrication technology",
+      "desc": "Cerotd is dedicated to the development, production, and application support of mechanical lubricants. We believe a strong lubrication solution should be stable, reliable, and maintainable over time. This copy is placeholder content and can be replaced later."
+    },
+    "values": {
+      "title": "What we value",
+      "items": [
+        {
+          "name": "Expertise",
+          "desc": "Turn complex operating conditions into actionable product and service plans."
+        },
+        {
+          "name": "Stability",
+          "desc": "Prioritize delivery consistency over short-term specification highlights."
+        },
+        {
+          "name": "Long-term thinking",
+          "desc": "Work with customers to improve equipment life and maintenance cost."
+        }
+      ]
+    },
+    "milestones": {
+      "title": "Our rhythm",
+      "items": [
+        {
+          "year": "Start",
+          "text": "Define product direction around industrial lubrication needs."
+        },
+        {
+          "year": "Expand",
+          "text": "Grow into multiple lubricant categories and application services."
+        },
+        {
+          "year": "Deepen",
+          "text": "Strengthen R&D, testing, and customer collaboration capabilities."
+        }
+      ]
+    }
+  },
+  "products": {
+    "hero": {
+      "title": "Products",
+      "subtitle": "Clear lubrication options for different mechanical scenarios"
+    },
+    "categories": {
+      "title": "Product Lines",
+      "subtitle": "Category-first structure for now; real SKUs and specs can be added later",
+      "items": [
+        {
+          "name": "Industrial Lubricants",
+          "desc": "Hydraulic oils, gear oils, compressor oils, and related industrial essentials.",
+          "points": [
+            "Wear protection",
+            "Thermal stability",
+            "Long duty cycles"
+          ]
+        },
+        {
+          "name": "Automotive Oils",
+          "desc": "Engine and drivetrain lubricants focused on cleanliness and protection.",
+          "points": [
+            "Engine protection",
+            "Cold start",
+            "Durability"
+          ]
+        },
+        {
+          "name": "Specialty Greases",
+          "desc": "For bearings, high-temperature points, and higher sealing requirements.",
+          "points": [
+            "Strong adhesion",
+            "Heat resistance",
+            "Water and dust resistance"
+          ]
+        },
+        {
+          "name": "Metalworking Fluids",
+          "desc": "Cooling and lubrication for machining quality and tool life.",
+          "points": [
+            "Cooling efficiency",
+            "Machining precision",
+            "Tool life"
+          ]
+        }
+      ]
+    },
+    "note": {
+      "title": "Specs & Grades",
+      "desc": "Formal product codes, viscosity grades, certifications, and packaging details will be added later. This page currently validates information architecture and visual hierarchy."
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Services",
+      "subtitle": "Helping lubricant products perform in real equipment environments"
+    },
+    "list": {
+      "title": "What we offer",
+      "items": [
+        {
+          "name": "Condition Review & Selection",
+          "desc": "Map equipment type, load, temperature, and maintenance cycle to product recommendations."
+        },
+        {
+          "name": "Lubrication Planning",
+          "desc": "Provide practical product combinations and replacement strategies."
+        },
+        {
+          "name": "Usage Training Support",
+          "desc": "Help teams understand key usage points and reduce misuse."
+        },
+        {
+          "name": "Continuous Optimization",
+          "desc": "Adjust recommendations based on operating feedback for long-term stability."
+        }
+      ]
+    },
+    "process": {
+      "title": "How we collaborate",
+      "items": [
+        {
+          "step": "01",
+          "name": "Discovery",
+          "desc": "Clarify equipment, conditions, and goals."
+        },
+        {
+          "step": "02",
+          "name": "Matching",
+          "desc": "Propose products and support options."
+        },
+        {
+          "step": "03",
+          "name": "Implementation",
+          "desc": "Assist onboarding and on-site usage."
+        },
+        {
+          "step": "04",
+          "name": "Optimization",
+          "desc": "Track results and improve continuously."
+        }
+      ]
+    }
+  },
+  "advantages": {
+    "hero": {
+      "title": "Advantages",
+      "subtitle": "Capabilities that support purchasing and technical decisions"
+    },
+    "pillars": {
+      "title": "Capability pillars",
+      "items": [
+        {
+          "name": "R&D Oriented",
+          "desc": "Formulation and application research centered on real mechanical lubrication problems."
+        },
+        {
+          "name": "Quality System",
+          "desc": "Process control, verification, and stable delivery."
+        },
+        {
+          "name": "Industry Understanding",
+          "desc": "Recognize different lubrication needs across industries and equipment."
+        },
+        {
+          "name": "Responsive Collaboration",
+          "desc": "Clear communication across selection, supply, and technical support."
+        }
+      ]
+    },
+    "compare": {
+      "title": "Working with us",
+      "items": [
+        {
+          "name": "Clearer product communication",
+          "desc": "Less jargon, more decision-ready information."
+        },
+        {
+          "name": "Field-relevant recommendations",
+          "desc": "Not only a catalog, but executable usage direction."
+        },
+        {
+          "name": "More sustainable partnership",
+          "desc": "Long-term performance as the measure of success."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact",
+      "subtitle": "Tell us what you need and we will get back to you"
+    },
+    "info": {
+      "title": "Contact details",
+      "addressLabel": "Address",
+      "addressValue": "Shandong, China (placeholder)",
+      "emailLabel": "Email",
+      "emailValue": "info@cerotd.com",
+      "phoneLabel": "Phone",
+      "phoneValue": "+86 xxx xxxx xxxx",
+      "hoursLabel": "Hours",
+      "hoursValue": "Mon - Fri 09:00 - 18:00"
+    },
+    "form": {
+      "title": "Send a message",
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Submit",
+      "tip": "This is a static placeholder form. Real submission logic can be connected later."
+    }
   }
 }
