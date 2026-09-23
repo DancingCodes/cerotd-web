@@ -161,7 +161,7 @@ const advantages = computed(() => {
   .hero-title {
     max-width: 16ch;
     margin-bottom: 24px;
-    font-size: clamp(40px, 7vw, 72px);
+    font-size: 56px;
     line-height: 1.08;
     font-weight: 700;
     letter-spacing: -0.03em;
@@ -171,7 +171,7 @@ const advantages = computed(() => {
     max-width: 34ch;
     margin-bottom: 40px;
     color: #c8ced6;
-    font-size: clamp(18px, 2.2vw, 22px);
+    font-size: 20px;
     line-height: 1.7;
   }
 
@@ -239,7 +239,7 @@ const advantages = computed(() => {
   .section-title {
     margin-bottom: 16px;
     color: #111827;
-    font-size: clamp(32px, 4vw, 48px);
+    font-size: 40px;
     line-height: 1.15;
     letter-spacing: -0.03em;
   }
@@ -426,7 +426,7 @@ const advantages = computed(() => {
 
     .cta-title {
       margin-bottom: 14px;
-      font-size: clamp(28px, 4vw, 42px);
+      font-size: 36px;
       letter-spacing: -0.03em;
     }
 

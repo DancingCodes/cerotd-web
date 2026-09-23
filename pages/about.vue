@@ -91,7 +91,7 @@ const milestones = computed(() => {
   .page-hero-title {
     max-width: 12ch;
     margin-bottom: 18px;
-    font-size: clamp(40px, 6vw, 64px);
+    font-size: 56px;
     line-height: 1.08;
     letter-spacing: -0.03em;
   }
@@ -116,7 +116,7 @@ const milestones = computed(() => {
   margin-bottom: 48px;
 
   .section-title {
-    font-size: clamp(28px, 4vw, 40px);
+    font-size: 36px;
     letter-spacing: -0.03em;
     color: #111827;
   }
@@ -140,7 +140,7 @@ const milestones = computed(() => {
   .intro-copy {
     .intro-title {
       margin-bottom: 20px;
-      font-size: clamp(28px, 4vw, 40px);
+      font-size: 36px;
       letter-spacing: -0.03em;
       color: #111827;
     }

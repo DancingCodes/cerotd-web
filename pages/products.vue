@@ -77,7 +77,7 @@ const categories = computed(() => {
 
   .page-hero-title {
     margin-bottom: 18px;
-    font-size: clamp(40px, 6vw, 64px);
+    font-size: 56px;
     line-height: 1.08;
     letter-spacing: -0.03em;
   }
@@ -104,7 +104,7 @@ const categories = computed(() => {
 
   .section-title {
     margin-bottom: 14px;
-    font-size: clamp(28px, 4vw, 40px);
+    font-size: 36px;
     letter-spacing: -0.03em;
     color: #111827;
   }
