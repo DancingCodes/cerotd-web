@@ -2,7 +2,7 @@ FROM node:24.13.1-alpine AS builder
 WORKDIR /app
 ENV NUXT_TELEMETRY_DISABLED=1
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm config set registry https://registry.npmmirror.com && npm ci
 COPY . .
 RUN npm run build
 
