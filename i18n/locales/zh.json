@@ -351,7 +351,9 @@
       "success": "感谢咨询，我们已收到你的信息，将在 24 小时内联系你。",
       "error": "提交失败，请稍后重试，或通过电话 / WhatsApp 联系我们。",
       "requiredName": "请填写姓名。",
-      "requiredContact": "请填写邮箱或电话。"
+      "requiredContact": "请填写邮箱或电话。",
+      "emailOrPhoneHint": "邮箱或电话至少填一项",
+      "invalidEmail": "邮箱格式不正确。"
     },
     "social": {
       "title": "社交与即时沟通",
@@ -399,7 +401,10 @@
       "nameEn": "英文名称",
       "nameZh": "中文名称",
       "coverUrl": "封面 URL",
-      "autoSlug": "可留空，按英文名自动生成"
+      "autoSlug": "可留空，按英文名自动生成",
+      "requiredNameEn": "请填写英文名称。",
+      "requiredNameZh": "请填写中文名称。",
+      "requiredCategory": "请选择分类。"
     },
     "products": {
       "title": "产品管理",
@@ -435,7 +440,9 @@
       "contentEn": "英文正文",
       "contentZh": "中文正文",
       "imageHint": "点击 Image 可上传正文图片，存储使用 Cloudflare R2。",
-      "deleteConfirm": "确认删除文章“{name}”？"
+      "deleteConfirm": "确认删除文章“{name}”？",
+      "requiredTitleEn": "请填写英文标题。",
+      "requiredTitleZh": "请填写中文标题。"
     },
     "inquiries": {
       "title": "客户留言",

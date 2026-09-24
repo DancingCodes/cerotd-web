@@ -35,15 +35,8 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'invalid category' })
   }
 
-  const slug = body.slug?.trim() || slugify(titleEn)
-  if (!slug) {
-    throw createError({ statusCode: 400, statusMessage: 'slug is required' })
-  }
-
-  const existing = await db.prepare('SELECT id FROM news WHERE slug = ?').bind(slug).first()
-  if (existing) {
-    throw createError({ statusCode: 409, statusMessage: 'slug already exists' })
-  }
+  const allocated = await allocateUniqueSlug(db, 'news', titleEn, 'news')
+  const slug = allocated.slug
 
   const isPublished = body.isPublished === true ? 1 : 0
   const publishedAt = body.publishedAt?.trim() || new Date().toISOString().slice(0, 19).replace('T', ' ')
@@ -77,6 +70,8 @@ export default defineEventHandler(async (event) => {
   if (!inserted) {
     throw createError({ statusCode: 500, statusMessage: 'Failed to create news' })
   }
+
+  await finalizeFallbackSlug(db, 'news', inserted.id, allocated.usedFallback, 'news')
 
   const row = await db.prepare('SELECT * FROM news WHERE id = ?').bind(inserted.id).first<NewsRow>()
   if (!row) {

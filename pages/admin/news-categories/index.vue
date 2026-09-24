@@ -14,16 +14,12 @@
       </div>
       <div class="admin-form-grid">
         <label class="admin-field">
-          <div class="admin-field-label">{{ $t('admin.common.nameEn') }}</div>
+          <div class="admin-field-label is-required">{{ $t('admin.common.nameEn') }}</div>
           <input v-model="form.nameEn" class="admin-field-input" />
         </label>
         <label class="admin-field">
-          <div class="admin-field-label">{{ $t('admin.common.nameZh') }}</div>
+          <div class="admin-field-label is-required">{{ $t('admin.common.nameZh') }}</div>
           <input v-model="form.nameZh" class="admin-field-input" />
-        </label>
-        <label class="admin-field">
-          <div class="admin-field-label">{{ $t('admin.common.slug') }}</div>
-          <input v-model="form.slug" class="admin-field-input" :placeholder="$t('admin.common.autoSlug')" />
         </label>
         <label class="admin-field">
           <div class="admin-field-label">{{ $t('admin.common.sort') }}</div>
@@ -151,8 +147,16 @@ function closeForm() {
 
 async function save() {
   formError.value = ''
+  if (!form.nameEn.trim()) {
+    formError.value = t('admin.common.requiredNameEn')
+    return
+  }
+  if (!form.nameZh.trim()) {
+    formError.value = t('admin.common.requiredNameZh')
+    return
+  }
+
   const payload = {
-    slug: form.slug || undefined,
     nameEn: form.nameEn,
     nameZh: form.nameZh,
     sortOrder: Number(form.sortOrder) || 0,
@@ -271,6 +275,11 @@ onMounted(load)
       color: #4b5563;
       font-size: 13px;
       font-weight: 600;
+    }
+
+    .admin-field-label.is-required::after {
+      content: ' *';
+      color: #b42318;
     }
 
     .admin-field-input,

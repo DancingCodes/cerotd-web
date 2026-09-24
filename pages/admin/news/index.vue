@@ -14,19 +14,15 @@
       </div>
       <div class="admin-form-grid">
         <label class="admin-field">
-          <div class="admin-field-label">{{ $t('admin.news.titleEn') }}</div>
+          <div class="admin-field-label is-required">{{ $t('admin.news.titleEn') }}</div>
           <input v-model="form.titleEn" class="admin-field-input" />
         </label>
         <label class="admin-field">
-          <div class="admin-field-label">{{ $t('admin.news.titleZh') }}</div>
+          <div class="admin-field-label is-required">{{ $t('admin.news.titleZh') }}</div>
           <input v-model="form.titleZh" class="admin-field-input" />
         </label>
         <label class="admin-field">
-          <div class="admin-field-label">{{ $t('admin.common.slug') }}</div>
-          <input v-model="form.slug" class="admin-field-input" :placeholder="$t('admin.common.autoSlug')" />
-        </label>
-        <label class="admin-field">
-          <div class="admin-field-label">{{ $t('admin.news.category') }}</div>
+          <div class="admin-field-label is-required">{{ $t('admin.news.category') }}</div>
           <select v-model="form.category" class="admin-field-input">
             <option v-for="item in categories" :key="item.slug" :value="item.slug">
               {{ lt(item.name) }}
@@ -241,8 +237,20 @@ function closeForm() {
 
 async function save() {
   formError.value = ''
+  if (!form.titleEn.trim()) {
+    formError.value = t('admin.news.requiredTitleEn')
+    return
+  }
+  if (!form.titleZh.trim()) {
+    formError.value = t('admin.news.requiredTitleZh')
+    return
+  }
+  if (!form.category.trim()) {
+    formError.value = t('admin.common.requiredCategory')
+    return
+  }
+
   const payload = {
-    slug: form.slug || undefined,
     category: form.category,
     titleEn: form.titleEn,
     titleZh: form.titleZh,
@@ -367,6 +375,11 @@ onMounted(load)
       color: #4b5563;
       font-size: 13px;
       font-weight: 600;
+    }
+
+    .admin-field-label.is-required::after {
+      content: ' *';
+      color: #b42318;
     }
 
     .admin-field-input,

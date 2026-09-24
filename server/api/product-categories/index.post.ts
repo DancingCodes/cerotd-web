@@ -20,15 +20,8 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'nameEn and nameZh are required' })
   }
 
-  const slug = (body.slug?.trim() || slugify(nameEn))
-  if (!slug) {
-    throw createError({ statusCode: 400, statusMessage: 'slug is required' })
-  }
-
-  const existing = await db.prepare('SELECT id FROM products_categories WHERE slug = ?').bind(slug).first()
-  if (existing) {
-    throw createError({ statusCode: 409, statusMessage: 'slug already exists' })
-  }
+  const allocated = await allocateUniqueSlug(db, 'products_categories', nameEn, 'category')
+  const slug = allocated.slug
 
   const sortOrder = Number.isFinite(body.sortOrder) ? Number(body.sortOrder) : 0
   const isPublished = body.isPublished === false ? 0 : 1
@@ -49,6 +42,12 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 500, statusMessage: 'Failed to create category' })
   }
 
+  let row = inserted
+  if (allocated.usedFallback) {
+    await finalizeFallbackSlug(db, 'products_categories', inserted.id, true, 'category')
+    row = (await db.prepare('SELECT * FROM products_categories WHERE id = ?').bind(inserted.id).first<CategoryRow>()) || inserted
+  }
+
   setResponseStatus(event, 201)
-  return mapCategory(inserted)
+  return mapCategory(row)
 })

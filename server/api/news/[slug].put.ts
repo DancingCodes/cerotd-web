@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const body = await readBody<UpdateNewsBody>(event)
-  const nextSlug = body.slug?.trim() || current.slug
+  const nextSlug = current.slug
   const titleEn = body.titleEn?.trim() ?? current.title_en
   const titleZh = body.titleZh?.trim() ?? current.title_zh
   const summaryEn = body.summaryEn?.trim() ?? current.summary_en
@@ -47,13 +47,6 @@ export default defineEventHandler(async (event) => {
 
   if (!nextSlug || !titleEn || !titleZh) {
     throw createError({ statusCode: 400, statusMessage: 'slug, titleEn and titleZh are required' })
-  }
-
-  if (nextSlug !== current.slug) {
-    const conflict = await db.prepare('SELECT id FROM news WHERE slug = ?').bind(nextSlug).first()
-    if (conflict) {
-      throw createError({ statusCode: 409, statusMessage: 'slug already exists' })
-    }
   }
 
   await db

@@ -35,15 +35,8 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'category not found' })
   }
 
-  const slug = body.slug?.trim() || slugify(nameEn)
-  if (!slug) {
-    throw createError({ statusCode: 400, statusMessage: 'slug is required' })
-  }
-
-  const existing = await db.prepare('SELECT id FROM products WHERE slug = ?').bind(slug).first()
-  if (existing) {
-    throw createError({ statusCode: 409, statusMessage: 'slug already exists' })
-  }
+  const allocated = await allocateUniqueSlug(db, 'products', nameEn, 'product')
+  const slug = allocated.slug
 
   const images = Array.isArray(body.images) ? body.images.map((item) => String(item).trim()).filter(Boolean) : []
   const specsEn = Array.isArray(body.specsEn) ? body.specsEn.map((item) => String(item).trim()).filter(Boolean) : []
@@ -81,6 +74,8 @@ export default defineEventHandler(async (event) => {
   if (!inserted) {
     throw createError({ statusCode: 500, statusMessage: 'Failed to create product' })
   }
+
+  await finalizeFallbackSlug(db, 'products', inserted.id, allocated.usedFallback, 'product')
 
   const row = await db
     .prepare(`${productSelectSql} WHERE p.id = ?`)

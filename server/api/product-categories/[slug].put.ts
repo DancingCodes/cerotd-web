@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const body = await readBody<UpdateCategoryBody>(event)
-  const nextSlug = body.slug?.trim() || current.slug
+  const nextSlug = current.slug
   const nameEn = body.nameEn?.trim() ?? current.name_en
   const nameZh = body.nameZh?.trim() ?? current.name_zh
   const descEn = body.descEn?.trim() ?? current.desc_en
@@ -39,13 +39,6 @@ export default defineEventHandler(async (event) => {
 
   if (!nextSlug || !nameEn || !nameZh) {
     throw createError({ statusCode: 400, statusMessage: 'slug, nameEn and nameZh are required' })
-  }
-
-  if (nextSlug !== current.slug) {
-    const conflict = await db.prepare('SELECT id FROM products_categories WHERE slug = ?').bind(nextSlug).first()
-    if (conflict) {
-      throw createError({ statusCode: 409, statusMessage: 'slug already exists' })
-    }
   }
 
   const updated = await db

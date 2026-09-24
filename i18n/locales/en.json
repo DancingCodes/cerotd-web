@@ -351,7 +351,9 @@
       "success": "Thanks. Your inquiry has been received. We will contact you within 24 hours.",
       "error": "Submission failed. Please try again or reach us by phone / WhatsApp.",
       "requiredName": "Please enter your name.",
-      "requiredContact": "Please provide an email or phone number."
+      "requiredContact": "Please provide an email or phone number.",
+      "emailOrPhoneHint": "Email or phone is required",
+      "invalidEmail": "Please enter a valid email address."
     },
     "social": {
       "title": "Social & Messaging",
@@ -399,7 +401,10 @@
       "nameEn": "Name EN",
       "nameZh": "Name ZH",
       "coverUrl": "Cover URL",
-      "autoSlug": "auto from name EN"
+      "autoSlug": "auto from name EN",
+      "requiredNameEn": "Please enter the English name.",
+      "requiredNameZh": "Please enter the Chinese name.",
+      "requiredCategory": "Please select a category."
     },
     "products": {
       "title": "Products",
@@ -435,7 +440,9 @@
       "contentEn": "Content EN",
       "contentZh": "Content ZH",
       "imageHint": "Click Image to upload into the article. Upload service uses Cloudflare R2.",
-      "deleteConfirm": "Delete article \"{name}\"?"
+      "deleteConfirm": "Delete article \"{name}\"?",
+      "requiredTitleEn": "Please enter the English title.",
+      "requiredTitleZh": "Please enter the Chinese title."
     },
     "inquiries": {
       "title": "Inquiries",
