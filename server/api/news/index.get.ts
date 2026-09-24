@@ -16,7 +16,8 @@ export default defineEventHandler(async (event) => {
   }
 
   if (category) {
-    if (!isNewsCategory(category)) {
+    const found = await findNewsCategory(db, category, { publishedOnly: !includeUnpublished })
+    if (!found) {
       throw createError({ statusCode: 400, statusMessage: 'invalid category' })
     }
     where.push('category = ?')

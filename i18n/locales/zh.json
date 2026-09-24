@@ -502,7 +502,8 @@
       "logout": "退出",
       "lang": "EN",
       "news": "新闻",
-      "inquiries": "留言"
+      "inquiries": "留言",
+      "newsCategories": "新闻分类"
     },
     "login": {
       "title": "后台登录",
@@ -602,7 +603,21 @@
       "noMessage": "无留言内容",
       "bulkYes": "是",
       "bulkNo": "否",
-      "deleteConfirm": "确认删除来自“{name}”的留言？"
+      "deleteConfirm": "确认删除来自“{name}”的留言？",
+      "unreadCount": "{count} 条未读",
+      "filterStatus": "已读状态",
+      "filterRange": "时间范围",
+      "filterAll": "全部",
+      "filterUnread": "未读",
+      "filterRead": "已读",
+      "rangeAll": "全部时间",
+      "rangeToday": "今天",
+      "range7d": "近 7 天",
+      "range30d": "近 30 天",
+      "read": "已读",
+      "unread": "未读",
+      "markRead": "标为已读",
+      "markUnread": "标为未读"
     },
     "upload": {
       "button": "上传图片",
@@ -610,6 +625,15 @@
       "failed": "上传失败",
       "placeholder": "或粘贴图片 URL",
       "addImage": "上传图片"
+    },
+    "newsCategories": {
+      "title": "新闻分类",
+      "subtitle": "管理新闻文章使用的分类。",
+      "new": "新建分类",
+      "editTitle": "编辑分类",
+      "createTitle": "新建分类",
+      "empty": "暂无新闻分类。",
+      "deleteConfirm": "确认删除分类“{name}”？"
     }
   },
   "seo": {

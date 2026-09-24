@@ -4,7 +4,7 @@
       <div class="container">
         <NuxtLink to="/news" class="page-hero-back">{{ $t('news.backToList') }}</NuxtLink>
         <div class="page-hero-meta">
-          <span>{{ $t(`news.categories.${article.category}`) }}</span>
+          <span>{{ categoryLabel(article.category) }}</span>
           <time :datetime="article.publishedAt">{{ formatDate(article.publishedAt) }}</time>
         </div>
         <h1 class="page-hero-title">{{ t(article.title) }}</h1>
@@ -48,6 +48,14 @@ type NewsItem = {
 const route = useRoute()
 const t = useLocalized()
 const { locale } = useI18n()
+type CategoryItem = { slug: string; name: { en: string; zh: string } }
+const { data: categoriesData } = await useFetch<{ items: CategoryItem[] }>('/api/news-categories', {
+  key: 'news-categories'
+})
+function categoryLabel(slug: string) {
+  const found = (categoriesData.value?.items || []).find((item) => item.slug === slug)
+  return found ? t(found.name) : slug
+}
 const slug = computed(() => String(route.params.slug || ''))
 
 const { data: article, error } = await useFetch<NewsItem>(() => `/api/news/${slug.value}`, {

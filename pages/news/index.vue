@@ -27,15 +27,15 @@
           </button>
           <button
             v-for="category in categories"
-            :key="category"
+            :key="category.slug"
             type="button"
             class="filter-chip"
-            :class="{ 'filter-chip-active': selectedCategory === category }"
+            :class="{ 'filter-chip-active': selectedCategory === category.slug }"
             role="tab"
-            :aria-selected="selectedCategory === category"
-            @click="setCategory(category)"
+            :aria-selected="selectedCategory === category.slug"
+            @click="setCategory(category.slug)"
           >
-            {{ $t(`news.categories.${category}`) }}
+            {{ lt(category.name) }}
           </button>
         </div>
 
@@ -59,7 +59,7 @@
             </div>
             <div class="news-card-body">
               <div class="news-card-meta">
-                <span class="news-card-category">{{ $t(`news.categories.${item.category}`) }}</span>
+                <span class="news-card-category">{{ categoryLabel(item.category) }}</span>
                 <time class="news-card-date" :datetime="item.publishedAt">{{ formatDate(item.publishedAt) }}</time>
               </div>
               <h3 class="news-card-title">{{ t(item.title) }}</h3>
@@ -75,6 +75,11 @@
 
 <script setup lang="ts">
 type Localized = { en: string; zh: string }
+
+type CategoryItem = {
+  slug: string
+  name: Localized
+}
 
 type NewsItem = {
   slug: string
@@ -96,8 +101,16 @@ usePageSeo({
   path: '/news'
 })
 
-const categories = ['company', 'product', 'industry', 'event']
+const { data: categoriesData } = await useFetch<{ items: CategoryItem[] }>('/api/news-categories', {
+  key: 'news-categories'
+})
+const categories = computed(() => categoriesData.value?.items || [])
 const selectedCategory = computed(() => String(route.query.category || '').trim())
+
+function categoryLabel(slug: string) {
+  const found = categories.value.find((item) => item.slug === slug)
+  return found ? t(found.name) : slug
+}
 
 function setCategory(slug: string) {
   router.replace({

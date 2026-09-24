@@ -7,6 +7,7 @@
           <template v-if="isReady">
             <NuxtLink to="/admin/categories" class="admin-nav-link">{{ $t('admin.nav.categories') }}</NuxtLink>
             <NuxtLink to="/admin/products" class="admin-nav-link">{{ $t('admin.nav.products') }}</NuxtLink>
+            <NuxtLink to="/admin/news-categories" class="admin-nav-link">{{ $t('admin.nav.newsCategories') }}</NuxtLink>
             <NuxtLink to="/admin/news" class="admin-nav-link">{{ $t('admin.nav.news') }}</NuxtLink>
             <NuxtLink to="/admin/inquiries" class="admin-nav-link">{{ $t('admin.nav.inquiries') }}</NuxtLink>
             <NuxtLink to="/" class="admin-nav-link" target="_blank">{{ $t('admin.nav.viewSite') }}</NuxtLink>

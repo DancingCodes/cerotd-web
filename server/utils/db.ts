@@ -144,11 +144,38 @@ export const productSelectSql = `SELECT
 FROM products p
 JOIN categories c ON c.id = p.category_id`
 
-export const NEWS_CATEGORIES = ['company', 'product', 'industry', 'event'] as const
-export type NewsCategory = (typeof NEWS_CATEGORIES)[number]
+export type NewsCategoryRow = {
+  id: number
+  slug: string
+  name_en: string
+  name_zh: string
+  sort_order: number
+  is_published: number
+  created_at: string
+  updated_at: string
+}
 
-export function isNewsCategory(value: string): value is NewsCategory {
-  return (NEWS_CATEGORIES as readonly string[]).includes(value)
+export function mapNewsCategory(row: NewsCategoryRow) {
+  return {
+    id: row.id,
+    slug: row.slug,
+    name: {
+      en: row.name_en,
+      zh: row.name_zh
+    },
+    sortOrder: row.sort_order,
+    isPublished: row.is_published === 1,
+    createdAt: row.created_at,
+    updatedAt: row.updated_at
+  }
+}
+
+export async function findNewsCategory(db: D1Database, slug: string, opts?: { publishedOnly?: boolean }) {
+  const publishedOnly = opts?.publishedOnly === true
+  const sql = publishedOnly
+    ? 'SELECT * FROM news_categories WHERE slug = ? AND is_published = 1'
+    : 'SELECT * FROM news_categories WHERE slug = ?'
+  return db.prepare(sql).bind(slug).first<NewsCategoryRow>()
 }
 
 export function mapNews(row: NewsRow) {

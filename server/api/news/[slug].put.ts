@@ -40,7 +40,8 @@ export default defineEventHandler(async (event) => {
 
   const categoryRaw = body.category?.trim() || current.category
   const category = categoryRaw.toLowerCase()
-  if (!isNewsCategory(category)) {
+  const categoryRow = await findNewsCategory(db, category)
+  if (!categoryRow) {
     throw createError({ statusCode: 400, statusMessage: 'invalid category' })
   }
 

@@ -23,8 +23,15 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'titleEn and titleZh are required' })
   }
 
-  const category = (body.category?.trim() || 'company').toLowerCase()
-  if (!isNewsCategory(category)) {
+  let category = (body.category?.trim() || '').toLowerCase()
+  if (!category) {
+    const first = await db
+      .prepare('SELECT slug FROM news_categories WHERE is_published = 1 ORDER BY sort_order ASC, id ASC LIMIT 1')
+      .first<{ slug: string }>()
+    category = first?.slug || ''
+  }
+  const categoryRow = category ? await findNewsCategory(db, category) : null
+  if (!categoryRow) {
     throw createError({ statusCode: 400, statusMessage: 'invalid category' })
   }
 

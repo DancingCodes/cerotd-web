@@ -2,40 +2,32 @@
   <div class="admin-page">
     <div class="admin-page-header">
       <div>
-        <div class="admin-page-title">{{ $t('admin.news.title') }}</div>
-        <div class="admin-page-subtitle">{{ $t('admin.news.subtitle') }}</div>
+        <div class="admin-page-title">{{ $t('admin.newsCategories.title') }}</div>
+        <div class="admin-page-subtitle">{{ $t('admin.newsCategories.subtitle') }}</div>
       </div>
-      <div class="admin-page-btn" @click="startCreate">{{ $t('admin.news.new') }}</div>
+      <div class="admin-page-btn" @click="startCreate">{{ $t('admin.newsCategories.new') }}</div>
     </div>
 
     <div v-if="formOpen" class="admin-form-card">
       <div class="admin-form-title">
-        {{ editingSlug ? $t('admin.news.editTitle') : $t('admin.news.createTitle') }}
+        {{ editingSlug ? $t('admin.newsCategories.editTitle') : $t('admin.newsCategories.createTitle') }}
       </div>
       <div class="admin-form-grid">
         <label class="admin-field">
-          <div class="admin-field-label">{{ $t('admin.news.titleEn') }}</div>
-          <input v-model="form.titleEn" class="admin-field-input" />
+          <div class="admin-field-label">{{ $t('admin.common.nameEn') }}</div>
+          <input v-model="form.nameEn" class="admin-field-input" />
         </label>
         <label class="admin-field">
-          <div class="admin-field-label">{{ $t('admin.news.titleZh') }}</div>
-          <input v-model="form.titleZh" class="admin-field-input" />
+          <div class="admin-field-label">{{ $t('admin.common.nameZh') }}</div>
+          <input v-model="form.nameZh" class="admin-field-input" />
         </label>
         <label class="admin-field">
           <div class="admin-field-label">{{ $t('admin.common.slug') }}</div>
           <input v-model="form.slug" class="admin-field-input" :placeholder="$t('admin.common.autoSlug')" />
         </label>
         <label class="admin-field">
-          <div class="admin-field-label">{{ $t('admin.news.category') }}</div>
-          <select v-model="form.category" class="admin-field-input">
-            <option v-for="item in categories" :key="item.slug" :value="item.slug">
-              {{ lt(item.name) }}
-            </option>
-          </select>
-        </label>
-        <label class="admin-field">
-          <div class="admin-field-label">{{ $t('admin.news.publishedAt') }}</div>
-          <input v-model="form.publishedAt" class="admin-field-input" type="datetime-local" />
+          <div class="admin-field-label">{{ $t('admin.common.sort') }}</div>
+          <input v-model.number="form.sortOrder" class="admin-field-input" type="number" />
         </label>
         <label class="admin-field">
           <div class="admin-field-label">{{ $t('admin.common.published') }}</div>
@@ -44,30 +36,6 @@
             <option :value="false">{{ $t('admin.common.no') }}</option>
           </select>
         </label>
-        <div class="admin-field admin-field-full">
-          <div class="admin-field-label">{{ $t('admin.common.coverUrl') }}</div>
-          <AdminImageUpload v-model="form.coverUrl" folder="news" :placeholder="$t('admin.upload.placeholder')" />
-        </div>
-        <label class="admin-field admin-field-full">
-          <div class="admin-field-label">{{ $t('admin.news.summaryEn') }}</div>
-          <textarea v-model="form.summaryEn" class="admin-field-textarea" rows="2" />
-        </label>
-        <label class="admin-field admin-field-full">
-          <div class="admin-field-label">{{ $t('admin.news.summaryZh') }}</div>
-          <textarea v-model="form.summaryZh" class="admin-field-textarea" rows="2" />
-        </label>
-        <div class="admin-field admin-field-full">
-          <div class="admin-field-label">{{ $t('admin.news.contentEn') }}</div>
-          <ClientOnly>
-            <AdminRichEditor v-model="form.contentEn" folder="news" :hint="$t('admin.news.imageHint')" />
-          </ClientOnly>
-        </div>
-        <div class="admin-field admin-field-full">
-          <div class="admin-field-label">{{ $t('admin.news.contentZh') }}</div>
-          <ClientOnly>
-            <AdminRichEditor v-model="form.contentZh" :hint="$t('admin.news.imageHint')" />
-          </ClientOnly>
-        </div>
       </div>
       <div v-if="formError" class="admin-error">{{ formError }}</div>
       <div class="admin-form-actions">
@@ -78,25 +46,24 @@
 
     <div class="admin-table-card">
       <div v-if="pending" class="admin-empty">{{ $t('admin.common.loading') }}</div>
-      <div v-else-if="!items.length" class="admin-empty">{{ $t('admin.news.empty') }}</div>
+      <div v-else-if="!items.length" class="admin-empty">{{ $t('admin.newsCategories.empty') }}</div>
       <div v-else class="admin-table">
         <div class="admin-table-row admin-table-head">
           <div>{{ $t('admin.common.name') }}</div>
-          <div>{{ $t('admin.news.category') }}</div>
-          <div>{{ $t('admin.news.publishedAt') }}</div>
+          <div>{{ $t('admin.common.slug') }}</div>
+          <div>{{ $t('admin.common.sort') }}</div>
           <div>{{ $t('admin.common.status') }}</div>
           <div>{{ $t('admin.common.actions') }}</div>
         </div>
         <div v-for="item in items" :key="item.id" class="admin-table-row">
           <div>
-            <div class="admin-strong">{{ lt(item.title) }}</div>
-            <div class="admin-muted">{{ item.slug }}</div>
+            <div class="admin-strong">{{ lt(item.name) }}</div>
+            <div class="admin-muted">{{ secondaryName(item.name) }}</div>
           </div>
-          <div>{{ categoryLabel(item.category) }}</div>
-          <div>{{ formatDate(item.publishedAt) }}</div>
+          <div>{{ item.slug }}</div>
+          <div>{{ item.sortOrder }}</div>
           <div>{{ item.isPublished ? $t('admin.common.published') : $t('admin.common.draft') }}</div>
           <div class="admin-row-actions">
-            <NuxtLink :to="`/news/${item.slug}`" class="admin-link" target="_blank">{{ $t('admin.common.view') }}</NuxtLink>
             <div class="admin-link" @click="startEdit(item)">{{ $t('admin.common.edit') }}</div>
             <div class="admin-link admin-link-danger" @click="remove(item)">{{ $t('admin.common.delete') }}</div>
           </div>
@@ -114,95 +81,44 @@ definePageMeta({
 
 type Localized = { en: string; zh: string }
 
-type NewsItem = {
+type CategoryItem = {
   id: number
   slug: string
-  category: string
-  title: Localized
-  summary: Localized
-  content: Localized
-  coverUrl: string | null
+  name: Localized
+  sortOrder: number
   isPublished: boolean
-  publishedAt: string
 }
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const lt = useLocalized()
 const { authHeaders } = useAdminAuth()
-
-type CategoryItem = {
-  slug: string
-  name: Localized
-}
-
-const categories = ref<CategoryItem[]>([])
-const items = ref<NewsItem[]>([])
 const pending = ref(true)
+const items = ref<CategoryItem[]>([])
 const formOpen = ref(false)
 const editingSlug = ref('')
 const formError = ref('')
 
-const form = reactive({
-  titleEn: '',
-  titleZh: '',
+const emptyForm = () => ({
   slug: '',
-  category: 'company',
-  summaryEn: '',
-  summaryZh: '',
-  contentEn: '',
-  contentZh: '',
-  coverUrl: '',
-  publishedAt: '',
-  isPublished: false
+  nameEn: '',
+  nameZh: '',
+  sortOrder: 0,
+  isPublished: true
 })
 
-function categoryLabel(slug: string) {
-  const found = categories.value.find((item) => item.slug === slug)
-  return found ? lt(found.name) : slug
-}
+const form = reactive(emptyForm())
 
-function toLocalInput(value: string) {
-  if (!value) return ''
-  return value.slice(0, 16).replace(' ', 'T')
-}
-
-function fromLocalInput(value: string) {
-  if (!value) return ''
-  return value.length === 16 ? `${value.replace('T', ' ')}:00` : value.replace('T', ' ')
-}
-
-function formatDate(value: string) {
-  return value ? value.slice(0, 16).replace('T', ' ') : ''
-}
-
-function resetForm() {
-  Object.assign(form, {
-    titleEn: '',
-    titleZh: '',
-    slug: '',
-    category: '',
-    summaryEn: '',
-    summaryZh: '',
-    contentEn: '',
-    contentZh: '',
-    coverUrl: '',
-    publishedAt: toLocalInput(new Date().toISOString()),
-    isPublished: false
-  })
+function secondaryName(name: Localized) {
+  return locale.value === 'zh' ? name.en : name.zh
 }
 
 async function load() {
   pending.value = true
   try {
-    const [newsData, categoryData] = await Promise.all([
-      $fetch<{ items: NewsItem[] }>('/api/news?all=1', { headers: authHeaders() }),
-      $fetch<{ items: CategoryItem[] }>('/api/news-categories?all=1', { headers: authHeaders() })
-    ])
-    items.value = newsData.items
-    categories.value = categoryData.items
-    if (!form.category && categories.value[0]) {
-      form.category = categories.value[0].slug
-    }
+    const data = await $fetch<{ items: CategoryItem[] }>('/api/news-categories?all=1', {
+      headers: authHeaders()
+    })
+    items.value = data.items
   } finally {
     pending.value = false
   }
@@ -210,24 +126,18 @@ async function load() {
 
 function startCreate() {
   editingSlug.value = ''
-  resetForm()
+  Object.assign(form, emptyForm())
   formError.value = ''
   formOpen.value = true
 }
 
-function startEdit(item: NewsItem) {
+function startEdit(item: CategoryItem) {
   editingSlug.value = item.slug
   Object.assign(form, {
-    titleEn: item.title.en,
-    titleZh: item.title.zh,
     slug: item.slug,
-    category: item.category,
-    summaryEn: item.summary.en,
-    summaryZh: item.summary.zh,
-    contentEn: item.content.en,
-    contentZh: item.content.zh,
-    coverUrl: item.coverUrl || '',
-    publishedAt: toLocalInput(item.publishedAt),
+    nameEn: item.name.en,
+    nameZh: item.name.zh,
+    sortOrder: item.sortOrder,
     isPublished: item.isPublished
   })
   formError.value = ''
@@ -243,27 +153,21 @@ async function save() {
   formError.value = ''
   const payload = {
     slug: form.slug || undefined,
-    category: form.category,
-    titleEn: form.titleEn,
-    titleZh: form.titleZh,
-    summaryEn: form.summaryEn,
-    summaryZh: form.summaryZh,
-    contentEn: form.contentEn,
-    contentZh: form.contentZh,
-    coverUrl: form.coverUrl || null,
-    publishedAt: fromLocalInput(form.publishedAt),
+    nameEn: form.nameEn,
+    nameZh: form.nameZh,
+    sortOrder: Number(form.sortOrder) || 0,
     isPublished: form.isPublished
   }
 
   try {
     if (editingSlug.value) {
-      await $fetch(`/api/news/${editingSlug.value}`, {
+      await $fetch(`/api/news-categories/${editingSlug.value}`, {
         method: 'PUT',
         headers: authHeaders(),
         body: payload
       })
     } else {
-      await $fetch('/api/news', {
+      await $fetch('/api/news-categories', {
         method: 'POST',
         headers: authHeaders(),
         body: payload
@@ -276,10 +180,10 @@ async function save() {
   }
 }
 
-async function remove(item: NewsItem) {
-  if (!window.confirm(t('admin.news.deleteConfirm', { name: lt(item.title) }))) return
+async function remove(item: CategoryItem) {
+  if (!window.confirm(t('admin.newsCategories.deleteConfirm', { name: lt(item.name) }))) return
   try {
-    await $fetch(`/api/news/${item.slug}`, {
+    await $fetch(`/api/news-categories/${item.slug}`, {
       method: 'DELETE',
       headers: authHeaders()
     })
@@ -415,7 +319,7 @@ onMounted(load)
   .admin-table {
     .admin-table-row {
       display: grid;
-      grid-template-columns: 1.6fr 0.8fr 0.9fr 0.7fr 1.1fr;
+      grid-template-columns: 1.4fr 1fr 0.5fr 0.7fr 0.9fr;
       gap: 12px;
       padding: 14px 0;
       border-bottom: 1px solid #eef1f4;
@@ -445,14 +349,12 @@ onMounted(load)
   .admin-row-actions {
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
   }
 
   .admin-link {
     color: #0e7f8f;
     font-weight: 650;
     cursor: pointer;
-    text-decoration: none;
   }
 
   .admin-link-danger {

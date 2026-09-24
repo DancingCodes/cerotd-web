@@ -126,6 +126,7 @@
 - 分类接口：`/api/categories`
 - 产品接口：`/api/products`
 - 新闻接口：`/api/news`（公开列表/详情；写接口需 admin token）
+- 新闻分类：`/api/news-categories`（前台公开已发布分类；后台可增删改）
 - 联系接口：`/api/contact`（公开 POST，写入 D1 `inquiries`）
 - 管理后台：`/admin`（登录后管理分类、产品、新闻与留言，支持中英文切换）
 - 留言查看：`/admin/inquiries`（读取 D1 `inquiries`）
