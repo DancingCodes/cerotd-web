@@ -4,6 +4,8 @@ export default defineEventHandler(async (event) => {
   const includeUnpublished = String(query.all || '') === '1'
   const categorySlug = typeof query.category === 'string' ? query.category.trim() : ''
   const homeOnly = String(query.home || '') === '1'
+  const q = typeof query.q === 'string' ? query.q.trim() : ''
+  const status = String(query.status || 'all').trim().toLowerCase()
   const paging = parsePagination(query)
 
   if (includeUnpublished) {
@@ -15,6 +17,10 @@ export default defineEventHandler(async (event) => {
 
   if (!includeUnpublished) {
     where.push('p.is_published = 1')
+  } else if (status === 'published') {
+    where.push('p.is_published = 1')
+  } else if (status === 'draft') {
+    where.push('p.is_published = 0')
   }
 
   if (categorySlug) {
@@ -24,6 +30,12 @@ export default defineEventHandler(async (event) => {
 
   if (homeOnly) {
     where.push('p.show_on_home = 1')
+  }
+
+  if (q) {
+    where.push('(p.name_en LIKE ? OR p.name_zh LIKE ? OR p.slug LIKE ?)')
+    const like = '%' + q + '%'
+    binds.push(like, like, like)
   }
 
   const whereSql = where.length ? `WHERE ${where.join(' AND ')}` : ''

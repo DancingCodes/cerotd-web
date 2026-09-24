@@ -386,7 +386,7 @@
       "slug": "Slug",
       "name": "名称",
       "published": "已发布",
-      "draft": "草稿",
+      "draft": "未发布",
       "yes": "是",
       "no": "否",
       "saveFailed": "保存失败",
@@ -401,7 +401,16 @@
       "totalCount": "共 {count} 条",
       "prevPage": "上一页",
       "nextPage": "下一页",
-      "pageStatus": "第 {page} / {totalPages} 页"
+      "pageStatus": "第 {page} / {totalPages} 页",
+      "search": "搜索",
+      "searchPlaceholder": "搜索名称 / slug",
+      "filterAll": "全部",
+      "filterPublished": "已发布",
+      "filterDraft": "未发布",
+      "filterCategory": "分类",
+      "filterStatus": "状态",
+      "allCategories": "全部分类",
+      "allStatuses": "全部状态"
     },
     "products": {
       "title": "产品管理",
@@ -440,7 +449,8 @@
       "imageHint": "点击 Image 可上传正文图片，存储使用 Cloudflare R2。",
       "deleteConfirm": "确认删除文章“{name}”？",
       "requiredTitleEn": "请填写英文标题。",
-      "requiredTitleZh": "请填写中文标题。"
+      "requiredTitleZh": "请填写中文标题。",
+      "searchPlaceholder": "搜索标题 / slug"
     },
     "inquiries": {
       "title": "客户留言",

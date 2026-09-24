@@ -6,7 +6,6 @@
         <div class="admin-page-subtitle">
           {{ $t('admin.inquiries.subtitle') }}
           <span v-if="!pending"> · {{ $t('admin.common.totalCount', { count: total }) }}</span>
-          <span v-if="!pending"> · {{ $t('admin.common.totalCount', { count: total }) }}</span>
           <span v-if="unreadCount"> · {{ $t('admin.inquiries.unreadCount', { count: unreadCount }) }}</span>
         </div>
       </div>

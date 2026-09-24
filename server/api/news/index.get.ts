@@ -3,6 +3,8 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const includeUnpublished = String(query.all || '') === '1'
   const category = typeof query.category === 'string' ? query.category.trim() : ''
+  const q = typeof query.q === 'string' ? query.q.trim() : ''
+  const status = String(query.status || 'all').trim().toLowerCase()
   const paging = parsePagination(query)
 
   if (includeUnpublished) {
@@ -14,6 +16,10 @@ export default defineEventHandler(async (event) => {
 
   if (!includeUnpublished) {
     where.push('is_published = 1')
+  } else if (status === 'published') {
+    where.push('is_published = 1')
+  } else if (status === 'draft') {
+    where.push('is_published = 0')
   }
 
   if (category) {
@@ -23,6 +29,12 @@ export default defineEventHandler(async (event) => {
     }
     where.push('category = ?')
     binds.push(category)
+  }
+
+  if (q) {
+    where.push('(title_en LIKE ? OR title_zh LIKE ? OR slug LIKE ?)')
+    const like = '%' + q + '%'
+    binds.push(like, like, like)
   }
 
   const whereSql = where.length ? `WHERE ${where.join(' AND ')}` : ''

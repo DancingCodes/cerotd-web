@@ -11,6 +11,31 @@
       <div class="admin-page-btn" @click="startCreate">{{ $t('admin.news.new') }}</div>
     </div>
 
+    <div class="admin-filters">
+      <div class="admin-filter-row">
+        <input
+          v-model="searchInput"
+          class="admin-filter-input"
+          type="search"
+          :placeholder="$t('admin.news.searchPlaceholder')"
+          @keyup.enter="applyFilters"
+        />
+        <select v-model="filterCategory" class="admin-filter-select" @change="applyFilters">
+          <option value="">{{ $t('admin.common.allCategories') }}</option>
+          <option v-for="category in categories" :key="category.slug" :value="category.slug">
+            {{ lt(category.name) }}
+          </option>
+        </select>
+        <select v-model="filterStatus" class="admin-filter-select" @change="applyFilters">
+          <option value="all">{{ $t('admin.common.allStatuses') }}</option>
+          <option value="published">{{ $t('admin.common.filterPublished') }}</option>
+          <option value="draft">{{ $t('admin.common.filterDraft') }}</option>
+        </select>
+        <button type="button" class="admin-page-btn admin-page-btn-muted" @click="applyFilters">
+          {{ $t('admin.common.search') }}
+        </button>
+      </div>
+    </div>
     <div v-if="formOpen" class="admin-form-card">
       <div class="admin-form-title">
         {{ editingSlug ? $t('admin.news.editTitle') : $t('admin.news.createTitle') }}
@@ -147,6 +172,10 @@ type CategoryItem = {
 const categories = ref<CategoryItem[]>([])
 const items = ref<NewsItem[]>([])
 const pending = ref(true)
+const searchInput = ref('')
+const search = ref('')
+const filterCategory = ref('')
+const filterStatus = ref<'all' | 'published' | 'draft'>('all')
 const page = ref(1)
 const pageSize = ref(20)
 const total = ref(0)
@@ -210,7 +239,14 @@ async function load() {
     const [newsData, categoryData] = await Promise.all([
       $fetch<{ items: NewsItem[]; total?: number }>('/api/news', {
         headers: authHeaders(),
-        query: { all: 1, page: page.value, pageSize: pageSize.value }
+        query: {
+          all: 1,
+          page: page.value,
+          pageSize: pageSize.value,
+          q: search.value || undefined,
+          category: filterCategory.value || undefined,
+          status: filterStatus.value
+        }
       }),
       $fetch<{ items: CategoryItem[] }>('/api/news-categories?all=1', { headers: authHeaders() })
     ])
@@ -228,6 +264,12 @@ async function load() {
   } finally {
     pending.value = false
   }
+}
+
+function applyFilters() {
+  search.value = searchInput.value.trim()
+  page.value = 1
+  load()
 }
 
 function goPage(next: number) {
@@ -532,6 +574,60 @@ onMounted(load)
   .admin-pagination-status {
     color: #6b7280;
     font-size: 13px;
+  }
+
+
+  .admin-filters {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .admin-filter-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1.4fr 1fr 1fr auto;
+      align-items: center;
+    }
+  }
+
+  .admin-filter-input,
+  .admin-filter-select {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 12px;
+    border: 1px solid #d7dee7;
+    background: #ffffff;
+    outline: none;
+    font: inherit;
+  }
+
+  .admin-filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .admin-filter-chip {
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid #e5eaf0;
+    background: #ffffff;
+    color: #4b5563;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .admin-filter-chip-active {
+    border-color: #0e7f8f;
+    background: #e8f7f9;
+    color: #0e7f8f;
   }
 
 </style>
