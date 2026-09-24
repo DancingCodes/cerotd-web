@@ -118,9 +118,17 @@
           <p class="section-subtitle">{{ $t('home.partners.subtitle') }}</p>
         </div>
         <div class="partners-grid">
-          <div v-for="logo in partnerLogos" :key="logo" class="partner-slot">
-            <img class="partner-logo" :src="logo" alt="Partner logo" loading="lazy" decoding="async" />
-          </div>
+          <a
+            v-for="partner in partnerLogos"
+            :key="partner.name"
+            class="partner-slot"
+            :href="partner.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            :aria-label="partner.name"
+          >
+            <img class="partner-logo" :src="partner.logo" :alt="partner.name" loading="lazy" decoding="async" />
+          </a>
         </div>
       </div>
     </section>
@@ -180,10 +188,26 @@ const { data: productsData } = await useFetch<{ items: ProductItem[] }>('/api/pr
 const featuredProducts = computed(() => (productsData.value?.items || []).slice(0, 3))
 
 const partnerLogos = [
-  '/images/partners/partner-1.png',
-  '/images/partners/partner-2.png',
-  '/images/partners/partner-3.png',
-  '/images/partners/partner-4.png'
+  {
+    name: 'Afton Chemical',
+    logo: '/images/partners/partner-1.png',
+    href: 'https://www.aftonchemical.com/'
+  },
+  {
+    name: 'Infineum',
+    logo: '/images/partners/partner-2.png',
+    href: 'https://www.infineum.com/'
+  },
+  {
+    name: 'Lubrizol',
+    logo: '/images/partners/partner-3.png',
+    href: 'https://www.lubrizol.com/'
+  },
+  {
+    name: 'Chevron Oronite',
+    logo: '/images/partners/partner-4.png',
+    href: 'https://www.oronite.com/'
+  }
 ]
 
 const advantageImages = [
@@ -706,6 +730,14 @@ const advantages = computed(() => {
       border-radius: 18px;
       background: #ffffff;
       border: 1px solid #e1e4e8;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+
+      &:hover {
+        border-color: #cfd8e3;
+        transform: translateY(-2px);
+      }
 
       .partner-logo {
         max-width: 120px;
