@@ -61,14 +61,20 @@
           <div class="admin-field-label">{{ $t('admin.products.descriptionZh') }}</div>
           <textarea v-model="form.descriptionZh" class="admin-field-textarea" rows="4" />
         </label>
-        <label class="admin-field admin-field-full">
+        <div class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.common.coverUrl') }}</div>
-          <input v-model="form.coverUrl" class="admin-field-input" />
-        </label>
-        <label class="admin-field admin-field-full">
+          <AdminImageUpload v-model="form.coverUrl" folder="products" :placeholder="$t('admin.upload.placeholder')" />
+        </div>
+        <div class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.products.images') }}</div>
           <textarea v-model="form.imagesText" class="admin-field-textarea" rows="3" />
-        </label>
+          <div class="admin-upload-extra">
+            <label class="admin-upload-chip">
+              {{ $t('admin.upload.addImage') }}
+              <input class="admin-upload-chip-file" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" @change="uploadProductImage" />
+            </label>
+          </div>
+        </div>
         <label class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.products.specsEn') }}</div>
           <textarea v-model="form.specsEnText" class="admin-field-textarea" rows="3" />

@@ -580,7 +580,7 @@
       "summaryZh": "Summary ZH",
       "contentEn": "Content EN",
       "contentZh": "Content ZH",
-      "imageHint": "Insert image by URL for now. Upload service can be connected later.",
+      "imageHint": "Click Image to upload into the article. Upload service uses Cloudflare R2.",
       "deleteConfirm": "Delete article \"{name}\"?"
     },
     "inquiries": {
@@ -603,6 +603,13 @@
       "bulkYes": "Yes",
       "bulkNo": "No",
       "deleteConfirm": "Delete inquiry from \"{name}\"?"
+    },
+    "upload": {
+      "button": "Upload",
+      "uploading": "Uploading...",
+      "failed": "Upload failed",
+      "placeholder": "Or paste image URL",
+      "addImage": "Upload image"
     }
   },
   "seo": {

@@ -44,10 +44,10 @@
             <option :value="false">{{ $t('admin.common.no') }}</option>
           </select>
         </label>
-        <label class="admin-field admin-field-full">
+        <div class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.common.coverUrl') }}</div>
-          <input v-model="form.coverUrl" class="admin-field-input" placeholder="/images/news/cover.webp" />
-        </label>
+          <AdminImageUpload v-model="form.coverUrl" folder="news" :placeholder="$t('admin.upload.placeholder')" />
+        </div>
         <label class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.news.summaryEn') }}</div>
           <textarea v-model="form.summaryEn" class="admin-field-textarea" rows="2" />
@@ -59,7 +59,7 @@
         <div class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.news.contentEn') }}</div>
           <ClientOnly>
-            <AdminRichEditor v-model="form.contentEn" :hint="$t('admin.news.imageHint')" />
+            <AdminRichEditor v-model="form.contentEn" folder="news" :hint="$t('admin.news.imageHint')" />
           </ClientOnly>
         </div>
         <div class="admin-field admin-field-full">

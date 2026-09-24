@@ -24,3 +24,8 @@ binding = "DB"
 database_name = "cerotd"
 database_id = "f1c1d1b6-4952-401e-a005-49cad234dfa6"
 migrations_dir = "database/migrations"
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "cerotd-media"
+preview_bucket_name = "cerotd-media"

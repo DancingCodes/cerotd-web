@@ -37,10 +37,10 @@
           <div class="admin-field-label">{{ $t('admin.categories.descZh') }}</div>
           <textarea v-model="form.descZh" class="admin-field-textarea" rows="3" />
         </label>
-        <label class="admin-field admin-field-full">
+        <div class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.common.coverUrl') }}</div>
-          <input v-model="form.coverUrl" class="admin-field-input" />
-        </label>
+          <AdminImageUpload v-model="form.coverUrl" folder="categories" :placeholder="$t('admin.upload.placeholder')" />
+        </div>
         <label class="admin-field">
           <div class="admin-field-label">{{ $t('admin.common.published') }}</div>
           <select v-model="form.isPublished" class="admin-field-input">

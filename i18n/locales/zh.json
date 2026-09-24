@@ -580,7 +580,7 @@
       "summaryZh": "中文摘要",
       "contentEn": "英文正文",
       "contentZh": "中文正文",
-      "imageHint": "目前通过图片 URL 插入，后续可接入上传服务。",
+      "imageHint": "点击 Image 可上传正文图片，存储使用 Cloudflare R2。",
       "deleteConfirm": "确认删除文章“{name}”？"
     },
     "inquiries": {
@@ -603,6 +603,13 @@
       "bulkYes": "是",
       "bulkNo": "否",
       "deleteConfirm": "确认删除来自“{name}”的留言？"
+    },
+    "upload": {
+      "button": "上传图片",
+      "uploading": "上传中...",
+      "failed": "上传失败",
+      "placeholder": "或粘贴图片 URL",
+      "addImage": "上传图片"
     }
   },
   "seo": {

@@ -24,11 +24,15 @@ import Link from '@tiptap/extension-link'
 const props = defineProps<{
   modelValue: string
   hint?: string
+  folder?: string
 }>()
 
 const emit = defineEmits<{
   'update:modelValue': [value: string]
 }>()
+
+const { authHeaders } = useAdminAuth()
+const { t } = useI18n()
 
 const editor = shallowRef<Editor | null>(null)
 
@@ -68,11 +72,29 @@ onBeforeUnmount(() => {
   editor.value = null
 })
 
-function addImage() {
+async function addImage() {
   if (!editor.value) return
-  const url = window.prompt('Image URL', '/images/news/')
-  if (!url) return
-  editor.value.chain().focus().setImage({ src: url.trim() }).run()
+  const input = document.createElement('input')
+  input.type = 'file'
+  input.accept = 'image/jpeg,image/png,image/webp,image/gif,image/avif'
+  input.onchange = async () => {
+    const file = input.files?.[0]
+    if (!file) return
+    try {
+      const body = new FormData()
+      body.append('file', file)
+      body.append('folder', props.folder || 'news')
+      const result = await $fetch<{ url: string }>('/api/upload', {
+        method: 'POST',
+        headers: authHeaders(),
+        body
+      })
+      editor.value?.chain().focus().setImage({ src: result.url }).run()
+    } catch (err: any) {
+      window.alert(err?.data?.statusMessage || err?.statusMessage || t('admin.upload.failed'))
+    }
+  }
+  input.click()
 }
 </script>
 

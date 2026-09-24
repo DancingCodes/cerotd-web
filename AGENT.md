@@ -132,8 +132,13 @@
 - 写接口（POST/PUT/DELETE）需要请求头 `Authorization: Bearer <ADMIN_API_TOKEN>`
 - `ADMIN_API_TOKEN` 是 Cloudflare Worker Secret（生产环境在控制台配置），本地写在 `.dev.vars`；不要把真实 token 提交进仓库
 - 本地可复制 `.dev.vars.example` 为 `.dev.vars`
-- 图片先存 URL 字段（如 `cover_url` / `images`），对象存储（R2）后续再接，暂不做上传
-- 新闻正文使用 TipTap 富文本（HTML）；正文插图当前通过 URL 插入，后续可接上传服务
+- 图片存储：Cloudflare R2
+  - bucket：`cerotd-media`
+  - binding：`MEDIA`
+  - 上传接口：`POST /api/upload`（admin token；multipart `file` + 可选 `folder`）
+  - 访问路径：`/cdn/<key>`（由 Worker 从 R2 读取）
+  - 业务表仍只存最终 URL（如 `cover_url` / `images` / 新闻 HTML 内图片地址）
+- 新闻正文使用 TipTap 富文本（HTML）；正文插图支持直接上传到 R2
 
 ## 部署与域名
 
