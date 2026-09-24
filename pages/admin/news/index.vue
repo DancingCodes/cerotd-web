@@ -8,7 +8,17 @@
           <span v-if="!pending"> · {{ $t('admin.common.totalCount', { count: total }) }}</span>
         </div>
       </div>
-      <div class="admin-page-btn" @click="startCreate">{{ $t('admin.news.new') }}</div>
+      <div class="admin-page-header-actions">
+        <div
+          v-if="selectedSlugs.length"
+          class="admin-page-btn admin-page-btn-danger"
+          :class="{ 'is-disabled': batchDeleting }"
+          @click="removeSelected"
+        >
+          {{ $t('admin.common.batchDelete') }} · {{ selectedSlugs.length }}
+        </div>
+        <div class="admin-page-btn" @click="startCreate">{{ $t('admin.news.new') }}</div>
+      </div>
     </div>
 
     <div class="admin-filters">
@@ -105,6 +115,14 @@
       <div v-else-if="!items.length" class="admin-empty">{{ $t('admin.news.empty') }}</div>
       <div v-else class="admin-table">
         <div class="admin-table-row admin-table-head">
+          <div class="admin-table-check">
+            <input
+              type="checkbox"
+              :checked="allSelected"
+              :aria-label="$t('admin.common.batchDelete')"
+              @change="onSelectAllChange($event)"
+            />
+          </div>
           <div>{{ $t('admin.common.name') }}</div>
           <div>{{ $t('admin.news.category') }}</div>
           <div>{{ $t('admin.news.publishedAt') }}</div>
@@ -112,6 +130,13 @@
           <div>{{ $t('admin.common.actions') }}</div>
         </div>
         <div v-for="item in items" :key="item.id" class="admin-table-row">
+          <div class="admin-table-check">
+            <input
+              type="checkbox"
+              :checked="selectedSlugs.includes(item.slug)"
+              @change="onSelectChange(item.slug, $event)"
+            />
+          </div>
           <div>
             <div class="admin-strong">{{ lt(item.title) }}</div>
             <div class="admin-muted">{{ item.slug }}</div>
@@ -170,6 +195,9 @@ type CategoryItem = {
 }
 
 const categories = ref<CategoryItem[]>([])
+const selectedSlugs = ref<string[]>([])
+const batchDeleting = ref(false)
+const allSelected = computed(() => items.value.length > 0 && items.value.every((item) => selectedSlugs.value.includes(item.slug)))
 const items = ref<NewsItem[]>([])
 const pending = ref(true)
 const searchInput = ref('')
@@ -231,6 +259,26 @@ function resetForm() {
     publishedAt: toLocalInput(new Date().toISOString()),
     isPublished: false
   })
+}
+
+function toggleSelect(slug: string, checked: boolean) {
+  if (checked) {
+    if (!selectedSlugs.value.includes(slug)) selectedSlugs.value = [...selectedSlugs.value, slug]
+  } else {
+    selectedSlugs.value = selectedSlugs.value.filter((item) => item !== slug)
+  }
+}
+
+function toggleSelectAll(checked: boolean) {
+  selectedSlugs.value = checked ? items.value.map((item) => item.slug) : []
+}
+
+function onSelectAllChange(event: Event) {
+  toggleSelectAll((event.target as HTMLInputElement).checked)
+}
+
+function onSelectChange(slug: string, event: Event) {
+  toggleSelect(slug, (event.target as HTMLInputElement).checked)
 }
 
 async function load() {
@@ -370,6 +418,29 @@ async function remove(item: NewsItem) {
   }
 }
 
+async function removeSelected() {
+  if (!selectedSlugs.value.length || batchDeleting.value) return
+  if (!window.confirm(t('admin.common.batchDeleteConfirm', { count: selectedSlugs.value.length }))) return
+  batchDeleting.value = true
+  try {
+    const slugs = [...selectedSlugs.value]
+    for (const slug of slugs) {
+      await $fetch(`/api/news/${slug}`, {
+        method: 'DELETE',
+        headers: authHeaders()
+      })
+    }
+    selectedSlugs.value = []
+    await load()
+  } catch (err: any) {
+    window.alert(err?.data?.statusMessage || err?.statusMessage || t('admin.common.deleteFailed'))
+    await load()
+  } finally {
+    batchDeleting.value = false
+  }
+}
+
+
 onMounted(load)
 </script>
 
@@ -501,7 +572,7 @@ onMounted(load)
   .admin-table {
     .admin-table-row {
       display: grid;
-      grid-template-columns: 1.6fr 0.8fr 0.9fr 0.7fr 1.1fr;
+      grid-template-columns: 36px 1.6fr 0.8fr 0.9fr 0.7fr 1.1fr;
       gap: 12px;
       padding: 14px 0;
       border-bottom: 1px solid #eef1f4;

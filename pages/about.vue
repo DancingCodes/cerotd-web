@@ -12,7 +12,7 @@
         <div class="intro-panel">
           <video
             class="intro-panel-video"
-            src="/cdn/videos/about-intro.mp4"
+            :src="aboutVideoSrc"
             autoplay
             muted
             loop
@@ -165,6 +165,7 @@
 
 <script setup lang="ts">
 const { t, locale } = useI18n()
+const aboutVideoSrc = `${useSiteUrl()}/cdn/videos/about-intro.mp4`
 
 usePageSeo({
   title: t('seo.about.title'),
