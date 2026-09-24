@@ -78,7 +78,7 @@
 ## 品牌与素材
 
 - Logo 已有，位于 `public` 目录
-- 主色、字体、产品图等其余品牌资产暂无
+- 字体 Inter；产品图通过后台上传到 R2
 - 缺失素材时，使用克制、专业的占位方案，保持大气视觉，不使用廉价装饰图
 
 ## 国际化
@@ -157,4 +157,4 @@
   - `workers_dev = false`
   - `preview_urls = false`
 - SEO 基础：`/robots.txt`、`/sitemap.xml`、页面 title/description/canonical；后台 `/admin` 为 noindex
-- 后续可做：Google Search Console 验证 + 提交 sitemap；产品结构化数据；R2 图片存储
+- 后续可做：Google Search Console 验证 + 提交 sitemap；产品结构化数据

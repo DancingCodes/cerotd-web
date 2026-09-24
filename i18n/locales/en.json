@@ -1,6 +1,5 @@
 {
   "common": {
-    "brand": "Cerotd",
     "home": "Home",
     "about": "About",
     "products": "Products",
@@ -9,15 +8,8 @@
     "contact": "Contact",
     "learnMore": "Learn More",
     "viewProducts": "View Products",
-    "contactUs": "Contact Us",
-    "getInTouch": "Get In Touch",
-    "placeholderNote": "Placeholder content for later replacement",
     "mediaBlank": "Image",
-    "logoBlank": "Logo",
     "news": "News"
-  },
-  "nav": {
-    "language": "Language"
   },
   "footer": {
     "tagline": "Manufacturer of industrial lubricants and greases — R&D, production, QC, and export supply.",
@@ -35,12 +27,10 @@
     "phone": "+86 152 6379 2384",
     "copyright": "Cerotd (Shandong) Lubrication Technology Co., Ltd. All rights reserved.",
     "product5": "Antifreeze",
-    "socialTitle": "Follow Us",
     "wechatTitle": "WeChat",
     "wechatId": "13953717716",
     "product6": "Anti-wear Hydraulic Oil",
-    "product7": "Grease",
-    "beian": "ICP Filing"
+    "product7": "Grease"
   },
   "home": {
     "badge": "Industrial Lubricants",
@@ -49,48 +39,13 @@
       "subtitle": "Factory-direct oils and greases for automotive, industrial, and construction fleets.",
       "ctaPrimary": "View Products",
       "ctaSecondary": "Talk to Sales",
-      "panelTitle": "Integrated manufacturing capability",
-      "panelDesc": "Automated blending lines, strict quality control, and complete testing systems for stable delivery and application fit.",
-      "panelTag1": "100,000+ tons/year",
-      "panelTag2": "ISO certified",
-      "panelTag3": "Global formula partners",
       "trust1": "ISO 9001",
       "trust2": "In-house testing",
       "trust3": "Export-ready supply"
     },
     "products": {
       "title": "Selected products",
-      "subtitle": "A focused range for fleet and industrial duty. Full grades available on request.",
-      "items": {
-        "item1": {
-          "name": "Gasoline Engine Oil",
-          "desc": "Built for gasoline engines with cleaning protection and stable lubrication."
-        },
-        "item2": {
-          "name": "Diesel Engine Oil",
-          "desc": "Matched to diesel engine loads with wear resistance and durability."
-        },
-        "item3": {
-          "name": "Transmission Fluid",
-          "desc": "Supports smooth shifting and efficient power transfer."
-        },
-        "item4": {
-          "name": "Gear Oil",
-          "desc": "For gear transmission scenarios with extreme-pressure protection."
-        },
-        "item5": {
-          "name": "Antifreeze",
-          "desc": "Cooling system protection against freezing, boiling, and corrosion."
-        },
-        "item6": {
-          "name": "Anti-wear Hydraulic Oil",
-          "desc": "Wear protection and stable operation for industrial and construction hydraulics."
-        },
-        "item7": {
-          "name": "Grease",
-          "desc": "Adhesion and EP protection for bearings and heavy-duty friction points."
-        }
-      }
+      "subtitle": "A focused range for fleet and industrial duty. Full grades available on request."
     },
     "services": {
       "title": "How we support buyers",
@@ -241,75 +196,6 @@
       "title": "Products",
       "subtitle": "Explore Cerotd lubricant and care solutions by series and grade."
     },
-    "categories": {
-      "title": "Product Lines",
-      "subtitle": "Industrial oils, automotive oils, special oils, construction machinery oils, and automotive care directions",
-      "items": {
-        "item1": {
-          "name": "Gasoline Engine Oil",
-          "desc": "Lubrication and protection line for gasoline engines.",
-          "points": {
-            "p1": "Cleaning protection",
-            "p2": "Wear stability",
-            "p3": "Condition fit"
-          }
-        },
-        "item2": {
-          "name": "Diesel Engine Oil",
-          "desc": "Built for diesel engine load and durability needs.",
-          "points": {
-            "p1": "Heavy-duty wear resistance",
-            "p2": "Thermal stability",
-            "p3": "Long duty cycles"
-          }
-        },
-        "item3": {
-          "name": "Transmission Fluid",
-          "desc": "Focused on smooth shifting and transmission efficiency.",
-          "points": {
-            "p1": "Smooth shifting",
-            "p2": "Friction stability",
-            "p3": "Efficient transfer"
-          }
-        },
-        "item4": {
-          "name": "Gear Oil",
-          "desc": "Extreme-pressure lubrication for gearboxes and gear sets.",
-          "points": {
-            "p1": "EP wear protection",
-            "p2": "Film strength",
-            "p3": "Noise control"
-          }
-        },
-        "item5": {
-          "name": "Antifreeze",
-          "desc": "Cooling system protection against freeze, boil, and corrosion.",
-          "points": {
-            "p1": "Freeze & boil protection",
-            "p2": "Corrosion resistance",
-            "p3": "System compatibility"
-          }
-        },
-        "item6": {
-          "name": "Anti-wear Hydraulic Oil",
-          "desc": "Anti-wear and stable operation for industrial and construction hydraulic systems.",
-          "points": {
-            "p1": "Wear protection",
-            "p2": "System cleanliness",
-            "p3": "Stable transmission"
-          }
-        },
-        "item7": {
-          "name": "Grease",
-          "desc": "Adhesion and EP protection for bearings and heavy-duty friction points.",
-          "points": {
-            "p1": "Strong adhesion",
-            "p2": "EP wear protection",
-            "p3": "Water & dust resistance"
-          }
-        }
-      }
-    },
     "note": {
       "title": "Specs & Grades",
       "desc": "Coverage includes industrial oils, automotive oils, special oils, construction machinery oils, and automotive care products. Formal grades, approvals, and packaging can be confirmed by inquiry."
@@ -320,27 +206,6 @@
     "backToList": "Back to products",
     "specsTitle": "Key Information",
     "relatedTitle": "Related Products",
-    "categoryNames": {
-      "gasoline": "Gasoline Engine Oil",
-      "diesel": "Diesel Engine Oil",
-      "transmission": "Transmission Fluid",
-      "gear": "Gear Oil",
-      "antifreeze": "Antifreeze",
-      "hydraulic": "Anti-wear Hydraulic Oil",
-      "grease": "Grease"
-    },
-    "catalog": {
-      "antifreeze-g11-green": {
-        "name": "Antifreeze G-11 Green",
-        "summary": "Green ethylene glycol multi-effect engine coolant (antifreeze).",
-        "description": "Ethylene glycol (EG) based. IAT / HOAT corrosion inhibitor technology. Standard bright green, clear and transparent, with no suspended solids or stratification. Suitable for cooling systems of older cast-iron engine cars, light trucks, construction machinery, agricultural machinery, 2-stroke / 4-stroke motor boats and generator sets. Packaging: 1kg / 4kg / 5kg / 9kg / 10kg / 20kg / 200kg.",
-        "specs": {
-          "s1": "Type: G-11 Green",
-          "s2": "Base: Ethylene Glycol",
-          "s3": "Packaging: 1-200kg"
-        }
-      }
-    },
     "filterAll": "All",
     "loading": "Loading products...",
     "empty": "No products in this category yet."
@@ -499,7 +364,6 @@
       "products": "Products",
       "viewSite": "View site",
       "logout": "Logout",
-      "lang": "中文",
       "news": "News",
       "inquiries": "Inquiries",
       "newsCategories": "News Categories",
@@ -679,12 +543,6 @@
     "loading": "Loading news...",
     "empty": "No published articles yet.",
     "backToList": "Back to news",
-    "detailCta": "Talk with our team",
-    "categories": {
-      "company": "Company",
-      "product": "Product",
-      "industry": "Industry",
-      "event": "Events"
-    }
+    "detailCta": "Talk with our team"
   }
 }

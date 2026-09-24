@@ -9,7 +9,6 @@
     "deploy": "wrangler deploy",
     "preview": "wrangler dev",
     "typecheck": "nuxt typecheck",
-    "db:migrate:remote": "wrangler d1 migrations apply cerotd --remote",
     "db:migrate": "wrangler d1 migrations apply cerotd --remote"
   },
   "dependencies": {
