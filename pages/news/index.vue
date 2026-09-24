@@ -50,9 +50,9 @@
               class="news-card"
             >
               <div class="news-card-media">
-                <img
+                <AppImage
                   class="news-card-image"
-                  :src="item.coverUrl || '/images/factory/plant.webp'"
+                  :src="item.coverUrl"
                   :alt="t(item.title)"
                   loading="lazy"
                   decoding="async"

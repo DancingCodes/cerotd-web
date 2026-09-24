@@ -14,15 +14,16 @@
 
     <section v-motion-slide-visible-once-bottom class="section content">
       <div class="container content-wrap">
-        <img
+        <AppImage
           v-if="article.coverUrl"
           class="cover-image"
           :src="article.coverUrl"
           :alt="t(article.title)"
           fetchpriority="high"
           decoding="async"
+          loading="eager"
         />
-        <article class="article-body" v-html="t(article.content)"></article>
+        <article ref="articleBody" class="article-body" v-html="t(article.content)"></article>
         <div class="article-cta">
           <NuxtLink to="/contact" class="article-cta-link">{{ $t('news.detailCta') }}</NuxtLink>
         </div>
@@ -47,7 +48,7 @@ type NewsItem = {
 
 const route = useRoute()
 const t = useLocalized()
-const { locale } = useI18n()
+const { locale, t: i18nT } = useI18n()
 type CategoryItem = { slug: string; name: { en: string; zh: string } }
 const { data: categoriesData } = await useFetch<{ items: CategoryItem[] }>('/api/news-categories', {
   key: 'news-categories'
@@ -74,6 +75,25 @@ usePageSeo({
 })
 
 const siteUrl = useSiteUrl()
+const articleBody = ref<HTMLElement | null>(null)
+const imageFallback = '/images/factory/plant.webp'
+
+function bindContentImages() {
+  const rootEl = articleBody.value
+  if (!rootEl) return
+  rootEl.querySelectorAll('img').forEach((img) => {
+    if (img.dataset.fallbackBound === '1') return
+    img.dataset.fallbackBound = '1'
+    img.addEventListener('error', () => {
+      if (img.getAttribute('src') === imageFallback) return
+      img.setAttribute('src', imageFallback)
+    })
+  })
+}
+
+onMounted(bindContentImages)
+onUpdated(bindContentImages)
+
 const articleJsonLd = computed(() => {
   if (!article.value) return null
   return {
@@ -102,13 +122,51 @@ const articleJsonLd = computed(() => {
   }
 })
 
+const newsBreadcrumbJsonLd = computed(() => {
+  if (!article.value) return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: i18nT('common.home'),
+        item: siteUrl
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: i18nT('common.news'),
+        item: `${siteUrl}/news`
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: t(article.value.title),
+        item: `${siteUrl}/news/${article.value.slug}`
+      }
+    ]
+  }
+})
+
 useHead({
-  script: [
-    {
-      type: 'application/ld+json',
-      children: computed(() => JSON.stringify(articleJsonLd.value))
+  script: computed(() => {
+    const scripts = []
+    if (articleJsonLd.value) {
+      scripts.push({
+        type: 'application/ld+json',
+        children: JSON.stringify(articleJsonLd.value)
+      })
     }
-  ]
+    if (newsBreadcrumbJsonLd.value) {
+      scripts.push({
+        type: 'application/ld+json',
+        children: JSON.stringify(newsBreadcrumbJsonLd.value)
+      })
+    }
+    return scripts
+  })
 })
 
 function formatDate(value: string) {

@@ -13,13 +13,14 @@
         <div class="detail-main">
           <div class="gallery">
             <button type="button" class="gallery-main" @click="openPreview(activeIndex)">
-              <img
+              <AppImage
                 v-if="product.images[activeIndex]"
                 class="gallery-main-image"
                 :src="product.images[activeIndex]"
                 :alt="t(product.name)"
                 fetchpriority="high"
                 decoding="async"
+                loading="eager"
               />
               <span v-else class="gallery-blank">{{ $t('common.mediaBlank') }}</span>
             </button>
@@ -32,7 +33,7 @@
                 :class="{ 'gallery-thumb-active': index === activeIndex }"
                 @click="activeIndex = index"
               >
-                <img class="gallery-thumb-image" :src="img" :alt="t(product.name)" loading="lazy" decoding="async" />
+                <AppImage class="gallery-thumb-image" :src="img" :alt="t(product.name)" loading="lazy" decoding="async" />
               </button>
             </div>
           </div>
@@ -83,7 +84,7 @@
         >
           ‹
         </button>
-        <img class="preview-image" :src="product.images[previewIndex]" :alt="t(product.name)" />
+        <AppImage class="preview-image" :src="product.images[previewIndex]" :alt="t(product.name)" loading="eager" decoding="async" />
         <button
           v-if="product.images.length > 1"
           type="button"
@@ -114,7 +115,7 @@ type ProductItem = {
 
 const route = useRoute()
 const t = useLocalized()
-const { locale } = useI18n()
+const { locale, t: i18nT } = useI18n()
 const slug = computed(() => String(route.params.slug || ''))
 
 const { data: product, error } = await useFetch<ProductItem>(() => `/api/products/${slug.value}`, {
@@ -162,17 +163,51 @@ const productJsonLd = computed(() => {
   }
 })
 
+const productBreadcrumbJsonLd = computed(() => {
+  if (!product.value) return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: i18nT('common.home'),
+        item: siteUrl
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: i18nT('common.products'),
+        item: `${siteUrl}/products`
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: t(product.value.name),
+        item: `${siteUrl}/products/${product.value.slug}`
+      }
+    ]
+  }
+})
+
 useHead({
-  script: computed(() =>
-    productJsonLd.value
-      ? [
-          {
-            type: 'application/ld+json',
-            children: JSON.stringify(productJsonLd.value)
-          }
-        ]
-      : []
-  )
+  script: computed(() => {
+    const scripts = []
+    if (productJsonLd.value) {
+      scripts.push({
+        type: 'application/ld+json',
+        children: JSON.stringify(productJsonLd.value)
+      })
+    }
+    if (productBreadcrumbJsonLd.value) {
+      scripts.push({
+        type: 'application/ld+json',
+        children: JSON.stringify(productBreadcrumbJsonLd.value)
+      })
+    }
+    return scripts
+  })
 })
 
 const { data: listData } = await useFetch<{ items: ProductItem[] }>('/api/products', {

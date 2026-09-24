@@ -50,10 +50,10 @@
               class="product-card"
             >
               <div class="product-card-media">
-                <img
+                <AppImage
                   class="product-card-image"
                   :class="{ 'product-card-image-cover': !(item.coverUrl || item.images[0]) }"
-                  :src="item.coverUrl || item.images[0] || '/images/factory/plant.webp'"
+                  :src="item.coverUrl || item.images[0]"
                   :alt="t(item.name)"
                   loading="lazy"
                   decoding="async"

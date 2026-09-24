@@ -42,10 +42,10 @@
         <div class="products-grid">
           <NuxtLink v-for="item in featuredProducts" :key="item.slug" :to="`/products/${item.slug}`" class="product-card">
             <div class="product-card-media">
-              <img
+              <AppImage
                 class="product-card-image"
                 :class="{ 'product-card-image-cover': !(item.coverUrl || item.images[0]) }"
-                :src="item.coverUrl || item.images[0] || '/images/factory/plant.webp'"
+                :src="item.coverUrl || item.images[0]"
                 :alt="lt(item.name)"
                 loading="lazy"
                 decoding="async"

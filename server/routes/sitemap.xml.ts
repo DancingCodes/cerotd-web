@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
 
   try {
     const db = useDB(event)
-    const result = await db
+    const products = await db
       .prepare(
         `SELECT slug, updated_at
          FROM products
@@ -17,10 +17,26 @@ export default defineEventHandler(async (event) => {
       )
       .all<{ slug: string; updated_at: string }>()
 
-    for (const row of result.results || []) {
+    for (const row of products.results || []) {
       urls.push({
         loc: `${siteUrl}/products/${row.slug}`,
         lastmod: row.updated_at?.slice(0, 10)
+      })
+    }
+
+    const news = await db
+      .prepare(
+        `SELECT slug, updated_at, published_at
+         FROM news
+         WHERE is_published = 1
+         ORDER BY published_at DESC, id DESC`
+      )
+      .all<{ slug: string; updated_at: string; published_at: string }>()
+
+    for (const row of news.results || []) {
+      urls.push({
+        loc: `${siteUrl}/news/${row.slug}`,
+        lastmod: (row.updated_at || row.published_at)?.slice(0, 10)
       })
     }
   } catch {
