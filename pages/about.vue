@@ -8,13 +8,7 @@
     </section>
 
     <section v-motion-slide-visible-once-bottom class="section intro">
-      <div class="container intro-grid">
-        <div class="intro-copy">
-          <h2 class="intro-title">{{ $t('about.intro.title') }}</h2>
-          <p class="intro-desc">{{ $t('about.intro.p1') }}</p>
-          <p class="intro-desc">{{ $t('about.intro.p2') }}</p>
-          <p class="intro-desc">{{ $t('about.intro.p3') }}</p>
-        </div>
+      <div class="container intro-stack">
         <div class="intro-panel">
           <video
             class="intro-panel-video"
@@ -25,6 +19,12 @@
             playsinline
             controls
           ></video>
+        </div>
+        <div class="intro-copy">
+          <h2 class="intro-title">{{ $t('about.intro.title') }}</h2>
+          <p class="intro-desc">{{ $t('about.intro.p1') }}</p>
+          <p class="intro-desc">{{ $t('about.intro.p2') }}</p>
+          <p class="intro-desc">{{ $t('about.intro.p3') }}</p>
         </div>
       </div>
     </section>
@@ -167,15 +167,13 @@ const milestones = computed(() => {
   .intro {
     background: #ffffff;
 
-    .intro-grid {
+    .intro-stack {
       display: grid;
       grid-template-columns: 1fr;
       gap: 32px;
-      align-items: start;
 
-      @media (min-width: 960px) {
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 48px;
+      @media (min-width: 768px) {
+        gap: 40px;
       }
     }
 

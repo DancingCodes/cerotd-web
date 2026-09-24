@@ -1,4 +1,4 @@
-const staticPaths = ['/', '/about', '/products', '/services', '/advantages', '/contact']
+const staticPaths = ['/', '/about', '/products', '/news', '/services', '/advantages', '/contact']
 
 export default defineEventHandler(async (event) => {
   const siteUrl = getSiteUrl(event)

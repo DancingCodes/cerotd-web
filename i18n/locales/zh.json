@@ -13,7 +13,8 @@
     "getInTouch": "立即咨询",
     "placeholderNote": "内容占位，后续可替换为正式信息",
     "mediaBlank": "图片",
-    "logoBlank": "Logo"
+    "logoBlank": "Logo",
+    "news": "新闻"
   },
   "nav": {
     "language": "语言"
@@ -497,7 +498,9 @@
       "products": "产品",
       "viewSite": "查看网站",
       "logout": "退出",
-      "lang": "EN"
+      "lang": "EN",
+      "news": "新闻",
+      "inquiries": "留言"
     },
     "login": {
       "title": "后台登录",
@@ -559,6 +562,45 @@
       "specsEn": "英文规格（每行一条）",
       "specsZh": "中文规格（每行一条）",
       "deleteConfirm": "确认删除产品“{name}”？"
+    },
+    "news": {
+      "title": "新闻管理",
+      "subtitle": "管理公司新闻与文章内容。",
+      "new": "新建文章",
+      "createTitle": "创建文章",
+      "editTitle": "编辑文章",
+      "empty": "暂无文章。",
+      "titleEn": "英文标题",
+      "titleZh": "中文标题",
+      "category": "分类",
+      "publishedAt": "发布时间",
+      "summaryEn": "英文摘要",
+      "summaryZh": "中文摘要",
+      "contentEn": "英文正文",
+      "contentZh": "中文正文",
+      "imageHint": "目前通过图片 URL 插入，后续可接入上传服务。",
+      "deleteConfirm": "确认删除文章“{name}”？"
+    },
+    "inquiries": {
+      "title": "客户留言",
+      "subtitle": "网站联系表单提交记录。",
+      "refresh": "刷新",
+      "empty": "暂无留言。",
+      "view": "查看",
+      "hide": "收起",
+      "email": "邮箱",
+      "phone": "电话",
+      "country": "国家/地区",
+      "product": "产品",
+      "im": "即时通讯",
+      "bulk": "批量采购",
+      "locale": "语言",
+      "message": "留言内容",
+      "noCompany": "未填公司",
+      "noMessage": "无留言内容",
+      "bulkYes": "是",
+      "bulkNo": "否",
+      "deleteConfirm": "确认删除来自“{name}”的留言？"
     }
   },
   "seo": {
@@ -587,6 +629,29 @@
     "contact": {
       "title": "联系 Cerotd",
       "description": "联系 Cerotd 获取产品参数、OEM 合作与批量采购咨询。"
+    },
+    "news": {
+      "title": "公司新闻",
+      "description": "Cerotd 公司动态、产品发布、行业观察与展会资讯。"
+    }
+  },
+  "news": {
+    "hero": {
+      "title": "新闻与洞察",
+      "subtitle": "来自 Cerotd 的公司动态、产品发布与行业观察。"
+    },
+    "listTitle": "最新文章",
+    "listSubtitle": "了解制造、产品与市场相关进展。",
+    "filterAll": "全部",
+    "loading": "正在加载新闻...",
+    "empty": "暂无已发布文章。",
+    "backToList": "返回新闻列表",
+    "detailCta": "联系我们的团队",
+    "categories": {
+      "company": "公司动态",
+      "product": "产品资讯",
+      "industry": "行业观察",
+      "event": "展会活动"
     }
   }
 }

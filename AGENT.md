@@ -67,6 +67,8 @@
 - 关于
 - 产品列表 `/products`
 - 产品详情 `/products/[slug]`
+- 新闻列表 `/news`
+- 新闻详情 `/news/[slug]`
 - 服务
 - 优势
 - 联系
@@ -123,12 +125,15 @@
 - 本地开发通过 `nitro-cloudflare-dev` + `wrangler.toml` 使用本地 D1
 - 分类接口：`/api/categories`
 - 产品接口：`/api/products`
+- 新闻接口：`/api/news`（公开列表/详情；写接口需 admin token）
 - 联系接口：`/api/contact`（公开 POST，写入 D1 `inquiries`）
-- 管理后台：`/admin`（登录后管理分类与产品，支持中英文切换）
+- 管理后台：`/admin`（登录后管理分类、产品、新闻与留言，支持中英文切换）
+- 留言查看：`/admin/inquiries`（读取 D1 `inquiries`）
 - 写接口（POST/PUT/DELETE）需要请求头 `Authorization: Bearer <ADMIN_API_TOKEN>`
 - `ADMIN_API_TOKEN` 是 Cloudflare Worker Secret（生产环境在控制台配置），本地写在 `.dev.vars`；不要把真实 token 提交进仓库
 - 本地可复制 `.dev.vars.example` 为 `.dev.vars`
 - 图片先存 URL 字段（如 `cover_url` / `images`），对象存储（R2）后续再接，暂不做上传
+- 新闻正文使用 TipTap 富文本（HTML）；正文插图当前通过 URL 插入，后续可接上传服务
 
 ## 部署与域名
 

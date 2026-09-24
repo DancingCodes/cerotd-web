@@ -60,6 +60,7 @@ const navItems: NavItem[] = [
   { to: '/', label: 'common.home' },
   { to: '/about', label: 'common.about' },
   { to: '/products', label: 'common.products' },
+  { to: '/news', label: 'common.news' },
   { to: '/services', label: 'common.services' },
   { to: '/advantages', label: 'common.advantages' },
   { to: '/contact', label: 'common.contact' }

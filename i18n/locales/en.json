@@ -13,7 +13,8 @@
     "getInTouch": "Get In Touch",
     "placeholderNote": "Placeholder content for later replacement",
     "mediaBlank": "Image",
-    "logoBlank": "Logo"
+    "logoBlank": "Logo",
+    "news": "News"
   },
   "nav": {
     "language": "Language"
@@ -497,7 +498,9 @@
       "products": "Products",
       "viewSite": "View site",
       "logout": "Logout",
-      "lang": "中文"
+      "lang": "中文",
+      "news": "News",
+      "inquiries": "Inquiries"
     },
     "login": {
       "title": "Admin Login",
@@ -559,6 +562,45 @@
       "specsEn": "Specs EN (one per line)",
       "specsZh": "Specs ZH (one per line)",
       "deleteConfirm": "Delete product \"{name}\"?"
+    },
+    "news": {
+      "title": "News",
+      "subtitle": "Manage company news and article content.",
+      "new": "New article",
+      "createTitle": "Create article",
+      "editTitle": "Edit article",
+      "empty": "No articles yet.",
+      "titleEn": "Title EN",
+      "titleZh": "Title ZH",
+      "category": "Category",
+      "publishedAt": "Publish time",
+      "summaryEn": "Summary EN",
+      "summaryZh": "Summary ZH",
+      "contentEn": "Content EN",
+      "contentZh": "Content ZH",
+      "imageHint": "Insert image by URL for now. Upload service can be connected later.",
+      "deleteConfirm": "Delete article \"{name}\"?"
+    },
+    "inquiries": {
+      "title": "Inquiries",
+      "subtitle": "Contact form submissions from the website.",
+      "refresh": "Refresh",
+      "empty": "No inquiries yet.",
+      "view": "View",
+      "hide": "Hide",
+      "email": "Email",
+      "phone": "Phone",
+      "country": "Country",
+      "product": "Product",
+      "im": "IM",
+      "bulk": "Bulk",
+      "locale": "Locale",
+      "message": "Message",
+      "noCompany": "No company",
+      "noMessage": "No message",
+      "bulkYes": "Yes",
+      "bulkNo": "No",
+      "deleteConfirm": "Delete inquiry from \"{name}\"?"
     }
   },
   "seo": {
@@ -587,6 +629,29 @@
     "contact": {
       "title": "Contact Cerotd",
       "description": "Contact Cerotd for product specifications, OEM cooperation and bulk lubricant inquiries."
+    },
+    "news": {
+      "title": "Company News",
+      "description": "Cerotd company updates, product launches, industry insights and exhibition news."
+    }
+  },
+  "news": {
+    "hero": {
+      "title": "News & Insights",
+      "subtitle": "Company updates, product releases and industry notes from Cerotd."
+    },
+    "listTitle": "Latest Articles",
+    "listSubtitle": "Stay informed on manufacturing, product and market developments.",
+    "filterAll": "All",
+    "loading": "Loading news...",
+    "empty": "No published articles yet.",
+    "backToList": "Back to news",
+    "detailCta": "Talk with our team",
+    "categories": {
+      "company": "Company",
+      "product": "Product",
+      "industry": "Industry",
+      "event": "Events"
     }
   }
 }

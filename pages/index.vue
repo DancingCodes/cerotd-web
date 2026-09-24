@@ -216,8 +216,8 @@ const advantages = computed(() => {
     position: relative;
     min-height: 78vh;
     display: flex;
-    align-items: flex-end;
-    padding: 140px 0 72px;
+    align-items: center;
+    padding: 120px 0 96px;
     overflow: hidden;
     color: #ffffff;
     background: var(--color-ink);
@@ -247,7 +247,7 @@ const advantages = computed(() => {
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 720px;
+      max-width: 820px;
     }
 
     .hero-badge {
@@ -261,15 +261,15 @@ const advantages = computed(() => {
 
     .hero-title {
       margin-bottom: 18px;
-      max-width: 11ch;
+      max-width: 18ch;
       font-size: 64px;
       font-weight: 600;
-      line-height: 1.02;
+      line-height: 1.06;
       letter-spacing: -0.045em;
     }
 
     .hero-subtitle {
-      max-width: 34ch;
+      max-width: 44ch;
       margin-bottom: 28px;
       color: rgba(#ffffff, 0.78);
       font-size: 18px;
@@ -758,8 +758,8 @@ const advantages = computed(() => {
   @media (max-width: 767px) {
     .hero {
       min-height: 86vh;
-      padding: 120px 0 56px;
-      align-items: flex-end;
+      padding: 110px 0 88px;
+      align-items: center;
 
       .hero-title {
         max-width: none;

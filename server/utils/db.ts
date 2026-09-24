@@ -37,6 +37,24 @@ export type ProductRow = {
   category_name_zh?: string
 }
 
+
+export type NewsRow = {
+  id: number
+  slug: string
+  category: string
+  title_en: string
+  title_zh: string
+  summary_en: string
+  summary_zh: string
+  content_en: string
+  content_zh: string
+  cover_url: string | null
+  is_published: number
+  published_at: string
+  created_at: string
+  updated_at: string
+}
+
 export function useDB(event: H3Event) {
   const db = event.context.cloudflare?.env?.DB
   if (!db) {
@@ -125,3 +143,35 @@ export const productSelectSql = `SELECT
   c.name_zh AS category_name_zh
 FROM products p
 JOIN categories c ON c.id = p.category_id`
+
+export const NEWS_CATEGORIES = ['company', 'product', 'industry', 'event'] as const
+export type NewsCategory = (typeof NEWS_CATEGORIES)[number]
+
+export function isNewsCategory(value: string): value is NewsCategory {
+  return (NEWS_CATEGORIES as readonly string[]).includes(value)
+}
+
+export function mapNews(row: NewsRow) {
+  return {
+    id: row.id,
+    slug: row.slug,
+    category: row.category,
+    title: {
+      en: row.title_en,
+      zh: row.title_zh
+    },
+    summary: {
+      en: row.summary_en,
+      zh: row.summary_zh
+    },
+    content: {
+      en: row.content_en,
+      zh: row.content_zh
+    },
+    coverUrl: row.cover_url,
+    isPublished: row.is_published === 1,
+    publishedAt: row.published_at,
+    createdAt: row.created_at,
+    updatedAt: row.updated_at
+  }
+}

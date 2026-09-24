@@ -54,6 +54,9 @@
               <NuxtLink to="/advantages" class="footer-link">{{ $t('footer.ourAdvantages') }}</NuxtLink>
             </li>
             <li class="footer-item">
+              <NuxtLink to="/news" class="footer-link">{{ $t('common.news') }}</NuxtLink>
+            </li>
+            <li class="footer-item">
               <NuxtLink to="/contact" class="footer-link">{{ $t('common.contact') }}</NuxtLink>
             </li>
           </ul>
