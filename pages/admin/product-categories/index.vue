@@ -2,15 +2,15 @@
   <div class="admin-page">
     <div class="admin-page-header">
       <div>
-        <div class="admin-page-title">{{ $t('admin.categories.title') }}</div>
-        <div class="admin-page-subtitle">{{ $t('admin.categories.subtitle') }}</div>
+        <div class="admin-page-title">{{ $t('admin.productCategories.title') }}</div>
+        <div class="admin-page-subtitle">{{ $t('admin.productCategories.subtitle') }}</div>
       </div>
-      <div class="admin-page-btn" @click="startCreate">{{ $t('admin.categories.new') }}</div>
+      <div class="admin-page-btn" @click="startCreate">{{ $t('admin.productCategories.new') }}</div>
     </div>
 
     <div v-if="formOpen" class="admin-form-card">
       <div class="admin-form-title">
-        {{ editingSlug ? $t('admin.categories.editTitle') : $t('admin.categories.createTitle') }}
+        {{ editingSlug ? $t('admin.productCategories.editTitle') : $t('admin.productCategories.createTitle') }}
       </div>
       <div class="admin-form-grid">
         <label class="admin-field">
@@ -30,16 +30,16 @@
           <input v-model.number="form.sortOrder" class="admin-field-input" type="number" />
         </label>
         <label class="admin-field admin-field-full">
-          <div class="admin-field-label">{{ $t('admin.categories.descEn') }}</div>
+          <div class="admin-field-label">{{ $t('admin.productCategories.descEn') }}</div>
           <textarea v-model="form.descEn" class="admin-field-textarea" rows="3" />
         </label>
         <label class="admin-field admin-field-full">
-          <div class="admin-field-label">{{ $t('admin.categories.descZh') }}</div>
+          <div class="admin-field-label">{{ $t('admin.productCategories.descZh') }}</div>
           <textarea v-model="form.descZh" class="admin-field-textarea" rows="3" />
         </label>
         <div class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.common.coverUrl') }}</div>
-          <AdminImageUpload v-model="form.coverUrl" folder="categories" :placeholder="$t('admin.upload.placeholder')" />
+          <AdminImageUpload v-model="form.coverUrl" folder="product-categories" :placeholder="$t('admin.upload.placeholder')" />
         </div>
         <label class="admin-field">
           <div class="admin-field-label">{{ $t('admin.common.published') }}</div>
@@ -58,7 +58,7 @@
 
     <div class="admin-table-card">
       <div v-if="pending" class="admin-empty">{{ $t('admin.common.loading') }}</div>
-      <div v-else-if="!items.length" class="admin-empty">{{ $t('admin.categories.empty') }}</div>
+      <div v-else-if="!items.length" class="admin-empty">{{ $t('admin.productCategories.empty') }}</div>
       <div v-else class="admin-table">
         <div class="admin-table-row admin-table-head">
           <div>{{ $t('admin.common.name') }}</div>
@@ -132,7 +132,7 @@ function secondaryName(name: Localized) {
 async function load() {
   pending.value = true
   try {
-    const data = await $fetch<{ items: CategoryItem[] }>('/api/categories?all=1', {
+    const data = await $fetch<{ items: CategoryItem[] }>('/api/product-categories?all=1', {
       headers: authHeaders()
     })
     items.value = data.items
@@ -184,13 +184,13 @@ async function save() {
 
   try {
     if (editingSlug.value) {
-      await $fetch(`/api/categories/${editingSlug.value}`, {
+      await $fetch(`/api/product-categories/${editingSlug.value}`, {
         method: 'PUT',
         headers: authHeaders(),
         body: payload
       })
     } else {
-      await $fetch('/api/categories', {
+      await $fetch('/api/product-categories', {
         method: 'POST',
         headers: authHeaders(),
         body: payload
@@ -204,9 +204,9 @@ async function save() {
 }
 
 async function remove(item: CategoryItem) {
-  if (!window.confirm(t('admin.categories.deleteConfirm', { name: lt(item.name) }))) return
+  if (!window.confirm(t('admin.productCategories.deleteConfirm', { name: lt(item.name) }))) return
   try {
-    await $fetch(`/api/categories/${item.slug}`, {
+    await $fetch(`/api/product-categories/${item.slug}`, {
       method: 'DELETE',
       headers: authHeaders()
     })

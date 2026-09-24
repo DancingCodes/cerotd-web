@@ -123,7 +123,7 @@
   - database_id：`f1c1d1b6-4952-401e-a005-49cad234dfa6`
   - migrations：`database/migrations`
 - 本地开发通过 `nitro-cloudflare-dev` + `wrangler.toml` 使用本地 D1
-- 分类接口：`/api/categories`
+- 产品分类接口：`/api/product-categories`（表：`products_categories`；后台 `/admin/product-categories`）
 - 产品接口：`/api/products`
 - 新闻接口：`/api/news`（公开列表/详情；写接口需 admin token）
 - 新闻分类：`/api/news-categories`（前台公开已发布分类；后台可增删改）

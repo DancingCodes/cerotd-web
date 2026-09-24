@@ -189,7 +189,7 @@ async function load() {
   try {
     const [productData, categoryData] = await Promise.all([
       $fetch<{ items: ProductItem[] }>('/api/products?all=1', { headers: authHeaders() }),
-      $fetch<{ items: CategoryItem[] }>('/api/categories?all=1', { headers: authHeaders() })
+      $fetch<{ items: CategoryItem[] }>('/api/product-categories?all=1', { headers: authHeaders() })
     ])
     items.value = productData.items
     categories.value = categoryData.items

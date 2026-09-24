@@ -47,7 +47,7 @@ export default defineEventHandler(async (event) => {
   let categoryId = current.category_id
   if (body.categorySlug?.trim()) {
     const category = await db
-      .prepare('SELECT id FROM categories WHERE slug = ?')
+      .prepare('SELECT id FROM products_categories WHERE slug = ?')
       .bind(body.categorySlug.trim())
       .first<{ id: number }>()
     if (!category) {

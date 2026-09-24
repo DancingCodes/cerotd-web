@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const current = await db
-    .prepare('SELECT * FROM categories WHERE slug = ?')
+    .prepare('SELECT * FROM products_categories WHERE slug = ?')
     .bind(currentSlug)
     .first<CategoryRow>()
 
@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
   }
 
   if (nextSlug !== current.slug) {
-    const conflict = await db.prepare('SELECT id FROM categories WHERE slug = ?').bind(nextSlug).first()
+    const conflict = await db.prepare('SELECT id FROM products_categories WHERE slug = ?').bind(nextSlug).first()
     if (conflict) {
       throw createError({ statusCode: 409, statusMessage: 'slug already exists' })
     }
@@ -50,7 +50,7 @@ export default defineEventHandler(async (event) => {
 
   const updated = await db
     .prepare(
-      `UPDATE categories
+      `UPDATE products_categories
        SET slug = ?, name_en = ?, name_zh = ?, desc_en = ?, desc_zh = ?, cover_url = ?, sort_order = ?, is_published = ?, updated_at = datetime('now')
        WHERE id = ?
        RETURNING *`

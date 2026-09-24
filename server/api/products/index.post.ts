@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const category = await db
-    .prepare('SELECT id FROM categories WHERE slug = ?')
+    .prepare('SELECT id FROM products_categories WHERE slug = ?')
     .bind(categorySlug)
     .first<{ id: number }>()
   if (!category) {

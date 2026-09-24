@@ -5,7 +5,7 @@
         <NuxtLink to="/admin" class="admin-brand">{{ $t('admin.brand') }}</NuxtLink>
         <div class="admin-nav">
           <template v-if="isReady">
-            <NuxtLink to="/admin/categories" class="admin-nav-link">{{ $t('admin.nav.categories') }}</NuxtLink>
+            <NuxtLink to="/admin/product-categories" class="admin-nav-link">{{ $t('admin.nav.productCategories') }}</NuxtLink>
             <NuxtLink to="/admin/products" class="admin-nav-link">{{ $t('admin.nav.products') }}</NuxtLink>
             <NuxtLink to="/admin/news-categories" class="admin-nav-link">{{ $t('admin.nav.newsCategories') }}</NuxtLink>
             <NuxtLink to="/admin/news" class="admin-nav-link">{{ $t('admin.nav.news') }}</NuxtLink>

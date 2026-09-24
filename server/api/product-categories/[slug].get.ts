@@ -12,9 +12,9 @@ export default defineEventHandler(async (event) => {
   }
 
   const row = includeUnpublished
-    ? await db.prepare('SELECT * FROM categories WHERE slug = ?').bind(slug).first<CategoryRow>()
+    ? await db.prepare('SELECT * FROM products_categories WHERE slug = ?').bind(slug).first<CategoryRow>()
     : await db
-        .prepare('SELECT * FROM categories WHERE slug = ? AND is_published = 1')
+        .prepare('SELECT * FROM products_categories WHERE slug = ? AND is_published = 1')
         .bind(slug)
         .first<CategoryRow>()
 

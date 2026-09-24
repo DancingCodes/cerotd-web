@@ -496,14 +496,14 @@
   "admin": {
     "brand": "Cerotd 后台",
     "nav": {
-      "categories": "分类",
       "products": "产品",
       "viewSite": "查看网站",
       "logout": "退出",
       "lang": "EN",
       "news": "新闻",
       "inquiries": "留言",
-      "newsCategories": "新闻分类"
+      "newsCategories": "新闻分类",
+      "productCategories": "产品分类"
     },
     "login": {
       "title": "后台登录",
@@ -536,17 +536,6 @@
       "nameZh": "中文名称",
       "coverUrl": "封面 URL",
       "autoSlug": "可留空，按英文名自动生成"
-    },
-    "categories": {
-      "title": "分类管理",
-      "subtitle": "创建、编辑、发布和排序产品分类。",
-      "new": "新建分类",
-      "editTitle": "编辑分类",
-      "createTitle": "新建分类",
-      "empty": "暂无分类。",
-      "descEn": "英文描述",
-      "descZh": "中文描述",
-      "deleteConfirm": "确认删除分类“{name}”？"
     },
     "products": {
       "title": "产品管理",
@@ -633,6 +622,17 @@
       "editTitle": "编辑分类",
       "createTitle": "新建分类",
       "empty": "暂无新闻分类。",
+      "deleteConfirm": "确认删除分类“{name}”？"
+    },
+    "productCategories": {
+      "title": "产品分类",
+      "subtitle": "管理产品目录使用的分类。",
+      "new": "新建分类",
+      "editTitle": "编辑分类",
+      "createTitle": "新建分类",
+      "empty": "暂无分类。",
+      "descEn": "英文描述",
+      "descZh": "中文描述",
       "deleteConfirm": "确认删除分类“{name}”？"
     }
   },

@@ -116,7 +116,7 @@ function setCategory(slug: string) {
   })
 }
 
-const { data: categoriesData } = await useFetch<{ items: CategoryItem[] }>('/api/categories', {
+const { data: categoriesData } = await useFetch<{ items: CategoryItem[] }>('/api/product-categories', {
   key: 'products-categories'
 })
 const categoryList = computed(() => categoriesData.value?.items || [])

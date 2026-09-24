@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'slug is required' })
   }
 
-  const current = await db.prepare('SELECT id FROM categories WHERE slug = ?').bind(slug).first<{ id: number }>()
+  const current = await db.prepare('SELECT id FROM products_categories WHERE slug = ?').bind(slug).first<{ id: number }>()
   if (!current) {
     throw createError({ statusCode: 404, statusMessage: 'Category not found' })
   }
@@ -19,6 +19,6 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 409, statusMessage: 'Category has products. Delete or move them first.' })
   }
 
-  await db.prepare('DELETE FROM categories WHERE slug = ?').bind(slug).run()
+  await db.prepare('DELETE FROM products_categories WHERE slug = ?').bind(slug).run()
   return { ok: true }
 })

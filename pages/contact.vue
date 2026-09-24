@@ -137,7 +137,7 @@ usePageSeo({
   path: '/contact'
 })
 
-const { data } = await useFetch<{ items: CategoryItem[] }>('/api/categories', {
+const { data } = await useFetch<{ items: CategoryItem[] }>('/api/product-categories', {
   key: 'contact-categories'
 })
 const productOptions = computed(() => data.value?.items || [])

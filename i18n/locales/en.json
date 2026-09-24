@@ -496,14 +496,14 @@
   "admin": {
     "brand": "Cerotd Admin",
     "nav": {
-      "categories": "Categories",
       "products": "Products",
       "viewSite": "View site",
       "logout": "Logout",
       "lang": "中文",
       "news": "News",
       "inquiries": "Inquiries",
-      "newsCategories": "News Categories"
+      "newsCategories": "News Categories",
+      "productCategories": "Product Categories"
     },
     "login": {
       "title": "Admin Login",
@@ -536,17 +536,6 @@
       "nameZh": "Name ZH",
       "coverUrl": "Cover URL",
       "autoSlug": "auto from name EN"
-    },
-    "categories": {
-      "title": "Categories",
-      "subtitle": "Create, edit, publish and sort product categories.",
-      "new": "New category",
-      "editTitle": "Edit category",
-      "createTitle": "New category",
-      "empty": "No categories yet.",
-      "descEn": "Desc EN",
-      "descZh": "Desc ZH",
-      "deleteConfirm": "Delete category \"{name}\"?"
     },
     "products": {
       "title": "Products",
@@ -633,6 +622,17 @@
       "editTitle": "Edit category",
       "createTitle": "Create category",
       "empty": "No news categories yet.",
+      "deleteConfirm": "Delete category \"{name}\"?"
+    },
+    "productCategories": {
+      "title": "Product Categories",
+      "subtitle": "Manage product categories for the catalog.",
+      "new": "New category",
+      "editTitle": "Edit category",
+      "createTitle": "New category",
+      "empty": "No categories yet.",
+      "descEn": "Desc EN",
+      "descZh": "Desc ZH",
       "deleteConfirm": "Delete category \"{name}\"?"
     }
   },

@@ -8,8 +8,8 @@ export default defineEventHandler(async (event) => {
   }
 
   const sql = includeUnpublished
-    ? 'SELECT * FROM categories ORDER BY sort_order ASC, id ASC'
-    : 'SELECT * FROM categories WHERE is_published = 1 ORDER BY sort_order ASC, id ASC'
+    ? 'SELECT * FROM products_categories ORDER BY sort_order ASC, id ASC'
+    : 'SELECT * FROM products_categories WHERE is_published = 1 ORDER BY sort_order ASC, id ASC'
 
   const result = await db.prepare(sql).all<CategoryRow>()
   return {

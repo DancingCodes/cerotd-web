@@ -142,7 +142,7 @@ export const productSelectSql = `SELECT
   c.name_en AS category_name_en,
   c.name_zh AS category_name_zh
 FROM products p
-JOIN categories c ON c.id = p.category_id`
+JOIN products_categories c ON c.id = p.category_id`
 
 export type NewsCategoryRow = {
   id: number

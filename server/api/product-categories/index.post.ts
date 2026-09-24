@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'slug is required' })
   }
 
-  const existing = await db.prepare('SELECT id FROM categories WHERE slug = ?').bind(slug).first()
+  const existing = await db.prepare('SELECT id FROM products_categories WHERE slug = ?').bind(slug).first()
   if (existing) {
     throw createError({ statusCode: 409, statusMessage: 'slug already exists' })
   }
@@ -38,7 +38,7 @@ export default defineEventHandler(async (event) => {
 
   const inserted = await db
     .prepare(
-      `INSERT INTO categories (slug, name_en, name_zh, desc_en, desc_zh, cover_url, sort_order, is_published)
+      `INSERT INTO products_categories (slug, name_en, name_zh, desc_en, desc_zh, cover_url, sort_order, is_published)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
        RETURNING *`
     )
