@@ -1,0 +1,72 @@
+*** Begin Patch
+*** Update File: pages/news/index.vue
+@@
+         <p v-if="pending" class="state-text">{{ $t('news.loading') }}</p>
+         <p v-else-if="!newsList.length" class="state-text">{{ $t('news.empty') }}</p>
+-        <div v-else class="news-grid">
+-          <NuxtLink
+-            v-for="item in newsList"
+-            :key="item.slug"
+-            :to="`/news/${item.slug}`"
+-            class="news-card"
+-          >
+-            <div class="news-card-media">
+-              <img
+-                class="news-card-image"
+-                :src="item.coverUrl || '/images/factory/plant.webp'"
+-                :alt="t(item.title)"
+-                loading="lazy"
+-                decoding="async"
+-              />
+-            </div>
+-            <div class="news-card-body">
+-              <div class="news-card-meta">
+-                <span class="news-card-category">{{ categoryLabel(item.category) }}</span>
+-                <time class="news-card-date" :datetime="item.publishedAt">{{ formatDate(item.publishedAt) }}</time>
+-              </div>
+-              <h3 class="news-card-title">{{ t(item.title) }}</h3>
+-              <p class="news-card-desc">{{ t(item.summary) }}</p>
+-              <span class="news-card-link">{{ $t('common.learnMore') }}</span>
+-            </div>
+-          </NuxtLink>
+-        </div>
++        <template v-else>
++          <div class="news-grid">
++            <NuxtLink
++              v-for="item in newsList"
++              :key="item.slug"
++              :to="`/news/${item.slug}`"
++              class="news-card"
++            >
++              <div class="news-card-media">
++                <img
++                  class="news-card-image"
++                  :src="item.coverUrl || '/images/factory/plant.webp'"
++                  :alt="t(item.title)"
++                  loading="lazy"
++                  decoding="async"
++                />
++              </div>
++              <div class="news-card-body">
++                <div class="news-card-meta">
++                  <span class="news-card-category">{{ categoryLabel(item.category) }}</span>
++                  <time class="news-card-date" :datetime="item.publishedAt">{{ formatDate(item.publishedAt) }}</time>
++                </div>
++                <h3 class="news-card-title">{{ t(item.title) }}</h3>
++                <p class="news-card-desc">{{ t(item.summary) }}</p>
++                <span class="news-card-link">{{ $t('common.learnMore') }}</span>
++              </div>
++            </NuxtLink>
++          </div>
++          <div v-if="hasMore" class="load-more">
++            <button
++              type="button"
++              class="load-more-btn"
++              :disabled="loadingMore"
++              @click="loadMore"
++            >
++              {{ loadingMore ? $t('common.loadingMore') : $t('common.showMore') }}
++            </button>
++          </div>
++        </template>
+*** End Patch

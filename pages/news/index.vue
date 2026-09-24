@@ -41,33 +41,45 @@
 
         <p v-if="pending" class="state-text">{{ $t('news.loading') }}</p>
         <p v-else-if="!newsList.length" class="state-text">{{ $t('news.empty') }}</p>
-        <div v-else class="news-grid">
-          <NuxtLink
-            v-for="item in newsList"
-            :key="item.slug"
-            :to="`/news/${item.slug}`"
-            class="news-card"
-          >
-            <div class="news-card-media">
-              <img
-                class="news-card-image"
-                :src="item.coverUrl || '/images/factory/plant.webp'"
-                :alt="t(item.title)"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div class="news-card-body">
-              <div class="news-card-meta">
-                <span class="news-card-category">{{ categoryLabel(item.category) }}</span>
-                <time class="news-card-date" :datetime="item.publishedAt">{{ formatDate(item.publishedAt) }}</time>
+        <template v-else>
+          <div class="news-grid">
+            <NuxtLink
+              v-for="item in newsList"
+              :key="item.slug"
+              :to="`/news/${item.slug}`"
+              class="news-card"
+            >
+              <div class="news-card-media">
+                <img
+                  class="news-card-image"
+                  :src="item.coverUrl || '/images/factory/plant.webp'"
+                  :alt="t(item.title)"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-              <h3 class="news-card-title">{{ t(item.title) }}</h3>
-              <p class="news-card-desc">{{ t(item.summary) }}</p>
-              <span class="news-card-link">{{ $t('common.learnMore') }}</span>
-            </div>
-          </NuxtLink>
-        </div>
+              <div class="news-card-body">
+                <div class="news-card-meta">
+                  <span class="news-card-category">{{ categoryLabel(item.category) }}</span>
+                  <time class="news-card-date" :datetime="item.publishedAt">{{ formatDate(item.publishedAt) }}</time>
+                </div>
+                <h3 class="news-card-title">{{ t(item.title) }}</h3>
+                <p class="news-card-desc">{{ t(item.summary) }}</p>
+                <span class="news-card-link">{{ $t('common.learnMore') }}</span>
+              </div>
+            </NuxtLink>
+          </div>
+          <div v-if="hasMore" class="load-more">
+            <button
+              type="button"
+              class="load-more-btn"
+              :disabled="loadingMore"
+              @click="loadMore"
+            >
+              {{ loadingMore ? $t('common.loadingMore') : $t('common.showMore') }}
+            </button>
+          </div>
+        </template>
       </div>
     </section>
   </div>
@@ -129,17 +141,66 @@ function formatDate(value: string) {
   }).format(date)
 }
 
-const { data, pending } = await useFetch<{ items: NewsItem[] }>(
-  () => {
-    const category = selectedCategory.value
-    return category ? `/api/news?category=${encodeURIComponent(category)}` : '/api/news'
+const pageSize = 6
+type NewsListResponse = {
+  items: NewsItem[]
+  total?: number
+  page?: number
+  pageSize?: number
+}
+
+const newsList = ref<NewsItem[]>([])
+const total = ref(0)
+const page = ref(1)
+const loadingMore = ref(false)
+const hasMore = computed(() => newsList.value.length < total.value)
+
+const listUrl = computed(() => {
+  const params = new URLSearchParams({
+    page: '1',
+    pageSize: String(pageSize)
+  })
+  if (selectedCategory.value) params.set('category', selectedCategory.value)
+  return `/api/news?${params.toString()}`
+})
+
+const { data, pending } = await useFetch<NewsListResponse>(listUrl, {
+  key: () => `news-list-${selectedCategory.value || 'all'}`,
+  watch: [selectedCategory]
+})
+
+watch(
+  data,
+  (value) => {
+    newsList.value = value?.items || []
+    total.value = Number(value?.total || newsList.value.length)
+    page.value = 1
   },
-  {
-    key: () => `news-list-${selectedCategory.value || 'all'}`,
-    watch: [selectedCategory]
-  }
+  { immediate: true }
 )
-const newsList = computed(() => data.value?.items || [])
+
+async function loadMore() {
+  if (loadingMore.value || !hasMore.value) return
+  loadingMore.value = true
+  try {
+    const nextPage = page.value + 1
+    const params = new URLSearchParams({
+      page: String(nextPage),
+      pageSize: String(pageSize)
+    })
+    if (selectedCategory.value) params.set('category', selectedCategory.value)
+    const res = await $fetch<NewsListResponse>(`/api/news?${params.toString()}`)
+    const existing = new Set(newsList.value.map((item) => item.slug))
+    newsList.value = [
+      ...newsList.value,
+      ...(res.items || []).filter((item) => !existing.has(item.slug))
+    ]
+    total.value = Number(res.total || total.value)
+    page.value = nextPage
+  } finally {
+    loadingMore.value = false
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -215,6 +276,35 @@ const newsList = computed(() => data.value?.items || [])
   .state-text {
     color: #6b7280;
     font-size: 15px;
+  }
+
+  .load-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
+
+  .load-more-btn {
+    min-height: 44px;
+    padding: 0 22px;
+    border-radius: 999px;
+    border: 1px solid #d7dde5;
+    background: #ffffff;
+    color: #0f4c56;
+    font-size: 14px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .load-more-btn:hover:not(:disabled) {
+    border-color: rgba(63, 127, 136, 0.45);
+    background: rgba(63, 127, 136, 0.08);
+  }
+
+  .load-more-btn:disabled {
+    opacity: 0.65;
+    cursor: wait;
   }
 
   .filter-bar {
