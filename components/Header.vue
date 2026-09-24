@@ -58,11 +58,11 @@ const mobileMenuOpen = ref(false)
 
 const navItems: NavItem[] = [
   { to: '/', label: 'common.home' },
-  { to: '/about', label: 'common.about' },
   { to: '/products', label: 'common.products' },
-  { to: '/news', label: 'common.news' },
   { to: '/services', label: 'common.services' },
   { to: '/advantages', label: 'common.advantages' },
+  { to: '/about', label: 'common.about' },
+  { to: '/news', label: 'common.news' },
   { to: '/contact', label: 'common.contact' }
 ]
 
