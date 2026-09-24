@@ -484,7 +484,7 @@
     },
     "products": {
       "title": "产品管理",
-      "subtitle": "管理前台产品页使用的内容。",
+      "subtitle": "管理前台产品页使用的内容",
       "new": "新建产品",
       "editTitle": "编辑产品",
       "createTitle": "新建产品",
@@ -503,7 +503,7 @@
     },
     "news": {
       "title": "新闻管理",
-      "subtitle": "管理公司新闻与文章内容。",
+      "subtitle": "管理公司新闻与文章内容",
       "new": "新建文章",
       "createTitle": "创建文章",
       "editTitle": "编辑文章",
@@ -524,7 +524,7 @@
     },
     "inquiries": {
       "title": "客户留言",
-      "subtitle": "网站联系表单提交记录。",
+      "subtitle": "网站联系表单提交记录",
       "refresh": "刷新",
       "empty": "暂无留言。",
       "view": "查看",
@@ -567,7 +567,7 @@
     },
     "newsCategories": {
       "title": "新闻分类",
-      "subtitle": "管理新闻文章使用的分类。",
+      "subtitle": "管理新闻文章使用的分类",
       "new": "新建分类",
       "editTitle": "编辑分类",
       "createTitle": "新建分类",
@@ -576,7 +576,7 @@
     },
     "productCategories": {
       "title": "产品分类",
-      "subtitle": "管理产品目录使用的分类。",
+      "subtitle": "管理产品目录使用的分类",
       "new": "新建分类",
       "editTitle": "编辑分类",
       "createTitle": "新建分类",

@@ -481,9 +481,37 @@ onMounted(load)
     white-space: nowrap;
   }
 
-  .admin-page-btn-muted {
+    .admin-page-btn-muted {
     background: #eef1f4;
     color: #374151;
+  }
+
+  .admin-page-btn-danger {
+    background: #b42318;
+  }
+
+  .admin-page-btn.is-disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .admin-page-header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .admin-table-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
   }
 
   .admin-form-card,

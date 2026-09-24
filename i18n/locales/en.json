@@ -484,7 +484,7 @@
     },
     "products": {
       "title": "Products",
-      "subtitle": "Manage product content used by the public product pages.",
+      "subtitle": "Manage product content used by the public product pages",
       "new": "New product",
       "editTitle": "Edit product",
       "createTitle": "New product",
@@ -503,7 +503,7 @@
     },
     "news": {
       "title": "News",
-      "subtitle": "Manage company news and article content.",
+      "subtitle": "Manage company news and article content",
       "new": "New article",
       "createTitle": "Create article",
       "editTitle": "Edit article",
@@ -524,7 +524,7 @@
     },
     "inquiries": {
       "title": "Inquiries",
-      "subtitle": "Contact form submissions from the website.",
+      "subtitle": "Contact form submissions from the website",
       "refresh": "Refresh",
       "empty": "No inquiries yet.",
       "view": "View",
@@ -567,7 +567,7 @@
     },
     "newsCategories": {
       "title": "News Categories",
-      "subtitle": "Manage categories used by news articles.",
+      "subtitle": "Manage categories used by news articles",
       "new": "New category",
       "editTitle": "Edit category",
       "createTitle": "Create category",
@@ -576,7 +576,7 @@
     },
     "productCategories": {
       "title": "Product Categories",
-      "subtitle": "Manage product categories for the catalog.",
+      "subtitle": "Manage product categories for the catalog",
       "new": "New category",
       "editTitle": "Edit category",
       "createTitle": "New category",
