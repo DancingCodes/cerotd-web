@@ -31,12 +31,12 @@ export function extensionForType(type: string) {
 }
 
 export function buildObjectKey(folder: string, contentType: string) {
-  const safeFolder = folder.replace(/[^a-z0-9/_-]/gi, '').replace(/^/+|/+$/g, '') || 'uploads'
+  const safeFolder = folder.replace(/[^a-z0-9/_-]/gi, '').replace(/^\/+|\/+$/g, '') || 'uploads'
   const id = crypto.randomUUID()
-  return `${safeFolder}/${id}.${extensionForType(contentType)}`
+  return safeFolder + '/' + id + '.' + extensionForType(contentType)
 }
 
 export function publicMediaUrl(event: H3Event, key: string) {
   const siteUrl = getSiteUrl(event)
-  return `${siteUrl}/cdn/${key.split('/').map(encodeURIComponent).join('/')}`
+  return siteUrl + '/cdn/' + key.split('/').map(encodeURIComponent).join('/')
 }
