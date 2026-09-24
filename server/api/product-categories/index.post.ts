@@ -25,8 +25,8 @@ export default defineEventHandler(async (event) => {
 
   const inserted = await db
     .prepare(
-      `INSERT INTO products_categories (slug, name_en, name_zh, desc_en, desc_zh, cover_url, sort_order, is_published)
-       VALUES (?, ?, ?, '', '', NULL, ?, ?)
+      `INSERT INTO products_categories (slug, name_en, name_zh, sort_order, is_published)
+       VALUES (?, ?, ?, ?, ?)
        RETURNING *`
     )
     .bind(slug, nameEn, nameZh, sortOrder, isPublished)
