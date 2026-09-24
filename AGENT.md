@@ -124,6 +124,7 @@
 - 本地开发通过 `nitro-cloudflare-dev` + `wrangler.toml` 使用本地 D1
 - 分类接口：`/api/categories`
 - 产品接口：`/api/products`
+- 联系接口：`/api/contact`（公开 POST，写入 D1 `inquiries`）
 - 管理后台：`/admin`（登录后管理分类与产品，支持中英文切换）
 - 写接口（POST/PUT/DELETE）需要请求头 `Authorization: Bearer <ADMIN_API_TOKEN>`
 - `ADMIN_API_TOKEN` 是 Cloudflare Worker Secret（生产环境在控制台配置），本地写在 `.dev.vars`；不要把真实 token 提交进仓库

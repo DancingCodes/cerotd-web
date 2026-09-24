@@ -14,8 +14,33 @@
           <p class="section-subtitle">{{ $t('products.listSubtitle') }}</p>
         </div>
 
-        <p v-if="pending" class="state-text">Loading...</p>
-        <p v-else-if="!productList.length" class="state-text">No products yet.</p>
+        <div class="filter-bar" role="tablist" :aria-label="$t('products.listTitle')">
+          <button
+            type="button"
+            class="filter-chip"
+            :class="{ 'filter-chip-active': !selectedCategory }"
+            role="tab"
+            :aria-selected="!selectedCategory"
+            @click="setCategory('')"
+          >
+            {{ $t('products.filterAll') }}
+          </button>
+          <button
+            v-for="category in categoryList"
+            :key="category.slug"
+            type="button"
+            class="filter-chip"
+            :class="{ 'filter-chip-active': selectedCategory === category.slug }"
+            role="tab"
+            :aria-selected="selectedCategory === category.slug"
+            @click="setCategory(category.slug)"
+          >
+            {{ t(category.name) }}
+          </button>
+        </div>
+
+        <p v-if="pending" class="state-text">{{ $t('products.loading') }}</p>
+        <p v-else-if="!productList.length" class="state-text">{{ $t('products.empty') }}</p>
         <div v-else class="product-grid">
           <NuxtLink
             v-for="item in productList"
@@ -27,8 +52,10 @@
               <img
                 class="product-card-image"
                 :class="{ 'product-card-image-cover': !(item.coverUrl || item.images[0]) }"
-                :src="item.coverUrl || item.images[0] || '/images/factory/plant.png'"
+                :src="item.coverUrl || item.images[0] || '/images/factory/plant.webp'"
                 :alt="t(item.name)"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="product-card-body">
@@ -66,15 +93,44 @@ type ProductItem = {
 
 const t = useLocalized()
 const { t: i18nT } = useI18n()
+const route = useRoute()
+const router = useRouter()
 
 usePageSeo({
   title: i18nT('seo.products.title'),
   description: i18nT('seo.products.description'),
   path: '/products'
 })
-const { data, pending } = await useFetch<{ items: ProductItem[] }>('/api/products', {
-  key: 'products-list'
+
+type CategoryItem = {
+  slug: string
+  name: Localized
+}
+
+const selectedCategory = computed(() => String(route.query.category || '').trim())
+
+function setCategory(slug: string) {
+  router.replace({
+    path: '/products',
+    query: slug ? { category: slug } : {}
+  })
+}
+
+const { data: categoriesData } = await useFetch<{ items: CategoryItem[] }>('/api/categories', {
+  key: 'products-categories'
 })
+const categoryList = computed(() => categoriesData.value?.items || [])
+
+const { data, pending } = await useFetch<{ items: ProductItem[] }>(
+  () => {
+    const category = selectedCategory.value
+    return category ? `/api/products?category=${encodeURIComponent(category)}` : '/api/products'
+  },
+  {
+    key: () => `products-list-${selectedCategory.value || 'all'}`,
+    watch: [selectedCategory]
+  }
+)
 const productList = computed(() => data.value?.items || [])
 </script>
 
@@ -152,6 +208,37 @@ const productList = computed(() => data.value?.items || [])
   .state-text {
     color: #6b7280;
     font-size: 15px;
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .filter-chip {
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: 1px solid #d7dde5;
+    background: #ffffff;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 550;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .filter-chip:hover {
+    border-color: #b8c2cf;
+    color: #111827;
+  }
+
+  .filter-chip.filter-chip-active {
+    border-color: rgba(63, 127, 136, 0.45);
+    background: rgba(63, 127, 136, 0.1);
+    color: #0f4c56;
   }
 
   .catalog {

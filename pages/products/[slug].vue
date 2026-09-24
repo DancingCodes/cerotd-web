@@ -18,6 +18,8 @@
                 class="gallery-main-image"
                 :src="product.images[activeIndex]"
                 :alt="t(product.name)"
+                fetchpriority="high"
+                decoding="async"
               />
               <span v-else class="gallery-blank">{{ $t('common.mediaBlank') }}</span>
             </button>
@@ -30,7 +32,7 @@
                 :class="{ 'gallery-thumb-active': index === activeIndex }"
                 @click="activeIndex = index"
               >
-                <img class="gallery-thumb-image" :src="img" :alt="t(product.name)" />
+                <img class="gallery-thumb-image" :src="img" :alt="t(product.name)" loading="lazy" decoding="async" />
               </button>
             </div>
           </div>
@@ -128,6 +130,49 @@ usePageSeo({
   description: computed(() => t(product.value!.summary) || t(product.value!.description)),
   path: `/products/${slug.value}`,
   image: computed(() => product.value?.images?.[0] || null)
+})
+
+const siteUrl = useSiteUrl()
+const productJsonLd = computed(() => {
+  if (!product.value) return null
+  const images = (product.value.images || []).map((item) =>
+    item.startsWith('http://') || item.startsWith('https://')
+      ? item
+      : `${siteUrl}${item.startsWith('/') ? item : `/${item}`}`
+  )
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: t(product.value.name),
+    description: t(product.value.summary) || t(product.value.description),
+    image: images,
+    sku: product.value.slug,
+    brand: {
+      '@type': 'Brand',
+      name: 'Cerotd'
+    },
+    category: product.value.category ? t(product.value.category.name) : undefined,
+    offers: {
+      '@type': 'Offer',
+      url: `${siteUrl}/products/${product.value.slug}`,
+      availability: 'https://schema.org/InStock',
+      priceCurrency: 'USD',
+      itemCondition: 'https://schema.org/NewCondition'
+    }
+  }
+})
+
+useHead({
+  script: computed(() =>
+    productJsonLd.value
+      ? [
+          {
+            type: 'application/ld+json',
+            children: JSON.stringify(productJsonLd.value)
+          }
+        ]
+      : []
+  )
 })
 
 const { data: listData } = await useFetch<{ items: ProductItem[] }>('/api/products', {

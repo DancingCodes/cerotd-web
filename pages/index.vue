@@ -2,7 +2,7 @@
   <div class="home-page">
     <section class="hero">
       <div class="hero-media" aria-hidden="true">
-        <img class="hero-media-image" src="/images/factory/tank-farm.png" alt="" />
+        <img class="hero-media-image" src="/images/factory/tank-farm.webp" alt="" fetchpriority="high" decoding="async" />
       </div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container hero-content hero-rise">
@@ -45,8 +45,10 @@
               <img
                 class="product-card-image"
                 :class="{ 'product-card-image-cover': !(item.coverUrl || item.images[0]) }"
-                :src="item.coverUrl || item.images[0] || '/images/factory/plant.png'"
+                :src="item.coverUrl || item.images[0] || '/images/factory/plant.webp'"
                 :alt="lt(item.name)"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="product-card-body">
@@ -61,7 +63,7 @@
     <section v-motion-slide-visible-once-bottom class="section factory">
       <div class="container factory-grid">
         <div class="factory-media">
-          <img class="factory-media-image" src="/images/factory/plant.png" alt="Cerotd plant" />
+          <img class="factory-media-image" src="/images/factory/plant.webp" alt="Cerotd plant" loading="lazy" decoding="async" />
         </div>
         <div class="factory-copy">
           <h2 class="section-title">{{ $t('home.factory.title') }}</h2>
@@ -98,7 +100,7 @@
         <div class="advantages-grid">
           <article v-for="(item, index) in advantages" :key="item.name" class="advantage-card">
             <div class="advantage-media">
-              <img class="advantage-media-image" :src="advantageImages[index]" :alt="item.name" />
+              <img class="advantage-media-image" :src="advantageImages[index]" :alt="item.name" loading="lazy" decoding="async" />
             </div>
             <div class="advantage-card-body">
               <h3 class="advantage-card-title">{{ item.name }}</h3>
@@ -117,7 +119,7 @@
         </div>
         <div class="partners-grid">
           <div v-for="logo in partnerLogos" :key="logo" class="partner-slot">
-            <img class="partner-logo" :src="logo" alt="Partner logo" />
+            <img class="partner-logo" :src="logo" alt="Partner logo" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -185,10 +187,10 @@ const partnerLogos = [
 ]
 
 const advantageImages = [
-  '/images/factory/tank-farm.png',
-  '/images/factory/plant.png',
-  '/images/factory/plant.png',
-  '/images/factory/tank-farm.png'
+  '/images/factory/tank-farm.webp',
+  '/images/factory/plant.webp',
+  '/images/factory/plant.webp',
+  '/images/factory/tank-farm.webp'
 ]
 
 const services = computed(() => {

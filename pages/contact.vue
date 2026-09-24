@@ -53,47 +53,47 @@
         <div class="form-panel">
           <h2 class="form-title">{{ $t('contact.form.title') }}</h2>
           <p class="form-notice">{{ $t('contact.form.notice') }}</p>
-          <form class="form-grid" @submit.prevent>
+          <form class="form-grid" @submit.prevent="onSubmit">
             <label class="form-field">
               <span class="form-field-label">{{ $t('contact.form.name') }}</span>
-              <input class="form-field-input" type="text" :placeholder="$t('contact.form.name')" />
+              <input v-model="form.name" class="form-field-input" type="text" name="name" autocomplete="name" required :placeholder="$t('contact.form.name')" />
             </label>
             <label class="form-field">
               <span class="form-field-label">{{ $t('contact.form.company') }}</span>
-              <input class="form-field-input" type="text" :placeholder="$t('contact.form.company')" />
+              <input v-model="form.company" class="form-field-input" type="text" name="company" autocomplete="organization" :placeholder="$t('contact.form.company')" />
             </label>
             <label class="form-field">
               <span class="form-field-label">{{ $t('contact.form.email') }}</span>
-              <input class="form-field-input" type="email" :placeholder="$t('contact.form.email')" />
+              <input v-model="form.email" class="form-field-input" type="email" name="email" autocomplete="email" :placeholder="$t('contact.form.email')" />
             </label>
             <label class="form-field">
               <span class="form-field-label">{{ $t('contact.form.phone') }}</span>
-              <input class="form-field-input" type="tel" :placeholder="$t('contact.form.phone')" />
+              <input v-model="form.phone" class="form-field-input" type="tel" name="phone" autocomplete="tel" :placeholder="$t('contact.form.phone')" />
             </label>
             <label class="form-field">
               <span class="form-field-label">{{ $t('contact.form.country') }}</span>
-              <input class="form-field-input" type="text" :placeholder="$t('contact.form.country')" />
+              <input v-model="form.country" class="form-field-input" type="text" name="country" autocomplete="country-name" :placeholder="$t('contact.form.country')" />
             </label>
             <label class="form-field">
               <span class="form-field-label">{{ $t('contact.form.im') }}</span>
-              <input class="form-field-input" type="text" :placeholder="$t('contact.form.im')" />
+              <input v-model="form.im" class="form-field-input" type="text" name="im" :placeholder="$t('contact.form.im')" />
             </label>
             <fieldset class="form-field form-field-full">
               <legend class="form-field-label">{{ $t('contact.form.bulk') }}</legend>
               <div class="form-radio-list">
                 <label class="form-radio-item">
-                  <input type="radio" name="bulk" value="yes" />
+                  <input v-model="form.bulk" type="radio" name="bulk" value="yes" />
                   <span>{{ $t('contact.form.bulkYes') }}</span>
                 </label>
                 <label class="form-radio-item">
-                  <input type="radio" name="bulk" value="no" />
+                  <input v-model="form.bulk" type="radio" name="bulk" value="no" />
                   <span>{{ $t('contact.form.bulkNo') }}</span>
                 </label>
               </div>
             </fieldset>
             <label class="form-field form-field-full">
               <span class="form-field-label">{{ $t('contact.form.product') }}</span>
-              <select class="form-field-input">
+              <select v-model="form.product" class="form-field-input" name="product">
                 <option value="">{{ $t('contact.form.productPlaceholder') }}</option>
                 <option v-for="category in productOptions" :key="category.slug" :value="category.slug">
                   {{ t(category.name) }}
@@ -102,11 +102,15 @@
             </label>
             <label class="form-field form-field-full">
               <span class="form-field-label">{{ $t('contact.form.message') }}</span>
-              <textarea class="form-field-textarea" rows="5" :placeholder="$t('contact.form.message')"></textarea>
+              <textarea v-model="form.message" class="form-field-textarea" name="message" rows="5" :placeholder="$t('contact.form.message')"></textarea>
             </label>
-            <button type="submit" class="form-submit">{{ $t('contact.form.submit') }}</button>
+            <button type="submit" class="form-submit" :disabled="submitting">
+              {{ submitting ? $t('contact.form.submitting') : $t('contact.form.submit') }}
+            </button>
           </form>
-          <p class="form-tip">{{ $t('contact.form.tip') }}</p>
+          <p v-if="submitStatus === 'success'" class="form-tip form-tip-success">{{ $t('contact.form.success') }}</p>
+          <p v-else-if="submitStatus === 'error'" class="form-tip form-tip-error">{{ submitError || $t('contact.form.error') }}</p>
+          <p v-else class="form-tip">{{ $t('contact.form.tip') }}</p>
         </div>
       </div>
     </section>
@@ -119,17 +123,89 @@ type Localized = { en: string; zh: string }
 type CategoryItem = { slug: string; name: Localized }
 
 const t = useLocalized()
-const { t: i18nT } = useI18n()
+const { locale, t: i18nT } = useI18n()
 
 usePageSeo({
   title: i18nT('seo.contact.title'),
   description: i18nT('seo.contact.description'),
   path: '/contact'
 })
+
 const { data } = await useFetch<{ items: CategoryItem[] }>('/api/categories', {
   key: 'contact-categories'
 })
 const productOptions = computed(() => data.value?.items || [])
+
+const form = reactive({
+  name: '',
+  company: '',
+  email: '',
+  phone: '',
+  country: '',
+  im: '',
+  bulk: '',
+  product: '',
+  message: ''
+})
+
+const submitting = ref(false)
+const submitStatus = ref('idle')
+const submitError = ref('')
+
+function resetForm() {
+  form.name = ''
+  form.company = ''
+  form.email = ''
+  form.phone = ''
+  form.country = ''
+  form.im = ''
+  form.bulk = ''
+  form.product = ''
+  form.message = ''
+}
+
+async function onSubmit() {
+  submitStatus.value = 'idle'
+  submitError.value = ''
+
+  if (!form.name.trim()) {
+    submitStatus.value = 'error'
+    submitError.value = i18nT('contact.form.requiredName')
+    return
+  }
+  if (!form.email.trim() && !form.phone.trim()) {
+    submitStatus.value = 'error'
+    submitError.value = i18nT('contact.form.requiredContact')
+    return
+  }
+
+  submitting.value = true
+  try {
+    await $fetch('/api/contact', {
+      method: 'POST',
+      body: {
+        name: form.name,
+        company: form.company,
+        email: form.email,
+        phone: form.phone,
+        country: form.country,
+        im: form.im,
+        bulk: form.bulk,
+        product: form.product,
+        message: form.message,
+        locale: locale.value
+      }
+    })
+    submitStatus.value = 'success'
+    resetForm()
+  } catch (error) {
+    submitStatus.value = 'error'
+    const err = error || {}
+    submitError.value = (err.data && err.data.statusMessage) || err.statusMessage || i18nT('contact.form.error')
+  } finally {
+    submitting.value = false
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -389,6 +465,11 @@ const productOptions = computed(() => data.value?.items || [])
         align-items: center;
         justify-content: center;
 
+        &:disabled {
+          opacity: 0.7;
+          cursor: wait;
+        }
+
         &:hover {
           transform: translateY(-1px);
           box-shadow: 0 12px 28px rgba(#1aa6b8, 0.24);
@@ -400,6 +481,14 @@ const productOptions = computed(() => data.value?.items || [])
         color: #6b7280;
         font-size: 13px;
         line-height: 1.6;
+      }
+
+      .form-tip.form-tip-success {
+        color: #0f766e;
+      }
+
+      .form-tip.form-tip-error {
+        color: #b42318;
       }
     }
   }

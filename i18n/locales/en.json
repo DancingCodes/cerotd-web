@@ -339,7 +339,10 @@
           "s3": "Packaging: 1-200kg"
         }
       }
-    }
+    },
+    "filterAll": "All",
+    "loading": "Loading products...",
+    "empty": "No products in this category yet."
   },
   "services": {
     "hero": {
@@ -467,7 +470,7 @@
       "phone": "Phone",
       "message": "Message",
       "submit": "Submit",
-      "tip": "This is a static placeholder form. Real submission logic can be connected later.",
+      "tip": "Our sales team usually replies within 24 hours for qualified bulk inquiries.",
       "country": "Country / Region",
       "im": "WeChat / WhatsApp / Telegram",
       "bulk": "Do you intend to purchase lubricants in bulk quantity?",
@@ -475,7 +478,12 @@
       "bulkNo": "No",
       "product": "Product Name",
       "productPlaceholder": "Select a product",
-      "notice": "Notice: We are a factory, not a retail store or a trading company; we accept only full-container or large-volume orders. Our sales team will contact you within 24 hours; please check for the message and provide a reply."
+      "notice": "Notice: We are a factory, not a retail store or a trading company; we accept only full-container or large-volume orders. Our sales team will contact you within 24 hours; please check for the message and provide a reply.",
+      "submitting": "Submitting...",
+      "success": "Thanks. Your inquiry has been received. We will contact you within 24 hours.",
+      "error": "Submission failed. Please try again or reach us by phone / WhatsApp.",
+      "requiredName": "Please enter your name.",
+      "requiredContact": "Please provide an email or phone number."
     },
     "social": {
       "title": "Social & Messaging",
