@@ -122,7 +122,8 @@
   - database_name：`cerotd`
   - database_id：`f1c1d1b6-4952-401e-a005-49cad234dfa6`
   - migrations：`database/migrations`
-- 本地开发通过 `nitro-cloudflare-dev` + `wrangler.toml` 使用本地 D1
+- 本地开发通过 `nitro-cloudflare-dev` + `wrangler.toml` 直连线上 D1/R2（`remote = true`；读写即生产数据）
+- 数据库 schema 只维护一份：`database/migrations/0001_schema.sql`（新环境执行一次即可）
 - 产品分类接口：`/api/product-categories`（表：`products_categories`；后台 `/admin/product-categories`）
 - 产品接口：`/api/products`
 - 新闻接口：`/api/news`（公开列表/详情；写接口需 admin token）
