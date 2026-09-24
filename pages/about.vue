@@ -12,7 +12,7 @@
         <div class="intro-panel">
           <video
             class="intro-panel-video"
-            src="https://cdn.dancingcodes.cn/files/2026-09/0801a9d1-c139-49ca-92b8-16a1ce7514e8.mp4"
+            src="/cdn/videos/about-intro.mp4"
             autoplay
             muted
             loop
