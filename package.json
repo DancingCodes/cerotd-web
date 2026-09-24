@@ -10,9 +10,7 @@
     "preview": "wrangler dev",
     "typecheck": "nuxt typecheck",
     "db:migrate:local": "wrangler d1 migrations apply cerotd --local",
-    "db:seed:local": "wrangler d1 execute cerotd --local --file=./database/seed.sql",
-    "db:migrate:remote": "wrangler d1 migrations apply cerotd --remote",
-    "db:seed:remote": "wrangler d1 execute cerotd --remote --file=./database/seed.sql"
+    "db:migrate:remote": "wrangler d1 migrations apply cerotd --remote"
   },
   "dependencies": {
     "@nuxtjs/i18n": "^10.6.0",

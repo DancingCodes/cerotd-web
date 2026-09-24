@@ -95,7 +95,6 @@
 - 动效要克制、干净，参考苹果官网节奏，避免花哨弹跳
 - 滚动显现使用 `@vueuse/motion`（如 `v-motion-slide-visible-once-bottom`）
 - 页面切换用轻量 fade/slide
-- 尊重 `prefers-reduced-motion`
 
 ## 模板规范
 
