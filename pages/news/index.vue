@@ -35,7 +35,7 @@
             :aria-selected="selectedCategory === category.slug"
             @click="setCategory(category.slug)"
           >
-            {{ lt(category.name) }}
+            {{ t(category.name) }}
           </button>
         </div>
 
