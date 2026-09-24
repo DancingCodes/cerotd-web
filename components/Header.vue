@@ -3,7 +3,7 @@
     <nav class="nav" aria-label="Primary">
       <div class="nav-container">
         <NuxtLink to="/" class="nav-logo">
-          <img src="/logo.png" alt="Cerotd" class="nav-logo-image" />
+          <img src="/images/logo.png" alt="Cerotd" class="nav-logo-image" />
         </NuxtLink>
 
         <div class="nav-desktop">

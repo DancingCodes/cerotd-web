@@ -26,7 +26,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Cerotd (Shandong) Lubrication Technology Co., Ltd. — lubricants and greases manufacturer' }
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/logo.png' },
+        { rel: 'icon', type: 'image/png', href: '/images/logo.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {

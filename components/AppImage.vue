@@ -18,7 +18,7 @@ const props = withDefaults(
   }>(),
   {
     alt: '',
-    fallback: '/images/factory/plant.webp'
+    fallback: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='
   }
 )
 

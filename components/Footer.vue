@@ -4,7 +4,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <div class="footer-brand">
-            <img src="/logo.png" alt="Cerotd" class="footer-brand-image" loading="lazy" decoding="async" />
+            <img src="/images/logo.png" alt="Cerotd" class="footer-brand-image" loading="lazy" decoding="async" />
           </div>
           <p class="footer-desc">{{ $t('footer.tagline') }}</p>
           <div class="footer-social">
@@ -53,7 +53,7 @@
             <li v-if="locale === 'zh'" class="footer-item">{{ $t('footer.wechatTitle') }}: {{ $t('footer.wechatId') }}</li>
           </ul>
           <div v-if="locale === 'zh'" class="footer-wechat">
-            <img src="/wechat.png" :alt="$t('footer.wechatTitle')" class="footer-wechat-image" loading="lazy" decoding="async" />
+            <img src="/images/wechat.png" :alt="$t('footer.wechatTitle')" class="footer-wechat-image" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

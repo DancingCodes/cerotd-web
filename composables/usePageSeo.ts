@@ -31,7 +31,7 @@ export function usePageSeo(options: {
   const canonical = computed(() => `${siteUrl}${path === '/' ? '' : path}`)
   const absoluteImage = computed(() => {
     const value = image.value
-    if (!value) return `${siteUrl}/logo.png`
+    if (!value) return `${siteUrl}/images/logo.png`
     if (value.startsWith('http://') || value.startsWith('https://')) return value
     return `${siteUrl}${value.startsWith('/') ? value : `/${value}`}`
   })

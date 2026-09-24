@@ -76,7 +76,7 @@ usePageSeo({
 
 const siteUrl = useSiteUrl()
 const articleBody = ref<HTMLElement | null>(null)
-const imageFallback = '/images/factory/plant.webp'
+const imageFallback = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='
 
 function bindContentImages() {
   const rootEl = articleBody.value
@@ -116,7 +116,7 @@ const articleJsonLd = computed(() => {
       name: 'Cerotd',
       logo: {
         '@type': 'ImageObject',
-        url: `${siteUrl}/logo.png`
+        url: `${siteUrl}/images/logo.png`
       }
     }
   }

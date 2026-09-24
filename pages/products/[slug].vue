@@ -452,7 +452,9 @@ function nextImage() {
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background: rgba(var(--color-ink), 0.84);
+    background:
+      linear-gradient(180deg, rgba(7, 11, 18, 0.72) 0%, rgba(7, 11, 18, 0.9) 100%);
+    backdrop-filter: blur(10px);
 
     .preview-inner {
       position: relative;
@@ -461,18 +463,35 @@ function nextImage() {
       align-items: center;
       justify-content: center;
 
+      &::after {
+        content: '';
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        bottom: -18px;
+        height: 48px;
+        border-radius: 999px;
+        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 0%, transparent 72%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
       .preview-image {
+        position: relative;
+        z-index: 1;
         max-width: 100%;
         max-height: 80vh;
         object-fit: contain;
         border-radius: 12px;
         background: #ffffff;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
       }
 
       .preview-close {
         position: absolute;
         top: -40px;
         right: 0;
+        z-index: 2;
         color: #ffffff;
         font-size: 32px;
         line-height: 1;
@@ -483,6 +502,7 @@ function nextImage() {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        z-index: 2;
         width: 44px;
         height: 44px;
         border-radius: 999px;

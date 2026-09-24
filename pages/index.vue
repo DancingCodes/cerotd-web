@@ -2,7 +2,7 @@
   <div class="home-page">
     <section class="hero">
       <div class="hero-media" aria-hidden="true">
-        <img class="hero-media-image" src="/images/factory/tank-farm.webp" alt="" fetchpriority="high" decoding="async" />
+        <img class="hero-media-image" src="/images/hero-bg.webp" alt="" fetchpriority="high" decoding="async" />
       </div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container hero-content hero-rise">
@@ -63,7 +63,7 @@
     <section v-motion-slide-visible-once-bottom class="section factory">
       <div class="container factory-grid">
         <div class="factory-media">
-          <img class="factory-media-image" src="/images/factory/plant.webp" alt="Cerotd plant" loading="lazy" decoding="async" />
+          <div class="factory-media-blank">{{ $t('common.mediaBlank') }}</div>
         </div>
         <div class="factory-copy">
           <h2 class="section-title">{{ $t('home.factory.title') }}</h2>
@@ -100,7 +100,15 @@
         <div class="advantages-grid">
           <article v-for="(item, index) in advantages" :key="item.name" class="advantage-card">
             <div class="advantage-media">
-              <img class="advantage-media-image" :src="advantageImages[index]" :alt="item.name" loading="lazy" decoding="async" />
+              <img
+                v-if="advantageImages[index]"
+                class="advantage-media-image"
+                :src="advantageImages[index]"
+                :alt="item.name"
+                loading="lazy"
+                decoding="async"
+              />
+              <div v-else class="advantage-media-blank">{{ $t('common.mediaBlank') }}</div>
             </div>
             <div class="advantage-card-body">
               <h3 class="advantage-card-title">{{ item.name }}</h3>
@@ -167,7 +175,7 @@ useHead({
         '@type': 'Organization',
         name: 'Cerotd',
         url: useSiteUrl(),
-        logo: `${useSiteUrl()}/logo.png`
+        logo: `${useSiteUrl()}/images/logo.png`
       })
     }
   ]
@@ -210,12 +218,7 @@ const partnerLogos = [
   }
 ]
 
-const advantageImages = [
-  '/images/factory/tank-farm.webp',
-  '/images/factory/plant.webp',
-  '/images/factory/plant.webp',
-  '/images/factory/tank-farm.webp'
-]
+const advantageImages = ['', '', '', '']
 
 const services = computed(() => {
   locale.value
@@ -569,6 +572,23 @@ const advantages = computed(() => {
       background: #e8edf2;
       min-height: 320px;
 
+      .factory-media-blank {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 24px;
+        background:
+          linear-gradient(135deg, rgba(#8b9aab, 0.12), transparent 42%),
+          #121a28;
+        color: #8b95a5;
+        font-size: 12px;
+        font-weight: 650;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
       .factory-media-image {
         width: 100%;
         height: 100%;
@@ -680,7 +700,24 @@ const advantages = computed(() => {
         overflow: hidden;
         background: #dfe3e8;
 
-        .advantage-media-image {
+        .advantage-media-blank {
+        width: 100%;
+        height: 100%;
+        min-height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:
+          linear-gradient(135deg, rgba(#8b9aab, 0.12), transparent 42%),
+          #121a28;
+        color: #8b95a5;
+        font-size: 12px;
+        font-weight: 650;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .advantage-media-image {
           width: 100%;
           height: 100%;
           object-fit: cover;

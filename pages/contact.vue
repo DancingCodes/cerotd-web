@@ -52,7 +52,7 @@
 
           <div class="wechat-box">
             <p class="wechat-box-title">{{ $t('contact.social.wechatTip') }}</p>
-            <img src="/wechat.png" :alt="$t('contact.info.wechatLabel')" class="wechat-box-image" />
+            <img src="/images/wechat.png" :alt="$t('contact.info.wechatLabel')" class="wechat-box-image" />
           </div>
         </aside>
 
