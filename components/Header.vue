@@ -114,22 +114,33 @@ const toggleLocale = () => {
       }
 
       .nav-link {
+        position: relative;
         color: #5b6572;
         font-size: 15px;
         font-weight: 500;
         letter-spacing: 0.01em;
         text-decoration: none;
-        transition: color 0.25s ease, opacity 0.25s ease;
+        transition: color 0.25s ease;
 
         &:hover {
           color: var(--color-text);
-          opacity: 0.86;
         }
       }
 
       .nav-link.router-link-active {
-        color: var(--color-accent);
-        opacity: 1;
+        color: #0f4c56;
+        font-weight: 650;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -8px;
+          height: 2px;
+          border-radius: 999px;
+          background: #0f4c56;
+        }
       }
 
       .nav-lang {
@@ -197,7 +208,8 @@ const toggleLocale = () => {
       }
 
       .nav-mobile-link.router-link-active {
-        color: var(--color-accent);
+        color: #0f4c56;
+        font-weight: 700;
       }
 
       .nav-mobile-lang {
