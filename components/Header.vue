@@ -11,13 +11,13 @@
             {{ $t(item.label) }}
           </NuxtLink>
 
-          <button type="button" class="nav-lang" @click="toggleLocale">
-            {{ locale === 'en' ? '中文' : 'EN' }}
-          </button>
-
           <NuxtLink to="/contact" class="nav-cta">
             {{ $t('common.contact') }}
           </NuxtLink>
+
+          <button type="button" class="nav-lang" @click="toggleLocale">
+            {{ locale === 'en' ? '中文' : 'EN' }}
+          </button>
         </div>
 
         <button
