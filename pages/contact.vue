@@ -22,7 +22,7 @@
             </li>
             <li class="info-item">
               <p class="info-item-label">{{ $t('contact.info.whatsappLabel') }}</p>
-              <a class="info-item-link" href="https://api.whatsapp.com/send/?phone=8615263792384&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
+              <a class="info-item-link" href="https://wa.me/8615263792384" target="_blank" rel="noopener noreferrer">
                 {{ $t('contact.info.whatsappValue') }}
               </a>
             </li>
@@ -34,8 +34,14 @@
             </li>
             <li class="info-item">
               <p class="info-item-label">{{ $t('contact.info.facebookLabel') }}</p>
-              <a class="info-item-link" href="https://www.facebook.com/people/Cerotd-Lubricating-Oil/61575320303094/?sk=reels_tab" target="_blank" rel="noopener noreferrer">
+              <a class="info-item-link" href="https://www.facebook.com/profile.php?id=61575320303094&sk=reels_tab" target="_blank" rel="noopener noreferrer">
                 {{ $t('contact.info.facebookValue') }}
+              </a>
+            </li>
+            <li class="info-item">
+              <p class="info-item-label">{{ $t('contact.info.instagramLabel') }}</p>
+              <a class="info-item-link" href="https://www.instagram.com/hanxiansheng889/reels/" target="_blank" rel="noopener noreferrer">
+                {{ $t('contact.info.instagramValue') }}
               </a>
             </li>
             <li class="info-item">

@@ -8,8 +8,9 @@
           </div>
           <p class="footer-desc">{{ $t('footer.tagline') }}</p>
           <div class="footer-social">
-            <a class="footer-social-link" href="https://www.facebook.com/people/Cerotd-Lubricating-Oil/61575320303094/?sk=reels_tab" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a class="footer-social-link" href="https://api.whatsapp.com/send/?phone=8615263792384&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="footer-social-link" href="https://www.facebook.com/profile.php?id=61575320303094&sk=reels_tab" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="footer-social-link" href="https://www.instagram.com/hanxiansheng889/reels/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="footer-social-link" href="https://wa.me/8615263792384" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             <a class="footer-social-link" href="https://t.me/cerotdshand" target="_blank" rel="noopener noreferrer">Telegram</a>
           </div>
         </div>
@@ -141,12 +142,15 @@ const year = new Date().getFullYear()
       margin-top: 18px;
 
       .footer-social-link {
+        display: inline-flex;
+        align-items: center;
         padding: 8px 12px;
         border-radius: 999px;
         background: rgba(#ffffff, 0.06);
         color: rgba(#ffffff, 0.72);
         font-size: 13px;
         text-decoration: none;
+        cursor: pointer;
         transition: all 0.25s ease;
 
         &:hover {
