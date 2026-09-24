@@ -13,6 +13,7 @@ type CreateProductBody = {
   specsZh?: string[]
   sortOrder?: number
   isPublished?: boolean
+  showOnHome?: boolean
 }
 
 export default defineEventHandler(async (event) => {
@@ -44,13 +45,14 @@ export default defineEventHandler(async (event) => {
   const coverUrl = body.coverUrl ?? images[0] ?? null
   const sortOrder = Number.isFinite(body.sortOrder) ? Number(body.sortOrder) : 0
   const isPublished = body.isPublished === false ? 0 : 1
+  const showOnHome = body.showOnHome === true ? 1 : 0
 
   const inserted = await db
     .prepare(
       `INSERT INTO products (
         slug, category_id, name_en, name_zh, summary_en, summary_zh, description_en, description_zh,
-        cover_url, images_json, specs_en_json, specs_zh_json, sort_order, is_published
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        cover_url, images_json, specs_en_json, specs_zh_json, sort_order, is_published, show_on_home
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       RETURNING id`
     )
     .bind(
@@ -67,7 +69,8 @@ export default defineEventHandler(async (event) => {
       JSON.stringify(specsEn),
       JSON.stringify(specsZh),
       sortOrder,
-      isPublished
+      isPublished,
+      showOnHome
     )
     .first<{ id: number }>()
 

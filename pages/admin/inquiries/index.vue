@@ -5,6 +5,8 @@
         <div class="admin-page-title">{{ $t('admin.inquiries.title') }}</div>
         <div class="admin-page-subtitle">
           {{ $t('admin.inquiries.subtitle') }}
+          <span v-if="!pending"> · {{ $t('admin.common.totalCount', { count: total }) }}</span>
+          <span v-if="!pending"> · {{ $t('admin.common.totalCount', { count: total }) }}</span>
           <span v-if="unreadCount"> · {{ $t('admin.inquiries.unreadCount', { count: unreadCount }) }}</span>
         </div>
       </div>
@@ -86,6 +88,16 @@
           </div>
         </article>
       </div>
+
+      <div v-if="totalPages > 1" class="admin-pagination">
+        <button type="button" class="admin-pagination-btn" :disabled="page <= 1" @click="goPage(page - 1)">
+          {{ $t('admin.common.prevPage') }}
+        </button>
+        <span class="admin-pagination-status">{{ $t('admin.common.pageStatus', { page, totalPages }) }}</span>
+        <button type="button" class="admin-pagination-btn" :disabled="page >= totalPages" @click="goPage(page + 1)">
+          {{ $t('admin.common.nextPage') }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -121,6 +133,10 @@ const { authHeaders } = useAdminAuth()
 const items = ref<InquiryItem[]>([])
 const unreadCount = ref(0)
 const pending = ref(true)
+const page = ref(1)
+const pageSize = ref(20)
+const total = ref(0)
+const totalPages = computed(() => Math.max(1, Math.ceil(total.value / pageSize.value)))
 const openId = ref<number | null>(null)
 const status = ref<StatusFilter>('all')
 const range = ref<RangeFilter>('all')
@@ -150,11 +166,13 @@ function formatBulk(value: string) {
 
 function setStatus(value: StatusFilter) {
   status.value = value
+  page.value = 1
   load()
 }
 
 function setRange(value: RangeFilter) {
   range.value = value
+  page.value = 1
   load()
 }
 
@@ -168,18 +186,31 @@ async function toggle(item: InquiryItem) {
 async function load() {
   pending.value = true
   try {
-    const data = await $fetch<{ items: InquiryItem[]; unreadCount: number }>('/api/inquiries', {
+    const data = await $fetch<{ items: InquiryItem[]; unreadCount: number; total?: number }>('/api/inquiries', {
       headers: authHeaders(),
       query: {
         status: status.value,
-        range: range.value
+        range: range.value,
+        page: page.value,
+        pageSize: pageSize.value
       }
     })
     items.value = data.items
+    total.value = Number(data.total || data.items.length)
     unreadCount.value = data.unreadCount || 0
+    if (items.value.length === 0 && page.value > 1) {
+      page.value -= 1
+      await load()
+      return
+    }
   } finally {
     pending.value = false
   }
+}
+
+function goPage(next: number) {
+  page.value = Math.max(1, next)
+  load()
 }
 
 async function setRead(item: InquiryItem, isRead: boolean, reload = true) {
@@ -441,4 +472,35 @@ onMounted(load)
     color: #b42318;
   }
 }
+
+  .admin-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .admin-pagination-btn {
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid #d7dee7;
+    background: #ffffff;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+  }
+
+  .admin-pagination-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .admin-pagination-status {
+    color: #6b7280;
+    font-size: 13px;
+  }
+
 </style>

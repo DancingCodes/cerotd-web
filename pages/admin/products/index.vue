@@ -3,7 +3,10 @@
     <div class="admin-page-header">
       <div>
         <div class="admin-page-title">{{ $t('admin.products.title') }}</div>
-        <div class="admin-page-subtitle">{{ $t('admin.products.subtitle') }}</div>
+        <div class="admin-page-subtitle">
+          {{ $t('admin.products.subtitle') }}
+          <span v-if="!pending"> · {{ $t('admin.common.totalCount', { count: total }) }}</span>
+        </div>
       </div>
       <div class="admin-page-btn" @click="startCreate">{{ $t('admin.products.new') }}</div>
     </div>
@@ -41,6 +44,13 @@
             <option :value="false">{{ $t('admin.common.no') }}</option>
           </select>
         </label>
+        <label class="admin-field">
+          <div class="admin-field-label">{{ $t('admin.products.showOnHome') }}</div>
+          <select v-model="form.showOnHome" class="admin-field-input">
+            <option :value="true">{{ $t('admin.common.yes') }}</option>
+            <option :value="false">{{ $t('admin.common.no') }}</option>
+          </select>
+        </label>
         <label class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.products.summaryEn') }}</div>
           <textarea v-model="form.summaryEn" class="admin-field-textarea" rows="2" />
@@ -63,13 +73,7 @@
         </div>
         <div class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.products.images') }}</div>
-          <textarea v-model="form.imagesText" class="admin-field-textarea" rows="3" />
-          <div class="admin-upload-extra">
-            <label class="admin-upload-chip">
-              {{ $t('admin.upload.addImage') }}
-              <input class="admin-upload-chip-file" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" @change="uploadProductImage" />
-            </label>
-          </div>
+          <AdminImageListUpload v-model="form.images" folder="products" :placeholder="$t('admin.upload.placeholder')" />
         </div>
         <label class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.products.specsEn') }}</div>
@@ -113,6 +117,16 @@
           </div>
         </div>
       </div>
+
+      <div v-if="totalPages > 1" class="admin-pagination">
+        <button type="button" class="admin-pagination-btn" :disabled="page <= 1" @click="goPage(page - 1)">
+          {{ $t('admin.common.prevPage') }}
+        </button>
+        <span class="admin-pagination-status">{{ $t('admin.common.pageStatus', { page, totalPages }) }}</span>
+        <button type="button" class="admin-pagination-btn" :disabled="page >= totalPages" @click="goPage(page + 1)">
+          {{ $t('admin.common.nextPage') }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -142,12 +156,17 @@ type ProductItem = {
   specs: { en: string[]; zh: string[] }
   sortOrder: number
   isPublished: boolean
+  showOnHome: boolean
 }
 
 const { t } = useI18n()
 const lt = useLocalized()
 const { authHeaders } = useAdminAuth()
 const pending = ref(true)
+const page = ref(1)
+const pageSize = ref(20)
+const total = ref(0)
+const totalPages = computed(() => Math.max(1, Math.ceil(total.value / pageSize.value)))
 const items = ref<ProductItem[]>([])
 const categories = ref<CategoryItem[]>([])
 const formOpen = ref(false)
@@ -164,11 +183,12 @@ const emptyForm = () => ({
   descriptionEn: '',
   descriptionZh: '',
   coverUrl: '',
-  imagesText: '',
+  images: [],
   specsEnText: '',
   specsZhText: '',
   sortOrder: 0,
-  isPublished: true
+  isPublished: true,
+  showOnHome: false
 })
 
 const form = reactive(emptyForm())
@@ -184,14 +204,28 @@ async function load() {
   pending.value = true
   try {
     const [productData, categoryData] = await Promise.all([
-      $fetch<{ items: ProductItem[] }>('/api/products?all=1', { headers: authHeaders() }),
+      $fetch<{ items: ProductItem[]; total?: number }>('/api/products', {
+        headers: authHeaders(),
+        query: { all: 1, page: page.value, pageSize: pageSize.value }
+      }),
       $fetch<{ items: CategoryItem[] }>('/api/product-categories?all=1', { headers: authHeaders() })
     ])
     items.value = productData.items
+    total.value = Number(productData.total || productData.items.length)
     categories.value = categoryData.items
+    if (items.value.length === 0 && page.value > 1) {
+      page.value -= 1
+      await load()
+      return
+    }
   } finally {
     pending.value = false
   }
+}
+
+function goPage(next: number) {
+  page.value = Math.max(1, next)
+  load()
 }
 
 function startCreate() {
@@ -213,11 +247,12 @@ function startEdit(item: ProductItem) {
     descriptionEn: item.description.en,
     descriptionZh: item.description.zh,
     coverUrl: item.coverUrl || '',
-    imagesText: item.images.join('\n'),
+    images: [...item.images],
     specsEnText: item.specs.en.join('\n'),
     specsZhText: item.specs.zh.join('\n'),
     sortOrder: item.sortOrder,
-    isPublished: item.isPublished
+    isPublished: item.isPublished,
+    showOnHome: item.showOnHome
   })
   formError.value = ''
   formOpen.value = true
@@ -252,11 +287,12 @@ async function save() {
     descriptionEn: form.descriptionEn,
     descriptionZh: form.descriptionZh,
     coverUrl: form.coverUrl || null,
-    images: linesToArray(form.imagesText),
+    images: form.images,
     specsEn: linesToArray(form.specsEnText),
     specsZh: linesToArray(form.specsZhText),
     sortOrder: Number(form.sortOrder) || 0,
-    isPublished: form.isPublished
+    isPublished: form.isPublished,
+    showOnHome: form.showOnHome
   }
 
   try {
@@ -468,4 +504,35 @@ onMounted(load)
     color: #b42318;
   }
 }
+
+  .admin-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .admin-pagination-btn {
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid #d7dee7;
+    background: #ffffff;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+  }
+
+  .admin-pagination-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .admin-pagination-status {
+    color: #6b7280;
+    font-size: 13px;
+  }
+
 </style>

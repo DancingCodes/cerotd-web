@@ -16,21 +16,14 @@
     "productsTitle": "产品",
     "companyTitle": "公司",
     "contactTitle": "联系",
-    "product1": "汽油机油",
-    "product2": "柴油机油",
-    "product3": "变速箱油",
-    "product4": "齿轮油",
     "aboutUs": "关于我们",
     "ourServices": "服务支持",
     "ourAdvantages": "核心优势",
     "location": "山东省济宁市任城区新材料产业园，岑古昂路与蓝田路交叉口以南150米",
     "phone": "+86 152 6379 2384",
     "copyright": "赛罗特（山东）润滑科技有限公司. 保留所有权利.",
-    "product5": "防冻液",
     "wechatTitle": "微信",
-    "wechatId": "13953717716",
-    "product6": "抗磨液压油",
-    "product7": "润滑脂"
+    "wechatId": "13953717716"
   },
   "home": {
     "badge": "工业润滑",
@@ -404,7 +397,11 @@
       "autoSlug": "可留空，按英文名自动生成",
       "requiredNameEn": "请填写英文名称。",
       "requiredNameZh": "请填写中文名称。",
-      "requiredCategory": "请选择分类。"
+      "requiredCategory": "请选择分类。",
+      "totalCount": "共 {count} 条",
+      "prevPage": "上一页",
+      "nextPage": "下一页",
+      "pageStatus": "第 {page} / {totalPages} 页"
     },
     "products": {
       "title": "产品管理",
@@ -422,7 +419,8 @@
       "images": "图片（每行一个 URL）",
       "specsEn": "英文规格（每行一条）",
       "specsZh": "中文规格（每行一条）",
-      "deleteConfirm": "确认删除产品“{name}”？"
+      "deleteConfirm": "确认删除产品“{name}”？",
+      "showOnHome": "首页展示"
     },
     "news": {
       "title": "新闻管理",

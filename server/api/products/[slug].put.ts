@@ -13,6 +13,7 @@ type UpdateProductBody = {
   specsZh?: string[]
   sortOrder?: number
   isPublished?: boolean
+  showOnHome?: boolean
 }
 
 export default defineEventHandler(async (event) => {
@@ -43,6 +44,8 @@ export default defineEventHandler(async (event) => {
   const sortOrder = body.sortOrder === undefined ? current.sort_order : Number(body.sortOrder)
   const isPublished =
     body.isPublished === undefined ? current.is_published : body.isPublished ? 1 : 0
+  const showOnHome =
+    body.showOnHome === undefined ? Number(current.show_on_home || 0) : body.showOnHome ? 1 : 0
 
   let categoryId = current.category_id
   if (body.categorySlug?.trim()) {
@@ -80,7 +83,7 @@ export default defineEventHandler(async (event) => {
       `UPDATE products
        SET slug = ?, category_id = ?, name_en = ?, name_zh = ?, summary_en = ?, summary_zh = ?,
            description_en = ?, description_zh = ?, cover_url = ?, images_json = ?, specs_en_json = ?,
-           specs_zh_json = ?, sort_order = ?, is_published = ?, updated_at = datetime('now')
+           specs_zh_json = ?, sort_order = ?, is_published = ?, show_on_home = ?, updated_at = datetime('now')
        WHERE id = ?`
     )
     .bind(
@@ -98,6 +101,7 @@ export default defineEventHandler(async (event) => {
       JSON.stringify(specsZh),
       sortOrder,
       isPublished,
+      showOnHome,
       current.id
     )
     .run()

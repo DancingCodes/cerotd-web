@@ -182,10 +182,10 @@ type ProductItem = {
   images: string[]
 }
 
-const { data: productsData } = await useFetch<{ items: ProductItem[] }>('/api/products', {
+const { data: productsData } = await useFetch<{ items: ProductItem[] }>('/api/products?home=1', {
   key: 'home-products'
 })
-const featuredProducts = computed(() => (productsData.value?.items || []).slice(0, 3))
+const featuredProducts = computed(() => productsData.value?.items || [])
 
 const partnerLogos = [
   {

@@ -3,6 +3,7 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const includeUnpublished = String(query.all || '') === '1'
   const category = typeof query.category === 'string' ? query.category.trim() : ''
+  const paging = parsePagination(query)
 
   if (includeUnpublished) {
     assertAdmin(event)
@@ -24,13 +25,45 @@ export default defineEventHandler(async (event) => {
     binds.push(category)
   }
 
-  const sql = `SELECT *
-    FROM news
-    ${where.length ? `WHERE ${where.join(' AND ')}` : ''}
-    ORDER BY published_at DESC, id DESC`
+  const whereSql = where.length ? `WHERE ${where.join(' AND ')}` : ''
+  const orderSql = 'ORDER BY published_at DESC, id DESC'
 
-  const result = await db.prepare(sql).bind(...binds).all<NewsRow>()
+  if (!paging.enabled) {
+    const result = await db
+      .prepare(
+        `SELECT *
+         FROM news
+         ${whereSql}
+         ${orderSql}`
+      )
+      .bind(...binds)
+      .all<NewsRow>()
+    return {
+      items: (result.results || []).map(mapNews)
+    }
+  }
+
+  const countRow = await db
+    .prepare(`SELECT COUNT(*) AS count FROM news ${whereSql}`)
+    .bind(...binds)
+    .first<{ count: number }>()
+  const total = Number(countRow?.count || 0)
+
+  const result = await db
+    .prepare(
+      `SELECT *
+       FROM news
+       ${whereSql}
+       ${orderSql}
+       LIMIT ? OFFSET ?`
+    )
+    .bind(...binds, paging.pageSize, paging.offset)
+    .all<NewsRow>()
+
   return {
-    items: (result.results || []).map(mapNews)
+    items: (result.results || []).map(mapNews),
+    total,
+    page: paging.page,
+    pageSize: paging.pageSize
   }
 })

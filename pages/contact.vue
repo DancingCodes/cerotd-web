@@ -68,15 +68,19 @@
               <span class="form-field-label">{{ $t('contact.form.company') }}</span>
               <input v-model="form.company" class="form-field-input" type="text" name="company" autocomplete="organization" :placeholder="$t('contact.form.company')" />
             </label>
-            <label class="form-field">
-              <span class="form-field-label is-required-or">{{ $t('contact.form.email') }}</span>
-              <input v-model="form.email" class="form-field-input" type="email" name="email" autocomplete="email" :placeholder="$t('contact.form.email')" />
-            </label>
-            <label class="form-field">
-              <span class="form-field-label is-required-or">{{ $t('contact.form.phone') }}</span>
-              <input v-model="form.phone" class="form-field-input" type="tel" name="phone" autocomplete="tel" :placeholder="$t('contact.form.phone')" />
-            </label>
-            <p class="form-required-hint">{{ $t('contact.form.emailOrPhoneHint') }}</p>
+            <div class="form-field form-field-full form-contact-group">
+              <div class="form-contact-group-grid">
+                <label class="form-field">
+                  <span class="form-field-label">{{ $t('contact.form.email') }}</span>
+                  <input v-model="form.email" class="form-field-input" type="email" name="email" autocomplete="email" :placeholder="$t('contact.form.email')" />
+                </label>
+                <label class="form-field">
+                  <span class="form-field-label">{{ $t('contact.form.phone') }}</span>
+                  <input v-model="form.phone" class="form-field-input" type="tel" name="phone" autocomplete="tel" :placeholder="$t('contact.form.phone')" />
+                </label>
+              </div>
+              <p class="form-field-help">{{ $t('contact.form.emailOrPhoneHint') }}</p>
+            </div>
             <label class="form-field">
               <span class="form-field-label">{{ $t('contact.form.country') }}</span>
               <input v-model="form.country" class="form-field-input" type="text" name="country" autocomplete="country-name" :placeholder="$t('contact.form.country')" />
@@ -414,21 +418,12 @@ async function onSubmit() {
         border: none;
         min-width: 0;
 
-        .form-field-label.is-required::after,
-    .form-field-label.is-required-or::after {
-      content: ' *';
-      color: #b42318;
-    }
+        .form-field-label.is-required::after {
+          content: ' *';
+          color: #b42318;
+        }
 
-    .form-required-hint {
-      grid-column: 1 / -1;
-      margin-top: -6px;
-      color: #66707c;
-      font-size: 12px;
-      line-height: 1.4;
-    }
-
-    .form-field-label {
+        .form-field-label {
           color: #374151;
           font-size: 13px;
           font-weight: 650;
@@ -464,6 +459,27 @@ async function onSubmit() {
       .form-field-full {
         @media (min-width: 720px) {
           grid-column: 1 / -1;
+        }
+      }
+
+      .form-contact-group {
+        gap: 8px;
+
+        .form-contact-group-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 16px;
+
+          @media (min-width: 720px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        .form-field-help {
+          margin: 0;
+          color: #6b7280;
+          font-size: 12px;
+          line-height: 1.5;
         }
       }
 

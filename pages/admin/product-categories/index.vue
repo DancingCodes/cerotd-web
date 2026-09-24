@@ -3,7 +3,10 @@
     <div class="admin-page-header">
       <div>
         <div class="admin-page-title">{{ $t('admin.productCategories.title') }}</div>
-        <div class="admin-page-subtitle">{{ $t('admin.productCategories.subtitle') }}</div>
+        <div class="admin-page-subtitle">
+          {{ $t('admin.productCategories.subtitle') }}
+          <span v-if="!pending"> · {{ $t('admin.common.totalCount', { count: total }) }}</span>
+        </div>
       </div>
       <div class="admin-page-btn" @click="startCreate">{{ $t('admin.productCategories.new') }}</div>
     </div>
@@ -77,6 +80,16 @@
           </div>
         </div>
       </div>
+
+      <div v-if="totalPages > 1" class="admin-pagination">
+        <button type="button" class="admin-pagination-btn" :disabled="page <= 1" @click="goPage(page - 1)">
+          {{ $t('admin.common.prevPage') }}
+        </button>
+        <span class="admin-pagination-status">{{ $t('admin.common.pageStatus', { page, totalPages }) }}</span>
+        <button type="button" class="admin-pagination-btn" :disabled="page >= totalPages" @click="goPage(page + 1)">
+          {{ $t('admin.common.nextPage') }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -103,6 +116,10 @@ const { t, locale } = useI18n()
 const lt = useLocalized()
 const { authHeaders } = useAdminAuth()
 const pending = ref(true)
+const page = ref(1)
+const pageSize = ref(20)
+const total = ref(0)
+const totalPages = computed(() => Math.max(1, Math.ceil(total.value / pageSize.value)))
 const items = ref<CategoryItem[]>([])
 const formOpen = ref(false)
 const editingSlug = ref('')
@@ -128,13 +145,25 @@ function secondaryName(name: Localized) {
 async function load() {
   pending.value = true
   try {
-    const data = await $fetch<{ items: CategoryItem[] }>('/api/product-categories?all=1', {
-      headers: authHeaders()
+    const data = await $fetch<{ items: CategoryItem[]; total?: number }>('/api/product-categories', {
+      headers: authHeaders(),
+      query: { all: 1, page: page.value, pageSize: pageSize.value }
     })
     items.value = data.items
+    total.value = Number(data.total || data.items.length)
+    if (items.value.length === 0 && page.value > 1) {
+      page.value -= 1
+      await load()
+      return
+    }
   } finally {
     pending.value = false
   }
+}
+
+function goPage(next: number) {
+  page.value = Math.max(1, next)
+  load()
 }
 
 function startCreate() {
@@ -393,4 +422,35 @@ onMounted(load)
     color: #b42318;
   }
 }
+
+  .admin-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .admin-pagination-btn {
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid #d7dee7;
+    background: #ffffff;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+  }
+
+  .admin-pagination-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .admin-pagination-status {
+    color: #6b7280;
+    font-size: 13px;
+  }
+
 </style>

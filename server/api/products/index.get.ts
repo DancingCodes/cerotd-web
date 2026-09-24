@@ -3,6 +3,8 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const includeUnpublished = String(query.all || '') === '1'
   const categorySlug = typeof query.category === 'string' ? query.category.trim() : ''
+  const homeOnly = String(query.home || '') === '1'
+  const paging = parsePagination(query)
 
   if (includeUnpublished) {
     assertAdmin(event)
@@ -20,12 +22,50 @@ export default defineEventHandler(async (event) => {
     binds.push(categorySlug)
   }
 
-  const sql = `${productSelectSql}
-    ${where.length ? `WHERE ${where.join(' AND ')}` : ''}
-    ORDER BY p.sort_order ASC, p.id ASC`
+  if (homeOnly) {
+    where.push('p.show_on_home = 1')
+  }
 
-  const result = await db.prepare(sql).bind(...binds).all<ProductRow>()
+  const whereSql = where.length ? `WHERE ${where.join(' AND ')}` : ''
+  const orderSql = 'ORDER BY p.sort_order ASC, p.id ASC'
+
+  if (!paging.enabled) {
+    const result = await db
+      .prepare(`${productSelectSql}
+        ${whereSql}
+        ${orderSql}`)
+      .bind(...binds)
+      .all<ProductRow>()
+    return {
+      items: (result.results || []).map(mapProduct)
+    }
+  }
+
+  const countRow = await db
+    .prepare(
+      `SELECT COUNT(*) AS count
+       FROM products p
+       JOIN products_categories c ON c.id = p.category_id
+       ${whereSql}`
+    )
+    .bind(...binds)
+    .first<{ count: number }>()
+
+  const total = Number(countRow?.count || 0)
+  const result = await db
+    .prepare(
+      `${productSelectSql}
+       ${whereSql}
+       ${orderSql}
+       LIMIT ? OFFSET ?`
+    )
+    .bind(...binds, paging.pageSize, paging.offset)
+    .all<ProductRow>()
+
   return {
-    items: (result.results || []).map(mapProduct)
+    items: (result.results || []).map(mapProduct),
+    total,
+    page: paging.page,
+    pageSize: paging.pageSize
   }
 })

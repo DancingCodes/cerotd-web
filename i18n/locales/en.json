@@ -16,21 +16,14 @@
     "productsTitle": "Products",
     "companyTitle": "Company",
     "contactTitle": "Contact",
-    "product1": "Gasoline Engine Oil",
-    "product2": "Diesel Engine Oil",
-    "product3": "Transmission Fluid",
-    "product4": "Gear Oil",
     "aboutUs": "About Us",
     "ourServices": "Services",
     "ourAdvantages": "Advantages",
     "location": "New Materials Industrial Park, Rencheng, Jining, Shandong, China — 150m south of Cenguang Rd & Lantian Rd",
     "phone": "+86 152 6379 2384",
     "copyright": "Cerotd (Shandong) Lubrication Technology Co., Ltd. All rights reserved.",
-    "product5": "Antifreeze",
     "wechatTitle": "WeChat",
-    "wechatId": "13953717716",
-    "product6": "Anti-wear Hydraulic Oil",
-    "product7": "Grease"
+    "wechatId": "13953717716"
   },
   "home": {
     "badge": "Industrial Lubricants",
@@ -404,7 +397,11 @@
       "autoSlug": "auto from name EN",
       "requiredNameEn": "Please enter the English name.",
       "requiredNameZh": "Please enter the Chinese name.",
-      "requiredCategory": "Please select a category."
+      "requiredCategory": "Please select a category.",
+      "totalCount": "{count} total",
+      "prevPage": "Previous",
+      "nextPage": "Next",
+      "pageStatus": "Page {page} / {totalPages}"
     },
     "products": {
       "title": "Products",
@@ -422,7 +419,8 @@
       "images": "Images (one URL per line)",
       "specsEn": "Specs EN (one per line)",
       "specsZh": "Specs ZH (one per line)",
-      "deleteConfirm": "Delete product \"{name}\"?"
+      "deleteConfirm": "Delete product \"{name}\"?",
+      "showOnHome": "Show on home"
     },
     "news": {
       "title": "News",

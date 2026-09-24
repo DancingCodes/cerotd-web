@@ -4,7 +4,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <div class="footer-brand">
-            <img src="/logo.png" alt="Cerotd" class="footer-brand-image" />
+            <img src="/logo.png" alt="Cerotd" class="footer-brand-image" loading="lazy" decoding="async" />
           </div>
           <p class="footer-desc">{{ $t('footer.tagline') }}</p>
           <div class="footer-social">
@@ -18,26 +18,8 @@
         <div class="footer-col">
           <h2 class="footer-title">{{ $t('footer.productsTitle') }}</h2>
           <ul class="footer-list">
-            <li class="footer-item">
-              <NuxtLink to="/products" class="footer-link">{{ $t('footer.product1') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
-              <NuxtLink to="/products" class="footer-link">{{ $t('footer.product2') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
-              <NuxtLink to="/products" class="footer-link">{{ $t('footer.product3') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
-              <NuxtLink to="/products" class="footer-link">{{ $t('footer.product4') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
-              <NuxtLink to="/products" class="footer-link">{{ $t('footer.product5') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
-              <NuxtLink to="/products" class="footer-link">{{ $t('footer.product6') }}</NuxtLink>
-            </li>
-            <li class="footer-item">
-              <NuxtLink to="/products" class="footer-link">{{ $t('footer.product7') }}</NuxtLink>
+            <li v-for="item in productLinks" :key="item.to" class="footer-item">
+              <NuxtLink :to="item.to" class="footer-link">{{ item.label }}</NuxtLink>
             </li>
           </ul>
         </div>
@@ -71,7 +53,7 @@
             <li v-if="locale === 'zh'" class="footer-item">{{ $t('footer.wechatTitle') }}: {{ $t('footer.wechatId') }}</li>
           </ul>
           <div v-if="locale === 'zh'" class="footer-wechat">
-            <img src="/wechat.png" :alt="$t('footer.wechatTitle')" class="footer-wechat-image" />
+            <img src="/wechat.png" :alt="$t('footer.wechatTitle')" class="footer-wechat-image" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -85,8 +67,38 @@
 </template>
 
 <script setup lang="ts">
+type Localized = { en: string; zh: string }
+type CategoryItem = { slug: string; name: Localized }
+type ProductItem = { slug: string; name: Localized; showOnHome?: boolean }
+
 const { locale } = useI18n()
+const lt = useLocalized()
 const year = new Date().getFullYear()
+
+const { data: categoriesData } = await useFetch<{ items: CategoryItem[] }>('/api/product-categories', {
+  key: 'footer-product-categories'
+})
+const { data: homeProductsData } = await useFetch<{ items: ProductItem[] }>('/api/products?home=1', {
+  key: 'footer-home-products'
+})
+
+const productLinks = computed(() => {
+  const categories = categoriesData.value?.items || []
+  if (categories.length) {
+    return categories.slice(0, 8).map((item) => ({
+      to: `/products?category=${encodeURIComponent(item.slug)}`,
+      label: lt(item.name)
+    }))
+  }
+  const products = homeProductsData.value?.items || []
+  if (products.length) {
+    return products.slice(0, 8).map((item) => ({
+      to: `/products/${item.slug}`,
+      label: lt(item.name)
+    }))
+  }
+  return [{ to: '/products', label: lt({ en: 'Products', zh: '产品中心' }) }]
+})
 </script>
 
 <style lang="scss" scoped>

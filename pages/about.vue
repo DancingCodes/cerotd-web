@@ -18,6 +18,7 @@
             loop
             playsinline
             controls
+            preload="metadata"
           ></video>
         </div>
         <div class="intro-copy">
