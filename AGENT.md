@@ -134,7 +134,7 @@
 - 留言查看：`/admin/inquiries`（读取 D1 `inquiries`）
 - 写接口（POST/PUT/DELETE）需要请求头 `Authorization: Bearer <ADMIN_API_TOKEN>`
 - `ADMIN_API_TOKEN` 是 Cloudflare Worker Secret（生产环境在控制台配置），本地写在 `.dev.vars`；不要把真实 token 提交进仓库
-- 本地可复制 `.dev.vars.example` 为 `.dev.vars`
+- 本地可复制 `.dev.vars.example` 为 `.dev.vars`（只需 `ADMIN_API_TOKEN`）
 - 图片存储：Cloudflare R2
   - bucket：`cerotd-media`
   - binding：`MEDIA`
