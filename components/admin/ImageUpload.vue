@@ -1,14 +1,29 @@
 <template>
   <div class="image-upload">
     <div class="image-upload-row">
-      <input v-model="inner" class="image-upload-input" :placeholder="placeholder" @input="emitUrl" />
       <label class="image-upload-btn">
-        {{ uploading ? $t('admin.upload.uploading') : $t('admin.upload.button') }}
-        <input class="image-upload-file" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" :disabled="uploading" @change="onFile" />
+        {{ uploading ? $t('admin.upload.uploading') : inner ? $t('admin.upload.replace') : $t('admin.upload.button') }}
+        <input
+          class="image-upload-file"
+          type="file"
+          accept="image/jpeg,image/png,image/webp,image/gif,image/avif"
+          :disabled="uploading"
+          @change="onFile"
+        />
       </label>
+      <button
+        v-if="inner"
+        type="button"
+        class="image-upload-clear"
+        :disabled="uploading"
+        @click="clearImage"
+      >
+        {{ $t('admin.common.delete') }}
+      </button>
     </div>
     <p v-if="error" class="image-upload-error">{{ error }}</p>
     <img v-if="inner" class="image-upload-preview" :src="inner" alt="" />
+    <p v-else class="image-upload-empty">{{ $t('admin.upload.empty') }}</p>
   </div>
 </template>
 
@@ -17,12 +32,10 @@ const props = withDefaults(
   defineProps<{
     modelValue?: string | null
     folder?: string
-    placeholder?: string
   }>(),
   {
     modelValue: '',
-    folder: 'uploads',
-    placeholder: ''
+    folder: 'uploads'
   }
 )
 
@@ -44,8 +57,14 @@ watch(
   }
 )
 
-function emitUrl() {
-  emit('update:modelValue', inner.value.trim())
+function emitUrl(value = inner.value.trim()) {
+  emit('update:modelValue', value)
+}
+
+function clearImage() {
+  inner.value = ''
+  error.value = ''
+  emitUrl('')
 }
 
 async function onFile(event: Event) {
@@ -83,16 +102,6 @@ async function onFile(event: Event) {
     align-items: center;
   }
 
-  .image-upload-input {
-    flex: 1;
-    height: 42px;
-    padding: 0 12px;
-    border: 1px solid #d7dee7;
-    border-radius: 12px;
-    background: #ffffff;
-    outline: none;
-  }
-
   .image-upload-btn {
     position: relative;
     display: inline-flex;
@@ -109,6 +118,18 @@ async function onFile(event: Event) {
     white-space: nowrap;
   }
 
+  .image-upload-clear {
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 12px;
+    border: 1px solid #f0d0cc;
+    background: #fff5f4;
+    color: #b42318;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
   .image-upload-file {
     position: absolute;
     inset: 0;
@@ -120,6 +141,12 @@ async function onFile(event: Event) {
     margin-top: 8px;
     color: #b42318;
     font-size: 12px;
+  }
+
+  .image-upload-empty {
+    margin-top: 10px;
+    color: #6b7280;
+    font-size: 13px;
   }
 
   .image-upload-preview {

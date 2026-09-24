@@ -94,11 +94,11 @@
         </label>
         <div class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.common.coverUrl') }}</div>
-          <AdminImageUpload v-model="form.coverUrl" folder="products" :placeholder="$t('admin.upload.placeholder')" />
+          <AdminImageUpload v-model="form.coverUrl" folder="products" />
         </div>
         <div class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.products.images') }}</div>
-          <AdminImageListUpload v-model="form.images" folder="products" :placeholder="$t('admin.upload.placeholder')" />
+          <AdminImageListUpload v-model="form.images" folder="products" />
         </div>
         <label class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.products.specsEn') }}</div>

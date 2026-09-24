@@ -22,7 +22,7 @@
         </button>
       </div>
     </div>
-    <p v-else class="image-list-upload-empty">{{ placeholder || $t('admin.upload.placeholder') }}</p>
+    <p v-else class="image-list-upload-empty">{{ $t('admin.upload.empty') }}</p>
   </div>
 </template>
 

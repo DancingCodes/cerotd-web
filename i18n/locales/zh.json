@@ -460,7 +460,7 @@
       "deleteFailed": "删除失败",
       "nameEn": "英文名称",
       "nameZh": "中文名称",
-      "coverUrl": "封面 URL",
+      "coverUrl": "封面",
       "autoSlug": "可留空，按英文名自动生成",
       "requiredNameEn": "请填写英文名称。",
       "requiredNameZh": "请填写中文名称。",
@@ -492,7 +492,7 @@
       "summaryZh": "中文摘要",
       "descriptionEn": "英文详情",
       "descriptionZh": "中文详情",
-      "images": "图片（每行一个 URL）",
+      "images": "图片",
       "specsEn": "英文规格（每行一条）",
       "specsZh": "中文规格（每行一条）",
       "deleteConfirm": "确认删除产品“{name}”？",
@@ -558,8 +558,9 @@
       "button": "上传图片",
       "uploading": "上传中...",
       "failed": "上传失败",
-      "placeholder": "或粘贴图片 URL",
-      "addImage": "上传图片"
+      "addImage": "上传图片",
+      "empty": "暂无图片，点击上方上传",
+      "replace": "更换图片"
     },
     "newsCategories": {
       "title": "新闻分类",

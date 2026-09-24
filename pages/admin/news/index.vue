@@ -70,7 +70,7 @@
         </label>
         <div class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.common.coverUrl') }}</div>
-          <AdminImageUpload v-model="form.coverUrl" folder="news" :placeholder="$t('admin.upload.placeholder')" />
+          <AdminImageUpload v-model="form.coverUrl" folder="news" />
         </div>
         <label class="admin-field admin-field-full">
           <div class="admin-field-label">{{ $t('admin.news.summaryEn') }}</div>

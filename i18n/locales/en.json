@@ -460,7 +460,7 @@
       "deleteFailed": "Delete failed",
       "nameEn": "Name EN",
       "nameZh": "Name ZH",
-      "coverUrl": "Cover URL",
+      "coverUrl": "Cover",
       "autoSlug": "auto from name EN",
       "requiredNameEn": "Please enter the English name.",
       "requiredNameZh": "Please enter the Chinese name.",
@@ -492,7 +492,7 @@
       "summaryZh": "Summary ZH",
       "descriptionEn": "Description EN",
       "descriptionZh": "Description ZH",
-      "images": "Images (one URL per line)",
+      "images": "Images",
       "specsEn": "Specs EN (one per line)",
       "specsZh": "Specs ZH (one per line)",
       "deleteConfirm": "Delete product \"{name}\"?",
@@ -558,8 +558,9 @@
       "button": "Upload",
       "uploading": "Uploading...",
       "failed": "Upload failed",
-      "placeholder": "Or paste image URL",
-      "addImage": "Upload image"
+      "addImage": "Upload image",
+      "empty": "No image yet. Click upload above.",
+      "replace": "Replace image"
     },
     "newsCategories": {
       "title": "News Categories",
