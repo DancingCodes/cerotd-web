@@ -26,19 +26,26 @@
       <div class="container">
         <div class="section-header section-header-light">
           <h2 class="section-title">{{ $t('services.process.title') }}</h2>
+          <p class="section-subtitle">{{ $t('services.process.subtitle') }}</p>
         </div>
-        <ol class="process-grid">
-          <li v-for="item in processSteps" :key="item.step" class="process-card">
-            <p class="process-card-step">{{ item.step }}</p>
-            <h3 class="process-card-title">{{ item.name }}</h3>
-            <p class="process-card-desc">{{ item.desc }}</p>
+        <ol class="process-flow">
+          <li v-for="(item, index) in processSteps" :key="item.step" class="process-step">
+            <div class="process-step-card">
+              <p class="process-step-index">{{ item.step }}</p>
+              <h3 class="process-step-title">{{ item.name }}</h3>
+              <p class="process-step-desc">{{ item.desc }}</p>
+            </div>
+            <span
+              v-if="index < processSteps.length - 1"
+              class="process-step-connector"
+              aria-hidden="true"
+            ></span>
           </li>
         </ol>
       </div>
     </section>
   </div>
 </template>
-
 
 <script setup lang="ts">
 const { t, locale } = useI18n()
@@ -96,7 +103,6 @@ const processSteps = computed(() => {
       linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-soft) 100%);
     color: #ffffff;
 
-
     .page-hero-title {
       margin-bottom: 18px;
       font-size: 56px;
@@ -124,15 +130,27 @@ const processSteps = computed(() => {
     margin-bottom: 48px;
 
     .section-title {
+      margin-bottom: 14px;
       font-size: 36px;
       letter-spacing: -0.03em;
       color: #111827;
+    }
+
+    .section-subtitle {
+      max-width: 48ch;
+      color: #4b5563;
+      font-size: 17px;
+      line-height: 1.7;
     }
   }
 
   .section-header.section-header-light {
     .section-title {
       color: #ffffff;
+    }
+
+    .section-subtitle {
+      color: #c8ced6;
     }
   }
 
@@ -184,54 +202,91 @@ const processSteps = computed(() => {
     }
   }
 
-
-
   .process {
     background: var(--color-ink);
 
-    .process-grid {
+    .process-flow {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 14px;
 
-      @media (min-width: 900px) {
-        grid-template-columns: repeat(4, 1fr);
+      @media (min-width: 960px) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
       }
     }
 
-    .process-card {
-      padding: 24px;
-      border-radius: 20px;
+    .process-step {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .process-step-card {
+      height: 100%;
+      padding: 26px 22px;
+      border-radius: 22px;
       background: rgba(#ffffff, 0.04);
-      border: 1px solid rgba(#ffffff, 0.08);
+      border: 1px solid rgba(#ffffff, 0.1);
       transition: transform 0.25s ease, background 0.25s ease;
 
       &:hover {
         transform: translateY(-3px);
         background: rgba(#ffffff, 0.07);
       }
+    }
 
-      .process-card-step {
-        margin-bottom: 28px;
-        color: #5fd0dc;
-        font-size: 14px;
-        font-weight: 700;
+    .process-step-index {
+      margin-bottom: 28px;
+      color: #5fd0dc;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .process-step-title {
+      margin-bottom: 10px;
+      color: #ffffff;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .process-step-desc {
+      color: #9aa3af;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .process-step-connector {
+      display: none;
+    }
+
+    @media (min-width: 960px) {
+      .process-step-connector {
+        display: block;
+        position: absolute;
+        top: 38px;
+        right: -14px;
+        width: 28px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(#5fd0dc, 0.15), rgba(#5fd0dc, 0.75));
       }
 
-      .process-card-title {
-        margin-bottom: 10px;
-        color: #ffffff;
-        font-size: 20px;
-      }
-
-      .process-card-desc {
-        color: #9aa3af;
-        font-size: 14px;
-        line-height: 1.7;
+      .process-step-connector::after {
+        content: '';
+        position: absolute;
+        right: -1px;
+        top: 50%;
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: #5fd0dc;
+        transform: translateY(-50%);
       }
     }
   }
-
-
 }
 </style>

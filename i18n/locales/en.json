@@ -12,7 +12,9 @@
     "news": "News",
     "showMore": "Show more",
     "loadingMore": "Loading...",
-    "backToTop": "Back to top"
+    "backToTop": "Back to top",
+    "prev": "Previous",
+    "next": "Next"
   },
   "footer": {
     "tagline": "Manufacturer of industrial lubricants and greases — R&D, production, QC, and export supply.",
@@ -185,6 +187,67 @@
         "value": "100,000+",
         "label": "Tons annual capacity"
       }
+    },
+    "trust": {
+      "title": "Certified capability",
+      "subtitle": "Quality systems, laboratory testing, and export-ready supply for B2B partners.",
+      "items": {
+        "item1": {
+          "name": "ISO 9001",
+          "desc": "Quality management"
+        },
+        "item2": {
+          "name": "ISO EMS",
+          "desc": "Environmental system"
+        },
+        "item3": {
+          "name": "OHSAS 18001",
+          "desc": "Health & safety"
+        },
+        "item4": {
+          "name": "Lab Testing",
+          "desc": "Full QC equipment"
+        },
+        "item5": {
+          "name": "Export Supply",
+          "desc": "Bulk & container ready"
+        },
+        "item6": {
+          "name": "Global Inputs",
+          "desc": "Fortune 500 materials"
+        }
+      }
+    },
+    "gallery": {
+      "title": "Factory & production",
+      "subtitle": "A closer look at our plant, tank farm, and manufacturing environment.",
+      "blank": "Image coming soon",
+      "items": {
+        "item1": {
+          "title": "Tank farm",
+          "desc": "Storage capacity built for stable bulk supply."
+        },
+        "item2": {
+          "title": "Production plant",
+          "desc": "Automated blending lines and standardized workshops."
+        },
+        "item3": {
+          "title": "Blending lines",
+          "desc": "Controlled production for consistent batch quality."
+        },
+        "item4": {
+          "title": "QC laboratory",
+          "desc": "Testing and release before shipment."
+        },
+        "item5": {
+          "title": "Warehouse",
+          "desc": "Packaging and staging for export orders."
+        },
+        "item6": {
+          "title": "Loading area",
+          "desc": "Container and bulk dispatch preparation."
+        }
+      }
     }
   },
   "products": {
@@ -233,27 +296,28 @@
       }
     },
     "process": {
-      "title": "How we collaborate",
+      "title": "How collaboration works",
+      "subtitle": "A clear path from first inquiry to reliable shipment.",
       "items": {
         "item1": {
           "step": "01",
-          "name": "Discovery",
-          "desc": "Clarify market, equipment conditions, target products, and volume needs."
+          "name": "Inquiry",
+          "desc": "Share target market, grades, packaging, and volume requirements."
         },
         "item2": {
           "step": "02",
-          "name": "Matching",
-          "desc": "Propose product grades, packaging, and technical support options."
+          "name": "Specification",
+          "desc": "We match products, confirm technical details, and align commercial terms."
         },
         "item3": {
           "step": "03",
-          "name": "Factory Delivery",
-          "desc": "Organize production, testing, and shipment for full-container / bulk orders."
+          "name": "Production & QC",
+          "desc": "Blending, laboratory testing, and quality release before shipment."
         },
         "item4": {
           "step": "04",
-          "name": "Optimization",
-          "desc": "Track results and continuously improve formulas and service."
+          "name": "Delivery",
+          "desc": "Packaging, logistics coordination, and export-ready dispatch."
         }
       }
     }
@@ -513,8 +577,6 @@
       "editTitle": "Edit category",
       "createTitle": "New category",
       "empty": "No categories yet.",
-      "descEn": "Desc EN",
-      "descZh": "Desc ZH",
       "deleteConfirm": "Delete category \"{name}\"?"
     }
   },

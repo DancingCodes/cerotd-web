@@ -28,18 +28,6 @@
           <div class="admin-field-label">{{ $t('admin.common.sort') }}</div>
           <input v-model.number="form.sortOrder" class="admin-field-input" type="number" />
         </label>
-        <label class="admin-field admin-field-full">
-          <div class="admin-field-label">{{ $t('admin.productCategories.descEn') }}</div>
-          <textarea v-model="form.descEn" class="admin-field-textarea" rows="3" />
-        </label>
-        <label class="admin-field admin-field-full">
-          <div class="admin-field-label">{{ $t('admin.productCategories.descZh') }}</div>
-          <textarea v-model="form.descZh" class="admin-field-textarea" rows="3" />
-        </label>
-        <div class="admin-field admin-field-full">
-          <div class="admin-field-label">{{ $t('admin.common.coverUrl') }}</div>
-          <AdminImageUpload v-model="form.coverUrl" folder="product-categories" :placeholder="$t('admin.upload.placeholder')" />
-        </div>
         <label class="admin-field">
           <div class="admin-field-label">{{ $t('admin.common.published') }}</div>
           <select v-model="form.isPublished" class="admin-field-input">
@@ -106,8 +94,6 @@ type CategoryItem = {
   id: number
   slug: string
   name: Localized
-  description: Localized
-  coverUrl: string | null
   sortOrder: number
   isPublished: boolean
 }
@@ -129,9 +115,6 @@ const emptyForm = () => ({
   slug: '',
   nameEn: '',
   nameZh: '',
-  descEn: '',
-  descZh: '',
-  coverUrl: '',
   sortOrder: 0,
   isPublished: true
 })
@@ -179,9 +162,6 @@ function startEdit(item: CategoryItem) {
     slug: item.slug,
     nameEn: item.name.en,
     nameZh: item.name.zh,
-    descEn: item.description.en,
-    descZh: item.description.zh,
-    coverUrl: item.coverUrl || '',
     sortOrder: item.sortOrder,
     isPublished: item.isPublished
   })
@@ -208,9 +188,6 @@ async function save() {
   const payload = {
     nameEn: form.nameEn,
     nameZh: form.nameZh,
-    descEn: form.descEn,
-    descZh: form.descZh,
-    coverUrl: form.coverUrl || null,
     sortOrder: Number(form.sortOrder) || 0,
     isPublished: form.isPublished
   }

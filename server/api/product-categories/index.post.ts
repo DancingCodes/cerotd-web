@@ -2,9 +2,6 @@ type CreateCategoryBody = {
   slug?: string
   nameEn?: string
   nameZh?: string
-  descEn?: string
-  descZh?: string
-  coverUrl?: string | null
   sortOrder?: number
   isPublished?: boolean
 }
@@ -25,17 +22,14 @@ export default defineEventHandler(async (event) => {
 
   const sortOrder = Number.isFinite(body.sortOrder) ? Number(body.sortOrder) : 0
   const isPublished = body.isPublished === false ? 0 : 1
-  const coverUrl = body.coverUrl ?? null
-  const descEn = body.descEn?.trim() || ''
-  const descZh = body.descZh?.trim() || ''
 
   const inserted = await db
     .prepare(
       `INSERT INTO products_categories (slug, name_en, name_zh, desc_en, desc_zh, cover_url, sort_order, is_published)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+       VALUES (?, ?, ?, '', '', NULL, ?, ?)
        RETURNING *`
     )
-    .bind(slug, nameEn, nameZh, descEn, descZh, coverUrl, sortOrder, isPublished)
+    .bind(slug, nameEn, nameZh, sortOrder, isPublished)
     .first<CategoryRow>()
 
   if (!inserted) {

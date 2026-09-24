@@ -30,6 +30,95 @@
       </div>
     </section>
 
+    <section v-motion-slide-visible-once-bottom class="section trust">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">{{ $t('about.trust.title') }}</h2>
+          <p class="section-subtitle">{{ $t('about.trust.subtitle') }}</p>
+        </div>
+        <div class="trust-grid">
+          <article v-for="item in trustItems" :key="item.name" class="trust-card">
+            <p class="trust-card-name">{{ item.name }}</p>
+            <p class="trust-card-desc">{{ item.desc }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section v-motion-slide-visible-once-bottom class="section gallery">
+      <div class="container">
+        <div class="section-header section-header-light">
+          <h2 class="section-title">{{ $t('about.gallery.title') }}</h2>
+          <p class="section-subtitle">{{ $t('about.gallery.subtitle') }}</p>
+        </div>
+
+        <div
+          class="gallery-stage"
+          @mouseenter="pauseGallery"
+          @mouseleave="resumeGallery"
+        >
+          <div class="gallery-viewport">
+            <div
+              class="gallery-track"
+              :style="{ transform: `translateX(-${galleryIndex * 100}%)` }"
+            >
+              <figure
+                v-for="(slide, index) in gallerySlides"
+                :key="`gallery-${index}`"
+                class="gallery-slide"
+              >
+                <AppImage
+                  v-if="slide.src"
+                  class="gallery-slide-image"
+                  :src="slide.src"
+                  :alt="slide.title"
+                  :loading="index === 0 ? 'eager' : 'lazy'"
+                  decoding="async"
+                />
+                <div v-else class="gallery-slide-blank">
+                  <span>{{ $t('about.gallery.blank') }}</span>
+                </div>
+                <figcaption class="gallery-slide-caption">
+                  <p class="gallery-slide-title">{{ slide.title }}</p>
+                  <p class="gallery-slide-desc">{{ slide.desc }}</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="gallery-nav gallery-nav-prev"
+            :aria-label="$t('common.prev')"
+            @click="prevSlide"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            class="gallery-nav gallery-nav-next"
+            :aria-label="$t('common.next')"
+            @click="nextSlide"
+          >
+            ›
+          </button>
+
+          <div class="gallery-dots" role="tablist" :aria-label="$t('about.gallery.title')">
+            <button
+              v-for="(slide, index) in gallerySlides"
+              :key="`dot-${index}`"
+              type="button"
+              class="gallery-dot"
+              :class="{ 'gallery-dot-active': index === galleryIndex }"
+              :aria-label="slide.title"
+              :aria-selected="index === galleryIndex"
+              @click="goSlide(index)"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section v-motion-slide-visible-once-bottom class="section stats">
       <div class="container">
         <div class="section-header">
@@ -74,7 +163,6 @@
   </div>
 </template>
 
-
 <script setup lang="ts">
 const { t, locale } = useI18n()
 
@@ -98,6 +186,64 @@ const milestones = computed(() => {
     year: t(`about.milestones.items.item${n}.year`),
     text: t(`about.milestones.items.item${n}.text`)
   }))
+})
+
+const trustItems = computed(() => {
+  locale.value
+  return [1, 2, 3, 4, 5, 6].map((n) => ({
+    name: t(`about.trust.items.item${n}.name`),
+    desc: t(`about.trust.items.item${n}.desc`)
+  }))
+})
+
+const gallerySlides = computed(() => {
+  locale.value
+  // Keep src empty for now; replace with real factory photos later.
+  return [1, 2, 3, 4, 5, 6].map((n) => ({
+    src: '',
+    title: t(`about.gallery.items.item${n}.title`),
+    desc: t(`about.gallery.items.item${n}.desc`)
+  }))
+})
+
+const galleryIndex = ref(0)
+let galleryTimer: ReturnType<typeof setInterval> | null = null
+
+function goSlide(index: number) {
+  const total = gallerySlides.value.length
+  if (!total) return
+  galleryIndex.value = (index + total) % total
+}
+
+function nextSlide() {
+  goSlide(galleryIndex.value + 1)
+}
+
+function prevSlide() {
+  goSlide(galleryIndex.value - 1)
+}
+
+function pauseGallery() {
+  if (galleryTimer) {
+    clearInterval(galleryTimer)
+    galleryTimer = null
+  }
+}
+
+function resumeGallery() {
+  pauseGallery()
+  if (gallerySlides.value.length < 2) return
+  galleryTimer = setInterval(() => {
+    nextSlide()
+  }, 4500)
+}
+
+onMounted(() => {
+  resumeGallery()
+})
+
+onBeforeUnmount(() => {
+  pauseGallery()
 })
 </script>
 
@@ -130,7 +276,6 @@ const milestones = computed(() => {
       linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-soft) 100%);
     color: #ffffff;
 
-
     .page-hero-title {
       max-width: 12ch;
       margin-bottom: 18px;
@@ -159,9 +304,28 @@ const milestones = computed(() => {
     margin-bottom: 48px;
 
     .section-title {
+      margin-bottom: 14px;
       font-size: 36px;
       letter-spacing: -0.03em;
       color: #111827;
+    }
+
+    .section-subtitle {
+      max-width: 52ch;
+      color: #4b5563;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+  }
+
+  .section-header.section-header-light {
+    .section-title,
+    .section-subtitle {
+      color: #ffffff;
+    }
+
+    .section-subtitle {
+      color: #c8ced6;
     }
   }
 
@@ -212,14 +376,177 @@ const milestones = computed(() => {
     }
   }
 
-  .stats {
-    background: var(--color-ink);
+  .trust {
+    background: var(--color-surface);
 
-    .section-header {
-      .section-title {
-        color: #ffffff;
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+
+      @media (min-width: 900px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
       }
     }
+
+    .trust-card {
+      padding: 22px 20px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1px solid #e8edf2;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        border-color: #cfd8e3;
+      }
+
+      .trust-card-name {
+        margin-bottom: 8px;
+        color: #0f4c56;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .trust-card-desc {
+        color: #4b5563;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .gallery {
+    background: var(--color-ink);
+
+    .gallery-stage {
+      position: relative;
+    }
+
+    .gallery-viewport {
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid rgba(#ffffff, 0.08);
+      background: #0d1524;
+    }
+
+    .gallery-track {
+      display: flex;
+      transition: transform 0.55s ease;
+    }
+
+    .gallery-slide {
+      position: relative;
+      flex: 0 0 100%;
+      min-width: 100%;
+      margin: 0;
+
+      .gallery-slide-image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        display: block;
+        filter: saturate(0.9) contrast(1.04);
+      }
+
+      .gallery-slide-blank {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:
+          linear-gradient(135deg, rgba(#8b9aab, 0.12), transparent 42%),
+          #121a28;
+        color: #8b95a5;
+        font-size: 13px;
+        font-weight: 650;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+
+      .gallery-slide-caption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 28px 24px 24px;
+        background: linear-gradient(180deg, transparent 0%, rgba(7, 12, 20, 0.82) 100%);
+      }
+
+      .gallery-slide-title {
+        margin-bottom: 6px;
+        color: #ffffff;
+        font-size: 22px;
+        font-weight: 650;
+        letter-spacing: -0.02em;
+      }
+
+      .gallery-slide-desc {
+        color: #c8ced6;
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 46ch;
+      }
+    }
+
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: rgba(#ffffff, 0.14);
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background: rgba(#ffffff, 0.22);
+      }
+    }
+
+    .gallery-nav.gallery-nav-prev {
+      left: 14px;
+    }
+
+    .gallery-nav.gallery-nav-next {
+      right: 14px;
+    }
+
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .gallery-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(#ffffff, 0.28);
+      cursor: pointer;
+      transition: width 0.2s ease, background-color 0.2s ease;
+    }
+
+    .gallery-dot.gallery-dot-active {
+      width: 22px;
+      background: #5fd0dc;
+    }
+  }
+
+  .stats {
+    background: #ffffff;
 
     .stats-grid {
       display: grid;
@@ -234,26 +561,26 @@ const milestones = computed(() => {
     .stats-item {
       padding: 28px 24px;
       border-radius: 24px;
-      background: rgba(#ffffff, 0.04);
-      border: 1px solid rgba(#ffffff, 0.08);
+      background: var(--color-surface);
+      border: 1px solid #e8edf2;
       transition: transform 0.25s ease, background 0.25s ease;
 
       &:hover {
         transform: translateY(-3px);
-        background: rgba(#ffffff, 0.07);
+        background: #eef2f6;
       }
 
       .stats-item-value {
         margin-bottom: 10px;
-        color: #5fd0dc;
-        font-size: 40px;
+        color: #0f4c56;
+        font-size: 36px;
         font-weight: 700;
         letter-spacing: -0.03em;
         line-height: 1;
       }
 
       .stats-item-label {
-        color: #c8ced6;
+        color: #4b5563;
         font-size: 15px;
         line-height: 1.5;
       }
