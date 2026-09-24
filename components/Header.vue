@@ -14,6 +14,10 @@
           <button type="button" class="nav-lang" @click="toggleLocale">
             {{ locale === 'en' ? '中文' : 'EN' }}
           </button>
+
+          <NuxtLink to="/contact" class="nav-cta">
+            {{ $t('common.contact') }}
+          </NuxtLink>
         </div>
 
         <button
@@ -39,6 +43,9 @@
         >
           {{ $t(item.label) }}
         </NuxtLink>
+        <NuxtLink to="/contact" class="nav-mobile-cta" @click="mobileMenuOpen = false">
+          {{ $t('common.contact') }}
+        </NuxtLink>
         <button type="button" class="nav-mobile-lang" @click="toggleLocale">
           {{ locale === 'en' ? '中文' : 'EN' }}
         </button>
@@ -62,8 +69,7 @@ const navItems: NavItem[] = [
   { to: '/services', label: 'common.services' },
   { to: '/advantages', label: 'common.advantages' },
   { to: '/about', label: 'common.about' },
-  { to: '/news', label: 'common.news' },
-  { to: '/contact', label: 'common.contact' }
+  { to: '/news', label: 'common.news' }
 ]
 
 const toggleLocale = () => {
@@ -158,6 +164,29 @@ const toggleLocale = () => {
           background: #e2e6eb;
         }
       }
+
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #0f9aa8 0%, #3dd6e0 100%);
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 650;
+        text-decoration: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+          opacity: 0.92;
+        }
+      }
+
+      .nav-cta.router-link-active {
+        box-shadow: 0 0 0 2px rgba(15, 76, 86, 0.18);
+      }
     }
 
     .nav-mobile-btn {
@@ -210,6 +239,19 @@ const toggleLocale = () => {
       .nav-mobile-link.router-link-active {
         color: #0f4c56;
         font-weight: 700;
+      }
+
+      .nav-mobile-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        margin-top: 12px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #0f9aa8 0%, #3dd6e0 100%);
+        color: #ffffff;
+        font-weight: 650;
+        text-decoration: none;
       }
 
       .nav-mobile-lang {
