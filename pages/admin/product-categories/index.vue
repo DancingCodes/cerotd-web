@@ -415,7 +415,7 @@ onMounted(load)
       width: 100%;
       border: 1px solid #d7dee7;
       border-radius: 12px;
-      background: #ffffff;
+      background-color: #ffffff;
       outline: none;
     }
 
@@ -423,6 +423,19 @@ onMounted(load)
       height: 42px;
       padding: 0 12px;
     }
+
+    select.admin-field-input {
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      padding-right: 40px;
+      background-color: #ffffff;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%236b7280' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px 16px;
+    }
+
 
     .admin-field-textarea {
       padding: 10px 12px;
