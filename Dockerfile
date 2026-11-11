@@ -4,7 +4,7 @@ ENV NUXT_TELEMETRY_DISABLED=1
 COPY package.json package-lock.json ./
 RUN npm i
 COPY . .
-RUN npm run build:api
+RUN npm run build
 
 FROM node:24-bookworm-slim
 WORKDIR /app

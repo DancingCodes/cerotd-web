@@ -1,5 +1,3 @@
-declare const process: { env: Record<string, string | undefined> }
-const apiMode = process.env.CEROTD_BUILD_MODE === 'api'
 const adminApiOrigin = 'https://cerotdadmin.dancingcodes.cn'
 
 export default defineNuxtConfig({
@@ -11,25 +9,13 @@ export default defineNuxtConfig({
     adminApiOrigin,
     public: { adminApiOrigin, siteUrl: 'https://cerotd.dancingcodes.cn' }
   },
-  routeRules: apiMode ? { '/api/**': { proxy: `${adminApiOrigin}/api/**` } } : {},
-  nitro: {
-    devProxy: { '/api': { target: `${adminApiOrigin}/api`, changeOrigin: true } },
-    ...(apiMode ? {} : { prerender: { crawlLinks: true, routes: ['/'] } })
-  },
-  hooks: apiMode ? {} : {
-    'prerender:routes': async ({ routes }) => {
-      const origin = adminApiOrigin
-      for (const section of ['products', 'news']) {
-        const response = await fetch(`${origin}/api/${section}`)
-        if (!response.ok) throw new Error(`Cannot read ${section} from admin: HTTP ${response.status}`)
-        const result = await response.json()
-        if (result.code !== 200 || !Array.isArray(result.data?.items)) {
-          throw new Error(`Cannot read ${section} from admin: ${result.msg || result.code}`)
-        }
-        routes.add(`/${section}`)
-        for (const item of result.data.items) routes.add(`/${section}/${item.slug}`)
-      }
+  routeRules: {
+    '/api/**': {
+      proxy: `${adminApiOrigin}/api/**`
     }
+  },
+  nitro: {
+    devProxy: { '/api': { target: `${adminApiOrigin}/api`, changeOrigin: true } }
   },
   css: ['~/assets/css/main.css'],
   typescript: { strict: true },
