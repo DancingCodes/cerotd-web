@@ -82,8 +82,8 @@ const route = useRoute()
 const router = useRouter()
 
 usePageSeo({
-  title: i18nT('seo.products.title'),
-  description: i18nT('seo.products.description'),
+  title: computed(() => i18nT('seo.products.title')),
+  description: computed(() => i18nT('seo.products.description')),
   path: '/products'
 })
 

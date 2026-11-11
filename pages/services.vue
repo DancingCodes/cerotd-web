@@ -99,8 +99,8 @@
 const { t, locale } = useI18n()
 
 usePageSeo({
-  title: t('seo.services.title'),
-  description: t('seo.services.description'),
+  title: computed(() => t('seo.services.title')),
+  description: computed(() => t('seo.services.description')),
   path: '/services'
 })
 

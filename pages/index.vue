@@ -225,8 +225,8 @@ const { t, locale } = useI18n()
 const tLocal = useLocalized()
 
 usePageSeo({
-  title: t('seo.home.title'),
-  description: t('seo.home.description'),
+  title: computed(() => t('seo.home.title')),
+  description: computed(() => t('seo.home.description')),
   path: '/'
 })
 
