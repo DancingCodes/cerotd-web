@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   fonts: { providers: { google: false, googleicons: false } },
   runtimeConfig: {
     adminApiOrigin: 'http://127.0.0.1:3001',
-    public: { adminApiOrigin: 'http://127.0.0.1:3001', siteUrl: 'https://dcodes.top' }
+    public: { adminApiOrigin: 'https://cerotdadmin.dancingcodes.cn', siteUrl: 'https://dcodes.top' }
   },
   nitro: {
     devProxy: { '/api': { target: 'http://127.0.0.1:3001/api', changeOrigin: true } },
