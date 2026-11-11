@@ -1,19 +1,24 @@
+declare const process: { env: Record<string, string | undefined> }
+const apiMode = process.env.CEROTD_BUILD_MODE === 'api'
+const adminApiOrigin = 'https://cerotdadmin.dancingcodes.cn'
+
 export default defineNuxtConfig({
   compatibilityDate: '2026-09-23',
   modules: ['@nuxt/ui', '@nuxtjs/i18n'],
   ui: { colorMode: false },
   fonts: { providers: { google: false, googleicons: false } },
   runtimeConfig: {
-    adminApiOrigin: 'http://127.0.0.1:3001',
-    public: { adminApiOrigin: 'https://cerotdadmin.dancingcodes.cn', siteUrl: 'https://dcodes.top' }
+    adminApiOrigin,
+    public: { adminApiOrigin, siteUrl: 'https://cerotd.dancingcodes.cn' }
   },
+  routeRules: apiMode ? { '/api/**': { proxy: `${adminApiOrigin}/api/**` } } : {},
   nitro: {
-    devProxy: { '/api': { target: 'http://127.0.0.1:3001/api', changeOrigin: true } },
-    prerender: { crawlLinks: true, routes: ['/'] }
+    devProxy: { '/api': { target: `${adminApiOrigin}/api`, changeOrigin: true } },
+    ...(apiMode ? {} : { prerender: { crawlLinks: true, routes: ['/'] } })
   },
-  hooks: {
+  hooks: apiMode ? {} : {
     'prerender:routes': async ({ routes }) => {
-      const origin = 'http://127.0.0.1:3001'
+      const origin = adminApiOrigin
       for (const section of ['products', 'news']) {
         const response = await fetch(`${origin}/api/${section}`)
         if (!response.ok) throw new Error(`Cannot read ${section} from admin: HTTP ${response.status}`)

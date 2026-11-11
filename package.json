@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "build:api": "node scripts/build.mjs api",
+    "build:static": "node scripts/build.mjs static",
+    "start": "node .output/server/index.mjs",
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
