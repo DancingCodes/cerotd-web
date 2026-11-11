@@ -62,7 +62,6 @@ type NavItem = {
 
 const { locale, setLocale } = useI18n()
 const mobileMenuOpen = ref(false)
-const localeStorageKey = 'cerotd-locale'
 
 const navItems: NavItem[] = [
   { to: '/', label: 'common.home' },
@@ -80,16 +79,8 @@ function isNavActive(to: string) {
   return route.path === to || route.path.startsWith(`${to}/`)
 }
 
-onMounted(() => {
-  const savedLocale = window.localStorage.getItem(localeStorageKey)
-  if (savedLocale === 'zh' || savedLocale === 'en') {
-    void setLocale(savedLocale)
-  }
-})
-
 const toggleLocale = async () => {
   const nextLocale = locale.value === 'en' ? 'zh' : 'en'
   await setLocale(nextLocale)
-  window.localStorage.setItem(localeStorageKey, nextLocale)
 }
 </script>
