@@ -2,6 +2,7 @@ const adminApiOrigin = 'https://cerotdadmin.dancingcodes.cn'
 
 export default defineNuxtConfig({
   compatibilityDate: '2026-09-23',
+  app: { pageTransition: { name: 'page', mode: 'out-in' } },
   modules: ['@nuxt/ui', '@nuxtjs/i18n'],
   ui: { colorMode: false },
   fonts: { providers: { google: false, googleicons: false } },
