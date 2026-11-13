@@ -43,7 +43,7 @@
   "home": {
     "badge": "Industrial Lubricant Manufacturer",
     "hero": {
-      "title": "Factory-Direct Industrial Oils & Greases",
+      "title": "FACTORY-DIRECT INDUSTRIAL OILS & GREASES",
       "subtitle": "Automotive, industrial and construction lubricants for distributors and fleet buyers — bulk supply, stable batches, OEM available.",
       "ctaPrimary": "View Products",
       "ctaSecondary": "Request a Quote",
@@ -52,7 +52,7 @@
       "trust3": "ISO 45001"
     },
     "services": {
-      "title": "How we support buyers",
+      "title": "HOW WE SUPPORT BUYERS",
       "subtitle": "Key points here — full process on the Services page.",
       "items": {
         "item1": {
@@ -71,7 +71,7 @@
       "link": "See service process"
     },
     "advantages": {
-      "title": "Why choose Cerotd",
+      "title": "WHY CHOOSE CEROTD",
       "subtitle": "Factory-direct supply, batch consistency and verifiable quality systems.",
       "items": {
         "item1": {
@@ -94,7 +94,7 @@
       "link": "See key advantages"
     },
     "cta": {
-      "title": "Ready to work together?",
+      "title": "READY TO WORK TOGETHER?",
       "subtitle": "Tell us your market, grades and volume — our sales team will reply soon.",
       "button": "Contact us"
     },
@@ -117,7 +117,7 @@
       }
     },
     "lab": {
-      "title": "In-house lab",
+      "title": "IN-HOUSE LAB",
       "subtitle": "Our R&D center is equipped for incoming checks through finished-goods release.",
       "point1": "R&D center over 800㎡ with a 7-person research team.",
       "point2": "72 analytical instruments, including 41 lubricant testing units.",
@@ -143,7 +143,7 @@
       }
     },
     "facility": {
-      "title": "See the plant behind the products",
+      "title": "SEE THE PLANT BEHIND THE PRODUCTS",
       "subtitle": "Facility, production and lab visuals for buyers evaluating supply capability.",
       "cta": "View company profile",
       "close": "Close",
@@ -157,18 +157,18 @@
         "plant1": "Plant exterior",
         "plant2": "Outdoor tank farm",
         "plant3": "Drum and packaging warehouse",
-        "production1": "Production vessels",
+        "production1": "Automated production line",
         "production2": "Indoor storage and process tanks",
-        "lab1": "Moisture analysis",
-        "lab2": "Titration workstation",
-        "lab3": "Analytical balance",
-        "lab4": "Low-temperature testing",
-        "lab5": "Flash point testing",
-        "lab6": "QC instruments in operation"
+        "lab1": "Lever-type four-ball friction tester",
+        "lab2": "High-temperature high-shear dynamic viscosity tester",
+        "lab3": "Precision R&D laboratory",
+        "lab4": "Lubricating oil evaporation loss tester",
+        "lab5": "Petroleum product density meter",
+        "lab6": "Rust prevention tester"
       }
     },
     "exportServices": {
-      "title": "Export services for overseas buyers",
+      "title": "EXPORT SERVICES FOR OVERSEAS BUYERS",
       "subtitle": "From private-label packaging to container loading, our team helps move bulk lubricant orders from factory to destination.",
       "items": {
         "item1": {
@@ -191,27 +191,32 @@
       "cta": "Discuss your export requirements"
     },
     "partners": {
-      "title": "Feedstock & technology partners",
+      "title": "FEEDSTOCK & TECHNOLOGY PARTNERS",
       "subtitle": "Working with global base-oil and additive partners to support formula quality."
     },
     "lines": {
-      "title": "Core product lines",
+      "title": "CORE PRODUCT LINES",
       "subtitle": "Explore product categories for automotive, industrial and specialty applications."
+    },
+    "market": {
+      "title": "MARKET COVERAGE",
+      "subtitle": "Explore our international market presence.",
+      "imageAlt": "World map showing market locations"
     }
   },
   "about": {
     "hero": {
-      "title": "About Cerotd",
+      "title": "ABOUT CEROTD",
       "subtitle": "A manufacturing company focused on lubricants and greases"
     },
     "intro": {
-      "title": "An integrated lubricant manufacturer",
+      "title": "AN INTEGRATED LUBRICANT MANUFACTURER",
       "p1": "Cerotd (Shandong) Lubrication Technology Co., Ltd. integrates R&D, production, sales, technical training and logistics. Based in the New Material Industrial Park, Rencheng District, Jining, Shandong, we serve automotive, industrial and construction-machinery customers with practical lubrication solutions.",
       "p2": "With 20 years in the industry, we offer 100+ products and a distributor network across 20+ provinces, serving 1,000+ dealers. Our plant supports scaled manufacturing and reliable delivery, with annual production and sales up to 150,000 tons.",
       "p3": "We stay focused on professionalism and partnership, aiming for more efficient, environmentally responsible and energy-saving lubrication solutions that help customers grow with us."
     },
     "values": {
-      "title": "What we value",
+      "title": "WHAT WE VALUE",
       "items": {
         "item1": {
           "name": "Verifiable quality",
@@ -228,7 +233,7 @@
       }
     },
     "milestones": {
-      "title": "Company focus",
+      "title": "COMPANY FOCUS",
       "items": {
         "item1": {
           "year": "Industry focus",
@@ -249,7 +254,7 @@
       }
     },
     "stats": {
-      "title": "Plant key figures",
+      "title": "PLANT KEY FIGURES",
       "item1": {
         "value": "28,000㎡",
         "label": "Plant area"
@@ -268,7 +273,7 @@
       }
     },
     "trust": {
-      "title": "Certifications & capability snapshot",
+      "title": "CERTIFICATIONS & CAPABILITY SNAPSHOT",
       "subtitle": "A quick trust layer for buyers — certificates and plant visuals follow below.",
       "items": {
         "item1": {
@@ -298,7 +303,7 @@
       }
     },
     "certificates": {
-      "title": "Certificates & qualifications",
+      "title": "CERTIFICATES & QUALIFICATIONS",
       "subtitle": "Official certificates that support our quality, safety, and management systems.",
       "alt": "Company certificate {n}",
       "close": "Close certificate preview"
@@ -306,26 +311,26 @@
   },
   "products": {
     "hero": {
-      "title": "Products",
+      "title": "PRODUCTS",
       "subtitle": "Explore Cerotd lubricant and care solutions by series and grade."
     },
-    "listTitle": "All Products",
+    "listTitle": "ALL PRODUCTS",
     "listSubtitle": "Browse published products by category. Details can be confirmed by inquiry.",
     "detailCta": "Ask about this product",
     "backToList": "Back to products",
-    "specsTitle": "Key Information",
-    "relatedTitle": "Related Products",
+    "specsTitle": "KEY INFORMATION",
+    "relatedTitle": "RELATED PRODUCTS",
     "filterAll": "All",
     "loading": "Loading products...",
     "empty": "No products in this category yet."
   },
   "services": {
     "hero": {
-      "title": "Services",
+      "title": "SERVICES",
       "subtitle": "A clear path from inquiry and selection to production, QC and logistics."
     },
     "list": {
-      "title": "How we support procurement and rollout",
+      "title": "HOW WE SUPPORT PROCUREMENT AND ROLLOUT",
       "items": {
         "item1": {
           "name": "Condition review & selection",
@@ -346,7 +351,7 @@
       }
     },
     "process": {
-      "title": "Cooperation process",
+      "title": "COOPERATION PROCESS",
       "subtitle": "Four steps from inquiry to shipment.",
       "items": {
         "item1": {
@@ -372,7 +377,7 @@
       }
     },
     "audience": {
-      "title": "Who we work with",
+      "title": "WHO WE WORK WITH",
       "subtitle": "Find your fit first, then move into selection and delivery.",
       "items": {
         "item1": {
@@ -390,7 +395,7 @@
       }
     },
     "checklist": {
-      "title": "Helpful details before inquiry",
+      "title": "HELPFUL DETAILS BEFORE INQUIRY",
       "subtitle": "Clearer inputs usually mean faster selection and lead-time confirmation.",
       "items": {
         "item1": "Equipment type and duty conditions (load, temperature, maintenance cycle)",
@@ -401,18 +406,18 @@
       }
     },
     "cta": {
-      "title": "Ready to start?",
+      "title": "READY TO START?",
       "subtitle": "Tell us your duty conditions, grades and volume — our team will reply soon.",
       "button": "Go to contact"
     }
   },
   "advantages": {
     "hero": {
-      "title": "Advantages",
+      "title": "ADVANTAGES",
       "subtitle": "Factory-direct supply, duty-cycle fit and stable delivery for long-term B2B partnerships."
     },
     "pillars": {
-      "title": "Capabilities behind that experience",
+      "title": "CAPABILITIES BEHIND THAT EXPERIENCE",
       "subtitle": "Verify details on About; here is how they support purchasing decisions.",
       "items": {
         "item1": {
@@ -434,7 +439,7 @@
       }
     },
     "compare": {
-      "title": "What working with us feels like",
+      "title": "WHAT WORKING WITH US FEELS LIKE",
       "subtitle": "Compared with traders or catalog-only quoting, we focus on an executable supply relationship.",
       "items": {
         "item1": {
@@ -452,7 +457,7 @@
       }
     },
     "outcomes": {
-      "title": "What buyers get",
+      "title": "WHAT BUYERS GET",
       "subtitle": "Less about raw plant stats — more about predictable cooperation results.",
       "items": {
         "item1": {
@@ -474,7 +479,7 @@
       }
     },
     "assurance": {
-      "title": "Delivery & cooperation safeguards",
+      "title": "DELIVERY & COOPERATION SAFEGUARDS",
       "subtitle": "Clear checkpoints for purchasing, technical and warehouse teams.",
       "items": {
         "item1": {
@@ -496,7 +501,7 @@
       }
     },
     "cta": {
-      "title": "Want to check fit?",
+      "title": "WANT TO CHECK FIT?",
       "subtitle": "Share duty conditions, grades and volume — or browse products and plant information first.",
       "button": "Contact us",
       "secondary": "View products"
@@ -504,11 +509,11 @@
   },
   "contact": {
     "hero": {
-      "title": "Contact",
+      "title": "CONTACT",
       "subtitle": "Factory direct supply for full-container and bulk orders"
     },
     "info": {
-      "title": "Contact details",
+      "title": "CONTACT DETAILS",
       "addressLabel": "Address",
       "addressValue": "150 meters south of the intersection of Chenguang Road and Lantian Road, New Material Industrial Park, Yunhe Economic Development Zone, Rencheng District, Jining City, Shandong Province.",
       "phoneLabel": "Phone",
@@ -527,7 +532,7 @@
       "instagramValue": "{'@'}hanxiansheng889"
     },
     "form": {
-      "title": "Send a message",
+      "title": "SEND A MESSAGE",
       "name": "Name",
       "company": "Company",
       "email": "Email",
@@ -546,7 +551,7 @@
       "invalidEmail": "Please enter a valid email address."
     },
     "social": {
-      "title": "Social & Messaging",
+      "title": "SOCIAL & MESSAGING",
       "wechatTip": "Scan or search the WeChat ID to connect"
     }
   },
@@ -584,10 +589,10 @@
   },
   "news": {
     "hero": {
-      "title": "News & Insights",
+      "title": "NEWS & INSIGHTS",
       "subtitle": "Company updates, product releases and industry notes from Cerotd."
     },
-    "listTitle": "Latest Articles",
+    "listTitle": "LATEST ARTICLES",
     "listSubtitle": "Stay informed on manufacturing, product and market developments.",
     "filterAll": "All",
     "loading": "Loading news...",

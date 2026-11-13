@@ -52,7 +52,7 @@
 
           <div class="mt-7 border-t border-white/8 pt-6">
             <p class="mb-3.5 text-[13px] text-[#9aa3af]">{{ $t('contact.social.wechatTip') }}</p>
-            <img src="/images/wechat.webp" :alt="$t('contact.info.wechatLabel')" class="size-30 rounded-3.5 bg-white object-cover" />
+            <img src="/images/contact/wechat.webp" :alt="$t('contact.info.wechatLabel')" class="size-30 rounded-3.5 bg-white object-cover" />
           </div>
         </aside>
 

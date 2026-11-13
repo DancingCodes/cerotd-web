@@ -4,7 +4,7 @@
     class="relative flex min-h-[78vh] items-center overflow-hidden bg-[#070b12] py-24 pt-30 text-white max-md:min-h-[86vh] max-md:py-22 max-md:pt-27.5">
     <div class="absolute inset-0" aria-hidden="true">
       <img class="size-full scale-[1.04] object-cover object-[center_40%] saturate-[.78] contrast-[1.05]"
-        src="/images/hero-bg.webp" alt="" fetchpriority="high" decoding="async" />
+        src="/images/home/hero-bg.webp" alt="" fetchpriority="high" decoding="async" />
     </div>
     <div
       class="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,11,18,.88)_0%,rgba(7,11,18,.72)_42%,rgba(7,11,18,.34)_100%),linear-gradient(180deg,rgba(7,11,18,.28)_0%,rgba(7,11,18,.78)_100%)]"
@@ -154,6 +154,18 @@
     </UContainer>
   </section>
 
+  <section class="border-t border-[#e6e8ec] bg-[#f3f4f6] py-24 md:py-28">
+    <UContainer class="max-w-295 px-6">
+      <div class="mb-10 max-w-155">
+        <h2 class="mb-3.5 text-[40px] leading-[1.12] font-semibold tracking-normal text-[#10141a] max-md:text-[32px]">{{
+          $t('home.market.title') }}</h2>
+        <p class="text-4.25 leading-[1.7] text-[#66707c]">{{ $t('home.market.subtitle') }}</p>
+      </div>
+      <img class="block w-full rounded-xl bg-white" src="/images/map/map.webp"
+        :alt="$t('home.market.imageAlt')" width="4581" height="1803" loading="lazy" decoding="async" />
+    </UContainer>
+  </section>
+
   <section class="bg-white py-24 md:py-28">
     <UContainer class="max-w-295 px-6">
       <div class="mb-10 max-w-155">
@@ -257,10 +269,10 @@ const partnerLogos = [
 ]
 
 const advantageImages = [
-  '/images/factory/8.webp',
-  '/images/factory/9.webp',
-  '/images/factory/10.webp',
-  '/images/factory/11.webp'
+  '/images/facility/production/2.webp',
+  '/images/facility/plant/3.webp',
+  '/images/facility/plant/1.webp',
+  '/images/facility/production/1.webp'
 ]
 
 type ProductCategory = { slug: string; name: { en: string; zh: string } }
@@ -294,17 +306,17 @@ const facilityPreviewIndex = ref(0)
 const facilityImages = computed<FacilityImage[]>(() => {
   locale.value
   return [
-    { tab: 'plant', src: '/images/factory/10.webp', caption: t('home.facility.captions.plant1') },
-    { tab: 'plant', src: '/images/factory/7.webp', caption: t('home.facility.captions.plant2') },
-    { tab: 'plant', src: '/images/factory/9.webp', caption: t('home.facility.captions.plant3') },
-    { tab: 'production', src: '/images/factory/11.webp', caption: t('home.facility.captions.production1') },
-    { tab: 'production', src: '/images/factory/8.webp', caption: t('home.facility.captions.production2') },
-    { tab: 'laboratory', src: '/images/factory/1.webp', caption: t('home.facility.captions.lab1') },
-    { tab: 'laboratory', src: '/images/factory/2.webp', caption: t('home.facility.captions.lab2') },
-    { tab: 'laboratory', src: '/images/factory/3.webp', caption: t('home.facility.captions.lab3') },
-    { tab: 'laboratory', src: '/images/factory/4.webp', caption: t('home.facility.captions.lab4') },
-    { tab: 'laboratory', src: '/images/factory/5.webp', caption: t('home.facility.captions.lab5') },
-    { tab: 'laboratory', src: '/images/factory/6.webp', caption: t('home.facility.captions.lab6') }
+    { tab: 'plant', src: '/images/facility/plant/1.webp', caption: t('home.facility.captions.plant1') },
+    { tab: 'plant', src: '/images/facility/plant/2.webp', caption: t('home.facility.captions.plant2') },
+    { tab: 'plant', src: '/images/facility/plant/3.webp', caption: t('home.facility.captions.plant3') },
+    { tab: 'production', src: '/images/facility/production/1.webp', caption: t('home.facility.captions.production1') },
+    { tab: 'production', src: '/images/facility/production/2.webp', caption: t('home.facility.captions.production2') },
+    { tab: 'laboratory', src: '/images/facility/laboratory/1.webp', caption: t('home.facility.captions.lab1') },
+    { tab: 'laboratory', src: '/images/facility/laboratory/2.webp', caption: t('home.facility.captions.lab2') },
+    { tab: 'laboratory', src: '/images/facility/laboratory/3.webp', caption: t('home.facility.captions.lab3') },
+    { tab: 'laboratory', src: '/images/facility/laboratory/4.webp', caption: t('home.facility.captions.lab4') },
+    { tab: 'laboratory', src: '/images/facility/laboratory/5.webp', caption: t('home.facility.captions.lab5') },
+    { tab: 'laboratory', src: '/images/facility/laboratory/6.webp', caption: t('home.facility.captions.lab6') }
   ]
 })
 

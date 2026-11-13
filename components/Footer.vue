@@ -80,7 +80,7 @@
             </li>
           </ul>
           <div class="mt-4">
-            <img src="/images/wechat.webp" :alt="$t('footer.wechatTitle')"
+            <img src="/images/contact/wechat.webp" :alt="$t('footer.wechatTitle')"
               class="h-24 w-24 rounded-xl bg-white object-cover" loading="lazy" decoding="async" />
           </div>
         </div>
