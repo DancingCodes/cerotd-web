@@ -17,14 +17,14 @@
 
       <div class="mb-7 flex flex-wrap gap-2.5" role="tablist">
         <button type="button"
-          class="min-h-10 cursor-pointer rounded-full border border-[#d7dde5] bg-white px-4 text-[14px] font-medium text-[#4b5563] transition hover:border-[#b8c2cf] hover:text-[#111827]"
-          :class="{ 'border-[#3f7f88]/45 bg-[#3f7f88]/10 text-[#0f4c56]': !selectedCategory }" role="tab"
+          class="min-h-10 cursor-pointer rounded-full border px-4 text-[14px] font-medium transition"
+          :class="!selectedCategory ? 'border-[#0f4c56] bg-[#0f4c56] text-white' : 'border-[#d7dde5] bg-white text-[#4b5563] hover:border-[#b8c2cf] hover:text-[#111827]'" role="tab"
           :aria-selected="!selectedCategory" @click="setCategory('')">
           {{ $t('news.filterAll') }}
         </button>
         <button v-for="category in categories" :key="category.slug" type="button"
-          class="min-h-10 cursor-pointer rounded-full border border-[#d7dde5] bg-white px-4 text-[14px] font-medium text-[#4b5563] transition hover:border-[#b8c2cf] hover:text-[#111827]"
-          :class="{ 'border-[#3f7f88]/45 bg-[#3f7f88]/10 text-[#0f4c56]': selectedCategory === category.slug }"
+          class="min-h-10 cursor-pointer rounded-full border px-4 text-[14px] font-medium transition"
+          :class="selectedCategory === category.slug ? 'border-[#0f4c56] bg-[#0f4c56] text-white' : 'border-[#d7dde5] bg-white text-[#4b5563] hover:border-[#b8c2cf] hover:text-[#111827]'"
           role="tab" :aria-selected="selectedCategory === category.slug" @click="setCategory(category.slug)">
           {{ t(category.name) }}
         </button>
