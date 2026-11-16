@@ -107,7 +107,7 @@ usePageSeo({
 
 const outcomes = computed(() => {
   locale.value
-  return [1, 2, 3, 4].map((n) => ({
+  return [1, 2, 3, 4, 5, 6].map((n) => ({
     name: t(`advantages.outcomes.items.item${n}.name`),
     desc: t(`advantages.outcomes.items.item${n}.desc`)
   }))

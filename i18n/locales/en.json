@@ -75,20 +75,20 @@
       "subtitle": "Factory-direct supply, batch consistency and verifiable quality systems.",
       "items": {
         "item1": {
-          "name": "Factory-direct",
-          "desc": "Manufacturer supply for FCL and long-term buying."
+          "name": "Precision R&D and testing",
+          "desc": "Professional R&D and testing support product iteration and quality verification."
         },
         "item2": {
-          "name": "Batch consistency",
-          "desc": "Production and testing loop to reduce supply variation."
+          "name": "Factory-direct supply",
+          "desc": "Direct manufacturer supply for FCL and long-term buying."
         },
         "item3": {
-          "name": "Duty-cycle fit",
-          "desc": "Solutions for real use cases — not only catalog pricing."
+          "name": "Export support",
+          "desc": "Packaging, documentation and shipping coordination support reliable export delivery."
         },
         "item4": {
-          "name": "Verifiable systems",
-          "desc": "Certifications, certificates and QC you can check."
+          "name": "OEM & private-label customization",
+          "desc": "OEM and private-label options support custom packaging and product programs."
         }
       },
       "link": "See key advantages"
@@ -475,6 +475,14 @@
         "item4": {
           "name": "Longer-term partnership",
           "desc": "Built for ongoing distributor and industrial buying, not one-off deals."
+        },
+        "item5": {
+          "name": "Marketing materials",
+          "desc": "Product information and promotional materials support partner marketing."
+        },
+        "item6": {
+          "name": "Testing & certification",
+          "desc": "Testing data and certification documents support entry into target markets."
         }
       }
     },

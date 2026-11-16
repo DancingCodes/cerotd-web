@@ -269,10 +269,10 @@ const partnerLogos = [
 ]
 
 const advantageImages = [
-  '/images/facility/production/2.webp',
-  '/images/facility/plant/3.webp',
-  '/images/facility/plant/1.webp',
-  '/images/facility/production/1.webp'
+  '/images/advantages/1.webp',
+  '/images/advantages/2.webp',
+  '/images/advantages/3.webp',
+  '/images/advantages/4.webp'
 ]
 
 type ProductCategory = { slug: string; name: { en: string; zh: string } }
