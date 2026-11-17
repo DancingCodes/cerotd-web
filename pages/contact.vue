@@ -60,32 +60,32 @@
           <h2 class="mb-4 text-[28px] tracking-normal text-[#111827]">{{ $t('contact.form.title') }}</h2>
           <p class="mb-6 rounded-[10px] border border-[#1aa6b8]/18 bg-[#1aa6b8]/8 px-4 py-3.5 text-[14px] leading-[1.7] text-[#0f4c56]">{{ $t('contact.form.notice') }}</p>
           <form class="grid grid-cols-1 gap-4 min-[720px]:grid-cols-2" @submit.prevent="onSubmit">
-            <label class="flex min-w-0 flex-col gap-2 border-0 p-0">
-              <span class="text-[13px] font-semibold text-[#374151] after:text-[#b42318] after:content-['_*']">{{ $t('contact.form.name') }}</span>
-              <input v-model="form.name" class="w-full rounded-[14px] border border-[#e2e6eb] bg-[#f3f4f6] px-4 py-3.5 text-[#111827] outline-none transition focus:border-[#1aa6b8]/[.55] focus:bg-white focus:ring-4 focus:ring-[#1aa6b8]/12" type="text" name="name" autocomplete="name" required :placeholder="$t('contact.form.name')" />
-            </label>
-            <label class="flex min-w-0 flex-col gap-2 border-0 p-0">
-              <span class="text-[13px] font-semibold text-[#374151] after:text-[#b42318] after:content-['_*']">{{ $t('contact.form.company') }}</span>
-              <input v-model="form.company" class="w-full rounded-[14px] border border-[#e2e6eb] bg-[#f3f4f6] px-4 py-3.5 text-[#111827] outline-none transition focus:border-[#1aa6b8]/[.55] focus:bg-white focus:ring-4 focus:ring-[#1aa6b8]/12" type="text" name="company" autocomplete="organization" required :placeholder="$t('contact.form.company')" />
-            </label>
-            <label class="flex min-w-0 flex-col gap-2 border-0 p-0">
-              <span class="text-[13px] font-semibold text-[#374151] after:text-[#b42318] after:content-['_*']">{{ $t('contact.form.email') }}</span>
-              <input v-model="form.email" class="w-full rounded-[14px] border border-[#e2e6eb] bg-[#f3f4f6] px-4 py-3.5 text-[#111827] outline-none transition focus:border-[#1aa6b8]/[.55] focus:bg-white focus:ring-4 focus:ring-[#1aa6b8]/12" type="email" name="email" autocomplete="email" required :placeholder="$t('contact.form.email')" />
-            </label>
-            <label class="flex min-w-0 flex-col gap-2 border-0 p-0">
-              <span class="text-[13px] font-semibold text-[#374151] after:text-[#b42318] after:content-['_*']">{{ $t('contact.form.phone') }}</span>
-              <input v-model="form.phone" class="w-full rounded-[14px] border border-[#e2e6eb] bg-[#f3f4f6] px-4 py-3.5 text-[#111827] outline-none transition focus:border-[#1aa6b8]/[.55] focus:bg-white focus:ring-4 focus:ring-[#1aa6b8]/12" type="tel" name="phone" autocomplete="tel" required :placeholder="$t('contact.form.phone')" />
-            </label>
-            <label class="col-span-full flex min-w-0 flex-col gap-2 border-0 p-0">
-              <span class="text-[13px] font-semibold text-[#374151]">{{ $t('contact.form.message') }}</span>
-              <textarea v-model="form.message" class="min-h-35 w-full resize-y rounded-[14px] border border-[#e2e6eb] bg-[#f3f4f6] px-4 py-3.5 text-[#111827] outline-none transition focus:border-[#1aa6b8]/[.55] focus:bg-white focus:ring-4 focus:ring-[#1aa6b8]/12" name="message" rows="5" :placeholder="$t('contact.form.message')"></textarea>
-            </label>
+            <UFormField :label="$t('contact.form.name')" name="name" required :ui="{ label: 'text-[13px] font-semibold text-[#374151]' }">
+              <UInput v-model="form.name" class="w-full" size="xl" type="text" name="name" autocomplete="name" required :placeholder="$t('contact.form.name')"
+                :ui="{ base: 'h-[52px] rounded-[14px] bg-[#f3f4f6] px-4 text-[#111827] shadow-none focus:bg-white' }" />
+            </UFormField>
+            <UFormField :label="$t('contact.form.company')" name="company" required :ui="{ label: 'text-[13px] font-semibold text-[#374151]' }">
+              <UInput v-model="form.company" class="w-full" size="xl" type="text" name="company" autocomplete="organization" required :placeholder="$t('contact.form.company')"
+                :ui="{ base: 'h-[52px] rounded-[14px] bg-[#f3f4f6] px-4 text-[#111827] shadow-none focus:bg-white' }" />
+            </UFormField>
+            <UFormField :label="$t('contact.form.email')" name="email" required :ui="{ label: 'text-[13px] font-semibold text-[#374151]' }">
+              <UInput v-model="form.email" class="w-full" size="xl" type="email" name="email" autocomplete="email" required :placeholder="$t('contact.form.email')"
+                :ui="{ base: 'h-[52px] rounded-[14px] bg-[#f3f4f6] px-4 text-[#111827] shadow-none focus:bg-white' }" />
+            </UFormField>
+            <UFormField :label="$t('contact.form.phone')" name="phone" required :ui="{ label: 'text-[13px] font-semibold text-[#374151]' }">
+              <UInput v-model="form.phone" class="w-full" size="xl" type="tel" name="phone" autocomplete="tel" required :placeholder="$t('contact.form.phone')"
+                :ui="{ base: 'h-[52px] rounded-[14px] bg-[#f3f4f6] px-4 text-[#111827] shadow-none focus:bg-white' }" />
+            </UFormField>
+            <UFormField class="col-span-full" :label="$t('contact.form.message')" name="message" :ui="{ label: 'text-[13px] font-semibold text-[#374151]' }">
+              <UTextarea v-model="form.message" class="w-full" size="xl" name="message" rows="5" :placeholder="$t('contact.form.message')"
+                :ui="{ base: 'min-h-35 resize-y rounded-[14px] bg-[#f3f4f6] px-4 py-3.5 text-[#111827] shadow-none focus:bg-white' }" />
+            </UFormField>
             <button type="submit" class="col-span-full mt-1 flex min-h-13 w-full cursor-pointer items-center justify-center rounded-full bg-linear-to-br from-[#0f9aa8] to-[#3dd6e0] px-7 text-[15px] font-semibold text-white transition hover:-translate-y-px hover:shadow-[0_12px_28px_rgba(26,166,184,.24)] disabled:cursor-wait disabled:opacity-70" :disabled="submitting">
               {{ submitting ? $t('contact.form.submitting') : $t('contact.form.submit') }}
             </button>
           </form>
-          <p v-if="submitStatus === 'success'" class="mt-3.5 text-[13px] leading-[1.6] text-[#0f766e]">{{ $t('contact.form.success') }}</p>
-          <p v-else-if="submitStatus === 'error'" class="mt-3.5 text-3.25 leading-[1.6] text-[#b42318]">{{ submitError || $t('contact.form.error') }}</p>
+          <p v-if="submitStatus === 'success'" role="status" aria-live="polite" class="mt-3.5 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-[14px] font-medium leading-[1.6] text-emerald-800">{{ $t('contact.form.success') }}</p>
+          <p v-else-if="submitStatus === 'error'" role="alert" class="mt-3.5 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-[14px] leading-[1.6] text-red-800">{{ submitError || $t('contact.form.error') }}</p>
           <p v-else class="mt-3.5 text-[13px] leading-[1.6] text-[#6b7280]">{{ $t('contact.form.tip') }}</p>
         </div>
       </UContainer>
@@ -114,6 +114,7 @@ const form = reactive({
 const submitting = ref(false)
 const submitStatus = ref('idle')
 const submitError = ref('')
+const toast = useToast()
 
 function resetForm() {
   form.name = ''
@@ -167,9 +168,12 @@ async function onSubmit() {
       }
     })
     submitStatus.value = 'success'
+    toast.add({ title: i18nT('contact.form.success'), color: 'success' })
     resetForm()
   } catch {
-    submitStatus.value = 'idle'
+    submitStatus.value = 'error'
+    submitError.value = i18nT('contact.form.error')
+    toast.add({ title: submitError.value, color: 'error' })
   } finally {
     submitting.value = false
   }
