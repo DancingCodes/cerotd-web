@@ -164,18 +164,15 @@
         <div class="relative min-w-[1000px]">
           <img class="block w-full" src="/images/map/map.webp"
             :alt="$t('home.market.imageAlt')" width="4581" height="1803" loading="lazy" decoding="async" />
-          <button v-for="point in marketPoints" :key="point.number" type="button"
-            class="absolute z-10 aspect-square w-[1.9%] min-w-[19px] -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full outline-offset-2 transition-shadow hover:ring-2 hover:ring-[#0f4c56] focus-visible:outline-2 focus-visible:outline-[#0f4c56]"
-            :class="selectedMarketPoint?.number === point.number ? 'ring-2 ring-[#0f4c56]' : ''"
+          <span v-for="point in marketPoints" :key="point.number" tabindex="0" role="img"
+            class="group absolute z-10 aspect-square w-[1.9%] min-w-[19px] -translate-x-1/2 -translate-y-1/2 rounded-full outline-offset-2 transition-shadow hover:z-20 hover:ring-2 hover:ring-[#0f4c56] focus-visible:z-20 focus-visible:outline-2 focus-visible:outline-[#0f4c56]"
             :style="{ left: `${point.x / 4581 * 100}%`, top: `${point.y / 1803 * 100}%` }"
-            :aria-label="`${point.number}: ${marketDisplayNames.of(point.country)}`"
-            :aria-pressed="selectedMarketPoint?.number === point.number"
-            @click="selectedMarketPoint = selectedMarketPoint?.number === point.number ? null : point" />
-          <div v-if="selectedMarketPoint" role="status"
-            class="pointer-events-none absolute z-20 w-max max-w-48 rounded-md bg-[#070b12] px-3 py-2 text-center text-sm font-semibold text-white shadow-lg"
-            :style="{ left: `${selectedMarketPoint.x / 4581 * 100}%`, top: `${selectedMarketPoint.y / 1803 * 100}%`, transform: 'translate(-50%, calc(-100% - 16px))' }">
-            {{ selectedMarketPoint.number }} · {{ marketDisplayNames.of(selectedMarketPoint.country) }}
-          </div>
+            :aria-label="`${point.number}: ${marketDisplayNames.of(point.country)}`">
+            <span aria-hidden="true"
+              class="pointer-events-none absolute bottom-[calc(100%+12px)] left-1/2 w-max max-w-48 -translate-x-1/2 rounded-md bg-[#070b12] px-3 py-2 text-center text-sm font-semibold text-white opacity-0 shadow-lg transition-opacity group-hover:opacity-100 group-focus:opacity-100">
+              {{ point.number }} · {{ marketDisplayNames.of(point.country) }}
+            </span>
+          </span>
         </div>
       </div>
     </UContainer>
@@ -289,7 +286,6 @@ const marketPoints: MarketPoint[] = [
   { number: 28, country: 'KR', x: 3898, y: 619 },
   { number: 29, country: 'KP', x: 3904, y: 530 }
 ]
-const selectedMarketPoint = ref<MarketPoint | null>(null)
 const marketDisplayNames = computed(() => new Intl.DisplayNames([locale.value], { type: 'region' }))
 
 usePageSeo({
@@ -365,11 +361,11 @@ const facilityImages = computed<FacilityImage[]>(() => {
     { tab: 'plant', src: '/images/工厂实拍，看得见的供货能力/厂区/厂区外景.webp', caption: t('home.facility.captions.plant1') },
     { tab: 'plant', src: '/images/工厂实拍，看得见的供货能力/厂区/室外储罐区.webp', caption: t('home.facility.captions.plant2') },
     { tab: 'plant', src: '/images/工厂实拍，看得见的供货能力/厂区/成品区.webp', caption: t('home.facility.captions.plant3') },
-    { tab: 'plant', src: '/images/工厂实拍，看得见的供货能力/厂区/调和釜.webp', caption: t('home.facility.captions.plant4') },
     { tab: 'production', src: '/images/工厂实拍，看得见的供货能力/生产/自动化生产线.webp', caption: t('home.facility.captions.production1') },
     { tab: 'production', src: '/images/工厂实拍，看得见的供货能力/生产/灌装机.webp', caption: t('home.facility.captions.production2') },
     { tab: 'production', src: '/images/工厂实拍，看得见的供货能力/生产/机械臂.webp', caption: t('home.facility.captions.production3') },
     { tab: 'production', src: '/images/工厂实拍，看得见的供货能力/生产/室内储罐与工艺罐.webp', caption: t('home.facility.captions.production4') },
+    { tab: 'production', src: '/images/工厂实拍，看得见的供货能力/生产/调和釜.webp', caption: t('home.facility.captions.production5') },
     { tab: 'laboratory', src: '/images/工厂实拍，看得见的供货能力/化验室/杠杆式四球摩擦试验机.webp', caption: t('home.facility.captions.lab1') },
     { tab: 'laboratory', src: '/images/工厂实拍，看得见的供货能力/化验室/高温高剪切动力粘度测定器.webp', caption: t('home.facility.captions.lab2') },
     { tab: 'laboratory', src: '/images/工厂实拍，看得见的供货能力/化验室/精密研发实验室.webp', caption: t('home.facility.captions.lab3') },
