@@ -77,7 +77,7 @@
                 :ui="{ base: 'h-[52px] rounded-[14px] bg-[#f3f4f6] px-4 text-[#111827] shadow-none focus:bg-white' }" />
             </UFormField>
             <UFormField class="col-span-full" :label="$t('contact.form.message')" name="message" :ui="{ label: 'text-[13px] font-semibold text-[#374151]' }">
-              <UTextarea v-model="form.message" class="w-full" size="xl" name="message" rows="5" :placeholder="$t('contact.form.message')"
+              <UTextarea v-model="form.message" class="w-full" size="xl" name="message" :rows="5" :placeholder="$t('contact.form.message')"
                 :ui="{ base: 'min-h-35 resize-y rounded-[14px] bg-[#f3f4f6] px-4 py-3.5 text-[#111827] shadow-none focus:bg-white' }" />
             </UFormField>
             <button type="submit" class="col-span-full mt-1 flex min-h-13 w-full cursor-pointer items-center justify-center rounded-full bg-linear-to-br from-[#0f9aa8] to-[#3dd6e0] px-7 text-[15px] font-semibold text-white transition hover:-translate-y-px hover:shadow-[0_12px_28px_rgba(26,166,184,.24)] disabled:cursor-wait disabled:opacity-70" :disabled="submitting">

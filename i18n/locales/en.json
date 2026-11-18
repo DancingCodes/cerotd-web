@@ -46,10 +46,7 @@
       "title": "FACTORY-DIRECT INDUSTRIAL OILS & GREASES",
       "subtitle": "Automotive, industrial and construction lubricants for distributors and fleet buyers — bulk supply, stable batches, OEM available.",
       "ctaPrimary": "View Products",
-      "ctaSecondary": "Request a Quote",
-      "trust1": "ISO 9001",
-      "trust2": "ISO 14001",
-      "trust3": "ISO 45001"
+      "ctaSecondary": "Request a Quote"
     },
     "services": {
       "title": "HOW WE SUPPORT BUYERS",
@@ -123,6 +120,7 @@
       "point2": "72 analytical instruments, including 41 lubricant testing units.",
       "point3": "Up to 21 lubricant indicators can be tested to support batch stability.",
       "link": "View company strength & certificates",
+      "playVideo": "Play laboratory video",
       "items": {
         "item1": {
           "name": "Incoming inspection",
@@ -156,9 +154,12 @@
       "captions": {
         "plant1": "Plant exterior",
         "plant2": "Outdoor tank farm",
-        "plant3": "Drum and packaging warehouse",
+        "plant3": "Finished goods area",
+        "plant4": "Blending vessel",
         "production1": "Automated production line",
-        "production2": "Indoor storage and process tanks",
+        "production2": "Filling machine",
+        "production3": "Robotic arm",
+        "production4": "Indoor storage and process tanks",
         "lab1": "Lever-type four-ball friction tester",
         "lab2": "High-temperature high-shear dynamic viscosity tester",
         "lab3": "Precision R&D laboratory",

@@ -46,10 +46,7 @@
       "title": "工厂直供润滑油与润滑脂",
       "subtitle": "面向经销商与车队采购的车用、工业与工程机械润滑方案，支持批量供货、批次稳定与 OEM。",
       "ctaPrimary": "查看产品",
-      "ctaSecondary": "获取报价",
-      "trust1": "ISO 9001",
-      "trust2": "ISO 14001",
-      "trust3": "ISO 45001"
+      "ctaSecondary": "获取报价"
     },
     "services": {
       "title": "合作支持",
@@ -123,6 +120,7 @@
       "point2": "分析仪器 72 台（套），其中润滑油检测设备 41 台（套）。",
       "point3": "可对润滑油 21 项产品指标进行检测，保障批次稳定。",
       "link": "查看公司实力与证书",
+      "playVideo": "播放化验室视频",
       "items": {
         "item1": {
           "name": "原料检测",
@@ -156,9 +154,12 @@
       "captions": {
         "plant1": "厂区外景",
         "plant2": "室外储罐区",
-        "plant3": "桶装与仓储区",
+        "plant3": "成品区",
+        "plant4": "调和釜",
         "production1": "自动化生产线",
-        "production2": "室内储罐与工艺罐",
+        "production2": "灌装机",
+        "production3": "机械臂",
+        "production4": "室内储罐与工艺罐",
         "lab1": "杠杆式四球摩擦试验机",
         "lab2": "高温高剪切动力粘度测定器",
         "lab3": "精密研发实验室",
