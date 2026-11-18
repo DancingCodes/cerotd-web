@@ -9,8 +9,8 @@
           <span>{{ t(article.category.name) }}</span>
           <time :datetime="article.publishedAt">{{ formatLocalizedDate(article.publishedAt, locale) }}</time>
         </div>
-        <h1 class="mb-4 max-w-[18ch] text-[48px] leading-[1.1] tracking-normal">{{ t(article.title) }}</h1>
-        <p class="max-w-[48ch] text-[18px] leading-[1.7] text-[#c8ced6]">{{ t(article.summary) }}</p>
+        <h1 class="mb-4 max-w-4xl text-[48px] leading-[1.1] tracking-normal">{{ t(article.title) }}</h1>
+        <p class="max-w-4xl text-[18px] leading-[1.7] text-[#c8ced6]">{{ t(article.summary) }}</p>
       </UContainer>
     </section>
 
