@@ -607,6 +607,8 @@
     "loading": "Loading news...",
     "empty": "No published articles yet.",
     "backToList": "Back to news",
+    "previewImage": "Preview image {n}",
+    "imageAlt": "Article image {n}",
     "detailCta": "Talk with our team"
   }
 }

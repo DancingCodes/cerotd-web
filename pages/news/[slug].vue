@@ -16,11 +16,12 @@
 
     <section class="bg-white py-18 pb-24">
       <UContainer class="max-w-205 px-6">
-        <article
-          class="text-[17px] leading-[1.8] text-[#1f2937] [&_a]:text-[#3f7f88] [&_h2]:my-7 [&_h2]:mb-3 [&_h2]:text-[#111827] [&_h3]:my-7 [&_h3]:mb-3 [&_h3]:text-[#111827] [&_img]:my-6 [&_img]:block [&_img]:h-auto [&_img]:w-full [&_img]:rounded-[10px] [&_li]:mb-2 [&_ol]:mb-4.5 [&_ol]:list-decimal [&_ol]:pl-5.5 [&_p]:mb-4.5 [&_ul]:mb-4.5 [&_ul]:list-disc [&_ul]:pl-5.5"
-          v-html="t(article.content)"></article>
+        <article ref="articleBody"
+          class="news-body text-[17px] leading-[1.8] text-[#1f2937] [&_a]:text-[#3f7f88] [&_h2]:my-7 [&_h2]:mb-3 [&_h2]:text-[#111827] [&_h3]:my-7 [&_h3]:mb-3 [&_h3]:text-[#111827] [&_img]:my-6 [&_img]:block [&_img]:h-auto [&_img]:w-full [&_img]:cursor-zoom-in [&_img]:rounded-[10px] [&_li]:mb-2 [&_ol]:mb-4.5 [&_ol]:list-decimal [&_ol]:pl-5.5 [&_p]:mb-4.5 [&_ul]:mb-4.5 [&_ul]:list-disc [&_ul]:pl-5.5"
+          @click="onArticleClick" @keydown="onArticleKeydown" v-html="articleHtml"></article>
       </UContainer>
     </section>
+    <ImageLightbox v-model:open="previewOpen" v-model:index="previewIndex" :items="previewItems" />
   </div>
 </template>
 
@@ -46,6 +47,48 @@ const slug = computed(() => String(route.params.slug || ''))
 const { data: article, error } = await useApiFetch<NewsItem>(() => `/api/news/${slug.value}`, {
   key: () => `news-${slug.value}`
 })
+
+const articleBody = ref<HTMLElement | null>(null)
+const articleHtml = computed(() => article.value ? t(article.value.content) : '')
+const previewOpen = ref(false)
+const previewIndex = ref(0)
+const previewItems = ref<{ src: string; alt: string }[]>([])
+
+function articleImages() {
+  return Array.from(articleBody.value?.querySelectorAll('img') || [])
+}
+
+function updatePreviewItems() {
+  previewItems.value = articleImages().map((image, index) => {
+    image.tabIndex = 0
+    image.setAttribute('role', 'button')
+    image.setAttribute('aria-label', i18nT('news.previewImage', { n: index + 1 }))
+    return { src: image.currentSrc || image.src, alt: image.alt || i18nT('news.imageAlt', { n: index + 1 }) }
+  })
+}
+
+function openArticleImage(target: EventTarget | null) {
+  if (!(target instanceof HTMLImageElement)) return false
+  const index = articleImages().indexOf(target)
+  if (index < 0) return false
+  previewIndex.value = index
+  previewOpen.value = true
+  return true
+}
+
+function onArticleClick(event: MouseEvent) {
+  openArticleImage(event.target)
+}
+
+function onArticleKeydown(event: KeyboardEvent) {
+  if ((event.key === 'Enter' || event.key === ' ') && openArticleImage(event.target)) event.preventDefault()
+}
+
+onMounted(updatePreviewItems)
+watch([articleHtml, locale], async () => {
+  await nextTick()
+  updatePreviewItems()
+}, { flush: 'post' })
 
 if (error.value || !article.value) {
   throw createError({ statusCode: 500, statusMessage: 'News not found' })
@@ -136,3 +179,26 @@ useHead({
 })
 
 </script>
+
+<style scoped>
+.news-body :deep([data-news-image-pair]) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.news-body :deep([data-news-image-pair] img) {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .news-body :deep([data-news-image-pair]) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+</style>

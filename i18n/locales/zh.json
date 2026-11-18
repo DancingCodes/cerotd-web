@@ -607,6 +607,8 @@
     "loading": "正在加载新闻...",
     "empty": "暂无已发布文章。",
     "backToList": "返回新闻列表",
+    "previewImage": "预览第 {n} 张图片",
+    "imageAlt": "新闻正文图片 {n}",
     "detailCta": "联系我们的团队"
   }
 }
