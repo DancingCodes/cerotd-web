@@ -33,7 +33,7 @@
       <p v-if="pending" class="text-[15px] text-[#6b7280]">{{ $t('products.loading') }}</p>
       <p v-else-if="!productList.length" class="text-[15px] text-[#6b7280]">{{ $t('products.empty') }}</p>
       <template v-else>
-        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 min-[1100px]:grid-cols-4">
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
           <NuxtLink v-for="item in productList" :key="item.slug" :to="`/products/${item.slug}`"
             class="overflow-hidden rounded-xl border border-[#e8edf2] bg-white no-underline transition-colors hover:border-[#cfd8e3]">
             <div class="aspect-4/3 overflow-hidden bg-[#f3f5f7]">
