@@ -269,7 +269,7 @@ const marketPoints: MarketPoint[] = [
   { number: 11, country: 'CU', x: 1234, y: 818 },
   { number: 12, country: 'BO', x: 1383, y: 1321 },
   { number: 13, country: 'VN', x: 3591, y: 884 },
-  { number: 14, country: 'TH', x: 3514, y: 956 },
+  { number: 14, country: 'KH', x: 3514, y: 956 },
   { number: 15, country: 'PH', x: 3754, y: 963 },
   { number: 16, country: 'MY', x: 3487, y: 1075 },
   { number: 17, country: 'ID', x: 3627, y: 1047 },
