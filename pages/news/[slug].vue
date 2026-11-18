@@ -10,15 +10,23 @@
           <time :datetime="article.publishedAt">{{ formatLocalizedDate(article.publishedAt, locale) }}</time>
         </div>
         <h1 class="mb-4 max-w-4xl text-[48px] leading-[1.1] tracking-normal">{{ t(article.title) }}</h1>
-        <p class="max-w-4xl text-[18px] leading-[1.7] text-[#c8ced6]">{{ t(article.summary) }}</p>
       </UContainer>
     </section>
 
     <section class="bg-white py-18 pb-24">
-      <UContainer class="max-w-205 px-6">
-        <article ref="articleBody"
-          class="news-body text-[17px] leading-[1.8] text-[#1f2937] [&_a]:text-[#3f7f88] [&_h2]:my-7 [&_h2]:mb-3 [&_h2]:text-[#111827] [&_h3]:my-7 [&_h3]:mb-3 [&_h3]:text-[#111827] [&_img]:my-6 [&_img]:block [&_img]:h-auto [&_img]:w-full [&_img]:cursor-zoom-in [&_img]:rounded-[10px] [&_li]:mb-2 [&_ol]:mb-4.5 [&_ol]:list-decimal [&_ol]:pl-5.5 [&_p]:mb-4.5 [&_ul]:mb-4.5 [&_ul]:list-disc [&_ul]:pl-5.5"
-          @click="onArticleClick" @keydown="onArticleKeydown" v-html="articleHtml"></article>
+      <UContainer :class="article.images.length ? 'max-w-295' : 'max-w-205'" class="px-6">
+        <div :class="article.images.length ? 'grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-12' : ''">
+          <article class="min-w-0 break-words whitespace-pre-wrap text-[17px] leading-[1.8] text-[#1f2937]">{{ t(article.body) }}</article>
+          <div v-if="article.images.length" class="grid grid-cols-2 content-start gap-3">
+            <button v-for="(src, index) in article.images" :key="`${src}-${index}`" type="button"
+              :class="article.images.length === 1 ? 'col-span-2' : ''"
+              class="aspect-[4/3] cursor-zoom-in overflow-hidden rounded-sm bg-[#f3f4f6]"
+              :aria-label="i18nT('news.previewImage', { n: index + 1 })" @click="openGalleryImage(index)">
+              <img :src="src" :alt="i18nT('news.imageAlt', { n: index + 1 })"
+                class="size-full object-contain" loading="lazy" decoding="async" />
+            </button>
+          </div>
+        </div>
       </UContainer>
     </section>
     <ImageLightbox v-model:open="previewOpen" v-model:index="previewIndex" :items="previewItems" />
@@ -32,9 +40,9 @@ type NewsItem = {
   slug: string
   category: { slug: string; name: Localized }
   title: Localized
-  summary: Localized
-  content: Localized
+  body: Localized
   coverUrl: string | null
+  images: string[]
   publishedAt: string
   updatedAt: string
 }
@@ -48,47 +56,17 @@ const { data: article, error } = await useApiFetch<NewsItem>(() => `/api/news/${
   key: () => `news-${slug.value}`
 })
 
-const articleBody = ref<HTMLElement | null>(null)
-const articleHtml = computed(() => article.value ? t(article.value.content) : '')
 const previewOpen = ref(false)
 const previewIndex = ref(0)
-const previewItems = ref<{ src: string; alt: string }[]>([])
+const previewItems = computed(() => (article.value?.images || []).map((src, index) => ({
+  src,
+  alt: i18nT('news.imageAlt', { n: index + 1 })
+})))
 
-function articleImages() {
-  return Array.from(articleBody.value?.querySelectorAll('img') || [])
-}
-
-function updatePreviewItems() {
-  previewItems.value = articleImages().map((image, index) => {
-    image.tabIndex = 0
-    image.setAttribute('role', 'button')
-    image.setAttribute('aria-label', i18nT('news.previewImage', { n: index + 1 }))
-    return { src: image.currentSrc || image.src, alt: image.alt || i18nT('news.imageAlt', { n: index + 1 }) }
-  })
-}
-
-function openArticleImage(target: EventTarget | null) {
-  if (!(target instanceof HTMLImageElement)) return false
-  const index = articleImages().indexOf(target)
-  if (index < 0) return false
+function openGalleryImage(index: number) {
   previewIndex.value = index
   previewOpen.value = true
-  return true
 }
-
-function onArticleClick(event: MouseEvent) {
-  openArticleImage(event.target)
-}
-
-function onArticleKeydown(event: KeyboardEvent) {
-  if ((event.key === 'Enter' || event.key === ' ') && openArticleImage(event.target)) event.preventDefault()
-}
-
-onMounted(updatePreviewItems)
-watch([articleHtml, locale], async () => {
-  await nextTick()
-  updatePreviewItems()
-}, { flush: 'post' })
 
 if (error.value || !article.value) {
   throw createError({ statusCode: 500, statusMessage: 'News not found' })
@@ -96,7 +74,7 @@ if (error.value || !article.value) {
 
 usePageSeo({
   title: computed(() => `${t(article.value!.title)} | Cerotd`),
-  description: computed(() => t(article.value!.summary)),
+  description: computed(() => t(article.value!.body).slice(0, 160)),
   path: `/news/${slug.value}`,
   image: computed(() => article.value?.coverUrl || null)
 })
@@ -109,7 +87,7 @@ const articleJsonLd = computed(() => {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: t(article.value.title),
-    description: t(article.value.summary),
+    description: t(article.value.body).slice(0, 160),
     image: article.value.coverUrl
       ? [`${siteUrl}${article.value.coverUrl.startsWith('/') ? article.value.coverUrl : '/' + article.value.coverUrl}`]
       : undefined,
@@ -179,26 +157,3 @@ useHead({
 })
 
 </script>
-
-<style scoped>
-.news-body :deep([data-news-image-pair]) {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin: 24px 0;
-}
-
-.news-body :deep([data-news-image-pair] img) {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  aspect-ratio: 4 / 3;
-  object-fit: contain;
-}
-
-@media (max-width: 640px) {
-  .news-body :deep([data-news-image-pair]) {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-</style>

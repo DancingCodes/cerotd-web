@@ -48,7 +48,7 @@
                   formatLocalizedDate(item.publishedAt, locale) }}</time>
               </div>
               <h3 class="mb-2.5 text-[22px] tracking-normal text-[#111827]">{{ t(item.title) }}</h3>
-              <p class="mb-4 text-[14px] leading-[1.7] text-[#4b5563]">{{ t(item.summary) }}</p>
+              <p class="mb-4 line-clamp-3 text-[14px] leading-[1.7] text-[#4b5563]">{{ t(item.body) }}</p>
               <span class="text-[14px] font-semibold text-[#3f7f88]">{{ $t('common.learnMore') }}</span>
             </div>
           </NuxtLink>
@@ -78,7 +78,7 @@ type NewsItem = {
   slug: string
   category: string
   title: Localized
-  summary: Localized
+  body: Localized
   coverUrl: string | null
   publishedAt: string
 }
