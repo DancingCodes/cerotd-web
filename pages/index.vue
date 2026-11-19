@@ -245,6 +245,8 @@
 
 
 <script setup lang="ts">
+import { productCategories } from '~/shared/product-categories'
+
 const { t, locale } = useI18n()
 const tLocal = useLocalized()
 const labVideo = ref<HTMLVideoElement | null>(null)
@@ -327,12 +329,10 @@ const advantageImages = [
   '/images/为什么选择我们/OEM&私人品牌定制.webp'
 ]
 
-type ProductCategory = { slug: string; name: { en: string; zh: string } }
-const { data: productCategories } = await useApiFetch<{ items: ProductCategory[] }>('/api/product-categories')
-const productLines = computed(() => productCategories.value?.items.map((item) => ({
+const productLines = computed(() => productCategories.map((item) => ({
   slug: item.slug,
   name: tLocal(item.name)
-})) || [])
+})))
 
 const advantages = computed(() => {
   locale.value
