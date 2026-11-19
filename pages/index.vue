@@ -281,7 +281,7 @@ const marketPoints: MarketPoint[] = [
   { number: 21, country: 'NG', x: 2254, y: 980 },
   { number: 22, country: 'ET', x: 2646, y: 987 },
   { number: 23, country: 'CD', x: 2464, y: 1162 },
-  { number: 24, country: 'IR', x: 2818, y: 673 },
+  { number: 24, country: 'IQ', x: 2818, y: 673 },
   { number: 25, country: 'AE', x: 2898, y: 779 },
   { number: 26, country: 'TR', x: 2688, y: 614 },
   { number: 27, country: 'JP', x: 4056, y: 597 },

@@ -16,8 +16,10 @@ Nuxt SSR 门户，正式域名为 `https://cerotd.dancingcodes.cn`，后台 API 
 
 前端 `/api/**` 请求由 Nuxt 代理到后台。后台发布产品或新闻后，SSR 页面会读取最新内容，无需重新构建 Web。后台 `.env` 中的 `NUXT_PORTAL_ORIGIN` 应设置为 `https://cerotd.dancingcodes.cn`。
 
+Web 自行提供 `/robots.txt` 和 `/sitemap.xml`。网站地图包含固定栏目页以及后台已发布的产品、新闻详情页；后台内容更新后需刷新 CDN 中的 `/sitemap.xml` 缓存。
+
 ## CDN 与资源
 
-门户域名经腾讯云 CDN 加速。后台发布内容或 Web 发版后，在 admin 点击“立即同步数据”：后台刷新 `cerotd.dancingcodes.cn` 全站缓存，完成后提交首页、栏目页及已发布产品/新闻详情页的全球预热。预热提交后不等待预热任务全部完成。
+门户域名经腾讯云 CDN 加速。后台发布产品或新闻后，在 admin 点击“刷新数据缓存”，刷新相关页面和接口，并提交页面预热。Web 发版后点击“刷新资源缓存”，清除门户域名的 CDN 缓存，并提交首页及其引用资源的预热。预热提交后不等待任务全部完成。
 
 产品图片使用腾讯云 COS 的 `cerotd/` 前缀，公开图片域名为 `cdn.dancingcodes.cn`。
