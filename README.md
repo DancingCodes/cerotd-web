@@ -24,4 +24,6 @@ Web 自行提供 `/robots.txt` 和 `/sitemap.xml`。网站地图包含固定栏�
 
 `dcodes.top` 是 Cloudflare 对比测试域名，DNS 代理到 `1.15.86.112`，服务器 Nginx 将它转发到现有 `cerotd-web:8080` Nuxt 容器。Cloudflare 当前尚未为 HTML 配置缓存规则；测试中首页返回 `CF-Cache-Status: DYNAMIC`。不要把它当作已缓存的 Cloudflare 与腾讯云缓存命中对比。测试记录、命令和优化待办见 [CDN-TESTING.md](CDN-TESTING.md)。正式域名目前仍使用腾讯云 CDN；admin 的缓存刷新逻辑不清理 Cloudflare 缓存。
 
+如需在新会话继续 CDN 排查，先读 [CDN-TESTING.md](CDN-TESTING.md)，再使用测试机重新采样；不要把不同测试机或不同缓存状态的数据直接比较。
+
 产品图片使用腾讯云 COS 的 `cerotd/` 前缀，公开图片域名为 `cdn.dancingcodes.cn`。
