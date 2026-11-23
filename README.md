@@ -20,6 +20,8 @@ Web 自行提供 `/robots.txt` 和 `/sitemap.xml`。网站地图包含固定栏�
 
 ## CDN 与资源
 
-门户域名经腾讯云 CDN 加速。后台发布产品或新闻后，在 admin 点击“刷新数据缓存”，刷新相关页面和接口，并提交页面预热。Web 发版后点击“刷新资源缓存”，清除门户域名的 CDN 缓存，并提交首页及其引用资源的预热。预热提交后不等待任务全部完成。
+正式门户域名 `cerotd.dancingcodes.cn` 经腾讯云 CDN 加速。后台发布产品或新闻后，在 admin 点击“刷新数据缓存”；Web 发版后点击“刷新资源缓存”。后台预热按每批最多 3 个 URL 排队，等待当前批次的腾讯云任务状态后再提交下一批。腾讯云说明预热先推送到中间层，边缘首次请求仍可能显示 `Miss`，之后同一边缘节点再请求才可能 `Hit`；`Miss` 不一定代表回源到源站。
+
+`dcodes.top` 是 Cloudflare 对比测试域名，DNS 代理到 `1.15.86.112`，服务器 Nginx 将它转发到现有 `cerotd-web:8080` Nuxt 容器。Cloudflare 当前尚未为 HTML 配置缓存规则；测试中首页返回 `CF-Cache-Status: DYNAMIC`。不要把它当作已缓存的 Cloudflare 与腾讯云缓存命中对比。测试记录、命令和优化待办见 [CDN-TESTING.md](CDN-TESTING.md)。正式域名目前仍使用腾讯云 CDN；admin 的缓存刷新逻辑不清理 Cloudflare 缓存。
 
 产品图片使用腾讯云 COS 的 `cerotd/` 前缀，公开图片域名为 `cdn.dancingcodes.cn`。
