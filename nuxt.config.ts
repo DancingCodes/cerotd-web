@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/ui', '@nuxtjs/i18n'],
   ui: { colorMode: false },
   fonts: { providers: { google: false, googleicons: false } },
+  icon: { localApiEndpoint: '/_icons', fallbackToApi: false },
   runtimeConfig: {
     adminApiOrigin,
     public: { adminApiOrigin, siteUrl: 'https://cerotd.dancingcodes.cn' }

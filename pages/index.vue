@@ -155,10 +155,12 @@
 
   <section class="border-t border-[#e6e8ec] bg-[#f3f4f6] py-24 md:py-28">
     <UContainer class="max-w-295 px-6">
-      <div class="mb-10 max-w-155">
-        <h2 class="mb-3.5 text-[40px] leading-[1.12] font-semibold tracking-normal text-[#10141a] max-md:text-[32px]">{{
-          $t('home.market.title') }}</h2>
-        <p class="text-4.25 leading-[1.7] text-[#66707c]">{{ $t('home.market.subtitle') }}</p>
+      <div class="mb-10">
+        <i18n-t keypath="home.market.title" tag="h2"
+          class="mb-3.5 text-[40px] leading-[1.12] font-semibold tracking-normal text-[#10141a] max-md:text-[32px]">
+          <template #separator><span class="inline-block -translate-y-[0.08em]">|</span></template>
+        </i18n-t>
+        <p class="indent-[2em] text-4.25 leading-[1.7] text-[#66707c]">{{ $t('home.market.subtitle') }}</p>
       </div>
       <div class="overflow-x-auto rounded-xl bg-white">
         <div class="relative min-w-[1000px]">
